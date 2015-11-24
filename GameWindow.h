@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <SDL.h>
+#include "SpriteBatch.h"
 
-struct __SDLInitArgs
+struct SDLInitArgs
 {
     int x, y, w, h;
     const char *_windowTitle;
@@ -15,17 +16,19 @@ class GameWindow
 public:
     GameWindow();
     GameWindow(const char *_windowTitle);
-    //GameWindow(__SDLInitArgs *initializerArgs);
+    GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
-    void draw();
-    void update();
+    void initializeSDL();
 private:
+    SDLInitArgs initArgs;
     const char *winTitle;
     int quit;
-    void initializeSDL();
+    void draw();
+    void update();
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
     SDL_Event *mainEventLoop;
+    SpriteBatch *spriteBatch;
 };
 
 

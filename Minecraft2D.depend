@@ -324,12 +324,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448369512 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
+1448374751 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
 	"GameWindow.h"
 
-1448369445 c:\users\allah\git\minecraft2dsdl\gamewindow.h
+1448374744 c:\users\allah\git\minecraft2dsdl\gamewindow.h
 	<iostream>
 	<SDL.h>
+	"SpriteBatch.h"
 
 1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl.h
 	"SDL_main.h"
@@ -678,6 +679,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448368824 source:c:\users\allah\git\minecraft2dsdl\main.cpp
+1448375324 source:c:\users\allah\git\minecraft2dsdl\main.cpp
 	"GameWindow.h"
+
+1448374622 c:\users\allah\git\minecraft2dsdl\include\spritebatch.h
+	<SDL.h>
+
+1448374674 source:c:\users\allah\git\minecraft2dsdl\src\spritebatch.cpp
+	"SpriteBatch.h"
+
+1448374674 source:c:\users\allah\git\minecraft2dsdl\spritebatch.cpp
+	"SpriteBatch.h"
+
+1448374622 c:\users\allah\git\minecraft2dsdl\spritebatch.h
+	<SDL.h>
 
