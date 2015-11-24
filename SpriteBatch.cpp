@@ -6,7 +6,7 @@ SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
 }
 
 SpriteBatch::~SpriteBatch()
-{/*Don't destroy the renderer just in case we need it later. GameWindow takes care of that anyway*/}
+{}
 
 SDL_Texture* SpriteBatch::loadTexture(const std::string &file, SDL_Renderer *ren)
 {

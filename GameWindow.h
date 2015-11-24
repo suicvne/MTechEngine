@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SDL.h>
 #include "SpriteBatch.h"
+#include "ContentManager.h"
 
 struct SDLInitArgs
 {
@@ -19,17 +20,19 @@ public:
     GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
     void initializeSDL();
-    std::string getResourcePath(const std::string &subDir = "");
+    //std::string getResourcePath(const std::string &subDir = "");
 private:
     SDLInitArgs initArgs;
     const char *winTitle;
     int quit;
     void draw();
     void update();
+    void loadTextures();
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
     SDL_Event *mainEventLoop;
     SpriteBatch *spriteBatch;
+    ContentManager *contentManager;
 };
 
 

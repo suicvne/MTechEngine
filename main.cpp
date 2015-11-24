@@ -11,10 +11,9 @@ int main(int argc, char *argv[])
         {
         }
     }*/
-
     SDLInitArgs args;
-    args.x = 100;
-    args.y = 100;
+    args.x = -1;
+    args.y = -1;
     args.w = 640;
     args.h = 480;
     args._windowTitle = "SDLEngineTest2";
