@@ -2,12 +2,13 @@
 1448329500 source:/home/mike/Documents/Minecraft2DSDL/Minecraft2D/main.cpp
 	<iostream>
 
-1448365466 source:/home/mike/git/Minecraft2DSDL/main.cpp
+1448396999 source:/home/mike/git/Minecraft2DSDL/main.cpp
 	"GameWindow.h"
 
-1448365489 /home/mike/git/Minecraft2DSDL/GameWindow.h
+1448400480 /home/mike/git/Minecraft2DSDL/GameWindow.h
 	<iostream>
 	<SDL.h>
+	"SpriteBatch.h"
 
 1400119779 /usr/include/SDL2/SDL.h
 	"SDL_main.h"
@@ -692,5 +693,32 @@
 	"SpriteBatch.h"
 
 1448374622 c:\users\allah\git\minecraft2dsdl\spritebatch.h
+	<SDL.h>
+
+1448398207 /home/mike/git/Minecraft2DSDL/SpriteBatch.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1448398159 source:/home/mike/git/Minecraft2DSDL/SpriteBatch.cpp
+	"SpriteBatch.h"
+
+1448400686 source:/home/mike/git/Minecraft2DSDL/GameWindow.cpp
+	"GameWindow.h"
+
+1390221167 /usr/include/SDL2/SDL_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1448398309 /home/mike/git/Minecraft2DSDL/Res.h
+	<iostream>
+	<string>
+	<SDL.h>
+
+1448398309 /home/mike/git/Minecraft2DSDL/include/Res.h
+	<iostream>
+	<string>
 	<SDL.h>
 

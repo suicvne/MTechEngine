@@ -19,6 +19,7 @@ public:
     GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
     void initializeSDL();
+    std::string getResourcePath(const std::string &subDir = "");
 private:
     SDLInitArgs initArgs;
     const char *winTitle;

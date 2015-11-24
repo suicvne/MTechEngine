@@ -4,19 +4,13 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout << "asdf: " << argv[0] << endl;
-    for(int i = 0; i < argc; i++)
+    /*for(int i = 1; i < argc; i++)
     {
         cout << i << ": " << argv[i] << endl;
         if(argv[i] == "--debug")
         {
-            #define __SDLENGINE_DEBUG
         }
-    }
-
-    #ifdef __SDLENGINE_DEBUG
-    cout << "Starting engine in debug mode" << endl;
-    #endif // __SDLENGINE_DEBUG
+    }*/
 
     SDLInitArgs args;
     args.x = 100;
