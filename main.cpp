@@ -2,12 +2,11 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    GameWindow *mainGameWindow = new GameWindow("Kek");
+    GameWindow *mainGameWindow = new GameWindow();
 
     mainGameWindow->draw();
 
-    cout << "Hello world!" << endl;
     return 0;
 }

@@ -4,19 +4,28 @@
 #include <iostream>
 #include <SDL.h>
 
+struct __SDLInitArgs
+{
+    int x, y, w, h;
+    const char *_windowTitle;
+};
+
 class GameWindow
 {
 public:
     GameWindow();
-    GameWindow(const char *windowTitle);
+    GameWindow(const char *_windowTitle);
+    //GameWindow(__SDLInitArgs *initializerArgs);
     ~GameWindow();
     void draw();
     void update();
 private:
+    const char *winTitle;
     int quit;
+    void initializeSDL();
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
-    SDL_Event mainEventLoop;
+    SDL_Event *mainEventLoop;
 };
 
 
