@@ -6,18 +6,20 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="Debug">
+			<Target title="Win32">
 				<Option output="bin/Debug/Minecraft2D" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option parameters="--debug" />
 				<Compiler>
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2-2.0.3/i686-w64-mingw32/include" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2_image-2.0.0/i686-w64-mingw32/include" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2_mixer-2.0.0/i686-w64-mingw32/include" />
 					<Add directory="/usr/include/SDL2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lmingw32  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
@@ -39,22 +41,37 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Nix">
+				<Option platforms="Unix;" />
+				<Option output="bin/Nix/Minecraft2D" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/nix" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add directory="/usr/include/SDL2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lSDL2 -lSDL2_image -lSDL2_mixer" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/allah/Desktop/SDL2-2.0.3/include" />
 		</Compiler>
-		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
-		</Linker>
 		<Unit filename="GameWindow.cpp">
 			<Option weight="100" />
 		</Unit>
 		<Unit filename="GameWindow.h" />
 		<Unit filename="SpriteBatch.cpp" />
 		<Unit filename="SpriteBatch.h" />
+		<Unit filename="include/ContentManager.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ContentManager.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
