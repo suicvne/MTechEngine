@@ -4,17 +4,16 @@ GameWindow::GameWindow()
 {
     initArgs.x = -1;
     initArgs.y = -1;
+    width = 800;
+    height = 600;
     winTitle = "SDLEngine";
-}
-
-GameWindow::GameWindow(const char* _windowTitle)
-{
-    winTitle = _windowTitle;
 }
 
 GameWindow::GameWindow(SDLInitArgs initializerArgs)
 {
     initArgs = initializerArgs;
+    width = initArgs.w;
+    height = initArgs.h;
 }
 
 void GameWindow::initializeSDL()
@@ -60,6 +59,8 @@ void GameWindow::initializeSDL()
 
     __update = true;
 
+    targetTexture = SDL_CreateTexture(mainRenderer, NULL, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
+    spriteBatch->sbSetRenderTarget(targetTexture);
     while(quit == 0)
     {
         GameWindow::update();
@@ -89,11 +90,15 @@ void GameWindow::draw()
 {
     if(__update)
     {
+        spriteBatch->sbSetRenderTarget(targetTexture);
         spriteBatch->sbBegin();
         testSprite->draw(spriteBatch);
-
         spriteBatch->sbDrawFont("Top kek", 0, 0, white, 3, true);
+        spriteBatch->sbEnd();
 
+        spriteBatch->sbSetRenderTarget(nullptr);
+        spriteBatch->sbBegin();
+        spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
         spriteBatch->sbEnd();
     }
 }

@@ -7,9 +7,9 @@ int main(int argc, char *argv[])
     SDLInitArgs args;
     args.x = -1;
     args.y = -1;
-    args.w = 640;
-    args.h = 480;
-    args._windowTitle = "SDLEngineTest2";
+    args.w = 800;
+    args.h = 600;
+    args._windowTitle = "SDL Brothers X";
 
     GameWindow *mainGameWindow = new GameWindow(args);
     mainGameWindow->initializeSDL();

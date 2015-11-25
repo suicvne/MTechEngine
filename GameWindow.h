@@ -21,7 +21,6 @@ class GameWindow
 {
 public:
     GameWindow();
-    GameWindow(const char *_windowTitle);
     GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
     void initializeSDL();
@@ -75,6 +74,7 @@ private:
     void draw();
     void update();
     void loadTextures();
+    SDL_Texture *targetTexture;
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
     SDL_Event *mainEventLoop;

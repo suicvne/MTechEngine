@@ -8,25 +8,15 @@ Sprite::Sprite(SDL_Texture *tex)
 }
 
 Sprite::~Sprite()
-{
-    //dtor
-}
+{}
 
 void Sprite::draw(SpriteBatch *_sb)
 {
-    //if(!_sb->isDrawing())
-    //    _sb->sbBegin();
-
     _sb->sbDrawTexture(texture, x, y);
-
-    //if(_sb->isDrawing())
-    //    _sb->sbEnd();
 }
 
 void Sprite::update(InputHandler *_ih)
 {
-
-
     if(_ih->getEvent()->type == SDL_KEYDOWN)
     {
         switch(_ih->getEvent()->key.keysym.sym)

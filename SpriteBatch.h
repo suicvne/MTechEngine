@@ -16,16 +16,19 @@ class SpriteBatch
         virtual ~SpriteBatch();
         void sbBegin();
         void sbEnd();
-        SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren);
+        void sbSetRenderTarget(SDL_Texture *target);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale);
+        void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);
+        SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren);
         bool isDrawing()
         {
             return drawingInProgress;
         };
     protected:
     private:
+        SDL_Texture *__target;
         SDL_Texture *drawFontToTexture(std::string msg, SDL_Color color);
         bool drawingInProgress = false;
         SDL_Renderer *__renderer;

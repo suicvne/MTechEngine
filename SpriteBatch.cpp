@@ -45,6 +45,14 @@ void SpriteBatch::sbBegin()
     drawingInProgress = true;
 }
 
+void SpriteBatch::sbSetRenderTarget(SDL_Texture *target)
+{
+    if(target == nullptr)
+        SDL_SetRenderTarget(__renderer, nullptr);
+    else
+        SDL_SetRenderTarget(__renderer, target);
+}
+
 void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper)
 {
     std::transform(msg.begin(), msg.end(), msg.begin(), _upper == true ? ::toupper : ::tolower);
@@ -63,6 +71,7 @@ SDL_Texture *SpriteBatch::drawFontToTexture(std::string msg, SDL_Color color)
 
 
     SDL_Surface *surface = TTF_RenderText_Blended(mainGameFont, msg.c_str(), color);
+
     if(surface == nullptr)
     {
         std::cout << "Error rendering font: " << SDL_GetError() << std::endl;
@@ -106,6 +115,23 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scal
 
     dst.w = int(float(dst.w) * scale);
     dst.h = int(float(dst.h) * scale);
+
+    SDL_RenderCopy(__renderer, tex, NULL, &dst);
+}
+
+void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+
+    dst.w = w;
+    dst.h = h;
 
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
