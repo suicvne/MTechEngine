@@ -1,5 +1,4 @@
 #include "GameWindow.h"
-#include <Res.h>
 
 GameWindow::GameWindow()
 {
@@ -59,6 +58,8 @@ void GameWindow::initializeSDL()
 
     testSprite = new Sprite(contentManager->getTexture("rayquaza"));
 
+    __update = true;
+
     while(quit == 0)
     {
         GameWindow::update();
@@ -86,16 +87,59 @@ GameWindow::~GameWindow()
 
 void GameWindow::draw()
 {
-    spriteBatch->sbBegin();
-    spriteBatch->sbDrawTexture(contentManager->getTexture("rayquaza"), 100, 100);
-    spriteBatch->sbEnd();
+    if(__update)
+    {
+        spriteBatch->sbBegin();
+        testSprite->draw(spriteBatch);
+
+        spriteBatch->sbDrawFont("Top kek", 0, 0, white, 3, true);
+
+        spriteBatch->sbEnd();
+    }
 }
 
 void GameWindow::update()
 {
-    //SDL_PollEvent(mainEventLoop);
-    inputHandler->update();
+    if(__update)
+    {
+        //SDL_PollEvent(mainEventLoop);
+        inputHandler->update();
+        testSprite->update(inputHandler);
+        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+        {
+            if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+                quit = 1;
+        }
+        if(inputHandler->getEvent()->type == SDL_QUIT)
+        {
+            quit = 1;
+        }
+        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+        {
+                switch(inputHandler->getEvent()->window.event)
+                {
+                case SDL_WINDOWEVENT_RESIZED:
+                    width = inputHandler->getEvent()->window.data1;
+                    height = inputHandler->getEvent()->window.data2;
+                    break;
+                case SDL_WINDOWEVENT_MINIMIZED:
+                    __update = false;
+                    std::cout << "Update stopped" << std::endl;
+                    break;
+                }
+        }
+    }
+    else
+    {
+        inputHandler->update();
+        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+        {
+            if(inputHandler->getEvent()->window.event == SDL_WINDOWEVENT_RESTORED)
+            {
+                __update = true;
+                std::cout << "Update began" << std::endl;
+            }
+        }
 
-    if(inputHandler->InputState.keysDown == SDLK_ESCAPE)
-        quit = 1;
+    }
 }

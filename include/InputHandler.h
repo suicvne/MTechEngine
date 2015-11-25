@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef INPUTHANDLER_H
 #define INPUTHANDLER_H
 
@@ -14,6 +16,7 @@ class InputHandler
         InputHandler();
         virtual ~InputHandler();
         void update();
+        SDL_Event *getEvent();
     protected:
     private:
         SDL_Event event;

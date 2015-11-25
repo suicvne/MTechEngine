@@ -7,10 +7,16 @@ InputHandler::InputHandler()
 InputHandler::~InputHandler()
 {}
 
+SDL_Event *InputHandler::getEvent()
+{
+    return &event;
+}
+
 void InputHandler::update()
 {
-    while(SDL_PollEvent(&event))
-    {
-        InputHandler::InputState.keysDown = event.key.keysym.sym;
-    }
+    SDL_PollEvent(&event);
+    //while(SDL_PollEvent(&event))
+    //{
+    //    InputHandler::InputState.keysDown = event.key.keysym.sym;
+    //}
 }

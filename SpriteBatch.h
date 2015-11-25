@@ -1,9 +1,13 @@
+#pragma once
+
 #ifndef SPRITEBATCH_H
 #define SPRITEBATCH_H
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <iostream>
+#include <algorithm>
 
 class SpriteBatch
 {
@@ -14,14 +18,18 @@ class SpriteBatch
         void sbEnd();
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
+        void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale);
+        void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);
         bool isDrawing()
         {
             return drawingInProgress;
         };
     protected:
     private:
+        SDL_Texture *drawFontToTexture(std::string msg, SDL_Color color);
         bool drawingInProgress = false;
         SDL_Renderer *__renderer;
+        TTF_Font *mainGameFont;
 
 };
 
