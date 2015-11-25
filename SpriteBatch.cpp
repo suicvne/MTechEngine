@@ -23,11 +23,16 @@ SDL_Texture* SpriteBatch::loadTexture(const std::string &file, SDL_Renderer *ren
 
 void SpriteBatch::sbBegin()
 {
+    if(drawingInProgress)
+        throw "sbBegin already called!";
     SDL_RenderClear(__renderer);
+    drawingInProgress = true;
 }
 
 void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
 {
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
     SDL_Rect dst;
     dst.x = x;
     dst.y = y;
@@ -38,5 +43,8 @@ void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
 
 void SpriteBatch::sbEnd()
 {
+    if(!drawingInProgress)
+        throw "sbBegin never called!";
     SDL_RenderPresent(__renderer);
+    drawingInProgress = false;
 }

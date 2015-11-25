@@ -53,9 +53,13 @@ void GameWindow::initializeSDL()
 
     spriteBatch = new SpriteBatch(mainRenderer);
 
+    inputHandler = new InputHandler();
+
     loadTextures();
 
-    while(quit == 0 && mainEventLoop->type != SDL_QUIT)
+    testSprite = new Sprite(contentManager->getTexture("rayquaza"));
+
+    while(quit == 0)
     {
         GameWindow::update();
         GameWindow::draw();
@@ -89,5 +93,9 @@ void GameWindow::draw()
 
 void GameWindow::update()
 {
-    SDL_PollEvent(mainEventLoop);
+    //SDL_PollEvent(mainEventLoop);
+    inputHandler->update();
+
+    if(inputHandler->InputState.keysDown == SDLK_ESCAPE)
+        quit = 1;
 }

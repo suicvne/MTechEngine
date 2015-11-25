@@ -5,6 +5,8 @@
 #include <SDL.h>
 #include "SpriteBatch.h"
 #include "ContentManager.h"
+#include "InputHandler.h"
+#include "Sprite.h"
 
 struct SDLInitArgs
 {
@@ -33,6 +35,9 @@ private:
     SDL_Event *mainEventLoop;
     SpriteBatch *spriteBatch;
     ContentManager *contentManager;
+    InputHandler *inputHandler;
+
+    Sprite *testSprite;
 };
 
 

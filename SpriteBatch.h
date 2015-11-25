@@ -14,8 +14,13 @@ class SpriteBatch
         void sbEnd();
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
+        bool isDrawing()
+        {
+            return drawingInProgress;
+        };
     protected:
     private:
+        bool drawingInProgress = false;
         SDL_Renderer *__renderer;
 
 };

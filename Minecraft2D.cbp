@@ -70,8 +70,12 @@
 		<Unit filename="SpriteBatch.cpp" />
 		<Unit filename="SpriteBatch.h" />
 		<Unit filename="include/ContentManager.h" />
+		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/Sprite.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
+		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/Sprite.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
