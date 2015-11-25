@@ -15,8 +15,4 @@ SDL_Event *InputHandler::getEvent()
 void InputHandler::update()
 {
     SDL_PollEvent(&event);
-    //while(SDL_PollEvent(&event))
-    //{
-    //    InputHandler::InputState.keysDown = event.key.keysym.sym;
-    //}
 }

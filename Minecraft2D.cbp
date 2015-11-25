@@ -22,7 +22,7 @@
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lmingw32  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
+					<Add option="-lmingw32  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2-2.0.3/i686-w64-mingw32/lib" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2_mixer-2.0.0/i686-w64-mingw32/lib" />
 					<Add directory="C:/Users/allah/Desktop/rpg++2/rpg++2/Libraries/Win32/SDL2_image-2.0.0/i686-w64-mingw32/lib" />
@@ -54,7 +54,7 @@
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lSDL2 -lSDL2_image -lSDL2_mixer" />
+					<Add option="-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf" />
 				</Linker>
 			</Target>
 		</Build>

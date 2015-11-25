@@ -52,6 +52,8 @@ void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, flo
     SDL_Texture *textToRender = drawFontToTexture(msg, color);
     //sbDrawTexture(textToRender, x, y);
     sbDrawTextureScaled(textToRender, x, y, scale);
+
+    SDL_DestroyTexture(textToRender);
 }
 
 SDL_Texture *SpriteBatch::drawFontToTexture(std::string msg, SDL_Color color)
