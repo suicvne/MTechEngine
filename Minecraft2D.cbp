@@ -73,6 +73,7 @@
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/Screen.h" />
 		<Unit filename="include/Sprite.h" />
+		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />

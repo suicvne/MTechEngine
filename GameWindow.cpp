@@ -93,7 +93,7 @@ void GameWindow::draw()
         spriteBatch->sbSetRenderTarget(targetTexture);
         spriteBatch->sbBegin();
         testSprite->draw(spriteBatch);
-        spriteBatch->sbDrawFont("Top kek", 0, 0, white, 3, true);
+        spriteBatch->sbDrawFont("Top kek", 0, 0, standardColors.strongRed, 3, true);
         spriteBatch->sbEnd();
 
         spriteBatch->sbSetRenderTarget(nullptr);

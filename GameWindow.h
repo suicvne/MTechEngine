@@ -10,6 +10,7 @@
 #include "InputHandler.h"
 #include "Sprite.h"
 #include "float.h"
+#include "StandardColors.h"
 
 struct SDLInitArgs
 {
@@ -24,6 +25,7 @@ public:
     GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
     void initializeSDL();
+    StandardColors standardColors;
     int getWindowWidth()
     {
         return width;
@@ -63,10 +65,10 @@ public:
 	return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
     };
     //std::string getResourcePath(const std::string &subDir = "");
-    SDL_Color white =
-    {
-        255, 255, 255, 255
-    };
+    //SDL_Color white =
+    //{
+    //    255, 255, 255, 255
+    //};
 private:
     SDLInitArgs initArgs;
     const char *winTitle;
