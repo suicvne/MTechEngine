@@ -111,7 +111,7 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scal
     dst.x = x;
     dst.y = y;
 
-    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_QueryTexture(*tex, NULL, NULL, &dst.w, &dst.h);
 
     dst.w = int(float(dst.w) * scale);
     dst.h = int(float(dst.h) * scale);
@@ -128,12 +128,12 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int
     dst.x = x;
     dst.y = y;
 
-    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_QueryTexture(*tex, NULL, NULL, &dst.w, &dst.h);
 
     dst.w = w;
     dst.h = h;
 
-    SDL_RenderCopy(__renderer, tex, NULL, &dst);
+    SDL_RenderCopy(__renderer, *tex, NULL, &dst);
 }
 
 void SpriteBatch::sbEnd()

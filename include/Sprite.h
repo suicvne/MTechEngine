@@ -11,6 +11,7 @@ class Sprite
 {
     public:
         Sprite(SDL_Texture *tex);
+        Sprite(SDL_Texture &tex);
         virtual ~Sprite();
         void draw(SpriteBatch *_sb);
         void update(InputHandler *_ih);

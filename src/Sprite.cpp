@@ -7,6 +7,13 @@ Sprite::Sprite(SDL_Texture *tex)
     y = 0;
 }
 
+Sprite::Sprite(SDL_Texture &tex)
+{
+    texture = &tex;
+    x = 0;
+    y = 0;
+}
+
 Sprite::~Sprite()
 {}
 
