@@ -2,7 +2,7 @@
 
 ScreenManager::ScreenManager(ContentManager *__cm)
 {
-//    testScreen = new TestScreen(__cm);
+    testScreen = new TestScreen(__cm);
 }
 
 ScreenManager::~ScreenManager()
