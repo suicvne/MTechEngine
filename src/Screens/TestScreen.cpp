@@ -7,11 +7,13 @@
 
 */
 
-TestScreen::TestScreen(ContentManager *___cm) : Screen()
+TestScreen::TestScreen(ContentManager &___cm) : Screen()
 {
-    _cm = ___cm;
-    testSprite = new Sprite(_cm->getTexture("rayquaza"));
-    std::cout << "Address of contentmanager in TestScreen: 0x" << &_cm << std::endl;
+    std::cout << "Address of contentmanager arg in TestScreen: " << &___cm << std::endl;
+    _cm = &___cm;
+
+    testSprite = new Sprite(_cm->getTexture("r"));
+    //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
 }
 
 TestScreen::~TestScreen()
@@ -22,6 +24,7 @@ TestScreen::~TestScreen()
 void TestScreen::draw(SpriteBatch *_sb)
 {
     testSprite->draw(_sb);
+    _sb->sbDrawFont("Fuck CPP", 0, 0, clr.strongGreen, float(3), true);
 }
 
 void TestScreen::update(InputHandler *_ih)

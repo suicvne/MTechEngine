@@ -1,7 +1,9 @@
 #include "ScreenManager.h"
 
-ScreenManager::ScreenManager(ContentManager *__cm)
+ScreenManager::ScreenManager(ContentManager &__cm)
 {
+    //std::cout << "addr_of contentManager (screenManager init): " << &__cm << std::endl;
+    //std::cout << "texture: " << __cm.getTexture("r") << std::endl << std::endl;
     testScreen = new TestScreen(__cm);
 }
 
@@ -22,12 +24,14 @@ case TESTSCREEN:
 
 void ScreenManager::draw(SpriteBatch *_sb)
 {
+    _sb->sbBegin();
     switch(CurrentScreen)
     {
     case TESTSCREEN:
         testScreen->draw(_sb);
         break;
     }
+    _sb->sbEnd();
 }
 
 void ScreenManager::pushScreen(ScreensEnum scr)

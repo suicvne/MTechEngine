@@ -65,11 +65,6 @@ public:
 	//append it to the base path. This would be something like Lessons/res/Lesson0
 	return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
     };
-    //std::string getResourcePath(const std::string &subDir = "");
-    //SDL_Color white =
-    //{
-    //    255, 255, 255, 255
-    //};
 private:
     SDLInitArgs initArgs;
     const char *winTitle;
@@ -82,7 +77,7 @@ private:
     SDL_Renderer *mainRenderer;
     SDL_Event *mainEventLoop;
     SpriteBatch *spriteBatch;
-    ContentManager *contentManager;
+    ContentManager contentManager;
     InputHandler *inputHandler;
     ScreenManager *screenManager;
     int width, height;

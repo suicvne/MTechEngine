@@ -55,8 +55,6 @@ void GameWindow::initializeSDL()
 
     loadTextures();
 
-    screenManager = new ScreenManager(contentManager);
-
     __update = true;
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
@@ -71,15 +69,11 @@ void GameWindow::initializeSDL()
 void GameWindow::loadTextures()
 {
     //if(contentManager == nullptr)
-    contentManager = new ContentManager();
-
-    std::cout << "addr_of mainRenderer (init): " << &mainRenderer << std::endl;
-
     SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
-
-    std::cout << txture << std::endl;
-
-    contentManager->addTexture("rayquaza", txture);
+    //std::cout << txture << std::endl;
+    contentManager.addTexture("r", txture);
+    std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
+    screenManager = new ScreenManager(contentManager);
 }
 
 GameWindow::~GameWindow()
@@ -135,6 +129,7 @@ void GameWindow::update()
                     break;
                 }
         }
+        screenManager->update(inputHandler);
     }
     else
     {

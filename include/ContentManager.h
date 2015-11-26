@@ -12,11 +12,11 @@ class ContentManager
         ContentManager();
         virtual ~ContentManager();
 
-        SDL_Texture* getTexture(const char* textureName);
-        void addTexture(const char*, SDL_Texture *texture);
+        SDL_Texture* getTexture(std::string textureName);
+        void addTexture(std::string, SDL_Texture *texture);
     protected:
     private:
-        std::map<const char*, SDL_Texture*> __textureMap;
+        std::map<std::string, SDL_Texture*> __textureMap;
 };
 
 #endif // CONTENTMANAGER_H

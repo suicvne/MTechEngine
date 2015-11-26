@@ -332,10 +332,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448555674 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
+1448562341 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
 	"GameWindow.h"
 
-1448552156 c:\users\allah\git\minecraft2dsdl\gamewindow.h
+1448560925 c:\users\allah\git\minecraft2dsdl\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -798,7 +798,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448554514 c:\users\allah\git\minecraft2dsdl\include\contentmanager.h
+1448561033 c:\users\allah\git\minecraft2dsdl\include\contentmanager.h
 	<iostream>
 	<map>
 	<SDL.h>
@@ -815,31 +815,32 @@
 
 1448549648 c:\users\allah\git\minecraft2dsdl\include\standardcolors.h
 
-1448554528 source:c:\users\allah\git\minecraft2dsdl\src\contentmanager.cpp
+1448561043 source:c:\users\allah\git\minecraft2dsdl\src\contentmanager.cpp
 	"ContentManager.h"
 
 1448549648 source:c:\users\allah\git\minecraft2dsdl\src\inputhandler.cpp
 	"InputHandler.h"
 
-1448552620 source:c:\users\allah\git\minecraft2dsdl\src\screens\testscreen.cpp
+1448562175 source:c:\users\allah\git\minecraft2dsdl\src\screens\testscreen.cpp
 	"TestScreen.h"
 
-1448552149 c:\users\allah\git\minecraft2dsdl\include\testscreen.h
+1448562423 c:\users\allah\git\minecraft2dsdl\include\testscreen.h
 	"Screen.h"
 	"Sprite.h"
+	"StandardColors.h"
 
-1448551689 c:\users\allah\git\minecraft2dsdl\include\screen.h
+1448562187 c:\users\allah\git\minecraft2dsdl\include\screen.h
 	"../SpriteBatch.h"
 	"InputHandler.h"
 	"ContentManager.h"
 
-1448549648 source:c:\users\allah\git\minecraft2dsdl\src\sprite.cpp
+1448562108 source:c:\users\allah\git\minecraft2dsdl\src\sprite.cpp
 	"Sprite.h"
 
-1448551974 source:c:\users\allah\git\minecraft2dsdl\src\screenmanager.cpp
+1448562282 source:c:\users\allah\git\minecraft2dsdl\src\screenmanager.cpp
 	"ScreenManager.h"
 
-1448551908 c:\users\allah\git\minecraft2dsdl\include\screenmanager.h
+1448562132 c:\users\allah\git\minecraft2dsdl\include\screenmanager.h
 	"TestScreen.h"
 
 1448555461 /home/mike/git/Minecraft2DSDL/include/ScreenManager.h
