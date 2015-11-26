@@ -11,6 +11,7 @@
 #include "Sprite.h"
 #include "float.h"
 #include "StandardColors.h"
+#include "ScreenManager.h"
 
 struct SDLInitArgs
 {
@@ -83,8 +84,8 @@ private:
     SpriteBatch *spriteBatch;
     ContentManager *contentManager;
     InputHandler *inputHandler;
+    ScreenManager *screenManager;
     int width, height;
-    Sprite *testSprite;
     bool __update;
 };
 

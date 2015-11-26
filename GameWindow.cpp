@@ -55,7 +55,7 @@ void GameWindow::initializeSDL()
 
     loadTextures();
 
-    testSprite = new Sprite(contentManager->getTexture("rayquaza"));
+    //screenManager = new ScreenManager(contentManager);
 
     __update = true;
 
@@ -70,10 +70,14 @@ void GameWindow::initializeSDL()
 
 void GameWindow::loadTextures()
 {
-    if(contentManager == nullptr)
-        contentManager = new ContentManager();
+    //if(contentManager == nullptr)
+    contentManager = new ContentManager();
 
-    contentManager->addTexture("rayquaza", spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", mainRenderer));
+    std::cout << "addr_of mainRenderer (init): " << &mainRenderer << std::endl;
+
+    SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
+
+    contentManager->addTexture("rayquaza", txture);
 }
 
 GameWindow::~GameWindow()
@@ -82,7 +86,7 @@ GameWindow::~GameWindow()
     SDL_Quit();
     SDL_DestroyWindow(GameWindow::gameWindow);
     SDL_DestroyRenderer(GameWindow::mainRenderer);
-    //TODO: change this to proper SDL destroy
+    delete screenManager;
     delete mainEventLoop;
 }
 
@@ -90,16 +94,13 @@ void GameWindow::draw()
 {
     if(__update)
     {
-        spriteBatch->sbSetRenderTarget(targetTexture);
-        spriteBatch->sbBegin();
-        testSprite->draw(spriteBatch);
-        spriteBatch->sbDrawFont("Top kek", 0, 0, standardColors.strongRed, 3, true);
-        spriteBatch->sbEnd();
+        //spriteBatch->sbSetRenderTarget(targetTexture);
+        //screenManager->draw(spriteBatch);
+        //spriteBatch->sbSetRenderTarget(nullptr);
 
-        spriteBatch->sbSetRenderTarget(nullptr);
-        spriteBatch->sbBegin();
-        spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
-        spriteBatch->sbEnd();
+        //spriteBatch->sbBegin();
+        //spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
+        //spriteBatch->sbEnd();
     }
 }
 
@@ -109,7 +110,6 @@ void GameWindow::update()
     {
         //SDL_PollEvent(mainEventLoop);
         inputHandler->update();
-        testSprite->update(inputHandler);
         if(inputHandler->getEvent()->type == SDL_KEYDOWN)
         {
             if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)

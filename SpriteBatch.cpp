@@ -24,12 +24,13 @@ SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
 SpriteBatch::~SpriteBatch()
 {}
 
-SDL_Texture* SpriteBatch::loadTexture(const std::string &file, SDL_Renderer *ren)
+SDL_Texture* SpriteBatch::loadTexture(const std::string &file, SDL_Renderer **ren)
 {
+    //std::cout << "addr_of mainRenderer (loadTexture): " << ren << std::endl;
     SDL_Texture *texture = NULL;
-    texture = IMG_LoadTexture(ren, file.c_str());
+    texture = IMG_LoadTexture(*ren, file.c_str());
 
-    if(texture == nullptr)
+    if(texture == NULL)
     {
         std::cout << "Error loading texture: " << SDL_GetError() << std::endl;
     }
@@ -111,7 +112,7 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scal
     dst.x = x;
     dst.y = y;
 
-    SDL_QueryTexture(*tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 
     dst.w = int(float(dst.w) * scale);
     dst.h = int(float(dst.h) * scale);
@@ -128,12 +129,12 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int
     dst.x = x;
     dst.y = y;
 
-    SDL_QueryTexture(*tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 
     dst.w = w;
     dst.h = h;
 
-    SDL_RenderCopy(__renderer, *tex, NULL, &dst);
+    SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
 
 void SpriteBatch::sbEnd()

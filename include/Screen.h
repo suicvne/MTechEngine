@@ -3,10 +3,13 @@
 #define SCREEN_H
 #include "../SpriteBatch.h"
 #include "InputHandler.h"
+#include "ContentManager.h"
 
 class Screen
 {
     public:
+        Screen(){};
+        ~Screen(){};
         virtual void draw(SpriteBatch *_sb) = 0;
         virtual void update(InputHandler *_ih) = 0;
     protected:

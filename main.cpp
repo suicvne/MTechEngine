@@ -1,9 +1,13 @@
+#include <SDL.h>
 #include "GameWindow.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
+    std::map<const char*, SDL_Texture*> testMap;
+    testMap["kek"] = 0;
+
     SDLInitArgs args;
     args.x = -1;
     args.y = -1;

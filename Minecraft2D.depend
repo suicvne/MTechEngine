@@ -330,13 +330,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448374751 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
+1448555177 source:c:\users\allah\git\minecraft2dsdl\gamewindow.cpp
 	"GameWindow.h"
 
-1448374744 c:\users\allah\git\minecraft2dsdl\gamewindow.h
+1448552156 c:\users\allah\git\minecraft2dsdl\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
+	"ContentManager.h"
+	"InputHandler.h"
+	"Sprite.h"
+	"float.h"
+	"StandardColors.h"
+	"ScreenManager.h"
 
 1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl.h
 	"SDL_main.h"
@@ -685,7 +691,8 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448375324 source:c:\users\allah\git\minecraft2dsdl\main.cpp
+1448554486 source:c:\users\allah\git\minecraft2dsdl\main.cpp
+	<SDL.h>
 	"GameWindow.h"
 
 1448374622 c:\users\allah\git\minecraft2dsdl\include\spritebatch.h
@@ -694,11 +701,16 @@
 1448374674 source:c:\users\allah\git\minecraft2dsdl\src\spritebatch.cpp
 	"SpriteBatch.h"
 
-1448374674 source:c:\users\allah\git\minecraft2dsdl\spritebatch.cpp
+1448555135 source:c:\users\allah\git\minecraft2dsdl\spritebatch.cpp
 	"SpriteBatch.h"
+	"GameWindow.h"
 
-1448374622 c:\users\allah\git\minecraft2dsdl\spritebatch.h
+1448555249 c:\users\allah\git\minecraft2dsdl\spritebatch.h
 	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<iostream>
+	<algorithm>
 
 1448470592 /home/mike/git/Minecraft2DSDL/SpriteBatch.h
 	<SDL.h>
@@ -770,4 +782,59 @@
 	"InputHandler.h"
 
 1448472976 /home/mike/git/Minecraft2DSDL/include/StandardColors.h
+
+1376156342 c:\users\allah\desktop\rpg++2\rpg++2\libraries\win32\sdl2_image-2.0.0\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156543 c:\users\allah\desktop\rpg++2\rpg++2\libraries\win32\sdl2_ttf-2.0.12\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1448554514 c:\users\allah\git\minecraft2dsdl\include\contentmanager.h
+	<iostream>
+	<map>
+	<SDL.h>
+	<SDL_image.h>
+
+1448549648 c:\users\allah\git\minecraft2dsdl\include\inputhandler.h
+	<iostream>
+	<SDL.h>
+
+1448549648 c:\users\allah\git\minecraft2dsdl\include\sprite.h
+	"InputHandler.h"
+	"../SpriteBatch.h"
+	<SDL.h>
+
+1448549648 c:\users\allah\git\minecraft2dsdl\include\standardcolors.h
+
+1448554528 source:c:\users\allah\git\minecraft2dsdl\src\contentmanager.cpp
+	"ContentManager.h"
+
+1448549648 source:c:\users\allah\git\minecraft2dsdl\src\inputhandler.cpp
+	"InputHandler.h"
+
+1448552620 source:c:\users\allah\git\minecraft2dsdl\src\screens\testscreen.cpp
+	"TestScreen.h"
+
+1448552149 c:\users\allah\git\minecraft2dsdl\include\testscreen.h
+	"Screen.h"
+	"Sprite.h"
+
+1448551689 c:\users\allah\git\minecraft2dsdl\include\screen.h
+	"../SpriteBatch.h"
+	"InputHandler.h"
+	"ContentManager.h"
+
+1448549648 source:c:\users\allah\git\minecraft2dsdl\src\sprite.cpp
+	"Sprite.h"
+
+1448551974 source:c:\users\allah\git\minecraft2dsdl\src\screenmanager.cpp
+	"ScreenManager.h"
+
+1448551908 c:\users\allah\git\minecraft2dsdl\include\screenmanager.h
+	"TestScreen.h"
 

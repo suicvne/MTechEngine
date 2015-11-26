@@ -2,6 +2,8 @@
 
 ContentManager::ContentManager()
 {
+    //__textureMap = new std::map<std::string, SDL_Texture*>;
+
 }
 
 ContentManager::~ContentManager()
@@ -9,7 +11,7 @@ ContentManager::~ContentManager()
     delete &__textureMap;
 }
 
-SDL_Texture* ContentManager::getTexture(std::string textureName)
+SDL_Texture* ContentManager::getTexture(const char* textureName)
 {
     if(__textureMap.find(textureName) != __textureMap.end())
     {
@@ -22,7 +24,8 @@ SDL_Texture* ContentManager::getTexture(std::string textureName)
     return 0;
 }
 
-void ContentManager::addTexture(std::string textureName, SDL_Texture *texture)
+void ContentManager::addTexture(const char* textureName, SDL_Texture *texture)
 {
+    __textureMap["kek"] = texture;
     __textureMap[textureName] = texture;
 }
