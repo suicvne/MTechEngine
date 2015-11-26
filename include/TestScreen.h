@@ -4,6 +4,16 @@
 #include "Screen.h"
 #include "Sprite.h"
 #include "StandardColors.h"
+extern "C"
+{
+#include <lua.h>
+#include <lualib.h>
+#include <lauxlib.h>
+}
+
+#define lua_open() luaL_newstate()
+
+//int lbDrawText(lua_State *L);
 
 class TestScreen : public Screen
 {
@@ -14,9 +24,11 @@ class TestScreen : public Screen
         void update(InputHandler *_ih);
     protected:
     private:
+        SpriteBatch *_localSb;
         ContentManager *_cm;
         Sprite *testSprite;
         StandardColors clr;
+        lua_State *L;
 };
 
 #endif // TESTSCREEN_H
