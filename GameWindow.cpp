@@ -55,11 +55,11 @@ void GameWindow::initializeSDL()
 
     loadTextures();
 
-    //screenManager = new ScreenManager(contentManager);
+    screenManager = new ScreenManager(contentManager);
 
     __update = true;
 
-    targetTexture = SDL_CreateTexture(mainRenderer, NULL, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
+    targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
     while(quit == 0)
     {
@@ -76,6 +76,8 @@ void GameWindow::loadTextures()
     std::cout << "addr_of mainRenderer (init): " << &mainRenderer << std::endl;
 
     SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
+
+    std::cout << txture << std::endl;
 
     contentManager->addTexture("rayquaza", txture);
 }
@@ -94,13 +96,13 @@ void GameWindow::draw()
 {
     if(__update)
     {
-        //spriteBatch->sbSetRenderTarget(targetTexture);
-        //screenManager->draw(spriteBatch);
-        //spriteBatch->sbSetRenderTarget(nullptr);
+        spriteBatch->sbSetRenderTarget(targetTexture);
+        screenManager->draw(spriteBatch);
+        spriteBatch->sbSetRenderTarget(nullptr);
 
-        //spriteBatch->sbBegin();
-        //spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
-        //spriteBatch->sbEnd();
+        spriteBatch->sbBegin();
+        spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
+        spriteBatch->sbEnd();
     }
 }
 
