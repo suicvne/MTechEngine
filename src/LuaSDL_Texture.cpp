@@ -14,3 +14,8 @@ void LuaSDL_Texture::setObject(lua_State *L)
 {
     realTexture = (SDL_Texture*)lua_touserdata(L, 1);
 }
+
+int LuaSDL_Texture::setTexture(lua_State *L)
+{
+    realTexture = (SDL_Texture*)lua_touserdata(L, 1);
+}

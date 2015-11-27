@@ -1,0 +1,9 @@
+local __name = "Question Mark Block"
+local __id = 1;
+local __width = 16;
+local __height = 16;
+local __animated = true;
+local __sheet = "test_sheet"
+local __frames = {{1, 1}, {18, 18}, {35, 35}, {52, 52}}
+local __framecount = 4;
+local __frameupdate = 4; 

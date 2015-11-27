@@ -75,6 +75,8 @@
 		<Unit filename="SpriteBatch.h" />
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LuaBlockConfigLoader.h" />
+		<Unit filename="include/LuaContentManager.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
 		<Unit filename="include/Screen.h">
@@ -84,10 +86,14 @@
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
+		<Unit filename="include/Tile.h" />
+		<Unit filename="include/global_tiles.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LuaBlockConfigLoader.cpp" />
+		<Unit filename="src/LuaContentManager.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
 		<Unit filename="src/ScreenManager.cpp">
@@ -95,6 +101,8 @@
 		</Unit>
 		<Unit filename="src/Screens/TestScreen.cpp" />
 		<Unit filename="src/Sprite.cpp" />
+		<Unit filename="src/Tile.cpp" />
+		<Unit filename="src/global_tiles.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

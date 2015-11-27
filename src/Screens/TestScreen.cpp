@@ -5,7 +5,10 @@ the luna hook ins
 */
 #include "LuaSpriteBatch.h"
 #include "LuaSDL_Texture.h"
+#include "LuaContentManager.h"
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
+const char LuaSDL_Texture::className[] = "LuaSDL_Texture";
+const char LuaContentManager::className[] = "LuaContentManager";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
@@ -15,6 +18,11 @@ Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     {0, 0}
 };
 Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
+    {0, 0}
+};
+Luna<LuaContentManager>::RegType LuaContentManager::methods[] = {
+    method(LuaContentManager, addTexture),
+    method(LuaContentManager, getTexture),
     {0, 0}
 };
 
@@ -32,6 +40,7 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
 TestScreen::~TestScreen()
 {
     delete testSprite;
+    delete L;
 }
 
 bool doneInit = false;
@@ -39,11 +48,17 @@ bool doneInit = false;
 void TestScreen::finalInitLua()
 {
     Luna<LuaSpriteBatch>::Register(L);
+    Luna<LuaContentManager>::Register(L);
+    Luna<LuaSDL_Texture>::Register(L);
 
     luaL_openlibs(L);
 
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
+
+    lua_pushlightuserdata(L, (void*)_cm);
+    lua_setglobal(L, "mainContentManager");
+
 
     doneInit = true;
 
@@ -63,6 +78,16 @@ void TestScreen::onLoopFunction()
     if(lua_pcall(L, 0, 0, 0) != 0)
     {
         std::cerr << "onLoop error: " << lua_tostring(L, -1) << std::endl;
+    }
+}
+
+void TestScreen::onUpdateFunction()
+{
+    lua_getglobal(L, "onUpdate");
+    //State, arg count, result count, ?
+    if(lua_pcall(L, 0, 0, 0) != 0)
+    {
+        std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
     }
 }
 
@@ -88,5 +113,5 @@ void TestScreen::draw(SpriteBatch *_sb)
 
 void TestScreen::update(InputHandler *_ih)
 {
-    testSprite->update(_ih);
+    onUpdateFunction();
 }

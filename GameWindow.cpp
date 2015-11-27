@@ -38,7 +38,7 @@ void GameWindow::initializeSDL()
         return;
     }
 
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED);
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if(GameWindow::mainRenderer == NULL)
     {
         SDL_DestroyWindow(GameWindow::gameWindow);
@@ -55,10 +55,16 @@ void GameWindow::initializeSDL()
 
     loadTextures();
 
+    initBlocks();
+    std::cin.get();
+
     __update = true;
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
+
+    lastTimeCheck = SDL_GetTicks();
+
     while(quit == 0)
     {
         GameWindow::update();
@@ -72,8 +78,18 @@ void GameWindow::loadTextures()
     SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
     //std::cout << txture << std::endl;
     contentManager.addTexture("r", txture);
-    std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
+    contentManager.addTexture("test_sheet", spriteBatch->loadTexture(getResourcePath("") + "temp_tileset.png", &mainRenderer));
+    delete txture;
     screenManager = new ScreenManager(contentManager);
+}
+
+void GameWindow::initBlocks()
+{
+    LuaBlockConfigLoader *lbcl = new LuaBlockConfigLoader();
+
+    lbcl->loadBlocks();
+
+    delete lbcl;
 }
 
 GameWindow::~GameWindow()
@@ -104,19 +120,22 @@ void GameWindow::update()
 {
     if(__update)
     {
-        //SDL_PollEvent(mainEventLoop);
-        inputHandler->update();
-        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+        if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
         {
-            if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+            screenManager->update(inputHandler);
+
+            inputHandler->update();
+            if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+            {
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+                    quit = 1;
+            }
+            if(inputHandler->getEvent()->type == SDL_QUIT)
+            {
                 quit = 1;
-        }
-        if(inputHandler->getEvent()->type == SDL_QUIT)
-        {
-            quit = 1;
-        }
-        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
-        {
+            }
+            if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+            {
                 switch(inputHandler->getEvent()->window.event)
                 {
                 case SDL_WINDOWEVENT_RESIZED:
@@ -128,8 +147,11 @@ void GameWindow::update()
                     std::cout << "Update stopped" << std::endl;
                     break;
                 }
+            }
+
+            lastTimeCheck = SDL_GetTicks();
         }
-        screenManager->update(inputHandler);
+        //SDL_PollEvent(mainEventLoop);
     }
     else
     {

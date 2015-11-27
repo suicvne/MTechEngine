@@ -12,6 +12,8 @@
 #include "float.h"
 #include "StandardColors.h"
 #include "ScreenManager.h"
+#include "global_tiles.h"
+#include "LuaBlockConfigLoader.h"
 
 struct SDLInitArgs
 {
@@ -72,6 +74,7 @@ private:
     void draw();
     void update();
     void loadTextures();
+    void initBlocks();
     SDL_Texture *targetTexture;
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
@@ -82,6 +85,8 @@ private:
     ScreenManager *screenManager;
     int width, height;
     bool __update;
+    int lastTimeCheck;
+    int updateIntervalMs = 5;
 };
 
 
