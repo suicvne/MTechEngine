@@ -1182,7 +1182,7 @@
 	"global_tiles.h"
 	"LuaBlockConfigLoader.h"
 
-1448646190 c:\users\admin\git\minecraft2dsdl\spritebatch.h
+1448577270 c:\users\admin\git\minecraft2dsdl\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1233,7 +1233,11 @@
 	"InputHandler.h"
 	"ContentManager.h"
 
+<<<<<<< HEAD
 1448661600 source:c:\users\admin\git\minecraft2dsdl\spritebatch.cpp
+=======
+1448577270 source:c:\users\admin\git\minecraft2dsdl\spritebatch.cpp
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 	"SpriteBatch.h"
 	"GameWindow.h"
 
@@ -1243,12 +1247,19 @@
 1448657067 source:c:\users\admin\git\minecraft2dsdl\src\inputhandler.cpp
 	"InputHandler.h"
 
+<<<<<<< HEAD
 1448661603 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
 	"LuaSpriteBatch.h"
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
+=======
+1448645148 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
+	"TestScreen.h"
+	"../GameWindow.h"
+	"LuaSpriteBatch.h"
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 
 1448577271 source:c:\users\admin\git\minecraft2dsdl\src\sprite.cpp
 	"Sprite.h"
@@ -1313,23 +1324,26 @@
 	<stdio.h>
 	"lua.h"
 
+<<<<<<< HEAD
 1448661469 source:c:\users\admin\git\minecraft2dsdl\src\luaspritebatch.cpp
+=======
+1448644717 source:c:\users\admin\git\minecraft2dsdl\src\luaspritebatch.cpp
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 	"LuaSpriteBatch.h"
 
-1448646705 c:\users\admin\git\minecraft2dsdl\include\luaspritebatch.h
+1448644609 c:\users\admin\git\minecraft2dsdl\include\luaspritebatch.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
 	"../SpriteBatch.h"
 	"luna.h"
 	<iostream>
-	<SDL.h>
-	"../GameWindow.h"
 
 1448643599 c:\users\admin\git\minecraft2dsdl\include\luna.h
 	"lua.h"
 	"lauxlib.h"
 
+<<<<<<< HEAD
 1448656322 source:c:\users\admin\git\minecraft2dsdl\src\luasdl_texture.cpp
 	"LuaSDL_Texture.h"
 
@@ -1398,3 +1412,5 @@
 1448661608 source:c:\users\admin\git\minecraft2dsdl\src\tile.cpp
 	"Tile.h"
 
+=======
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua

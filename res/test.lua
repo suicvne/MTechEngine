@@ -1,16 +1,20 @@
 --io.write("Hey");
 
 local b = LuaSpriteBatch(sprBatch);
+<<<<<<< HEAD
 local cm = LuaContentManager(mainContentManager);
 
 local testTexture = cm:getTexture("r");
 --local testTexture = b:loadTexture("rayquaza.png");
 local bgTest = LuaSDL_Texture(b:loadTexture("bg_test.png"));
 cm:addTexture("bg", b:loadTexture("bg_test.png"));
+=======
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 
 local count = 0;
 local toPrint = "--RAYQUAZA INTENSIFIES--";
 
+<<<<<<< HEAD
 local xx = 69;
 local yy = 69;
 local _trueX = 0;
@@ -60,6 +64,9 @@ function onLoop()
     b:drawTextureToScreen(testTexture, _trueX, _trueY);
   end
 
+=======
+function onLoop()
+>>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
   --b:drawTextToScreen(count, 0, 100, 2, false);
   b:drawTextToScreen(toPrint, 10, 10, 3, false);
 end

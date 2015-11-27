@@ -38,18 +38,6 @@ SDL_Texture* SpriteBatch::loadTexture(const std::string &file, SDL_Renderer **re
     return texture;
 }
 
-SDL_Texture* SpriteBatch::loadTexture(const std::string &file)
-{
-    SDL_Texture *texture = NULL;
-    texture = IMG_LoadTexture(__renderer, file.c_str());
-
-    if(texture == NULL)
-    {
-        std::cout << "Error loading texture: " << SDL_GetError() << std::endl;
-    }
-    return texture;
-}
-
 void SpriteBatch::sbBegin()
 {
     if(drawingInProgress)

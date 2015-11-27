@@ -22,7 +22,6 @@ class SpriteBatch
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer **ren);
-        SDL_Texture* loadTexture(const std::string &file);
         bool isDrawing()
         {
             return drawingInProgress;
