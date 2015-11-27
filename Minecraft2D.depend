@@ -849,7 +849,7 @@
 1448555461 source:/home/mike/git/Minecraft2DSDL/src/ScreenManager.cpp
 	"ScreenManager.h"
 
-1448640356 source:c:\users\admin\git\minecraft2dsdl\main.cpp
+1448642285 source:c:\users\admin\git\minecraft2dsdl\main.cpp
 	<SDL.h>
 	"GameWindow.h"
 
@@ -1169,7 +1169,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448641972 c:\users\admin\git\minecraft2dsdl\gamewindow.h
+1448642285 c:\users\admin\git\minecraft2dsdl\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1179,8 +1179,6 @@
 	"float.h"
 	"StandardColors.h"
 	"ScreenManager.h"
-	"GameWindow.h"
-	"globals.h"
 
 1448577270 c:\users\admin\git\minecraft2dsdl\spritebatch.h
 	<SDL.h>
@@ -1200,12 +1198,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448639394 c:\users\admin\git\minecraft2dsdl\include\contentmanager.h
+1448642285 c:\users\admin\git\minecraft2dsdl\include\contentmanager.h
 	<iostream>
 	<map>
 	<SDL.h>
 	<SDL_image.h>
-	<string>
 
 1448577271 c:\users\admin\git\minecraft2dsdl\include\inputhandler.h
 	<iostream>
@@ -1218,18 +1215,16 @@
 
 1448577271 c:\users\admin\git\minecraft2dsdl\include\standardcolors.h
 
-1448641832 c:\users\admin\git\minecraft2dsdl\include\screenmanager.h
+1448642285 c:\users\admin\git\minecraft2dsdl\include\screenmanager.h
 	"TestScreen.h"
-	"globals.h"
 
-1448641582 c:\users\admin\git\minecraft2dsdl\include\testscreen.h
+1448644875 c:\users\admin\git\minecraft2dsdl\include\testscreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
-	"globals.h"
 
 1448577271 c:\users\admin\git\minecraft2dsdl\include\screen.h
 	"../SpriteBatch.h"
@@ -1246,19 +1241,19 @@
 1448577271 source:c:\users\admin\git\minecraft2dsdl\src\inputhandler.cpp
 	"InputHandler.h"
 
-1448641792 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
+1448645148 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
+	"LuaSpriteBatch.h"
 
 1448577271 source:c:\users\admin\git\minecraft2dsdl\src\sprite.cpp
 	"Sprite.h"
 
-1448641856 source:c:\users\admin\git\minecraft2dsdl\src\screenmanager.cpp
+1448642285 source:c:\users\admin\git\minecraft2dsdl\src\screenmanager.cpp
 	"ScreenManager.h"
 
-1448641993 source:c:\users\admin\git\minecraft2dsdl\gamewindow.cpp
+1448642285 source:c:\users\admin\git\minecraft2dsdl\gamewindow.cpp
 	"GameWindow.h"
-	"globals.h"
 
 1419625466 c:\users\admin\git\minecraft2dsdl\libraries\win32\lua-5.3\include\lua.h
 	<stdarg.h>
@@ -1287,4 +1282,45 @@
 	"ContentManager.h"
 	"InputHandler.h"
 	"ScreenManager.h"
+
+1326497780 c:\users\admin\git\minecraft2dsdl\libraries\win32\lua-5.1\include\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1399324226 c:\users\admin\git\minecraft2dsdl\libraries\win32\lua-5.1\include\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<unistd.h>
+	<io.h>
+	<stdio.h>
+	<stdio.h>
+	<readline/readline.h>
+	<readline/history.h>
+	<assert.h>
+	<math.h>
+	<unistd.h>
+
+1198771346 c:\users\admin\git\minecraft2dsdl\libraries\win32\lua-5.1\include\lualib.h
+	"lua.h"
+
+1198771346 c:\users\admin\git\minecraft2dsdl\libraries\win32\lua-5.1\include\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1448644717 source:c:\users\admin\git\minecraft2dsdl\src\luaspritebatch.cpp
+	"LuaSpriteBatch.h"
+
+1448644609 c:\users\admin\git\minecraft2dsdl\include\luaspritebatch.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"../SpriteBatch.h"
+	"luna.h"
+	<iostream>
+
+1448643599 c:\users\admin\git\minecraft2dsdl\include\luna.h
+	"lua.h"
+	"lauxlib.h"
 

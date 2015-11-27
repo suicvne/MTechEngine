@@ -1,34 +1,12 @@
 #include "TestScreen.h"
 #include "../GameWindow.h"
-
-/*
-
-//testSprite->draw(spriteBatch);
-        //spriteBatch->sbDrawFont("Top kek", 0, 0, standardColors.strongRed, 3, true);
-
-*/
-
-static int lbDrawText(lua_State *L)
-{
-    int argc = lua_gettop(L); //arg count
-    const char *textToPrint = "";
-    bool uppercase = false;
-    if(argc < 2)
-    {
-        return -4;
-    }
-    for(int n = 1; n <= argc; n++)
-    {
-        if(n == 1)
-            textToPrint = lua_tostring(L, n);
-        if(n == 2)
-            uppercase = lua_toboolean(L, n);
-    }
-    //TestScreen::_localSb->sbDrawFont(textToPrint, 0, 0, SDL_Color{0, 255, 0, 255}, float(3), uppercase);
-    std::cout << "Placeholder: " << textToPrint << " (upper: " << uppercase << ")" << std::endl;
-    lua_pushnumber(L, 0);
-    return 0;
-}
+#include "LuaSpriteBatch.h"
+const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
+#define method(class, name) {#name, &class::name}
+Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
+    method(LuaSpriteBatch, drawTextToScreen),
+    {0, 0}
+};
 
 TestScreen::TestScreen(ContentManager &___cm) : Screen()
 {
@@ -39,15 +17,6 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
     //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
     L = lua_open();
     luaL_openlibs(L);
-    lua_register(L, "drawText", lbDrawText);
-
-    std::string path(GameWindow::getResourcePath(""));
-    path.append("test.lua");
-
-    int s = luaL_loadfile(L, path.c_str());
-    if(s != 0)
-        std::cerr << "Couldn't load test.lua!" << std::endl;
-    s = lua_pcall(L, 0, LUA_MULTRET, 0);
 }
 
 TestScreen::~TestScreen()
@@ -55,10 +24,54 @@ TestScreen::~TestScreen()
     delete testSprite;
 }
 
+bool doneInit = false;
+
+void TestScreen::finalInitLua()
+{
+    Luna<LuaSpriteBatch>::Register(L);
+
+    lua_pushlightuserdata(L, (void*)_localSb);
+    lua_setglobal(L, "sprBatch");
+
+    doneInit = true;
+
+    std::string path(GameWindow::getResourcePath(""));
+    path.append("test.lua");
+
+    s = luaL_loadfile(L, path.c_str());
+    if(s != 0)
+        std::cerr << "Couldn't load test.lua!" << std::endl;
+    lua_pcall(L, 0, LUA_MULTRET, 0);
+}
+
+void TestScreen::onLoopFunction()
+{
+    lua_getglobal(L, "onLoop");
+    //State, arg count, result count, ?
+    if(lua_pcall(L, 0, 0, 0) != 0)
+    {
+        std::cerr << "onLoop error: " << lua_tostring(L, -1) << std::endl;
+    }
+}
+
+void TestScreen::report_errors(lua_State *L, int status)
+{
+    if (status != 0)
+	{
+		std::cerr << "-- " << lua_tostring(L, -1) << std::endl;
+		lua_pop(L, 1); //remove error message
+	}
+}
+
 void TestScreen::draw(SpriteBatch *_sb)
 {
     _localSb = _sb;
     testSprite->draw(_sb);
+    if(!doneInit)
+        finalInitLua();
+    onLoopFunction();
+
+    report_errors(L, s);
     //_sb->sbDrawFont("f CPP", 0, 0, clr.strongGreen, float(3), true);
 }
 

@@ -22,6 +22,9 @@ class TestScreen : public Screen
         ~TestScreen();
         void draw(SpriteBatch *_sb);
         void update(InputHandler *_ih);
+        void finalInitLua();
+        void report_errors(lua_State *L, int status);
+        void onLoopFunction();
     protected:
     private:
         SpriteBatch *_localSb;
@@ -29,6 +32,7 @@ class TestScreen : public Screen
         Sprite *testSprite;
         StandardColors clr;
         lua_State *L;
+        int s;
 };
 
 #endif // TESTSCREEN_H
