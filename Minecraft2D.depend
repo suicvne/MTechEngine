@@ -1180,7 +1180,7 @@
 	"StandardColors.h"
 	"ScreenManager.h"
 
-1448577270 c:\users\admin\git\minecraft2dsdl\spritebatch.h
+1448646190 c:\users\admin\git\minecraft2dsdl\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1231,7 +1231,7 @@
 	"InputHandler.h"
 	"ContentManager.h"
 
-1448577270 source:c:\users\admin\git\minecraft2dsdl\spritebatch.cpp
+1448646255 source:c:\users\admin\git\minecraft2dsdl\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 
@@ -1241,10 +1241,11 @@
 1448577271 source:c:\users\admin\git\minecraft2dsdl\src\inputhandler.cpp
 	"InputHandler.h"
 
-1448645148 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
+1448647491 source:c:\users\admin\git\minecraft2dsdl\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
 	"LuaSpriteBatch.h"
+	"LuaSDL_Texture.h"
 
 1448577271 source:c:\users\admin\git\minecraft2dsdl\src\sprite.cpp
 	"Sprite.h"
@@ -1309,18 +1310,32 @@
 	<stdio.h>
 	"lua.h"
 
-1448644717 source:c:\users\admin\git\minecraft2dsdl\src\luaspritebatch.cpp
+1448646720 source:c:\users\admin\git\minecraft2dsdl\src\luaspritebatch.cpp
 	"LuaSpriteBatch.h"
 
-1448644609 c:\users\admin\git\minecraft2dsdl\include\luaspritebatch.h
+1448646705 c:\users\admin\git\minecraft2dsdl\include\luaspritebatch.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
 	"../SpriteBatch.h"
 	"luna.h"
 	<iostream>
+	<SDL.h>
+	"../GameWindow.h"
 
 1448643599 c:\users\admin\git\minecraft2dsdl\include\luna.h
 	"lua.h"
 	"lauxlib.h"
+
+1448646681 source:c:\users\admin\git\minecraft2dsdl\src\luasdl_texture.cpp
+	"LuaSDL_Texture.h"
+
+1448645829 c:\users\admin\git\minecraft2dsdl\include\luasdl_texture.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	<iostream>
 

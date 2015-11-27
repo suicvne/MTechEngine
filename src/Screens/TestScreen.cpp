@@ -1,10 +1,20 @@
 #include "TestScreen.h"
 #include "../GameWindow.h"
+/**
+the luna hook ins
+*/
 #include "LuaSpriteBatch.h"
+#include "LuaSDL_Texture.h"
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
+    method(LuaSpriteBatch, loadTexture),
+    method(LuaSpriteBatch, drawTextureToScreen),
+    method(LuaSpriteBatch, drawTextureToScreenScaled),
+    {0, 0}
+};
+Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
     {0, 0}
 };
 
@@ -29,6 +39,8 @@ bool doneInit = false;
 void TestScreen::finalInitLua()
 {
     Luna<LuaSpriteBatch>::Register(L);
+
+    luaL_openlibs(L);
 
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
@@ -66,7 +78,6 @@ void TestScreen::report_errors(lua_State *L, int status)
 void TestScreen::draw(SpriteBatch *_sb)
 {
     _localSb = _sb;
-    testSprite->draw(_sb);
     if(!doneInit)
         finalInitLua();
     onLoopFunction();
