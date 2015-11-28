@@ -5,13 +5,21 @@ the luna hook ins
 */
 #include "LuaSpriteBatch.h"
 #include "LuaSDL_Texture.h"
+#include "LuaContentManager.h"
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
+const char LuaSDL_Texture::className[] = "LuaSDL_Texture";
+const char LuaContentManager::className[] = "LuaContentManager";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
     method(LuaSpriteBatch, loadTexture),
     method(LuaSpriteBatch, drawTextureToScreen),
     method(LuaSpriteBatch, drawTextureToScreenScaled),
+    {0, 0}
+};
+Luna<LuaContentManager>::RegType LuaContentManager::methods[] = {
+    method(LuaContentManager, addTexture),
+    method(LuaContentManager, getTexture),
     {0, 0}
 };
 Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
@@ -23,7 +31,6 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
     std::cout << "Address of contentmanager arg in TestScreen: " << &___cm << std::endl;
     _cm = &___cm;
 
-    testSprite = new Sprite(_cm->getTexture("r"));
     //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
     L = lua_open();
     luaL_openlibs(L);
@@ -31,7 +38,7 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
 
 TestScreen::~TestScreen()
 {
-    delete testSprite;
+    delete L;
 }
 
 bool doneInit = false;
@@ -39,11 +46,16 @@ bool doneInit = false;
 void TestScreen::finalInitLua()
 {
     Luna<LuaSpriteBatch>::Register(L);
+    Luna<LuaContentManager>::Register(L);
+    Luna<LuaSDL_Texture>::Register(L);
 
     luaL_openlibs(L);
 
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
+
+    lua_pushlightuserdata(L, (void*)_cm);
+    lua_setglobal(L, "mainContentManager");
 
     doneInit = true;
 
@@ -63,6 +75,16 @@ void TestScreen::onLoopFunction()
     if(lua_pcall(L, 0, 0, 0) != 0)
     {
         std::cerr << "onLoop error: " << lua_tostring(L, -1) << std::endl;
+    }
+}
+
+void TestScreen::onUpdateFunction()
+{
+    lua_getglobal(L, "onUpdate");
+
+    if(lua_pcall(L, 0, 0, 0) != 0)
+    {
+        std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
     }
 }
 
@@ -88,5 +110,6 @@ void TestScreen::draw(SpriteBatch *_sb)
 
 void TestScreen::update(InputHandler *_ih)
 {
-    testSprite->update(_ih);
+    //_ih->update();
+    onUpdateFunction();
 }

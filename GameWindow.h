@@ -81,6 +81,7 @@ private:
     InputHandler *inputHandler;
     ScreenManager *screenManager;
     int width, height;
+    int lastTimeCheck, updateIntervalMs;
     bool __update;
 };
 

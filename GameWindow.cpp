@@ -38,7 +38,7 @@ void GameWindow::initializeSDL()
         return;
     }
 
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED);
     if(GameWindow::mainRenderer == NULL)
     {
         SDL_DestroyWindow(GameWindow::gameWindow);
@@ -59,6 +59,8 @@ void GameWindow::initializeSDL()
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
+    updateIntervalMs = 15;
+    lastTimeCheck = SDL_GetTicks();
     while(quit == 0)
     {
         GameWindow::update();
@@ -104,32 +106,38 @@ void GameWindow::update()
 {
     if(__update)
     {
-        //SDL_PollEvent(mainEventLoop);
         inputHandler->update();
+        if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
+        {
+            screenManager->update(inputHandler);
+
+            lastTimeCheck = SDL_GetTicks();
+        }
         if(inputHandler->getEvent()->type == SDL_KEYDOWN)
-        {
-            if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+            {
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+                    quit = 1;
+            }
+            if(inputHandler->getEvent()->type == SDL_QUIT)
+            {
                 quit = 1;
-        }
-        if(inputHandler->getEvent()->type == SDL_QUIT)
-        {
-            quit = 1;
-        }
-        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
-        {
+            }
+            if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+            {
                 switch(inputHandler->getEvent()->window.event)
                 {
                 case SDL_WINDOWEVENT_RESIZED:
                     width = inputHandler->getEvent()->window.data1;
                     height = inputHandler->getEvent()->window.data2;
+                    std::cout << "Resized: " << width << " x " << height << std::endl;
                     break;
                 case SDL_WINDOWEVENT_MINIMIZED:
                     __update = false;
                     std::cout << "Update stopped" << std::endl;
                     break;
                 }
-        }
-        screenManager->update(inputHandler);
+            }
+        //SDL_PollEvent(mainEventLoop);
     }
     else
     {

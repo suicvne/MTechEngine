@@ -7,7 +7,7 @@ ContentManager::ContentManager()
 ContentManager::~ContentManager()
 {
     std::cout << "Destroyed content manager" << std::endl;
-    delete &__textureMap;
+    //delete &__textureMap;
 }
 
 SDL_Texture* ContentManager::getTexture(std::string textureName)
