@@ -76,6 +76,7 @@
 		<Unit filename="SpriteBatch.h" />
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LuaContentManager.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
 		<Unit filename="include/Screen.h">
@@ -89,6 +90,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LuaContentManager.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
 		<Unit filename="src/ScreenManager.cpp">

@@ -24,6 +24,8 @@ void GameWindow::initializeSDL()
         return;
     }
 
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
+
     GameWindow::gameWindow = SDL_CreateWindow(initArgs._windowTitle,
         initArgs.x == -1 ? SDL_WINDOWPOS_UNDEFINED : initArgs.y,
         initArgs.y == -1 ? SDL_WINDOWPOS_UNDEFINED : initArgs.y,
@@ -61,6 +63,14 @@ void GameWindow::initializeSDL()
     spriteBatch->sbSetRenderTarget(targetTexture);
     updateIntervalMs = 15;
     lastTimeCheck = SDL_GetTicks();
+
+    SDL_DisplayMode mode;
+    SDL_GetDisplayMode(0, 0, &mode);
+    std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
+
+    SDL_GetDisplayMode(0, 1, &mode);
+    std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
+
     while(quit == 0)
     {
         GameWindow::update();
@@ -102,6 +112,33 @@ void GameWindow::draw()
     }
 }
 
+void GameWindow::toggleFullscreen()
+{
+    __fullscreen++;
+    if(__fullscreen > 2)
+        __fullscreen = 0;
+
+    int res;
+    switch(__fullscreen)
+    {
+        case 0:
+            res = SDL_SetWindowFullscreen(gameWindow, 0);
+            break;
+        case 1:
+            res = SDL_SetWindowFullscreen(gameWindow, SDL_WINDOW_FULLSCREEN);
+            break;
+        case 2:
+            res = SDL_SetWindowFullscreen(gameWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+            break;
+    }
+
+    if(res != 0)
+    {
+        std::cerr << "Error executing fullscreen: " << SDL_GetError() << std::endl;
+        SDL_SetWindowFullscreen(gameWindow, 0);
+    }
+}
+
 void GameWindow::update()
 {
     if(__update)
@@ -117,6 +154,8 @@ void GameWindow::update()
             {
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
                     quit = 1;
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
+                    toggleFullscreen();
             }
             if(inputHandler->getEvent()->type == SDL_QUIT)
             {
