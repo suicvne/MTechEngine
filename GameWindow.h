@@ -17,6 +17,7 @@ struct SDLInitArgs
 {
     int x, y, w, h;
     const char *_windowTitle;
+    bool vsync;
 };
 
 class GameWindow

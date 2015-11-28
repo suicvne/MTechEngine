@@ -40,7 +40,14 @@ void GameWindow::initializeSDL()
         return;
     }
 
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED);
+    #ifdef _WIN32
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    std::cout << "Enabling vsync for Windows" << std::endl;
+    #else
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1,
+                                                  SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
+    #endif // _WIN32
+
     if(GameWindow::mainRenderer == NULL)
     {
         SDL_DestroyWindow(GameWindow::gameWindow);
@@ -61,7 +68,7 @@ void GameWindow::initializeSDL()
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
-    updateIntervalMs = 15;
+    updateIntervalMs = 5;
     lastTimeCheck = SDL_GetTicks();
 
     SDL_DisplayMode mode;
@@ -84,6 +91,11 @@ void GameWindow::loadTextures()
     SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
     //std::cout << txture << std::endl;
     contentManager.addTexture("r", txture);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "temp_tileset.png", &mainRenderer);
+    contentManager.addTexture("test", txture);
+
+    delete txture;
+
     std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
     screenManager = new ScreenManager(contentManager);
 }
@@ -143,9 +155,9 @@ void GameWindow::update()
 {
     if(__update)
     {
-        inputHandler->update();
         if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
         {
+            inputHandler->update();
             screenManager->update(inputHandler);
 
             lastTimeCheck = SDL_GetTicks();
