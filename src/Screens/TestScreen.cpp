@@ -1,22 +1,20 @@
 #include "TestScreen.h"
 #include "../GameWindow.h"
+/**
+the luna hook ins
+*/
 #include "LuaSpriteBatch.h"
-<<<<<<< HEAD
 #include "LuaSDL_Texture.h"
-#include "LuaContentManager.h"
-=======
->>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
-const char LuaSDL_Texture::className[] = "LuaSDL_Texture";
-const char LuaContentManager::className[] = "LuaContentManager";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
+    method(LuaSpriteBatch, loadTexture),
+    method(LuaSpriteBatch, drawTextureToScreen),
+    method(LuaSpriteBatch, drawTextureToScreenScaled),
     {0, 0}
 };
-Luna<LuaContentManager>::RegType LuaContentManager::methods[] = {
-    method(LuaContentManager, addTexture),
-    method(LuaContentManager, getTexture),
+Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
     {0, 0}
 };
 
@@ -34,7 +32,6 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
 TestScreen::~TestScreen()
 {
     delete testSprite;
-    delete L;
 }
 
 bool doneInit = false;
@@ -42,15 +39,11 @@ bool doneInit = false;
 void TestScreen::finalInitLua()
 {
     Luna<LuaSpriteBatch>::Register(L);
-    Luna<LuaContentManager>::Register(L);
-    Luna<LuaSDL_Texture>::Register(L);
+
+    luaL_openlibs(L);
 
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
-
-    lua_pushlightuserdata(L, (void*)_cm);
-    lua_setglobal(L, "mainContentManager");
-
 
     doneInit = true;
 
@@ -73,16 +66,6 @@ void TestScreen::onLoopFunction()
     }
 }
 
-void TestScreen::onUpdateFunction()
-{
-    lua_getglobal(L, "onUpdate");
-    //State, arg count, result count, ?
-    if(lua_pcall(L, 0, 0, 0) != 0)
-    {
-        std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
-    }
-}
-
 void TestScreen::report_errors(lua_State *L, int status)
 {
     if (status != 0)
@@ -95,7 +78,6 @@ void TestScreen::report_errors(lua_State *L, int status)
 void TestScreen::draw(SpriteBatch *_sb)
 {
     _localSb = _sb;
-    testSprite->draw(_sb);
     if(!doneInit)
         finalInitLua();
     onLoopFunction();
@@ -106,5 +88,5 @@ void TestScreen::draw(SpriteBatch *_sb)
 
 void TestScreen::update(InputHandler *_ih)
 {
-    onUpdateFunction();
+    testSprite->update(_ih);
 }

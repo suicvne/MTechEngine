@@ -25,7 +25,6 @@ class LuaSDL_Texture
         LuaSDL_Texture(lua_State *L);
         ~LuaSDL_Texture();
         void setObject(lua_State *L);
-        int setTexture(lua_State *L);
     protected:
     private:
         SDL_Texture *realTexture;

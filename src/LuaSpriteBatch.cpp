@@ -15,15 +15,13 @@ void LuaSpriteBatch::setObject(lua_State *L)
     realSpriteBatch = (SpriteBatch*)lua_touserdata(L, 1);
 }
 
-<<<<<<< HEAD
 int LuaSpriteBatch::loadTexture(lua_State *L)
 {
     int argc = lua_gettop(L);
     if(argc != 1)
         return 0;
 
-    //GameWindow::getResourcePath("") +
-    const char *fileToLoad = std::string(lua_tostring(L, 1)).c_str();
+    const char *fileToLoad = std::string(GameWindow::getResourcePath("") + lua_tostring(L, 1)).c_str();
     SDL_Texture *loaded = realSpriteBatch->loadTexture(fileToLoad);
     lua_pushlightuserdata(L, loaded);
     return 1;
@@ -56,8 +54,6 @@ int LuaSpriteBatch::drawTextureToScreen(lua_State *L)
     }
 
     realSpriteBatch->sbDrawTexture(texture, x, y);
-
-    delete texture; //experimental
     return 0;
 }
 
@@ -93,8 +89,6 @@ int LuaSpriteBatch::drawTextureToScreenScaled(lua_State *L)
     return 0;
 }
 
-=======
->>>>>>> parent of 0b89ccb... Texture loading and drawing via lua
 int LuaSpriteBatch::drawTextToScreen(lua_State *L)
 {
     //void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);

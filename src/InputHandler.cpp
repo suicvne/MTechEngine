@@ -14,6 +14,5 @@ SDL_Event *InputHandler::getEvent()
 
 void InputHandler::update()
 {
-    //SDL_WaitEvent(&event);
     SDL_PollEvent(&event);
 }

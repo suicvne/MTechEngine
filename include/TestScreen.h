@@ -25,7 +25,6 @@ class TestScreen : public Screen
         void finalInitLua();
         void report_errors(lua_State *L, int status);
         void onLoopFunction();
-        void onUpdateFunction();
     protected:
     private:
         SpriteBatch *_localSb;
