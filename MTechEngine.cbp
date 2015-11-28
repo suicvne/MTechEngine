@@ -15,21 +15,14 @@
 				<Compiler>
 					<Add option="-std=c++0x" />
 					<Add option="-g" />
-					<Add directory="Libraries/Win32/SDL2-2.0.3/i686-w64-mingw32/include/SDL2" />
-					<Add directory="Libraries/Win32/SDL2_image-2.0.0/i686-w64-mingw32/include/SDL2" />
-					<Add directory="Libraries/Win32/SDL2_mixer-2.0.0/i686-w64-mingw32/include/SDL2" />
-					<Add directory="/usr/include/SDL2" />
+					<Add option="-D_WIN32" />
+					<Add directory="Libraries/Win32/Stripped/include/SDL2" />
+					<Add directory="Libraries/Win32/Stripped/include/lua" />
 					<Add directory="include" />
-					<Add directory="Libraries/Win32/SDL2_ttf-2.0.12/i686-w64-mingw32/include/SDL2" />
-					<Add directory="Libraries/Win32/Lua-5.1/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lmingw32  -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -llua5.1" />
-					<Add directory="Libraries/Win32/SDL2-2.0.3/i686-w64-mingw32/lib" />
-					<Add directory="Libraries/Win32/SDL2_mixer-2.0.0/i686-w64-mingw32/lib" />
-					<Add directory="Libraries/Win32/SDL2_image-2.0.0/i686-w64-mingw32/lib" />
-					<Add directory="Libraries/Win32/SDL2_ttf-2.0.12/i686-w64-mingw32/lib" />
-					<Add directory="Libraries/Win32/Lua-5.1" />
+					<Add directory="Libraries/Win32/Stripped/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -76,6 +69,7 @@
 		<Unit filename="SpriteBatch.h" />
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaContentManager.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
@@ -86,10 +80,12 @@
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
+		<Unit filename="include/Tile.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaContentManager.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
@@ -98,6 +94,7 @@
 		</Unit>
 		<Unit filename="src/Screens/TestScreen.cpp" />
 		<Unit filename="src/Sprite.cpp" />
+		<Unit filename="src/Tile.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
