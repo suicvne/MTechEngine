@@ -28,7 +28,7 @@ int Tile::getHeight()
 std::string Tile::getSheetName()
 {return sheetName;}
 
-SDL_Rect Tile::getNonAnimatedArea()
+_vector2i *Tile::getNonAnimatedArea()
 {return area;}
 
 bool Tile::getAnimated()
@@ -43,11 +43,12 @@ int Tile::getFrameUpdateInterval()
 int Tile::getCurrentFrame()
 {return currentFrame;}
 
-_vector2i **Tile::getAllFrames()
+std::vector<_vector2i> Tile::getAllFrames()
 {return frames;}
 
 std::string Tile::getBlockName()
 {return blockName;}
+
 
 /**
 Setters
@@ -66,7 +67,7 @@ void Tile::setSheetName(std::string _sheetname)
 {
     sheetName = _sheetname;
 }
-void Tile::setNonAnimatedArea(SDL_Rect _nanimarea)
+void Tile::setNonAnimatedArea(_vector2i *_nanimarea)
 {
     area = _nanimarea;
 }
@@ -86,7 +87,7 @@ void Tile::setCurrentFrame(int __curframe)
 {
     currentFrame = __curframe;
 }
-void Tile::setAnimatedFrames(_vector2i** __frames)
+void Tile::setAnimatedFrames(std::vector<_vector2i> __frames)
 {
     frames = __frames;
 }

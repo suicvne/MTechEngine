@@ -43,7 +43,6 @@ void LuaBlockConfigLoader::loadBlocks()
             lua_pcall(L, 0, 0, 0);
 
             Tile *t = new Tile();
-            _vector2i **frmsVector;
             lua_getglobal(L, "__name");
             lua_getglobal(L, "__id");
             lua_getglobal(L, "__width");
@@ -63,36 +62,33 @@ void LuaBlockConfigLoader::loadBlocks()
                 int _frmUpdateInt = lua_tonumber(L, -1);
                 //std::cout << "Total frames: " <<totalFrames << "; Update Interval: " << _frmUpdateInt <<std::endl;
 
-                t->setFrameCount(totalFrames);
-                t->setFrameUpdateInterval(_frmUpdateInt);
+                t->setFrameCount(totalFrames); //set frame count in advanced because we'll be modifying the stack soon
+                t->setFrameUpdateInterval(_frmUpdateInt); //set this in advanced too
 
-                _vector2i *frames[totalFrames];
+                //_vector2i *frames[totalFrames]; //temporary allocation
+                std::vector<_vector2i> frames(totalFrames);
 
                 lua_gettable(L, -3);
-                int internalCounter = 0;
+                int internalCounter = 0; //use the opposite of this value to offset the Lua value reader
                 for(int g = 1; g <= t->getFrameCount(); g++)
                 {
                     std::string key = SSTR(g); //stack is at -9
-                    lua_getfield(L, -3 + -internalCounter, key.c_str()); //-10 //crashes here
+                    lua_getfield(L, -3 + -internalCounter, key.c_str()); //-10
 
-                    _vector2i *theFrame = (_vector2i*)lua_touserdata(L, -1); //-1 is on top?
+                    _vector2i theFrame = *(_vector2i*)lua_touserdata(L, -1); //-1 is on top?
                     frames[g - 1] = theFrame;
-                    //lua_pop(L, -1);
 
-                    //std::cout << "From Lua table: " << theFrame->getX() << ", " <<theFrame->getY() <<std::endl;
                     internalCounter++;
                 }
 
                 t->setAnimatedFrames(frames);
-                delete frames;
-                for(int g = 1; g <= t->getFrameCount(); g++)
-                {
-                    std::cout << "More frame testing: " << t->getAllFrames()[g - 1]->getX() << ", " << t->getAllFrames()[g - 1]->getY() << std::endl;
-                }
+                //t->setAnimatedFrames(frames);
+                //delete frames; //tested safe
             }
             else //non animated
             {
-                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -3);
+                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -3); //another temp allocation, DONT delete AFTER
+                //std::cout << "Area (Directly from Lua): " << singleFrame->getX() << ", " << singleFrame->getY() << std::endl;
                 t->setNonAnimatedArea(singleFrame);
                 t->setAnimated(false);
                 t->setFrameCount(0);

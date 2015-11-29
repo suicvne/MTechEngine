@@ -160,6 +160,30 @@ void GameWindow::initBlocks()
     lbcfl->loadBlocks();
     delete lbcfl;
 
+    //Test to make sure we're sane
+    for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
+    {
+        Tile *t;
+        t = (*Tilemap)[i];
+
+        if(t == NULL)
+        {
+            std::cout << "Tile with index " << i << " was null?!?!" << std::endl;
+            continue;
+        }
+
+        std::cout << "Test: Tile \"" << t->getBlockName() << "\"" << std::endl;
+        if(t->getAnimated())
+        {
+            std::cout << " Animated. First Index: " << t->getAllFrames()[0].getX() << ", " << t->getAllFrames()[0].getY() << std::endl;
+            //std::vector<_vector2i> frms = t->getAllFrames();
+        }
+        else
+        {
+            std::cout << " Non-Animated. Area: " << t->getNonAnimatedArea()->getX() << ", " <<t->getNonAnimatedArea()->getY() << std::endl;
+        }
+    }
+
     //std::cout << "From GameWindow: \"" << Tilemap->operator[](1)->getSheetName() << "\"" <<  std::endl;
 }
 

@@ -15,6 +15,7 @@ extern "C"
 #include "../GameWindow.h"
 #include "Tile.h"
 #include "_vector2i.h"
+#include <vector>
 
 #define SSTR( x ) dynamic_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
