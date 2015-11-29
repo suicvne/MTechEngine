@@ -18,6 +18,8 @@ class SpriteBatch
         void sbEnd();
         void sbSetRenderTarget(SDL_Texture *target);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
+        void sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area);
+        void sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale);
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale);
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);

@@ -95,7 +95,7 @@ void GameWindow::loadTextures()
     //std::cout << txture << std::endl;
     contentManager.addTexture("r", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "temp_tileset.png", &mainRenderer);
-    contentManager.addTexture("test", txture);
+    contentManager.addTexture("test_sheet", txture);
 
     delete txture;
 

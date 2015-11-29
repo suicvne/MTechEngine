@@ -1,14 +1,36 @@
 #include "TestScreen.h"
 #include "../GameWindow.h"
+#include "LuaBlockConfigLoader.h"
 /**
 the luna hook ins
 */
+//int LUA_makeVector2i(lua_State *L)
+//{
+//    _vector2i *returnVal = new _vector2i(lua_tonumber(L, 1), lua_tonumber(L, 2));
+//    lua_pushlightuserdata(L, returnVal);
+//    //std::cout << "Pushed vector with " << returnVal->getX() << ", " << returnVal->getY() << std::endl;
+//    return 1;
+//} //makes vector2i for stuff
+#include "global_tiles.h"
+int LUA_GetBlock(lua_State *L)
+{
+    Tile *t = (*Tilemap)[lua_tonumber(L, 1)];
+    if(t != NULL)
+    {
+        lua_pushlightuserdata(L, t);
+        return 1;
+    }
+    else
+        return 0;
+}
 #include "LuaSpriteBatch.h"
 #include "LuaSDL_Texture.h"
 #include "LuaContentManager.h"
+#include "LuaBlockWrapper.h"
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
 const char LuaSDL_Texture::className[] = "LuaSDL_Texture";
 const char LuaContentManager::className[] = "LuaContentManager";
+const char LuaBlockWrapper::className[] = "LuaBlockWrapper";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
@@ -23,6 +45,18 @@ Luna<LuaContentManager>::RegType LuaContentManager::methods[] = {
     {0, 0}
 };
 Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
+    {0, 0}
+};
+Luna<LuaBlockWrapper>::RegType LuaBlockWrapper::methods[] = {
+    method(LuaBlockWrapper, getWorldX),
+    method(LuaBlockWrapper, getWorldY),
+    method(LuaBlockWrapper, getBlockName),
+    method(LuaBlockWrapper, setWorldX),
+    method(LuaBlockWrapper, setWorldY),
+    method(LuaBlockWrapper, drawBlockToScreen),
+    method(LuaBlockWrapper, setCurrentBlockFrame),
+    method(LuaBlockWrapper, getBlockUpdateInterval),
+    method(LuaBlockWrapper, getTotalFrames),
     {0, 0}
 };
 
@@ -49,8 +83,11 @@ void TestScreen::finalInitLua()
     Luna<LuaSpriteBatch>::Register(L);
     Luna<LuaContentManager>::Register(L);
     Luna<LuaSDL_Texture>::Register(L);
+    Luna<LuaBlockWrapper>::Register(L);
 
     luaL_openlibs(L);
+    //lua_register(L, "MakeVector2i", LUA_makeVector2i);
+    lua_register(L, "BlockByID", LUA_GetBlock);
 
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
@@ -62,10 +99,16 @@ void TestScreen::finalInitLua()
 
     std::string path(GameWindow::getResourcePath(""));
     path.append("test.lua");
+    std::cout << "Script from: " << path << std::endl;
 
     s = luaL_loadfile(L, path.c_str());
     if(s != 0)
-        std::cerr << "Couldn't load test.lua!" << std::endl;
+    {
+        report_errors(L, s);
+        std::cout << "Obeying Lua script error rules and exiting" << std::endl;
+        doQuit = true;
+    }
+        //std::cerr << "Couldn't load test.lua!" << std::endl;
     lua_pcall(L, 0, LUA_MULTRET, 0);
 }
 

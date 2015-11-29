@@ -1,3 +1,7 @@
+--[[
+	This is the "stress" test I created to test the Lua engine. But it's kinda boring so
+]]
+
 --io.write("Hey");
 
 local b = LuaSpriteBatch(sprBatch);

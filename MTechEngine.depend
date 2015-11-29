@@ -332,7 +332,7 @@
 	"LuaBlockConfigLoader.h"
 	"global_tiles.h"
 
-1448715633 c:\users\mike\documents\github\mtechengine\spritebatch.h
+1448821622 c:\users\mike\documents\github\mtechengine\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -409,7 +409,7 @@
 	<stdio.h>
 	"lua.h"
 
-1448715633 source:c:\users\mike\documents\github\mtechengine\spritebatch.cpp
+1448821644 source:c:\users\mike\documents\github\mtechengine\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 
@@ -460,12 +460,15 @@
 	<SDL.h>
 	"../GameWindow.h"
 
-1448758816 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1448821457 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
+	"LuaBlockConfigLoader.h"
+	"global_tiles.h"
 	"LuaSpriteBatch.h"
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
+	"LuaBlockWrapper.h"
 
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
@@ -473,10 +476,10 @@
 1448758637 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
-1448818131 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
+1448820681 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
 	"GameWindow.h"
 
-1448818103 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
+1448820778 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
 	"LuaBlockConfigLoader.h"
 
 1448818044 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
@@ -494,10 +497,10 @@
 	"_vector2i.h"
 	<vector>
 
-1448818012 source:c:\users\mike\documents\github\mtechengine\src\tile.cpp
+1448820996 source:c:\users\mike\documents\github\mtechengine\src\tile.cpp
 	"Tile.h"
 
-1448817994 c:\users\mike\documents\github\mtechengine\include\tile.h
+1448820126 c:\users\mike\documents\github\mtechengine\include\tile.h
 	<SDL.h>
 	<iostream>
 	<string>
@@ -520,4 +523,18 @@
 
 1448808283 source:c:\users\mike\documents\github\mtechengine\src\global_tiles.cpp
 	"global_tiles.h"
+
+1448821674 source:c:\users\mike\documents\github\mtechengine\src\luablockwrapper.cpp
+	"LuaBlockWrapper.h"
+
+1448821261 c:\users\mike\documents\github\mtechengine\include\luablockwrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Tile.h"
+	"../SpriteBatch.h"
+	"ContentManager.h"
 

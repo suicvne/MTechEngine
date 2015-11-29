@@ -2,7 +2,7 @@
 
 Tile::Tile()
 {
-    //ctor
+    currentFrame = 0;
 }
 
 Tile::~Tile()
@@ -49,6 +49,28 @@ std::vector<_vector2i> Tile::getAllFrames()
 std::string Tile::getBlockName()
 {return blockName;}
 
+SDL_Rect Tile::areaAsRect()
+{
+    SDL_Rect temp;
+    temp.x = area->getX();
+    temp.y = area->getY();
+    temp.w = width;
+    temp.h = height;
+
+    return temp;
+}
+
+SDL_Rect Tile::currentFrameAsRect()
+{
+    _vector2i frame = frames[currentFrame];
+    SDL_Rect temp;
+    temp.x = frame.getX();
+    temp.y = frame.getY();
+    temp.w = width;
+    temp.h = height;
+
+    return temp;
+}
 
 /**
 Setters
@@ -57,6 +79,14 @@ void Tile::setWorldPosition(int x, int y)
 {
     worldX = x;
     worldY = y;
+}
+void Tile::setWorldX(int __x)
+{
+    worldX = __x;
+}
+void Tile::setWorldY(int __y)
+{
+    worldY = __y;
 }
 void Tile::setBlockSize(int w, int h)
 {

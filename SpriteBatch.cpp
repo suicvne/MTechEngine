@@ -114,6 +114,32 @@ void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
 
+void SpriteBatch::sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = area.w;
+    dst.h = area.h;
+    //SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(__renderer, tex, &area, &dst);
+}
+
+void SpriteBatch::sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = area.w * scale;
+    dst.h = area.h * scale;
+    //SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(__renderer, tex, &area, &dst);
+}
+
 
 void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale)
 {

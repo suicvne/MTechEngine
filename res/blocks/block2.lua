@@ -1,9 +1,9 @@
-__name = "Wood Block"
+__name = "Empty Question Block"
 __id = 1;
 __width = 16;
 __height = 16;
 __animated = false;
 __sheet = "test_sheet"
-__frames = Vector2i(0, 0);
+__frames = Vector2i(69, 1);
 __framecount = 0;
 __frameupdate = 0; 

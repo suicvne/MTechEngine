@@ -30,6 +30,8 @@ class Tile
         std::string getBlockName();
 
         void setWorldPosition(int x, int y);
+        void setWorldX(int __x);
+        void setWorldY(int __y);
         void setBlockSize(int w, int h);
         void setSheetName(std::string _sheetname);
         void setNonAnimatedArea(_vector2i *_nanimarea);
@@ -42,7 +44,8 @@ class Tile
 
         void setBlockName(std::string __bn);
 
-        Tile getSelf();
+        SDL_Rect areaAsRect();
+        SDL_Rect currentFrameAsRect();
     protected:
     private:
         int worldX, worldY; //position in the world, to be determined later
