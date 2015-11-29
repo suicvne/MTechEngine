@@ -15,7 +15,7 @@ class Tile
         Tile();
         ~Tile();
         void update();
-        void draw(SpriteBatch *spr);
+        void draw(SpriteBatch *spr, ContentManager *cm);
         int getWorldX();
         int getWorldY();
         int getWidth();
