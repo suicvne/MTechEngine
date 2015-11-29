@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Minecraft2D" />
+		<Option title="MTechEngine" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Win32">
-				<Option output="bin/Debug/Minecraft2D" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/MTechEngine" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -26,7 +26,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Minecraft2D" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/MTechEngine" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -40,7 +40,7 @@
 			</Target>
 			<Target title="Nix">
 				<Option platforms="Unix;" />
-				<Option output="bin/Nix/Minecraft2D" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Nix/MTechEngine" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/nix" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -98,6 +98,7 @@
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
+		<Unit filename="src/global_tiles.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
