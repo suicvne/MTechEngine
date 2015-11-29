@@ -17,6 +17,7 @@ class ScreenManager
         void update(InputHandler *_ih);
         void draw(SpriteBatch *_sb);
         void pushScreen(ScreensEnum scr);
+        TestScreen *getTestScreen();
     protected:
     private:
         TestScreen *testScreen;

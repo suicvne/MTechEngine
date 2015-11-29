@@ -81,6 +81,8 @@
 		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
+		<Unit filename="include/_vector2i.h" />
+		<Unit filename="include/global_tiles.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
@@ -95,6 +97,7 @@
 		<Unit filename="src/Screens/TestScreen.cpp" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Tile.cpp" />
+		<Unit filename="src/_vector2i.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

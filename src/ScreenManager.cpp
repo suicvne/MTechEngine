@@ -9,7 +9,12 @@ ScreenManager::ScreenManager(ContentManager &__cm)
 
 ScreenManager::~ScreenManager()
 {
-    //dtor
+    delete testScreen;
+}
+
+TestScreen *ScreenManager::getTestScreen()
+{
+    return testScreen;
 }
 
 void ScreenManager::update(InputHandler *_ih)

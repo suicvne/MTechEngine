@@ -25,6 +25,8 @@ class Tile
         int getCurrentFrame();
         SDL_Rect **getAllFrames();
 
+        std::string getBlockName();
+
         void setWorldPosition(int x, int y);
         void setBlockSize(int w, int h);
         void setSheetName(std::string _sheetname);
@@ -35,11 +37,14 @@ class Tile
         void setFrameUpdateInterval(int __interval);
         void setCurrentFrame(int __curframe);
         void setAnimatedFrames(SDL_Rect **__frames);
+
+        void setBlockName(std::string __bn);
     protected:
     private:
         int worldX, worldY; //position in the world, to be determined later
         int width, height;
         std::string sheetName; //name of the sheet in the content manager
+        std::string blockName;
         SDL_Rect area; //area on the sheet for non animated blocks
 
         bool animated; //whether or not the block is animated

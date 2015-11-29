@@ -28,6 +28,7 @@ Luna<LuaSDL_Texture>::RegType LuaSDL_Texture::methods[] = {
 
 TestScreen::TestScreen(ContentManager &___cm) : Screen()
 {
+    doQuit = false;
     std::cout << "Address of contentmanager arg in TestScreen: " << &___cm << std::endl;
     _cm = &___cm;
 
@@ -74,7 +75,10 @@ void TestScreen::onLoopFunction()
     //State, arg count, result count, ?
     if(lua_pcall(L, 0, 0, 0) != 0)
     {
-        std::cerr << "onLoop error: " << lua_tostring(L, -1) << std::endl;
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "onLoop Error", lua_tostring(L, -1), NULL);
+        lua_pop(L, 1);
+
+        doQuit = true;
     }
 }
 
@@ -84,7 +88,11 @@ void TestScreen::onUpdateFunction()
 
     if(lua_pcall(L, 0, 0, 0) != 0)
     {
-        std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "onUpdate Error", lua_tostring(L, -1), NULL);
+        //std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
+        lua_pop(L, 1);
+
+        doQuit = true;
     }
 }
 
@@ -92,8 +100,10 @@ void TestScreen::report_errors(lua_State *L, int status)
 {
     if (status != 0)
 	{
-		std::cerr << "-- " << lua_tostring(L, -1) << std::endl;
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "General Lua Error", lua_tostring(L, -1), NULL);
 		lua_pop(L, 1); //remove error message
+
+		doQuit = true;
 	}
 }
 

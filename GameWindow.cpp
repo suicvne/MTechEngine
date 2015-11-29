@@ -78,6 +78,8 @@ void GameWindow::initializeSDL()
     SDL_GetDisplayMode(0, 1, &mode);
     std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
 
+    initBlocks();
+
     while(quit == 0)
     {
         GameWindow::update();
@@ -151,6 +153,15 @@ void GameWindow::toggleFullscreen()
     }
 }
 
+void GameWindow::initBlocks()
+{
+    LuaBlockConfigLoader *lbcfl = new LuaBlockConfigLoader();
+    lbcfl->loadBlocks();
+    delete lbcfl;
+
+    std::cout << "\"" << Tilemap[1]->getSheetName() << "\"" <<  std::endl;
+}
+
 void GameWindow::update()
 {
     if(__update)
@@ -159,6 +170,11 @@ void GameWindow::update()
         {
             inputHandler->update();
             screenManager->update(inputHandler);
+            if(screenManager->getTestScreen()->doQuit)
+            {
+                std::cout << "Obeying Lua Script Error and quitting" << std::endl;
+                quit = 1;
+            }
 
             lastTimeCheck = SDL_GetTicks();
         }

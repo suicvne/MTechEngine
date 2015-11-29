@@ -46,6 +46,9 @@ int Tile::getCurrentFrame()
 SDL_Rect **Tile::getAllFrames()
 {return frames;}
 
+std::string Tile::getBlockName()
+{return blockName;}
+
 /**
 Setters
 */
@@ -86,4 +89,8 @@ void Tile::setCurrentFrame(int __curframe)
 void Tile::setAnimatedFrames(SDL_Rect** __frames)
 {
     frames = __frames;
+}
+void Tile::setBlockName(std::string __bn)
+{
+    blockName = __bn;
 }

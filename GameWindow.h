@@ -12,6 +12,8 @@
 #include "float.h"
 #include "StandardColors.h"
 #include "ScreenManager.h"
+#include "LuaBlockConfigLoader.h"
+#include "global_tiles.h"
 
 struct SDLInitArgs
 {
@@ -73,6 +75,7 @@ private:
     void draw();
     void update();
     void loadTextures();
+    void initBlocks();
     void toggleFullscreen();
     SDL_Texture *targetTexture;
     SDL_Window *gameWindow;
