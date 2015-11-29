@@ -54,8 +54,6 @@ void LuaBlockConfigLoader::loadBlocks()
             lua_getglobal(L, "__frameupdate");
             t->setBlockName(std::string(lua_tostring(L, -9)));
             t->setBlockSize(lua_tonumber(L, -7), lua_tonumber(L, -6));
-            std::cout << "Block size (from lua): " << lua_tonumber(L, -7) << " x " << lua_tonumber(L, -6) <<std::endl;
-            std::cout << "Block size (from Tile): " << t->getWidth() << " x " << t->getHeight() <<  std::endl;
             t->setAnimated(lua_toboolean(L, -5));
             t->setSheetName(std::string(lua_tostring(L, -4)));
             if(lua_istable(L, -3)) //assume animation frames table

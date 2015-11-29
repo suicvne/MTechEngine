@@ -10,6 +10,31 @@ Tile::~Tile()
     //dtor
 }
 
+void Tile::update()
+{
+    if(animated)
+    {
+        currentFrame = counter / frameUpdateInterval;
+        ++counter;
+        if(counter / frameUpdateInterval >= frameCount - 1) //might have to add/remove minus 1
+        {
+            frame = 0;
+        }
+    }
+}
+
+void Tile::draw(SpriteBatch *spr, ContentManager *cm)
+{
+    if(animated)
+    {
+        spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, currentFrameAsRect(), 2);
+    }
+    else
+    {
+        spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, areaAsRect(), 2);
+    }
+}
+
 /**
 Getters
 */

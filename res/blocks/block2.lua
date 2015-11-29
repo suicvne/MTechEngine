@@ -1,5 +1,5 @@
 __name = "Empty Question Block"
-__id = 1;
+__id = 2;
 __width = 16;
 __height = 16;
 __animated = false;

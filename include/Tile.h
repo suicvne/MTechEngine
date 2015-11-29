@@ -14,6 +14,8 @@ class Tile
     public:
         Tile();
         ~Tile();
+        void update();
+        void draw(SpriteBatch *spr);
         int getWorldX();
         int getWorldY();
         int getWidth();
@@ -58,6 +60,7 @@ class Tile
         int frameCount; //amount of frames in the animation
         int frameUpdateInterval; //how many frames go by before it's updated? divide frame index by this
         int currentFrame; //not used yet
+        int counter;
         //_vector2i **frames; //the actual frames
         std::vector<_vector2i> frames;
 };

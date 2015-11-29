@@ -161,6 +161,7 @@ void GameWindow::initBlocks()
     delete lbcfl;
 
     //Test to make sure we're sane
+    std::cout << std::endl << "===BEGIN BLOCK SANITY CHECK===" << std::endl;
     for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
     {
         Tile *t;
@@ -183,7 +184,7 @@ void GameWindow::initBlocks()
             std::cout << " Non-Animated. Area: " << t->getNonAnimatedArea()->getX() << ", " <<t->getNonAnimatedArea()->getY() << std::endl;
         }
     }
-
+    std::cout << "===END BLOCK SANITY CHECK===" << std::endl << std::endl;
     //std::cout << "From GameWindow: \"" << Tilemap->operator[](1)->getSheetName() << "\"" <<  std::endl;
 }
 
@@ -191,9 +192,9 @@ void GameWindow::update()
 {
     if(__update)
     {
+        inputHandler->update();
         if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
         {
-            inputHandler->update();
             screenManager->update(inputHandler);
             if(screenManager->getTestScreen()->doQuit)
             {
@@ -203,18 +204,7 @@ void GameWindow::update()
 
             lastTimeCheck = SDL_GetTicks();
         }
-        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
-            {
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
-                    quit = 1;
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
-                    toggleFullscreen();
-            }
-            if(inputHandler->getEvent()->type == SDL_QUIT)
-            {
-                quit = 1;
-            }
-            if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
             {
                 switch(inputHandler->getEvent()->window.event)
                 {
@@ -229,6 +219,18 @@ void GameWindow::update()
                     break;
                 }
             }
+        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+            {
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+                    quit = 1;
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
+                    toggleFullscreen();
+            }
+            if(inputHandler->getEvent()->type == SDL_QUIT)
+            {
+                quit = 1;
+            }
+
         //SDL_PollEvent(mainEventLoop);
     }
     else
