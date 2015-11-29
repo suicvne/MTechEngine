@@ -7,6 +7,6 @@
 #include <map>
 #include "Tile.h"
 
-static std::map<int, Tile*> Tilemap;
+extern std::map<int, Tile*> *Tilemap;
 
 #endif // GLOBAL_TILES_H_INCLUDED

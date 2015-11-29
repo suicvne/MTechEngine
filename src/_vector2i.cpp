@@ -10,6 +10,16 @@ _vector2i::_vector2i(int _x, int _y)
 {
     x = _x;
     y = _y;
+
+    std::cout << "Vector init with values: " << _x << ", " << _y << std::endl;
+}
+
+SDL_Rect _vector2i::rectFromVector()
+{
+    SDL_Rect tempRect;
+    tempRect.x = x;
+    tempRect.y = y;
+    return tempRect;
 }
 
 void _vector2i::setY(int _y)

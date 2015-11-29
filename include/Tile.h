@@ -6,6 +6,7 @@
 #include <string>
 #include "../SpriteBatch.h"
 #include "ContentManager.h"
+#include "_vector2i.h"
 
 class Tile
 {
@@ -17,26 +18,26 @@ class Tile
         int getWidth();
         int getHeight();
         std::string getSheetName();
-        SDL_Rect getNonAnimatedArea();
+        _vector2i getNonAnimatedArea();
 
         bool getAnimated();
         int getFrameCount();
         int getFrameUpdateInterval();
         int getCurrentFrame();
-        SDL_Rect **getAllFrames();
+        _vector2i **getAllFrames();
 
         std::string getBlockName();
 
         void setWorldPosition(int x, int y);
         void setBlockSize(int w, int h);
         void setSheetName(std::string _sheetname);
-        void setNonAnimatedArea(SDL_Rect _nanimarea);
+        void setNonAnimatedArea(_vector2i _nanimarea);
 
         void setAnimated(bool __anim);
         void setFrameCount(int framec);
         void setFrameUpdateInterval(int __interval);
         void setCurrentFrame(int __curframe);
-        void setAnimatedFrames(SDL_Rect **__frames);
+        void setAnimatedFrames(_vector2i **__frames);
 
         void setBlockName(std::string __bn);
     protected:
@@ -45,13 +46,13 @@ class Tile
         int width, height;
         std::string sheetName; //name of the sheet in the content manager
         std::string blockName;
-        SDL_Rect area; //area on the sheet for non animated blocks
+        _vector2i area; //area on the sheet for non animated blocks
 
         bool animated; //whether or not the block is animated
         int frameCount; //amount of frames in the animation
         int frameUpdateInterval; //how many frames go by before it's updated? divide frame index by this
         int currentFrame; //not used yet
-        SDL_Rect **frames; //the actual frames
+        _vector2i **frames; //the actual frames
 };
 
 #endif // TILE_H

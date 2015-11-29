@@ -4,6 +4,6 @@ __width = 16;
 __height = 16;
 __animated = false;
 __sheet = "test_sheet"
-__frames = {{0, 0}}
+__frames = Vector2i(0, 0);
 __framecount = 0;
 __frameupdate = 0; 

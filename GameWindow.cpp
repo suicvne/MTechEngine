@@ -62,6 +62,7 @@ void GameWindow::initializeSDL()
 
     inputHandler = new InputHandler();
 
+    initBlocks();
     loadTextures();
 
     __update = true;
@@ -78,7 +79,7 @@ void GameWindow::initializeSDL()
     SDL_GetDisplayMode(0, 1, &mode);
     std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
 
-    initBlocks();
+
 
     while(quit == 0)
     {
@@ -159,7 +160,7 @@ void GameWindow::initBlocks()
     lbcfl->loadBlocks();
     delete lbcfl;
 
-    std::cout << "\"" << Tilemap[1]->getSheetName() << "\"" <<  std::endl;
+    //std::cout << "From GameWindow: \"" << Tilemap->operator[](1)->getSheetName() << "\"" <<  std::endl;
 }
 
 void GameWindow::update()

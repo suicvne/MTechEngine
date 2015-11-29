@@ -2,13 +2,9 @@
 
 int LUA_makeVector2i(lua_State *L)
 {
-    _vector2i *returnVal = new _vector2i();
-    int x, y;
-    x = lua_tonumber(L, 1);
-    y = lua_tonumber(L, 2);
-    returnVal->setX(x);
-    returnVal->setY(y);
+    _vector2i *returnVal = new _vector2i(lua_tonumber(L, 1), lua_tonumber(L, 2));
     lua_pushlightuserdata(L, returnVal);
+    //std::cout << "Pushed vector with " << returnVal->getX() << ", " << returnVal->getY() << std::endl;
     return 1;
 }
 
@@ -61,26 +57,54 @@ void LuaBlockConfigLoader::loadBlocks()
             t->setBlockSize(lua_tonumber(L, -7), lua_tonumber(L, -6));
             t->setAnimated(lua_toboolean(L, -5));
             t->setSheetName(std::string(lua_tostring(L, -4)));
+            if(lua_istable(L, -3)) //assume animation frames table
+            {
+                int totalFrames = lua_tonumber(L, -2);
+                int _frmUpdateInt = lua_tonumber(L, -1);
+                //std::cout << "Total frames: " <<totalFrames << "; Update Interval: " << _frmUpdateInt <<std::endl;
 
-            frmsVector = ((_vector2i**)lua_touserdata(L, -3));
+                t->setFrameCount(totalFrames);
+                t->setFrameUpdateInterval(_frmUpdateInt);
 
-            SDL_Rect **frames = rectArrayFromVectorArray(frmsVector, lua_tonumber(L, -2), t->getWidth(), t->getHeight());
-            t->setAnimatedFrames(frames);
-            //t->setAnimatedFrames();
-            t->setFrameCount(lua_tonumber(L, -2));
-            t->setFrameUpdateInterval(lua_tonumber(L, -1));
+                _vector2i *frames[totalFrames];
 
-            Tilemap[i] = t;
+                lua_gettable(L, -3);
+                int internalCounter = 0;
+                for(int g = 1; g <= t->getFrameCount(); g++)
+                {
+                    std::string key = SSTR(g); //stack is at -9
+                    lua_getfield(L, -3 + -internalCounter, key.c_str()); //-10 //crashes here
 
-            std::cout << "Added block-" << i << " with name '" << t->getBlockName() << "'." << std::endl;
-            std::cout << "Sheetname: " << t->getSheetName() << std::endl;
-            std::cout << "Test: " << Tilemap[i]->getSheetName() << std::endl;
+                    _vector2i *theFrame = (_vector2i*)lua_touserdata(L, -1); //-1 is on top?
+                    frames[g - 1] = theFrame;
+                    //lua_pop(L, -1);
 
-            //frames = Tilemap[i]->getAllFrames();
+                    //std::cout << "From Lua table: " << theFrame->getX() << ", " <<theFrame->getY() <<std::endl;
+                    internalCounter++;
+                }
 
-            std::cout << "Another test: " << frames[0]->x << ", " << frames[0]->y <<std::endl;
+                t->setAnimatedFrames(frames);
+                delete frames;
+                for(int g = 1; g <= t->getFrameCount(); g++)
+                {
+                    std::cout << "More frame testing: " << t->getAllFrames()[g - 1]->getX() << ", " << t->getAllFrames()[g - 1]->getY() << std::endl;
+                }
+            }
+            else //non animated
+            {
+                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -3);
+                t->setNonAnimatedArea(singleFrame);
+                t->setAnimated(false);
+                t->setFrameCount(0);
+                t->setFrameUpdateInterval(0);
+            }
+
+            (*Tilemap)[i] = t;
+
+            std::cout << "Added block-" << i << " with name '" << t->getBlockName() << "'." << " (Animated: " << t->getAnimated() << ")" << std::endl;
         }
     }
+    std::cout << "All blocks initialized" << std::endl;
 }
 
 SDL_Rect **LuaBlockConfigLoader::rectArrayFromVectorArray(_vector2i **arr, int frameCount, int w, int h)
@@ -105,4 +129,5 @@ SDL_Rect **LuaBlockConfigLoader::rectArrayFromVectorArray(_vector2i **arr, int f
 LuaBlockConfigLoader::~LuaBlockConfigLoader()
 {
     //dtor
+    lua_close(L);
 }

@@ -1,6 +1,8 @@
 #ifndef _VECTOR2I_H
 #define _VECTOR2I_H
 
+#include <iostream>
+#include <SDL.h>
 
 class _vector2i
 {
@@ -12,6 +14,7 @@ class _vector2i
         int getY();
         void setX(int _x);
         void setY(int _y);
+        SDL_Rect rectFromVector();
     protected:
     private:
         int x, y;

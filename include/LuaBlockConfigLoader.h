@@ -16,6 +16,9 @@ extern "C"
 #include "Tile.h"
 #include "_vector2i.h"
 
+#define SSTR( x ) dynamic_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
+
 class LuaBlockConfigLoader
 {
     public:

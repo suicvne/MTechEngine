@@ -43,7 +43,7 @@ int Tile::getFrameUpdateInterval()
 int Tile::getCurrentFrame()
 {return currentFrame;}
 
-SDL_Rect **Tile::getAllFrames()
+_vector2i **Tile::getAllFrames()
 {return frames;}
 
 std::string Tile::getBlockName()
@@ -86,7 +86,7 @@ void Tile::setCurrentFrame(int __curframe)
 {
     currentFrame = __curframe;
 }
-void Tile::setAnimatedFrames(SDL_Rect** __frames)
+void Tile::setAnimatedFrames(_vector2i** __frames)
 {
     frames = __frames;
 }
