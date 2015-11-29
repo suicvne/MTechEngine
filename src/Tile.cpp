@@ -18,7 +18,7 @@ void Tile::update()
         ++counter;
         if(counter / frameUpdateInterval >= frameCount - 1) //might have to add/remove minus 1
         {
-            frame = 0;
+            counter = 0;
         }
     }
 }
