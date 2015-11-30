@@ -6,7 +6,11 @@
 #include <iostream>
 #include <map>
 #include "Tile.h"
+#include "ContentManager.h"
+#include "../SpriteBatch.h"
 
 extern std::map<int, Tile*> *Tilemap;
+extern bool __updateGame;
+
 
 #endif // GLOBAL_TILES_H_INCLUDED

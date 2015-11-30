@@ -11,7 +11,8 @@ the luna hook ins
 //    //std::cout << "Pushed vector with " << returnVal->getX() << ", " << returnVal->getY() << std::endl;
 //    return 1;
 //} //makes vector2i for stuff
-#include "global_tiles.h"
+#include "global_vars.h"
+
 int LUA_GetBlock(lua_State *L)
 {
     Tile *t = (*Tilemap)[lua_tonumber(L, 1)];
@@ -105,7 +106,7 @@ void TestScreen::finalInitLua()
     if(s != 0)
     {
         report_errors(L, s);
-        std::cout << "Obeying Lua script error rules and exiting" << std::endl;
+        std::cout << "Obeying Lua script load rules and exiting" << std::endl;
         doQuit = true;
     }
         //std::cerr << "Couldn't load test.lua!" << std::endl;

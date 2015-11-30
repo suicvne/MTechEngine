@@ -70,6 +70,7 @@
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
+		<Unit filename="include/LuaBlockWrapper.h" />
 		<Unit filename="include/LuaContentManager.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
@@ -82,12 +83,13 @@
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/_vector2i.h" />
-		<Unit filename="include/global_tiles.h" />
+		<Unit filename="include/global_vars.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
+		<Unit filename="src/LuaBlockWrapper.cpp" />
 		<Unit filename="src/LuaContentManager.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
@@ -98,7 +100,7 @@
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
-		<Unit filename="src/global_tiles.cpp" />
+		<Unit filename="src/global_vars.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -6,7 +6,7 @@ GameWindow::GameWindow()
     initArgs.y = -1;
     width = 800;
     height = 600;
-    winTitle = "SDLEngine";
+    winTitle = "MTechEngine";
 }
 
 GameWindow::GameWindow(SDLInitArgs initializerArgs)
@@ -44,9 +44,11 @@ void GameWindow::initializeSDL()
     GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     std::cout << "Enabling vsync for Windows" << std::endl;
     #else
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1,
-                                                  SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
+    //GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1,
+    //                                              SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
     #endif // _WIN32
+
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED);
 
     if(GameWindow::mainRenderer == NULL)
     {
@@ -67,17 +69,13 @@ void GameWindow::initializeSDL()
 
     __update = true;
 
+    if(mainRenderer == NULL)
+        std::cout << "!!!!!!!!!!! YOURE FUCKED" << std::endl;
+
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
-    updateIntervalMs = 5;
+    updateIntervalMs = 35;
     lastTimeCheck = SDL_GetTicks();
-
-    SDL_DisplayMode mode;
-    SDL_GetDisplayMode(0, 0, &mode);
-    std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
-
-    SDL_GetDisplayMode(0, 1, &mode);
-    std::cout << mode.w << " x " << mode.h << " @ " << mode.refresh_rate << "hz" << std::endl;
 
 
 
@@ -97,7 +95,7 @@ void GameWindow::loadTextures()
     txture = spriteBatch->loadTexture(getResourcePath("") + "temp_tileset.png", &mainRenderer);
     contentManager.addTexture("test_sheet", txture);
 
-    delete txture;
+    //delete txture;
 
     std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
     screenManager = new ScreenManager(contentManager);
@@ -115,7 +113,7 @@ GameWindow::~GameWindow()
 
 void GameWindow::draw()
 {
-    if(__update)
+    if(__updateGame)
     {
         spriteBatch->sbSetRenderTarget(targetTexture);
         screenManager->draw(spriteBatch);
@@ -190,7 +188,7 @@ void GameWindow::initBlocks()
 
 void GameWindow::update()
 {
-    if(__update)
+    if(__updateGame)
     {
         inputHandler->update();
         if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
@@ -214,7 +212,7 @@ void GameWindow::update()
                     std::cout << "Resized: " << width << " x " << height << std::endl;
                     break;
                 case SDL_WINDOWEVENT_MINIMIZED:
-                    __update = false;
+                    __updateGame = false;
                     std::cout << "Update stopped" << std::endl;
                     break;
                 }
@@ -240,7 +238,7 @@ void GameWindow::update()
         {
             if(inputHandler->getEvent()->window.event == SDL_WINDOWEVENT_RESTORED)
             {
-                __update = true;
+                __updateGame = true;
                 std::cout << "Update began" << std::endl;
             }
         }

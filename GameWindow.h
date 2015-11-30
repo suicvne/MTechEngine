@@ -13,7 +13,7 @@
 #include "StandardColors.h"
 #include "ScreenManager.h"
 #include "LuaBlockConfigLoader.h"
-#include "global_tiles.h"
+#include "global_vars.h"
 
 struct SDLInitArgs
 {
