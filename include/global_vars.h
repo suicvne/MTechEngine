@@ -9,8 +9,10 @@
 #include "ContentManager.h"
 #include "../SpriteBatch.h"
 
-extern std::map<int, Tile*> *Tilemap;
+extern std::map<int, Tile*> Tilemap;
+extern Tile *__getBlockByID(int id);
 extern bool __updateGame;
+extern bool __vsyncEnabled;
 
 
 #endif // GLOBAL_TILES_H_INCLUDED

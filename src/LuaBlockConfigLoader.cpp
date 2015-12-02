@@ -95,7 +95,8 @@ void LuaBlockConfigLoader::loadBlocks()
                 t->setFrameUpdateInterval(0);
             }
 
-            (*Tilemap)[i] = t;
+            //(*Tilemap)[i] = t;
+            Tilemap[i] = t;
 
             std::cout << "Added block-" << i << " with name '" << t->getBlockName() << "'." << " (Animated: " << t->getAnimated() << ")" << std::endl;
         }

@@ -538,7 +538,7 @@
 	"../SpriteBatch.h"
 	"ContentManager.h"
 
-1448924578 source:/home/mike/git/MTechEngine/main.cpp
+1449012434 source:/home/mike/git/MTechEngine/main.cpp
 	<SDL.h>
 	"GameWindow.h"
 
@@ -908,13 +908,14 @@
 1448924578 /home/mike/git/MTechEngine/include/ScreenManager.h
 	"TestScreen.h"
 
-1448924578 /home/mike/git/MTechEngine/include/TestScreen.h
+1449014654 /home/mike/git/MTechEngine/include/TestScreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
+	<SDL.h>
 
 1448924578 /home/mike/git/MTechEngine/include/Screen.h
 	"../SpriteBatch.h"
@@ -1001,7 +1002,7 @@
 1448924578 source:/home/mike/git/MTechEngine/src/InputHandler.cpp
 	"InputHandler.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/LuaBlockConfigLoader.cpp
+1449016100 source:/home/mike/git/MTechEngine/src/LuaBlockConfigLoader.cpp
 	"LuaBlockConfigLoader.h"
 
 1448924578 source:/home/mike/git/MTechEngine/src/LuaContentManager.cpp
@@ -1041,7 +1042,7 @@
 	<SDL.h>
 	"../GameWindow.h"
 
-1448926431 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
+1449016150 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -1071,19 +1072,34 @@
 1448924578 source:/home/mike/git/MTechEngine/src/ScreenManager.cpp
 	"ScreenManager.h"
 
-1448926087 source:/home/mike/git/MTechEngine/GameWindow.cpp
+1449016165 source:/home/mike/git/MTechEngine/GameWindow.cpp
 	"GameWindow.h"
 
 1448924578 source:/home/mike/git/MTechEngine/src/LuaBlockWrapper.cpp
 	"LuaBlockWrapper.h"
 
-1448926246 source:/home/mike/git/MTechEngine/src/global_vars.cpp
+1449016082 source:/home/mike/git/MTechEngine/src/global_vars.cpp
 	"global_vars.h"
 
-1448926373 /home/mike/git/MTechEngine/include/global_vars.h
+1449016065 /home/mike/git/MTechEngine/include/global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
 	"ContentManager.h"
 	"../SpriteBatch.h"
+
+1449013683 source:/home/mike/git/MTechEngine/src/LuaEventHandlerWrapper.cpp
+	"LuaEventHandlerWrapper.h"
+
+1449013012 /home/mike/git/MTechEngine/include/LuaEventHandlerWrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Tile.h"
+	"../SpriteBatch.h"
+	"ContentManager.h"
+	"InputHandler.h"
 

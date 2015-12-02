@@ -48,7 +48,12 @@ void GameWindow::initializeSDL()
     //                                              SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
     #endif // _WIN32
 
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED);
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
+    if(initArgs.vsync)
+    {
+        std::cout << "Launching the game with vsync" << std::endl;
+        __vsyncEnabled = true;
+    }
 
     if(GameWindow::mainRenderer == NULL)
     {
@@ -74,7 +79,9 @@ void GameWindow::initializeSDL()
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
-    updateIntervalMs = 35;
+
+    //TODO: get the target refresh rate and divide it by half to get the update interval in ms
+    updateIntervalMs = 30;
     lastTimeCheck = SDL_GetTicks();
 
 
@@ -163,7 +170,7 @@ void GameWindow::initBlocks()
     for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
     {
         Tile *t;
-        t = (*Tilemap)[i];
+        t = Tilemap[i];
 
         if(t == NULL)
         {
@@ -191,7 +198,18 @@ void GameWindow::update()
     if(__updateGame)
     {
         inputHandler->update();
-        if(lastTimeCheck + updateIntervalMs < SDL_GetTicks())
+        if(__vsyncEnabled)
+        {
+            screenManager->update(inputHandler);
+            if(screenManager->getTestScreen()->doQuit)
+            {
+                std::cout << "Obeying Lua Script Error and quitting" << std::endl;
+                quit = 1;
+            }
+
+            lastTimeCheck = SDL_GetTicks();
+        }
+        else if(lastTimeCheck + updateIntervalMs < (int)SDL_GetTicks())
         {
             screenManager->update(inputHandler);
             if(screenManager->getTestScreen()->doQuit)

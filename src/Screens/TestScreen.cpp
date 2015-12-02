@@ -15,7 +15,9 @@ the luna hook ins
 
 int LUA_GetBlock(lua_State *L)
 {
-    Tile *t = (*Tilemap)[lua_tonumber(L, 1)];
+    Tile *t = new Tile();
+    //*t = (*Tilemap)[lua_tonumber(L, 1)];
+    *t = *(Tilemap[lua_tonumber(L, 1)]);
     if(t != NULL)
     {
         lua_pushlightuserdata(L, t);
@@ -74,6 +76,7 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
 
 TestScreen::~TestScreen()
 {
+    //free(L);
     delete L;
 }
 
@@ -110,7 +113,8 @@ void TestScreen::finalInitLua()
         doQuit = true;
     }
         //std::cerr << "Couldn't load test.lua!" << std::endl;
-    lua_pcall(L, 0, LUA_MULTRET, 0);
+    lua_pcall(L, 0, LUA_MULTRET, 0); //apparently necessary to initialize the initial globals
+    onLoadFunction();
 }
 
 void TestScreen::onLoopFunction()
@@ -129,8 +133,11 @@ void TestScreen::onLoopFunction()
 void TestScreen::onUpdateFunction()
 {
     lua_getglobal(L, "onUpdate");
-
-    if(lua_pcall(L, 0, 0, 0) != 0)
+    if(lua_isnil(L, -1))
+    {
+        std::cout << "No onUpdate function" << std::endl;
+    }
+    else if(lua_pcall(L, 0, 0, 0) != 0)
     {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "onUpdate Error", lua_tostring(L, -1), NULL);
         //std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
@@ -162,8 +169,44 @@ void TestScreen::draw(SpriteBatch *_sb)
     //_sb->sbDrawFont("f CPP", 0, 0, clr.strongGreen, float(3), true);
 }
 
+void TestScreen::onInputFunction(SDL_Keycode keycode)
+{
+    lua_getglobal(L, "onKeyDown");
+    lua_pushnumber(L, (int)keycode);
+    if(lua_isnil(L, -1))
+    {
+        std::cout << "No onKeyDown function" << std::endl;
+    }
+    else if(lua_pcall(L, 1, 0, 0) != 0)
+    {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "onKeyDown Error", lua_tostring(L, -1), NULL);
+        //std::cerr << "onUpdate error: " << lua_tostring(L, -1) << std::endl;
+        lua_pop(L, 1);
+
+        doQuit = true;
+    }
+}
+
+void TestScreen::onLoadFunction()
+{
+    lua_getglobal(L, "onLoad");
+    if(lua_isnil(L, -1))
+    {
+        std::cout << "No onLoad function" << std::endl;
+    }
+    else if(lua_pcall(L, 0, 0, 0) != 0)
+    {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "onLoad Error", lua_tostring(L, -1), NULL);
+        lua_pop(L, 1);
+        doQuit = true;
+    }
+}
+
 void TestScreen::update(InputHandler *_ih)
 {
-    //_ih->update();
     onUpdateFunction();
+    if(_ih->getEvent()->type == SDL_KEYDOWN) //TODO: abstract to specific type of input (instead of raw keycode, jump button, etc.."
+    {
+        onInputFunction(_ih->getEvent()->key.keysym.sym);
+    }
 }

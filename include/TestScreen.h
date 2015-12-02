@@ -10,6 +10,7 @@ extern "C"
 #include <lualib.h>
 #include <lauxlib.h>
 }
+#include <SDL.h>
 
 #define lua_open() luaL_newstate()
 
@@ -25,7 +26,9 @@ class TestScreen : public Screen
         void finalInitLua();
         void report_errors(lua_State *L, int status);
         void onLoopFunction();
+        void onInputFunction(SDL_Keycode keycode);
         void onUpdateFunction();
+        void onLoadFunction();
         bool doQuit;
     protected:
     private:
