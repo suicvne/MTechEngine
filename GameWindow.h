@@ -77,6 +77,7 @@ private:
     void loadTextures();
     void initBlocks();
     void toggleFullscreen();
+    void windowResize();
     SDL_Texture *targetTexture;
     SDL_Window *gameWindow;
     SDL_Renderer *mainRenderer;
@@ -89,6 +90,8 @@ private:
     int lastTimeCheck, updateIntervalMs;
     bool __update;
     int __fullscreen = 0;
+    float scaleGameH = 1f;
+    float scaleGameW = 1f;
 };
 
 

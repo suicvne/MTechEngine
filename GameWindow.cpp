@@ -193,6 +193,15 @@ void GameWindow::initBlocks()
     //std::cout << "From GameWindow: \"" << Tilemap->operator[](1)->getSheetName() << "\"" <<  std::endl;
 }
 
+void GameWindow::windowResize()
+{
+    int w, h;
+    SDL_GetWindowSize(GameWindow::gameWindow, &w, &h);
+    scaleGameW = w / 800;
+    scaleGameH = h / 600;
+
+}
+
 void GameWindow::update()
 {
     if(__updateGame)
@@ -225,9 +234,10 @@ void GameWindow::update()
                 switch(inputHandler->getEvent()->window.event)
                 {
                 case SDL_WINDOWEVENT_RESIZED:
-                    width = inputHandler->getEvent()->window.data1;
-                    height = inputHandler->getEvent()->window.data2;
-                    std::cout << "Resized: " << width << " x " << height << std::endl;
+                    windowResize();
+                    //width = inputHandler->getEvent()->window.data1;
+                    //height = inputHandler->getEvent()->window.data2;
+                    //std::cout << "Resized: " << width << " x " << height << std::endl;
                     break;
                 case SDL_WINDOWEVENT_MINIMIZED:
                     __updateGame = false;

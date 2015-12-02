@@ -72,6 +72,7 @@
 		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaBlockWrapper.h" />
 		<Unit filename="include/LuaContentManager.h" />
+		<Unit filename="include/LuaEventHandlerWrapper.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
 		<Unit filename="include/Screen.h">
@@ -91,6 +92,7 @@
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaBlockWrapper.cpp" />
 		<Unit filename="src/LuaContentManager.cpp" />
+		<Unit filename="src/LuaEventHandlerWrapper.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
 		<Unit filename="src/ScreenManager.cpp">
