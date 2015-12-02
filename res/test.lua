@@ -11,12 +11,14 @@ local frame = 0;
 
 function onLoad()
 	local maxY = math.ceil(600 / 32);
-	io.write("Max Y is " .. maxY .. "\n");
-	for yIter=0,maxY,32 do
-		io.write("y: " .. yIter .. "\n");
-		block = LuaBlockWrapper(BlockByID(1));
-		block:setWorldX(0, yIter);
-		table.insert(tableOfBlocks, block);
+	local maxX = math.ceil(800 / 32);
+	for yIter=0,maxY,1 do
+		for xIter=0,maxX,1 do
+			local block = LuaBlockWrapper(BlockByID(1));
+			block:setWorldX(xIter*32);
+			block:setWorldY(yIter*32);
+			table.insert(tableOfBlocks, block);
+		end
 	end
 end
 
@@ -36,21 +38,19 @@ function onKeyDown(keycode)
 end
 
 function onLoop()
-	exampleBlock:setCurrentBlockFrame(frame / exampleBlock:getBlockUpdateInterval());
-	exampleBlock:setWorldX(100);
-	exampleBlock:setWorldY(100);
-	exampleBlock2:setWorldX(132);
-	exampleBlock2:setWorldY(100);
-	spr:drawTextToScreen(exampleBlock:getBlockName(), 10, 10, 3, false);
-	spr:drawTextToScreen(exampleBlock:getBlockUpdateInterval(), 10, 200, 2, false);
-	exampleBlock:drawBlockToScreen(sprBatch, mainContentManager);
-	exampleBlock2:drawBlockToScreen(sprBatch, mainContentManager);
-	
-	if(frame / exampleBlock:getBlockUpdateInterval() >= exampleBlock:getTotalFrames() - 1) then
+	--io.write(table.getn(tableOfBlocks).."\n");
+	for i=1,table.getn(tableOfBlocks) do
+		tableOfBlocks[i]:setCurrentBlockFrame(frame / tableOfBlocks[i]:getBlockUpdateInterval());
+		tableOfBlocks[i]:drawBlockToScreen(sprBatch, mainContentManager);		
+	end
+
+	if(frame / exampleBlock:getBlockUpdateInterval() >= 3) then
 		frame = 0;
 	end
 
 	if(printKeyPressedMsg == true) then
 		spr:drawTextToScreen(messageToPrintToScreen, 0, 600 - 32, 2, false);
 	end
+
+	spr:drawTextToScreen("Total blocks in table  " .. table.getn(tableOfBlocks) .. "\n", 2, 600 - 32, 2, false);
 end
