@@ -67,6 +67,7 @@
 		<Unit filename="GameWindow.h" />
 		<Unit filename="SpriteBatch.cpp" />
 		<Unit filename="SpriteBatch.h" />
+		<Unit filename="include/Camera2d.h" />
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
@@ -87,6 +88,7 @@
 		<Unit filename="include/global_vars.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Camera2d.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />

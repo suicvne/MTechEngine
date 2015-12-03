@@ -90,8 +90,8 @@ private:
     int lastTimeCheck, updateIntervalMs;
     bool __update;
     int __fullscreen = 0;
-    float scaleGameH = 1f;
-    float scaleGameW = 1f;
+    float scaleGameH = 1;
+    float scaleGameW = 1;
 };
 
 

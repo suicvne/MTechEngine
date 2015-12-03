@@ -200,6 +200,20 @@ void GameWindow::windowResize()
     scaleGameW = w / 800;
     scaleGameH = h / 600;
 
+    width = w;
+    height = h;
+    SDL_DestroyTexture(targetTexture);
+    targetTexture = SDL_CreateTexture(mainRenderer, SDL_GetWindowPixelFormat(gameWindow), SDL_TEXTUREACCESS_TARGET, 800, 600);
+    SDL_Rect viewport;
+    SDL_RenderGetViewport(mainRenderer, &viewport);
+
+    if(viewport.w != width || viewport.h != height)
+    {
+        SDL_Rect newWindowSize;
+        newWindowSize.w = w;
+        newWindowSize.h = h;
+        SDL_RenderSetViewport(mainRenderer, &newWindowSize);
+    }
 }
 
 void GameWindow::update()
