@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../SpriteBatch.h"
+#include "SpriteBatch.h"
 #include "ContentManager.h"
 #include "_vector2i.h"
 

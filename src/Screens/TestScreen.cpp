@@ -1,5 +1,5 @@
 #include "TestScreen.h"
-#include "../GameWindow.h"
+#include "GameWindow.h"
 #include "LuaBlockConfigLoader.h"
 /**
 the luna hook ins

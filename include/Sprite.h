@@ -4,7 +4,7 @@
 #define SPRITE_H
 
 #include "InputHandler.h"
-#include "../SpriteBatch.h"
+#include "SpriteBatch.h"
 #include <SDL.h>
 
 class Sprite

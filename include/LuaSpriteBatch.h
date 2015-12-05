@@ -10,11 +10,11 @@ extern "C"
 #include <lualib.h>
 #include <lauxlib.h>
 }
-#include "../SpriteBatch.h"
+#include "SpriteBatch.h"
 #include "luna.h"
 #include <iostream>
 #include <SDL.h>
-#include "../GameWindow.h"
+#include "GameWindow.h"
 
 #define lua_open() luaL_newstate()
 

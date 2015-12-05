@@ -1,7 +1,7 @@
 #pragma once
 #ifndef SCREEN_H
 #define SCREEN_H
-#include "../SpriteBatch.h"
+#include "SpriteBatch.h"
 #include "InputHandler.h"
 #include "ContentManager.h"
 

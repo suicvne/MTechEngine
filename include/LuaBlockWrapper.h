@@ -10,7 +10,7 @@ extern "C"
 #include <SDL_image.h>
 #include "luna.h"
 #include "Tile.h"
-#include "../SpriteBatch.h"
+#include "SpriteBatch.h"
 #include "ContentManager.h"
 
 #define lua_open() luaL_newstate()

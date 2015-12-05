@@ -12,7 +12,7 @@ extern "C"
 #include <SDL.h>
 #include "luna.h"
 #include "global_vars.h"
-#include "../GameWindow.h"
+#include "GameWindow.h"
 #include "Tile.h"
 #include "_vector2i.h"
 #include <vector>

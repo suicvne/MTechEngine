@@ -1,6 +1,7 @@
 #ifndef CAMERA2D_H
 #define CAMERA2D_H
-
+#include <SDL.h>
+#include "global_vars.h"
 
 class Camera2d
 {
