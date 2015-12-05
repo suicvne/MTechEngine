@@ -61,14 +61,9 @@
 			<Add option="-fexceptions" />
 			<Add directory="C:/Users/allah/Desktop/SDL2-2.0.3/include" />
 		</Compiler>
-		<Unit filename="GameWindow.cpp">
-			<Option weight="100" />
-		</Unit>
-		<Unit filename="GameWindow.h" />
-		<Unit filename="SpriteBatch.cpp" />
-		<Unit filename="SpriteBatch.h" />
 		<Unit filename="include/Camera2d.h" />
 		<Unit filename="include/ContentManager.h" />
+		<Unit filename="include/GameWindow.h" />
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaBlockWrapper.h" />
@@ -81,6 +76,7 @@
 		</Unit>
 		<Unit filename="include/ScreenManager.h" />
 		<Unit filename="include/Sprite.h" />
+		<Unit filename="include/SpriteBatch.h" />
 		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
@@ -90,6 +86,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Camera2d.cpp" />
 		<Unit filename="src/ContentManager.cpp" />
+		<Unit filename="src/GameWindow.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaBlockWrapper.cpp" />
@@ -102,6 +99,7 @@
 		</Unit>
 		<Unit filename="src/Screens/TestScreen.cpp" />
 		<Unit filename="src/Sprite.cpp" />
+		<Unit filename="src/SpriteBatch.cpp" />
 		<Unit filename="src/Tile.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
 		<Unit filename="src/global_vars.cpp" />
