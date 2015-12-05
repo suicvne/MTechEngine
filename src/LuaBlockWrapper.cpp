@@ -79,6 +79,7 @@ int LuaBlockWrapper::drawBlockToScreen(lua_State *L)
 
 int LuaBlockWrapper::getBlockUpdateInterval(lua_State *L)
 {
+
     lua_pushnumber(L, actualTile->getFrameUpdateInterval());
     return 1;
 }
