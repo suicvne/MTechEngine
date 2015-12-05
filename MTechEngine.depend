@@ -449,7 +449,7 @@
 	"luna.h"
 	<iostream>
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\luaspritebatch.cpp
+1449357849 source:c:\users\mike\documents\github\mtechengine\src\luaspritebatch.cpp
 	"LuaSpriteBatch.h"
 
 1449320864 c:\users\mike\documents\github\mtechengine\include\luaspritebatch.h
@@ -1112,7 +1112,7 @@
 	"ContentManager.h"
 	"SpriteBatch.h"
 
-1449322857 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
+1449358044 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
 	"Camera2d.h"
 
 1449322776 c:\users\mike\documents\github\mtechengine\include\camera2d.h
@@ -1137,7 +1137,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449322893 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1449358269 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1150,7 +1150,7 @@
 	"LuaBlockConfigLoader.h"
 	"global_vars.h"
 
-1449322963 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449357072 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1158,10 +1158,10 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449323197 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449358085 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449323136 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449357615 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 

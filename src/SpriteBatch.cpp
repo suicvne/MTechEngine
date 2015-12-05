@@ -77,7 +77,7 @@ void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, flo
 
     SDL_Texture *textToRender = drawFontToTexture(msg, color);
     //sbDrawTexture(textToRender, x, y);
-    sbDrawTextureScaled(textToRender, x, y, scale);
+    sbDrawTextureScaledConstant(textToRender, x, y, scale);
 
     SDL_DestroyTexture(textToRender);
 }
@@ -142,23 +142,90 @@ void SpriteBatch::sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect are
     SDL_RenderCopy(__renderer, tex, &area, &dst);
 }
 
+/**
+These draw relative to the camera
+*/
+void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+
+    SDL_Rect dst;
+    if(mainGameCamera == NULL)
+    {
+        dst.x = x;
+        dst.y = y;
+    }
+    else
+    {
+        dst.x = x + mainGameCamera->getCameraX();
+        dst.y = y + mainGameCamera->getCameraY();
+    }
+
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+
+    dst.w = w;
+    dst.h = h;
+
+    SDL_RenderCopy(__renderer, tex, NULL, &dst);
+}
+
 void SpriteBatch::sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale)
 {
     if(!drawingInProgress)
         throw "sbBegin must be called.";
     SDL_Rect dst;
-    dst.x = x;
-    dst.y = y;
+    if(mainGameCamera == NULL)
+    {
+        dst.x = x;
+        dst.y = y;
+    }
+    else
+    {
+        dst.x = x + mainGameCamera->getCameraX();
+        dst.y = y + mainGameCamera->getCameraY();
+    }
+
     dst.w = area.w * scale;
     dst.h = area.h * scale;
     //SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
     SDL_RenderCopy(__renderer, tex, &area, &dst);
 }
 
-
 void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale)
 {
     if(!drawingInProgress)
+        throw "sbBegin must be called.";
+
+    SDL_Rect dst;
+    if(mainGameCamera == NULL)
+    {
+        dst.x = x;
+        dst.y = y;
+    }
+    else
+    {
+        dst.x = x + mainGameCamera->getCameraX();
+        dst.y = y + mainGameCamera->getCameraY();
+    }
+
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+
+    dst.w = int(float(dst.w) * scale);
+    dst.h = int(float(dst.h) * scale);
+
+    SDL_RenderCopy(__renderer, tex, NULL, &dst);
+}
+/**
+End Camera Dependent
+*/
+
+/**
+These functions basically don't give a crap where the camera is and will draw based on the screen instead.
+*/
+void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, float scale)
+{
+     if(!drawingInProgress)
         throw "sbBegin must be called.";
 
     SDL_Rect dst;
@@ -173,7 +240,7 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scal
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
 
-void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h)
+void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, int w, int h)
 {
     if(!drawingInProgress)
         throw "sbBegin must be called.";
@@ -189,6 +256,9 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int
 
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
+/**
+End Constant Function
+*/
 
 void SpriteBatch::sbEnd()
 {

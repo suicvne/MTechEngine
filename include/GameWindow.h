@@ -74,6 +74,7 @@ private:
     int quit;
     void draw();
     void update();
+    void importantUpdates();
     void loadTextures();
     void initBlocks();
     void toggleFullscreen();

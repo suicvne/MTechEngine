@@ -125,7 +125,8 @@ int LuaSpriteBatch::drawTextToScreen(lua_State *L)
         }
     }
     //std::cout << "\ndraw text call" << std::endl;
-    realSpriteBatch->sbDrawFont(std::string(textToDraw), x, y, SDL_Color{0, 255, 0, 255}, scale, toUpper);
+    realSpriteBatch->sbDrawFont(std::string(textToDraw), x + 2, y + 2, SDL_Color{0, 0, 0, 255}, scale, toUpper);
+    realSpriteBatch->sbDrawFont(std::string(textToDraw), x, y, SDL_Color{255, 255, 255, 255}, scale, toUpper);
 
     return 0;
 }

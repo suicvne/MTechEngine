@@ -33,8 +33,6 @@ function onUpdate()
 end
 
 function onKeyDown(keycode)
-	messageToPrintToScreen = "Key pressed   " .. keycode;
-	printKeyPressedMsg = true;
 end
 
 function onLoop()

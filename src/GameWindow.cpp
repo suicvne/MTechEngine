@@ -120,10 +120,9 @@ void GameWindow::draw()
         spriteBatch->sbSetRenderTarget(nullptr);
 
         spriteBatch->sbBegin();
-        spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
+        spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, width, height);
         spriteBatch->sbEnd();
     }
-    MainGameCamera.setCameraX(MainGameCamera.getCameraX() + 2.0f);
 }
 
 void GameWindow::toggleFullscreen()
@@ -210,11 +209,63 @@ void GameWindow::windowResize()
     }
 }
 
+/**
+These updates take priority over even Lua updates
+*/
+void GameWindow::importantUpdates()
+{
+if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+            {
+                switch(inputHandler->getEvent()->window.event)
+                {
+                case SDL_WINDOWEVENT_RESIZED:
+                    windowResize();
+                    //width = inputHandler->getEvent()->window.data1;
+                    //height = inputHandler->getEvent()->window.data2;
+                    //std::cout << "Resized: " << width << " x " << height << std::endl;
+                    break;
+                case SDL_WINDOWEVENT_MINIMIZED:
+                    __updateGame = false;
+                    std::cout << "Update stopped" << std::endl;
+                    break;
+                }
+            }
+        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+            {
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+                    quit = 1;
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
+                    toggleFullscreen();
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_LEFT)
+                {
+                    MainGameCamera.setCameraX(MainGameCamera.getCameraX() - -1.0f);
+                }
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_UP)
+                {
+                    MainGameCamera.setCameraY(MainGameCamera.getCameraY() - -1.0f);
+                }
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_RIGHT)
+                {
+                    MainGameCamera.setCameraX(MainGameCamera.getCameraX() + -1.0f);
+                }
+                if(inputHandler->getEvent()->key.keysym.sym == SDLK_DOWN)
+                {
+                    MainGameCamera.setCameraY(MainGameCamera.getCameraY() + -1.0f);
+                }
+            }
+            if(inputHandler->getEvent()->type == SDL_QUIT)
+            {
+                quit = 1;
+            }
+}
+
 void GameWindow::update()
 {
     if(__updateGame)
     {
         inputHandler->update();
+        importantUpdates();
+
         if(__vsyncEnabled)
         {
             screenManager->update(inputHandler);
@@ -237,33 +288,6 @@ void GameWindow::update()
 
             lastTimeCheck = SDL_GetTicks();
         }
-        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
-            {
-                switch(inputHandler->getEvent()->window.event)
-                {
-                case SDL_WINDOWEVENT_RESIZED:
-                    windowResize();
-                    //width = inputHandler->getEvent()->window.data1;
-                    //height = inputHandler->getEvent()->window.data2;
-                    //std::cout << "Resized: " << width << " x " << height << std::endl;
-                    break;
-                case SDL_WINDOWEVENT_MINIMIZED:
-                    __updateGame = false;
-                    std::cout << "Update stopped" << std::endl;
-                    break;
-                }
-            }
-        if(inputHandler->getEvent()->type == SDL_KEYDOWN)
-            {
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
-                    quit = 1;
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
-                    toggleFullscreen();
-            }
-            if(inputHandler->getEvent()->type == SDL_QUIT)
-            {
-                quit = 1;
-            }
 
         //SDL_PollEvent(mainEventLoop);
     }
