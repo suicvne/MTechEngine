@@ -38,6 +38,15 @@ void Camera2d::setCameraY(float __y)
     CamY = __y;
 }
 
+SDL_Rect Camera2d::RectangleFromCamera()
+{
+    SDL_Rect cam;
+    cam.x = CamX;
+    cam.y = CamY;
+
+    return cam;
+}
+
 Camera2d::~Camera2d()
 {
     //dtor

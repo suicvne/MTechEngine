@@ -1,13 +1,11 @@
-#pragma once
-
 #ifndef SPRITEBATCH_H
 #define SPRITEBATCH_H
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <iostream>
 #include <algorithm>
+#include "Camera2d.h"
 
 class SpriteBatch
 {
@@ -17,6 +15,7 @@ class SpriteBatch
         void sbBegin();
         void sbEnd();
         void sbSetRenderTarget(SDL_Texture *target);
+        void sbSetMainGameCamera(Camera2d *cam);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
         void sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area);
         void sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale);
@@ -36,7 +35,7 @@ class SpriteBatch
         bool drawingInProgress = false;
         SDL_Renderer *__renderer;
         TTF_Font *mainGameFont;
-
+        Camera2d *mainGameCamera;
 };
 
 #endif // SPRITEBATCH_H

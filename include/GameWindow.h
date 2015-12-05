@@ -86,6 +86,7 @@ private:
     ContentManager contentManager;
     InputHandler *inputHandler;
     ScreenManager *screenManager;
+    Camera2d MainGameCamera;
     int width, height;
     int lastTimeCheck, updateIntervalMs;
     bool __update;

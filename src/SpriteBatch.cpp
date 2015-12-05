@@ -66,6 +66,11 @@ void SpriteBatch::sbSetRenderTarget(SDL_Texture *target)
         SDL_SetRenderTarget(__renderer, target);
 }
 
+void SpriteBatch::sbSetMainGameCamera(Camera2d *cam)
+{
+    mainGameCamera = cam;
+}
+
 void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper)
 {
     std::transform(msg.begin(), msg.end(), msg.begin(), _upper == true ? ::toupper : ::tolower);
@@ -106,9 +111,19 @@ void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
 {
     if(!drawingInProgress)
         throw "sbBegin must be called.";
+
     SDL_Rect dst;
-    dst.x = x;
-    dst.y = y;
+    if(mainGameCamera == nullptr)
+    {
+        dst.x = x;
+        dst.y = y;
+    }
+    else
+    {
+        std::cout << "XOffset: " << mainGameCamera->getCameraX() << std::endl;
+        dst.x = x + mainGameCamera->getCameraX();
+        dst.y = x + mainGameCamera->getCameraY();
+    }
 
     SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
     SDL_RenderCopy(__renderer, tex, NULL, &dst);

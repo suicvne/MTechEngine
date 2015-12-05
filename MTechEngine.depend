@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1448822375 source:c:\users\mike\documents\github\mtechengine\main.cpp
+1449322632 source:c:\users\mike\documents\github\mtechengine\main.cpp
 	<SDL.h>
 	"GameWindow.h"
+	"Camera2d.h"
 
 1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -501,14 +502,14 @@
 1449320640 source:c:\users\mike\documents\github\mtechengine\src\tile.cpp
 	"Tile.h"
 
-1449322056 c:\users\mike\documents\github\mtechengine\include\tile.h
+1449322577 c:\users\mike\documents\github\mtechengine\include\tile.h
 	<SDL.h>
 	<iostream>
 	<string>
 	<vector>
-	"SpriteBatch.h"
 	"ContentManager.h"
 	"_vector2i.h"
+	"SpriteBatch.h"
 
 1448808248 c:\users\mike\documents\github\mtechengine\include\global_tiles.h
 	<iostream>
@@ -525,7 +526,7 @@
 1448808283 source:c:\users\mike\documents\github\mtechengine\src\global_tiles.cpp
 	"global_tiles.h"
 
-1448821674 source:c:\users\mike\documents\github\mtechengine\src\luablockwrapper.cpp
+1449322046 source:c:\users\mike\documents\github\mtechengine\src\luablockwrapper.cpp
 	"LuaBlockWrapper.h"
 
 1449320846 c:\users\mike\documents\github\mtechengine\include\luablockwrapper.h
@@ -1111,12 +1112,12 @@
 	"ContentManager.h"
 	"SpriteBatch.h"
 
-1449320700 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
+1449322857 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
 	"Camera2d.h"
 
-1449320742 c:\users\mike\documents\github\mtechengine\include\camera2d.h
+1449322776 c:\users\mike\documents\github\mtechengine\include\camera2d.h
 	<SDL.h>
-	"global_vars.h"
+	<float.h>
 
 1449321843 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
@@ -1136,7 +1137,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449321843 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1449322893 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1149,17 +1150,18 @@
 	"LuaBlockConfigLoader.h"
 	"global_vars.h"
 
-1449321843 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449322963 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
 	<iostream>
 	<algorithm>
+	"Camera2d.h"
 
-1449321843 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449323197 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449321610 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449323136 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 

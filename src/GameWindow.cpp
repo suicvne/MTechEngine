@@ -59,8 +59,8 @@ void GameWindow::initializeSDL()
     quit = 0;
 
     spriteBatch = new SpriteBatch(mainRenderer);
-
     inputHandler = new InputHandler();
+    MainGameCamera.setCameraPosition(0.0f, 0.0f);
 
     initBlocks();
     loadTextures();
@@ -76,7 +76,6 @@ void GameWindow::initializeSDL()
     //TODO: get the target refresh rate and divide it by half to get the update interval in ms
     updateIntervalMs = 30;
     lastTimeCheck = SDL_GetTicks();
-
 
 
     while(quit == 0)
@@ -116,6 +115,7 @@ void GameWindow::draw()
     if(__updateGame)
     {
         spriteBatch->sbSetRenderTarget(targetTexture);
+        spriteBatch->sbSetMainGameCamera(&MainGameCamera);
         screenManager->draw(spriteBatch);
         spriteBatch->sbSetRenderTarget(nullptr);
 
@@ -123,6 +123,7 @@ void GameWindow::draw()
         spriteBatch->sbDrawTextureScaled(targetTexture, 0, 0, width, height);
         spriteBatch->sbEnd();
     }
+    MainGameCamera.setCameraX(MainGameCamera.getCameraX() + 2.0f);
 }
 
 void GameWindow::toggleFullscreen()

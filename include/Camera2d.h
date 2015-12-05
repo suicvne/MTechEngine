@@ -1,7 +1,7 @@
 #ifndef CAMERA2D_H
 #define CAMERA2D_H
 #include <SDL.h>
-#include "global_vars.h"
+#include <float.h>
 
 class Camera2d
 {
@@ -14,6 +14,7 @@ class Camera2d
         void setCameraX(float __x);
         void setCameraY(float __y);
         void setCameraPosition(float __x, float __y);
+        SDL_Rect RectangleFromCamera();
     protected:
     private:
         float CamX, CamY;
