@@ -40,15 +40,8 @@ void GameWindow::initializeSDL()
         return;
     }
 
-    #ifdef _WIN32
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    std::cout << "Enabling vsync for Windows" << std::endl;
-    #else
-    //GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1,
-    //                                              SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
-    #endif // _WIN32
-
     GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
+
     if(initArgs.vsync)
     {
         std::cout << "Launching the game with vsync" << std::endl;

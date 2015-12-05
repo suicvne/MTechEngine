@@ -319,7 +319,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1448760446 c:\users\mike\documents\github\mtechengine\gamewindow.h
+1449267861 c:\users\mike\documents\github\mtechengine\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -330,7 +330,7 @@
 	"StandardColors.h"
 	"ScreenManager.h"
 	"LuaBlockConfigLoader.h"
-	"global_tiles.h"
+	"global_vars.h"
 
 1448821622 c:\users\mike\documents\github\mtechengine\spritebatch.h
 	<SDL.h>
@@ -370,13 +370,14 @@
 1448758586 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 
-1448758710 c:\users\mike\documents\github\mtechengine\include\testscreen.h
+1449267861 c:\users\mike\documents\github\mtechengine\include\testscreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
+	<SDL.h>
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\screen.h
 	"../SpriteBatch.h"
@@ -460,11 +461,11 @@
 	<SDL.h>
 	"../GameWindow.h"
 
-1448821457 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1449267861 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"../GameWindow.h"
 	"LuaBlockConfigLoader.h"
-	"global_tiles.h"
+	"global_vars.h"
 	"LuaSpriteBatch.h"
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
@@ -476,13 +477,13 @@
 1448758637 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
-1448822310 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
+1449268544 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
 	"GameWindow.h"
 
-1448822096 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
+1449267861 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
 	"LuaBlockConfigLoader.h"
 
-1448818044 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
+1449267861 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -491,7 +492,7 @@
 	<sstream>
 	<SDL.h>
 	"luna.h"
-	"global_tiles.h"
+	"global_vars.h"
 	"../GameWindow.h"
 	"Tile.h"
 	"_vector2i.h"
@@ -1092,6 +1093,36 @@
 	"LuaEventHandlerWrapper.h"
 
 1449013012 /home/mike/git/MTechEngine/include/LuaEventHandlerWrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Tile.h"
+	"../SpriteBatch.h"
+	"ContentManager.h"
+	"InputHandler.h"
+
+1449267861 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+	<iostream>
+	<map>
+	"Tile.h"
+	"ContentManager.h"
+	"../SpriteBatch.h"
+
+1449267861 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
+	"Camera2d.h"
+
+1449267861 c:\users\mike\documents\github\mtechengine\include\camera2d.h
+
+1449267861 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+	"global_vars.h"
+
+1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
+	"LuaEventHandlerWrapper.h"
+
+1449267861 c:\users\mike\documents\github\mtechengine\include\luaeventhandlerwrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
