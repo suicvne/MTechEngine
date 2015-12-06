@@ -35,7 +35,7 @@ case SPLASHSCREEN:
     splash->update(_ih);
     break;
 case TITLESCREEN:
-    splash->update(_ih);
+    title->update(_ih);
     break;
     }
 }

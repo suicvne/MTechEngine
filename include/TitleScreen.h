@@ -18,6 +18,7 @@ class TitleScreen : public Screen
         ~TitleScreen();
         void draw(SpriteBatch *_sb);
         void update(InputHandler *_ih);
+        void processInput(InputHandler *_ih);
     protected:
     private:
         void drawTitleCopyrightEtc(SpriteBatch *_sb);
@@ -25,6 +26,7 @@ class TitleScreen : public Screen
         ContentManager *_cm;
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
+        bool upPressed, downPressed;
 };
 
 #endif // TITLESCREEN_H

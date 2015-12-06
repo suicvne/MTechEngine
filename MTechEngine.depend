@@ -477,7 +477,7 @@
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1449372776 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1449422226 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
@@ -1107,7 +1107,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449370823 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1449424055 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1121,8 +1121,9 @@
 	<SDL.h>
 	<float.h>
 
-1449370831 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1449424074 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
+	"SoundMixer.h"
 
 1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
 	"LuaEventHandlerWrapper.h"
@@ -1139,7 +1140,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449370876 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1449424104 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1153,7 +1154,7 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1449373645 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449418171 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1161,10 +1162,10 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449372839 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449423551 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449373666 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449418171 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
@@ -1180,11 +1181,12 @@
 	"InputHandler.h"
 	"global_vars.h"
 
-1449371139 c:\users\mike\documents\github\mtechengine\include\soundmixer.h
+1449424763 c:\users\mike\documents\github\mtechengine\include\soundmixer.h
 	<SDL.h>
 	<SDL_mixer.h>
 	<iostream>
 	<string>
+	<map>
 
 1376156425 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mixer.h
 	"SDL_stdinc.h"
@@ -1195,10 +1197,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449372032 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
+1449425220 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
 	"SoundMixer.h"
 
-1449373147 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
+1449423334 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
@@ -1206,6 +1208,8 @@
 	<iostream>
 	<cstdlib>
 	<time.h>
+	<vector>
+	"Menu.h"
 
 1449373733 source:c:\users\mike\documents\github\mtechengine\src\titlescreen.cpp
 	"TitleScreen.h"
@@ -2176,4 +2180,15 @@
 
 1449411205 source:c:\users\allah\git\mtechengine\src\menu.cpp
 	"Menu.h"
+
+1449418171 c:\users\mike\documents\github\mtechengine\include\menu.h
+	<string>
+
+1449418171 source:c:\users\mike\documents\github\mtechengine\src\menu.cpp
+	"Menu.h"
+
+1449424983 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
+	"TitleScreen.h"
+	"global_vars.h"
+	"SoundMixer.h"
 

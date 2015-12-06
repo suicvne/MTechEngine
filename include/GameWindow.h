@@ -88,7 +88,7 @@ private:
     ContentManager contentManager;
     InputHandler *inputHandler;
     ScreenManager *screenManager;
-    SoundMixer *mainSoundMixer;
+    //SoundMixer *mainSoundMixer;
     Camera2d MainGameCamera;
     int width, height;
     int lastTimeCheck, updateIntervalMs;

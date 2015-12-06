@@ -5,8 +5,7 @@
 #include <SDL_mixer.h>
 #include <iostream>
 #include <string>
-
-struct GameWindow;
+#include <map>
 
 class SoundMixer
 {
@@ -14,13 +13,16 @@ class SoundMixer
         SoundMixer(std::string resPath);
         virtual ~SoundMixer();
         void playSong();
+        void playSoundEffect(int index);
+        void loadMusic();
+        void loadSound(std::string resPath);
     protected:
     private:
         bool init();
         bool loadFile();
         bool loadTestFile(std::string resPath);
-        GameWindow *gw;
-        Mix_Music *music = NULL;
+        std::map<int, Mix_Music*> musicList;
+        std::map<int, Mix_Chunk*> soundEffectsList;
 };
 
 #endif // SOUNDMIXER_H

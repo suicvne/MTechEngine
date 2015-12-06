@@ -57,7 +57,7 @@ void GameWindow::initializeSDL()
     }
 
     GameWindow::mainEventLoop = new SDL_Event();
-    quit = 0;
+    ______DO_QUIT = false;
     spriteBatch = new SpriteBatch(mainRenderer);
     inputHandler = new InputHandler();
     mainSoundMixer = new SoundMixer(getResourcePath(""));
@@ -74,7 +74,7 @@ void GameWindow::initializeSDL()
     //TODO: get the target refresh rate and divide it by half to get the update interval in ms
     updateIntervalMs = 30;
     lastTimeCheck = SDL_GetTicks();
-    while(quit == 0)
+    while(______DO_QUIT == false)
     {
         GameWindow::update();
         GameWindow::draw();
@@ -92,6 +92,8 @@ void GameWindow::loadTextures()
     contentManager.addTexture("bg_index", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "selection.png", &mainRenderer);
     contentManager.addTexture("selection", txture);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "sdlbros.png", &mainRenderer);
+    contentManager.addTexture("sdlbroslogo", txture);
 
     screenManager = new ScreenManager(contentManager);
 
@@ -212,7 +214,7 @@ These updates take priority over even Lua updates
 */
 void GameWindow::importantUpdates()
 {
-if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
             {
                 switch(inputHandler->getEvent()->window.event)
                 {
@@ -228,7 +230,7 @@ if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
         if(inputHandler->getEvent()->type == SDL_KEYDOWN)
             {
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
-                    quit = 1;
+                    ______DO_QUIT = 1;
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
                     toggleFullscreen();
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_LEFT)
@@ -250,7 +252,7 @@ if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
             }
             if(inputHandler->getEvent()->type == SDL_QUIT)
             {
-                quit = 1;
+                ______DO_QUIT = 1;
             }
 }
 
@@ -272,7 +274,7 @@ void GameWindow::update()
             if(screenManager->getTestScreen()->doQuit)
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;
-                quit = 1;
+                ______DO_QUIT = 1;
             }
             if(screenManager->getCurrentScreen() == TESTSCREEN)
             {
@@ -287,7 +289,7 @@ void GameWindow::update()
             if(screenManager->getTestScreen()->doQuit)
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;
-                quit = 1;
+                ______DO_QUIT = 1;
             }
 
             lastTimeCheck = SDL_GetTicks();
