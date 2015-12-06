@@ -20,6 +20,10 @@ class ScreenManager
         void pushScreen(ScreensEnum scr);
         TestScreen *getTestScreen();
         SplashScreen *getSplashScreen();
+        ScreensEnum getCurrentScreen()
+        {
+            return CurrentScreen;
+        };
     protected:
     private:
         TestScreen *testScreen;

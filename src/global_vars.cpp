@@ -1,3 +1,4 @@
+#pragma once
 #include "global_vars.h"
 
 
@@ -9,3 +10,6 @@ Tile *__getBlockByID(int id)
 
     return Tilemap[id];
 };
+
+int __internal_width = 800;
+int __internal_height = 600;

@@ -14,6 +14,7 @@
 #include "ScreenManager.h"
 #include "LuaBlockConfigLoader.h"
 #include "global_vars.h"
+#include "SoundMixer.h"
 
 struct SDLInitArgs
 {
@@ -87,6 +88,7 @@ private:
     ContentManager contentManager;
     InputHandler *inputHandler;
     ScreenManager *screenManager;
+    SoundMixer *mainSoundMixer;
     Camera2d MainGameCamera;
     int width, height;
     int lastTimeCheck, updateIntervalMs;

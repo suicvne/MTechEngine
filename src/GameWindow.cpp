@@ -18,7 +18,7 @@ GameWindow::GameWindow(SDLInitArgs initializerArgs)
 
 void GameWindow::initializeSDL()
 {
-    if(SDL_Init(SDL_INIT_VIDEO) != 0)
+    if(SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
         std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return;
@@ -55,20 +55,18 @@ void GameWindow::initializeSDL()
         SDL_Quit();
         return;
     }
+
     GameWindow::mainEventLoop = new SDL_Event();
     quit = 0;
-
     spriteBatch = new SpriteBatch(mainRenderer);
     inputHandler = new InputHandler();
+    mainSoundMixer = new SoundMixer(getResourcePath(""));
     MainGameCamera.setCameraPosition(0.0f, 0.0f);
 
     initBlocks();
     loadTextures();
 
     __update = true;
-
-    if(mainRenderer == NULL)
-        std::cout << "!!!!!!!!!!! YOURE FUCKED" << std::endl;
 
     targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
     spriteBatch->sbSetRenderTarget(targetTexture);
@@ -278,6 +276,10 @@ void GameWindow::update()
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;
                 quit = 1;
+            }
+            if(screenManager->getCurrentScreen() == TESTSCREEN)
+            {
+                mainSoundMixer->playSong(); //only play test song on test screen
             }
 
             lastTimeCheck = SDL_GetTicks();

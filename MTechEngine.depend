@@ -368,7 +368,7 @@
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1449360712 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1449372006 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 
@@ -476,7 +476,7 @@
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1449368451 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1449369634 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
@@ -1106,7 +1106,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449368886 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1449370823 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1120,7 +1120,7 @@
 	<SDL.h>
 	<float.h>
 
-1449321843 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1449370831 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
 
 1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
@@ -1138,7 +1138,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449358269 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1449370876 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1150,6 +1150,7 @@
 	"ScreenManager.h"
 	"LuaBlockConfigLoader.h"
 	"global_vars.h"
+	"SoundMixer.h"
 
 1449369187 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
@@ -1159,7 +1160,7 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449369466 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449371810 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
 1449369222 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
@@ -1168,7 +1169,7 @@
 	"global_vars.h"
 	"global_vars.h"
 
-1449369166 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
+1449369591 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
 	"SplashScreen.h"
 
 1449369450 c:\users\mike\documents\github\mtechengine\include\splashscreen.h
@@ -1177,4 +1178,22 @@
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"global_vars.h"
+
+1449371139 c:\users\mike\documents\github\mtechengine\include\soundmixer.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<iostream>
+	<string>
+
+1376156425 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449371873 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
+	"SoundMixer.h"
 
