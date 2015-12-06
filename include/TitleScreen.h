@@ -1,0 +1,25 @@
+#pragma once
+#ifndef TITLESCREEN_H
+#define TITLESCREEN_H
+#include "Screen.h"
+#include "ContentManager.h"
+#include "SpriteBatch.h"
+#include "InputHandler.h"
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+class TitleScreen : public Screen
+{
+    public:
+        TitleScreen(ContentManager *___cm);
+        ~TitleScreen();
+        void draw(SpriteBatch *_sb);
+        void update(InputHandler *_ih);
+    protected:
+    private:
+        void drawTitleCopyrightEtc(SpriteBatch *_sb);
+        ContentManager *_cm;
+};
+
+#endif // TITLESCREEN_H

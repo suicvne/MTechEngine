@@ -89,10 +89,9 @@ void GameWindow::loadTextures()
     contentManager.addTexture("test_sheet", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "logo.png", &mainRenderer);
     contentManager.addTexture("company_logo", txture);
-
+    txture = spriteBatch->loadTexture(getResourcePath("") + "/bg/all.png", &mainRenderer);
+    contentManager.addTexture("bg_index", txture);
     //delete txture;
-
-    std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
     screenManager = new ScreenManager(contentManager);
 
     screenManager->pushScreen(SPLASHSCREEN);
@@ -270,7 +269,7 @@ void GameWindow::update()
 
             if(screenManager->getSplashScreen()->goNext())
             {
-                screenManager->pushScreen(TESTSCREEN);
+                screenManager->pushScreen(TITLESCREEN);
             }
             if(screenManager->getTestScreen()->doQuit)
             {

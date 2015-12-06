@@ -4,10 +4,11 @@
 
 #include "TestScreen.h"
 #include "SplashScreen.h"
+#include "TitleScreen.h"
 
 enum ScreensEnum
 {
-    TESTSCREEN = -1, SPLASHSCREEN = 0
+    TESTSCREEN = -1, SPLASHSCREEN = 0, TITLESCREEN = 1
 };
 
 class ScreenManager
@@ -20,6 +21,7 @@ class ScreenManager
         void pushScreen(ScreensEnum scr);
         TestScreen *getTestScreen();
         SplashScreen *getSplashScreen();
+        TitleScreen *getTitleScreen();
         ScreensEnum getCurrentScreen()
         {
             return CurrentScreen;
@@ -28,6 +30,7 @@ class ScreenManager
     private:
         TestScreen *testScreen;
         SplashScreen *splash;
+        TitleScreen *title;
         ScreensEnum CurrentScreen = TESTSCREEN;
 };
 

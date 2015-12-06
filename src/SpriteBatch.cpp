@@ -141,6 +141,19 @@ void SpriteBatch::sbDrawTextureConstant(SDL_Texture *tex, int x, int y)
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
 }
 
+void SpriteBatch::sbMeasureString(int *w, int *h, std::string msg, float scale, bool upper)
+{
+    SDL_Color white {255,255,255,255};
+
+    std::transform(msg.begin(), msg.end(), msg.begin(), upper == true ? ::toupper : ::tolower);
+
+    SDL_Texture *textToMeasure = drawFontToTexture(msg, white);
+    SDL_Rect sizeOfText;
+    SDL_QueryTexture(textToMeasure, NULL, NULL, &sizeOfText.w, &sizeOfText.h);
+    *w = sizeOfText.w * scale;
+    *h = sizeOfText.h * scale;
+}
+
 void SpriteBatch::sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area)
 {
     if(!drawingInProgress)

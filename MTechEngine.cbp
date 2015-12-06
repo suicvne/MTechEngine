@@ -75,11 +75,14 @@
 			<Option weight="75" />
 		</Unit>
 		<Unit filename="include/ScreenManager.h" />
+		<Unit filename="include/SoundMixer.h" />
+		<Unit filename="include/SplashScreen.h" />
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/SpriteBatch.h" />
 		<Unit filename="include/StandardColors.h" />
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
+		<Unit filename="include/TitleScreen.h" />
 		<Unit filename="include/_vector2i.h" />
 		<Unit filename="include/global_vars.h" />
 		<Unit filename="include/luna.h" />
@@ -97,10 +100,13 @@
 		<Unit filename="src/ScreenManager.cpp">
 			<Option weight="62" />
 		</Unit>
+		<Unit filename="src/Screens/SplashScreen.cpp" />
 		<Unit filename="src/Screens/TestScreen.cpp" />
+		<Unit filename="src/SoundMixer.cpp" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/SpriteBatch.cpp" />
 		<Unit filename="src/Tile.cpp" />
+		<Unit filename="src/TitleScreen.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
 		<Unit filename="src/global_vars.cpp" />
 		<Extensions>

@@ -6,6 +6,7 @@ ScreenManager::ScreenManager(ContentManager &__cm)
     //std::cout << "texture: " << __cm.getTexture("r") << std::endl << std::endl;
     testScreen = new TestScreen(__cm);
     splash = new SplashScreen(&__cm);
+    title = new TitleScreen(&__cm);
 }
 
 ScreenManager::~ScreenManager()
@@ -33,6 +34,9 @@ case TESTSCREEN:
 case SPLASHSCREEN:
     splash->update(_ih);
     break;
+case TITLESCREEN:
+    splash->update(_ih);
+    break;
     }
 }
 
@@ -47,6 +51,9 @@ void ScreenManager::draw(SpriteBatch *_sb)
     case SPLASHSCREEN:
         splash->draw(_sb);
         break;
+    case TITLESCREEN:
+        title->draw(_sb);
+        break;
     }
     _sb->sbEnd();
 }
@@ -55,7 +62,6 @@ void ScreenManager::pushScreen(ScreensEnum scr)
 {
     if(CurrentScreen == SPLASHSCREEN && scr == TESTSCREEN)
     {
-        //dispose
         delete splash;
     }
     CurrentScreen = scr;

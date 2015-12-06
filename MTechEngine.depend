@@ -368,9 +368,10 @@
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1449372006 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1449372650 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
+	"TitleScreen.h"
 
 1449267861 c:\users\mike\documents\github\mtechengine\include\testscreen.h
 	"Screen.h"
@@ -476,7 +477,7 @@
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1449369634 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1449372776 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
@@ -1152,7 +1153,7 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1449369187 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449373645 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1160,10 +1161,10 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449371810 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449372839 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449369222 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449373666 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
@@ -1194,6 +1195,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449371873 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
+1449372032 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
 	"SoundMixer.h"
+
+1449373147 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
+	"Screen.h"
+	"ContentManager.h"
+	"SpriteBatch.h"
+	"InputHandler.h"
+	<iostream>
+	<cstdlib>
+	<time.h>
+
+1449373733 source:c:\users\mike\documents\github\mtechengine\src\titlescreen.cpp
+	"TitleScreen.h"
 
