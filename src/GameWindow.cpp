@@ -83,15 +83,16 @@ void GameWindow::initializeSDL()
 
 void GameWindow::loadTextures()
 {
-    //if(contentManager == nullptr)
     SDL_Texture *txture;
-    txture = spriteBatch->loadTexture(getResourcePath("") + "/tiles/full.png", &mainRenderer);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "tiles/full.png", &mainRenderer);
     contentManager.addTexture("test_sheet", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "logo.png", &mainRenderer);
     contentManager.addTexture("company_logo", txture);
-    txture = spriteBatch->loadTexture(getResourcePath("") + "/bg/all.png", &mainRenderer);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "bg/all.png", &mainRenderer);
     contentManager.addTexture("bg_index", txture);
-    //delete txture;
+    txture = spriteBatch->loadTexture(getResourcePath("") + "selection.png", &mainRenderer);
+    contentManager.addTexture("selection", txture);
+
     screenManager = new ScreenManager(contentManager);
 
     screenManager->pushScreen(SPLASHSCREEN);
@@ -100,6 +101,7 @@ void GameWindow::loadTextures()
 GameWindow::~GameWindow()
 {
     std::cout << "Destroying game objects" << std::endl;
+    delete mainSoundMixer;
     SDL_Quit();
     SDL_DestroyWindow(GameWindow::gameWindow);
     SDL_DestroyRenderer(GameWindow::mainRenderer);
@@ -180,20 +182,19 @@ void GameWindow::initBlocks()
         }
     }
     std::cout << "===END BLOCK SANITY CHECK===" << std::endl << std::endl;
-    //std::cout << "From GameWindow: \"" << Tilemap->operator[](1)->getSheetName() << "\"" <<  std::endl;
 }
 
 void GameWindow::windowResize()
 {
     int w, h;
     SDL_GetWindowSize(GameWindow::gameWindow, &w, &h);
-    scaleGameW = w / 800;
-    scaleGameH = h / 600;
+    scaleGameW = w / __internal_width;
+    scaleGameH = h / __internal_height;
 
     width = w;
     height = h;
     SDL_DestroyTexture(targetTexture);
-    targetTexture = SDL_CreateTexture(mainRenderer, SDL_GetWindowPixelFormat(gameWindow), SDL_TEXTUREACCESS_TARGET, 800, 600);
+    targetTexture = SDL_CreateTexture(mainRenderer, SDL_GetWindowPixelFormat(gameWindow), SDL_TEXTUREACCESS_TARGET, __internal_width, __internal_height);
     SDL_Rect viewport;
     SDL_RenderGetViewport(mainRenderer, &viewport);
 
@@ -217,9 +218,6 @@ if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
                 {
                 case SDL_WINDOWEVENT_RESIZED:
                     windowResize();
-                    //width = inputHandler->getEvent()->window.data1;
-                    //height = inputHandler->getEvent()->window.data2;
-                    //std::cout << "Resized: " << width << " x " << height << std::endl;
                     break;
                 case SDL_WINDOWEVENT_MINIMIZED:
                     __updateGame = false;
@@ -294,8 +292,6 @@ void GameWindow::update()
 
             lastTimeCheck = SDL_GetTicks();
         }
-
-        //SDL_PollEvent(mainEventLoop);
     }
     else
     {
@@ -308,6 +304,5 @@ void GameWindow::update()
                 std::cout << "Update began" << std::endl;
             }
         }
-
     }
 }

@@ -8,6 +8,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <vector>
+#include "Menu.h"
 
 class TitleScreen : public Screen
 {
@@ -19,7 +21,10 @@ class TitleScreen : public Screen
     protected:
     private:
         void drawTitleCopyrightEtc(SpriteBatch *_sb);
+        void drawOptions(SpriteBatch *_sb);
         ContentManager *_cm;
+        std::vector<Menu*> menuOptions;
+        int totalOptions, currentSelection;
 };
 
 #endif // TITLESCREEN_H

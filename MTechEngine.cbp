@@ -71,6 +71,7 @@
 		<Unit filename="include/LuaEventHandlerWrapper.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
+		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Screen.h">
 			<Option weight="75" />
 		</Unit>
@@ -97,16 +98,17 @@
 		<Unit filename="src/LuaEventHandlerWrapper.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
+		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/ScreenManager.cpp">
 			<Option weight="62" />
 		</Unit>
 		<Unit filename="src/Screens/SplashScreen.cpp" />
 		<Unit filename="src/Screens/TestScreen.cpp" />
+		<Unit filename="src/Screens/TitleScreen.cpp" />
 		<Unit filename="src/SoundMixer.cpp" />
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/SpriteBatch.cpp" />
 		<Unit filename="src/Tile.cpp" />
-		<Unit filename="src/TitleScreen.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
 		<Unit filename="src/global_vars.cpp" />
 		<Extensions>

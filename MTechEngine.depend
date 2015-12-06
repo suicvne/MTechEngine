@@ -1210,3 +1210,970 @@
 1449373733 source:c:\users\mike\documents\github\mtechengine\src\titlescreen.cpp
 	"TitleScreen.h"
 
+1449409482 source:c:\users\allah\git\mtechengine\main.cpp
+	<SDL.h>
+	"GameWindow.h"
+	"Camera2d.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_premake.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_psp.h"
+	"SDL_config_minimal.h"
+
+1448367557 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\begin_code.h
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\close_code.h
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_windows.h
+	"SDL_platform.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_winrt.h
+	"SDL_platform.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_psp.h
+	"SDL_platform.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926302 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394926304 c:\users\allah\desktop\sdl2-2.0.3\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\gamewindow.h
+	<iostream>
+	<SDL.h>
+	"SpriteBatch.h"
+	"ContentManager.h"
+	"InputHandler.h"
+	"Sprite.h"
+	"float.h"
+	"StandardColors.h"
+	"ScreenManager.h"
+	"LuaBlockConfigLoader.h"
+	"global_vars.h"
+	"SoundMixer.h"
+
+1449412512 c:\users\allah\git\mtechengine\include\spritebatch.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<iostream>
+	<algorithm>
+	"Camera2d.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\begin_code.h
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\close_code.h
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\camera2d.h
+	<SDL.h>
+	<float.h>
+
+1449408165 c:\users\allah\git\mtechengine\include\contentmanager.h
+	<iostream>
+	<map>
+	<SDL.h>
+	<SDL_image.h>
+
+1449408165 c:\users\allah\git\mtechengine\include\inputhandler.h
+	<iostream>
+	<SDL.h>
+
+1449408165 c:\users\allah\git\mtechengine\include\sprite.h
+	"InputHandler.h"
+	"SpriteBatch.h"
+	<SDL.h>
+
+1449408165 c:\users\allah\git\mtechengine\include\standardcolors.h
+
+1449408165 c:\users\allah\git\mtechengine\include\screenmanager.h
+	"TestScreen.h"
+	"SplashScreen.h"
+	"TitleScreen.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\testscreen.h
+	"Screen.h"
+	"Sprite.h"
+	"StandardColors.h"
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+
+1449408165 c:\users\allah\git\mtechengine\include\screen.h
+	"SpriteBatch.h"
+	"InputHandler.h"
+	"ContentManager.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\lua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<unistd.h>
+	<io.h>
+	<stdio.h>
+	<stdio.h>
+	<readline/readline.h>
+	<readline/history.h>
+	<assert.h>
+	<math.h>
+	<unistd.h>
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\lua\lualib.h
+	"lua.h"
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\splashscreen.h
+	"Screen.h"
+	"ContentManager.h"
+	"SpriteBatch.h"
+	"InputHandler.h"
+	"global_vars.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\global_vars.h
+	<iostream>
+	<map>
+	"Tile.h"
+	"ContentManager.h"
+	"SpriteBatch.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\tile.h
+	<SDL.h>
+	<iostream>
+	<string>
+	<vector>
+	"ContentManager.h"
+	"_vector2i.h"
+	"SpriteBatch.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\_vector2i.h
+	<iostream>
+	<SDL.h>
+
+1449412235 c:\users\allah\git\mtechengine\include\titlescreen.h
+	"Screen.h"
+	"ContentManager.h"
+	"SpriteBatch.h"
+	"InputHandler.h"
+	<iostream>
+	<cstdlib>
+	<time.h>
+	<vector>
+	"Menu.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luablockconfigloader.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<iostream>
+	<string>
+	<sstream>
+	<SDL.h>
+	"luna.h"
+	"global_vars.h"
+	"GameWindow.h"
+	"Tile.h"
+	"_vector2i.h"
+	<vector>
+
+1449408165 c:\users\allah\git\mtechengine\include\luna.h
+	"lua.h"
+	"lauxlib.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\soundmixer.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<iostream>
+	<string>
+
+1449408165 c:\users\allah\git\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\_vector2i.cpp
+	"_vector2i.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\camera2d.cpp
+	"Camera2d.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\contentmanager.cpp
+	"ContentManager.h"
+
+1449412700 source:c:\users\allah\git\mtechengine\src\gamewindow.cpp
+	"GameWindow.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\global_vars.cpp
+	"global_vars.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\inputhandler.cpp
+	"InputHandler.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luablockconfigloader.cpp
+	"LuaBlockConfigLoader.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luablockwrapper.cpp
+	"LuaBlockWrapper.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luablockwrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Tile.h"
+	"SpriteBatch.h"
+	"ContentManager.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luacontentmanager.cpp
+	"LuaContentManager.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luacontentmanager.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"ContentManager.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luaeventhandlerwrapper.cpp
+	"LuaEventHandlerWrapper.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luaeventhandlerwrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Tile.h"
+	"SpriteBatch.h"
+	"ContentManager.h"
+	"InputHandler.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luasdl_texture.cpp
+	"LuaSDL_Texture.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luasdl_texture.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	<iostream>
+
+1449408165 source:c:\users\allah\git\mtechengine\src\luaspritebatch.cpp
+	"LuaSpriteBatch.h"
+
+1449408165 c:\users\allah\git\mtechengine\include\luaspritebatch.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	"SpriteBatch.h"
+	"luna.h"
+	<iostream>
+	<SDL.h>
+	"GameWindow.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\screens\splashscreen.cpp
+	"SplashScreen.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\screens\testscreen.cpp
+	"TestScreen.h"
+	"GameWindow.h"
+	"LuaBlockConfigLoader.h"
+	"global_vars.h"
+	"LuaSpriteBatch.h"
+	"LuaSDL_Texture.h"
+	"LuaContentManager.h"
+	"LuaBlockWrapper.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\soundmixer.cpp
+	"SoundMixer.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\sprite.cpp
+	"Sprite.h"
+
+1449412557 source:c:\users\allah\git\mtechengine\src\spritebatch.cpp
+	"SpriteBatch.h"
+	"GameWindow.h"
+	"global_vars.h"
+	"global_vars.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\tile.cpp
+	"Tile.h"
+
+1449408165 source:c:\users\allah\git\mtechengine\src\screenmanager.cpp
+	"ScreenManager.h"
+
+1449412634 source:c:\users\allah\git\mtechengine\src\screens\titlescreen.cpp
+	"TitleScreen.h"
+	"global_vars.h"
+
+1449411164 c:\users\allah\git\mtechengine\include\menu.h
+	<string>
+
+1449411205 source:c:\users\allah\git\mtechengine\src\menu.cpp
+	"Menu.h"
+

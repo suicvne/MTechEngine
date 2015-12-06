@@ -20,12 +20,14 @@ class SpriteBatch
         void sbDrawTextureConstant(SDL_Texture *tex, int x, int y);
         void sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area);
         void sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale);
+        void sbDrawTextureAreaScaledConstant(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale);
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale);
         void sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h);
         void sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, float scale);
         void sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, int w, int h);
         void sbMeasureString(int *w, int *h, std::string msg, float scale, bool upper);
         void sbFillScreen(SDL_Color *color);
+        void sbFillRect(SDL_Color *color, SDL_Rect *rect);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer **ren);
         SDL_Texture* loadTexture(const std::string &file);

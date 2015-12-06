@@ -217,6 +217,19 @@ void SpriteBatch::sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Re
     SDL_RenderCopy(__renderer, tex, &area, &dst);
 }
 
+void SpriteBatch::sbDrawTextureAreaScaledConstant(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = area.w * scale;
+    dst.h = area.h * scale;
+    //SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(__renderer, tex, &area, &dst);
+}
+
 void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale)
 {
     if(!drawingInProgress)
@@ -301,6 +314,19 @@ void SpriteBatch::sbFillScreen(SDL_Color *color)
     rect.h = 600;
     SDL_RenderFillRect(__renderer, &rect);
     SDL_RenderDrawRect(__renderer, &rect);
+    SDL_SetRenderDrawColor(__renderer, (oldColor.r), (oldColor.g), (oldColor.b), (oldColor.a));
+}
+
+void SpriteBatch::sbFillRect(SDL_Color *color, SDL_Rect *rect)
+{
+    if(!drawingInProgress)
+        throw "sbBegin never called!";
+
+    SDL_Color oldColor;
+    SDL_GetRenderDrawColor(__renderer, &oldColor.r, &oldColor.g, &oldColor.b, &oldColor.a);
+    SDL_SetRenderDrawColor(__renderer, color->r, color->g, color->g, color->b);
+    SDL_RenderFillRect(__renderer, rect);
+    SDL_RenderDrawRect(__renderer, rect);
     SDL_SetRenderDrawColor(__renderer, (oldColor.r), (oldColor.g), (oldColor.b), (oldColor.a));
 }
 
