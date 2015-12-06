@@ -1,7 +1,7 @@
 #ifndef GLOBAL_TILES_H_INCLUDED
 #define GLOBAL_TILES_H_INCLUDED
 
-#define TOTAL_TILE_COUNT 2
+#define TOTAL_TILE_COUNT 3
 
 #include <iostream>
 #include <map>

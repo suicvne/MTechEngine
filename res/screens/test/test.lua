@@ -42,7 +42,7 @@ function onLoop()
 		tableOfBlocks[i]:drawBlockToScreen(sprBatch, mainContentManager);		
 	end
 
-	if(frame / exampleBlock:getBlockUpdateInterval() >= 3) then
+	if(frame / exampleBlock:getBlockUpdateInterval() >= exampleBlock:getTotalFrames() - 1) then
 		frame = 0;
 	end
 

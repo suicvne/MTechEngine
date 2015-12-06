@@ -1,9 +1,9 @@
-__name = "Empty Question Block"
+__name = "Brick"
 __id = 2;
 __width = 16;
 __height = 16;
 __animated = false;
 __sheet = "test_sheet"
-__frames = Vector2i(72, 0);
+__frames = Vector2i(0, 0);
 __framecount = 0;
 __frameupdate = 0; 

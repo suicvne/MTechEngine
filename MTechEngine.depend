@@ -462,7 +462,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449320857 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1449359351 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -1105,7 +1105,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449320821 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1449358814 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1158,7 +1158,7 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449358085 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449358615 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
 1449357615 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp

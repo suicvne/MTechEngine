@@ -1,16 +1,22 @@
+/*--------------------------------------------------
+
+src/Screens/TestScreen.cpp
+
+TestScreen is literally what it implies: a test screen.
+The screen was mostly developed to test Lua integration in depth/test the screen system in general.
+
+The screen executes whatever the contents of the test.lua file is located in the res/screens/test/ folder.
+
+----------------------------------------------------*/
+
+
+
 #include "TestScreen.h"
 #include "GameWindow.h"
 #include "LuaBlockConfigLoader.h"
 /**
 the luna hook ins
 */
-//int LUA_makeVector2i(lua_State *L)
-//{
-//    _vector2i *returnVal = new _vector2i(lua_tonumber(L, 1), lua_tonumber(L, 2));
-//    lua_pushlightuserdata(L, returnVal);
-//    //std::cout << "Pushed vector with " << returnVal->getX() << ", " << returnVal->getY() << std::endl;
-//    return 1;
-//} //makes vector2i for stuff
 #include "global_vars.h"
 
 int LUA_GetBlock(lua_State *L)
@@ -102,7 +108,7 @@ void TestScreen::finalInitLua()
     doneInit = true;
 
     std::string path(GameWindow::getResourcePath(""));
-    path.append("test.lua");
+    path.append("/screens/test/test.lua");
     std::cout << "Script from: " << path << std::endl;
 
     s = luaL_loadfile(L, path.c_str());

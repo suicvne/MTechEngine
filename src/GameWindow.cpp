@@ -91,7 +91,7 @@ void GameWindow::loadTextures()
     SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
     //std::cout << txture << std::endl;
     contentManager.addTexture("r", txture);
-    txture = spriteBatch->loadTexture(getResourcePath("") + "temp_tileset.png", &mainRenderer);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "/tiles/full.png", &mainRenderer);
     contentManager.addTexture("test_sheet", txture);
 
     //delete txture;
