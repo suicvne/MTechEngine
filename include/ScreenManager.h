@@ -3,10 +3,11 @@
 #define SCREENMANAGER_H
 
 #include "TestScreen.h"
+#include "SplashScreen.h"
 
 enum ScreensEnum
 {
-    TESTSCREEN = 0
+    TESTSCREEN = -1, SPLASHSCREEN = 0
 };
 
 class ScreenManager
@@ -18,9 +19,11 @@ class ScreenManager
         void draw(SpriteBatch *_sb);
         void pushScreen(ScreensEnum scr);
         TestScreen *getTestScreen();
+        SplashScreen *getSplashScreen();
     protected:
     private:
         TestScreen *testScreen;
+        SplashScreen *splash;
         ScreensEnum CurrentScreen = TESTSCREEN;
 };
 

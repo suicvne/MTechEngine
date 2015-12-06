@@ -1,3 +1,4 @@
+#pragma once
 #ifndef GLOBAL_TILES_H_INCLUDED
 #define GLOBAL_TILES_H_INCLUDED
 

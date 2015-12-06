@@ -76,8 +76,8 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
     _cm = &___cm;
 
     //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
-    L = lua_open();
-    luaL_openlibs(L);
+    //L = lua_open();
+    //luaL_openlibs(L);
 }
 
 TestScreen::~TestScreen()
@@ -90,6 +90,9 @@ bool doneInit = false;
 
 void TestScreen::finalInitLua()
 {
+    L = lua_open();
+    luaL_openlibs(L);
+
     Luna<LuaSpriteBatch>::Register(L);
     Luna<LuaContentManager>::Register(L);
     Luna<LuaSDL_Texture>::Register(L);

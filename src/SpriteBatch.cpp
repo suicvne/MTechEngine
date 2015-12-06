@@ -1,6 +1,6 @@
 #include "SpriteBatch.h"
 #include "GameWindow.h"
-
+#include "global_vars.h"
 
 SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
 {
@@ -120,10 +120,22 @@ void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
     }
     else
     {
-        std::cout << "XOffset: " << mainGameCamera->getCameraX() << std::endl;
         dst.x = x + mainGameCamera->getCameraX();
         dst.y = x + mainGameCamera->getCameraY();
     }
+
+    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
+    SDL_RenderCopy(__renderer, tex, NULL, &dst);
+}
+
+void SpriteBatch::sbDrawTextureConstant(SDL_Texture *tex, int x, int y)
+{
+    if(!drawingInProgress)
+        throw "sbBegin must be called.";
+
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
 
     SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
     SDL_RenderCopy(__renderer, tex, NULL, &dst);
@@ -259,6 +271,25 @@ void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, in
 /**
 End Constant Function
 */
+#include "global_vars.h"
+void SpriteBatch::sbFillScreen(SDL_Color *color)
+{
+    if(!drawingInProgress)
+        throw "sbBegin never called!";
+
+    SDL_Color oldColor;
+
+    SDL_GetRenderDrawColor(__renderer, &oldColor.r, &oldColor.g, &oldColor.b, &oldColor.a);
+    SDL_SetRenderDrawColor(__renderer, color->r, color->g, color->g, color->b);
+    SDL_Rect rect;
+    rect.x = 0;
+    rect.y = 0;
+    rect.w = 800;
+    rect.h = 600;
+    SDL_RenderFillRect(__renderer, &rect);
+    SDL_RenderDrawRect(__renderer, &rect);
+    SDL_SetRenderDrawColor(__renderer, (oldColor.r), (oldColor.g), (oldColor.b), (oldColor.a));
+}
 
 void SpriteBatch::sbEnd()
 {

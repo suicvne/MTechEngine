@@ -76,8 +76,6 @@ void GameWindow::initializeSDL()
     //TODO: get the target refresh rate and divide it by half to get the update interval in ms
     updateIntervalMs = 30;
     lastTimeCheck = SDL_GetTicks();
-
-
     while(quit == 0)
     {
         GameWindow::update();
@@ -88,16 +86,18 @@ void GameWindow::initializeSDL()
 void GameWindow::loadTextures()
 {
     //if(contentManager == nullptr)
-    SDL_Texture *txture = spriteBatch->loadTexture(getResourcePath("") + "rayquaza.png", &mainRenderer);
-    //std::cout << txture << std::endl;
-    contentManager.addTexture("r", txture);
+    SDL_Texture *txture;
     txture = spriteBatch->loadTexture(getResourcePath("") + "/tiles/full.png", &mainRenderer);
     contentManager.addTexture("test_sheet", txture);
+    txture = spriteBatch->loadTexture(getResourcePath("") + "logo.png", &mainRenderer);
+    contentManager.addTexture("company_logo", txture);
 
     //delete txture;
 
     std::cout << "addr_of contentManager (init): " << &contentManager << std::endl;
     screenManager = new ScreenManager(contentManager);
+
+    screenManager->pushScreen(SPLASHSCREEN);
 }
 
 GameWindow::~GameWindow()
@@ -269,6 +269,11 @@ void GameWindow::update()
         if(__vsyncEnabled)
         {
             screenManager->update(inputHandler);
+
+            if(screenManager->getSplashScreen()->goNext())
+            {
+                screenManager->pushScreen(TESTSCREEN);
+            }
             if(screenManager->getTestScreen()->doQuit)
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;

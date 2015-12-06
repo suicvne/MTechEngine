@@ -368,8 +368,9 @@
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1448758586 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1449360712 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
+	"SplashScreen.h"
 
 1449267861 c:\users\mike\documents\github\mtechengine\include\testscreen.h
 	"Screen.h"
@@ -462,7 +463,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449359351 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1449368192 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -475,7 +476,7 @@
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1448758637 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1449368451 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
@@ -1105,7 +1106,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449358814 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1449368886 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1150,7 +1151,7 @@
 	"LuaBlockConfigLoader.h"
 	"global_vars.h"
 
-1449357072 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449369187 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1158,10 +1159,22 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449358615 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449369466 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449357615 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449369222 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
+	"global_vars.h"
+	"global_vars.h"
+
+1449369166 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
+	"SplashScreen.h"
+
+1449369450 c:\users\mike\documents\github\mtechengine\include\splashscreen.h
+	"Screen.h"
+	"ContentManager.h"
+	"SpriteBatch.h"
+	"InputHandler.h"
+	"global_vars.h"
 
