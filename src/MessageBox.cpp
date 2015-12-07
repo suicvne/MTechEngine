@@ -6,7 +6,8 @@
 MessageBox::MessageBox(std::string msg)
 {
     message = msg;
-    shown = false;
+    soundPlayed = false;
+    showMessage = false;
     messageSplitToVector = vectorFromMessage(msg);
 }
 
@@ -15,12 +16,21 @@ MessageBox::~MessageBox()
     //dtor
 }
 
+void MessageBox::setVisible(bool vis)
+{
+    showMessage = vis;
+    if(!vis)
+        soundPlayed = false;
+}
+
 void MessageBox::draw(SpriteBatch *_sb)
 {
-    if(!shown)
+    if(showMessage)
+    {
+    if(!soundPlayed)
     {
         mainSoundMixer->playSoundEffect(3);
-        shown = true;
+        soundPlayed = true;
     }
 
     SDL_Color white {255,255,255,255};
@@ -46,6 +56,7 @@ void MessageBox::draw(SpriteBatch *_sb)
     {
         _sb->sbDrawFont(part, msgBoxArea.x + 4, msgBoxArea.y + (1 * yMod), white, 2.0f, false);
         yMod += 15;
+    }
     }
 }
 

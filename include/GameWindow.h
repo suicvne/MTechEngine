@@ -89,7 +89,7 @@ private:
     InputHandler *inputHandler;
     //ScreenManager *screenManager;
     //SoundMixer *mainSoundMixer;
-    Camera2d MainGameCamera;
+    //Camera2d MainGameCamera;
     int width, height;
     int lastTimeCheck, updateIntervalMs;
     bool __update;

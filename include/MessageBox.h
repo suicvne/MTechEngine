@@ -13,12 +13,17 @@ class MessageBox
         ~MessageBox();
         void draw(SpriteBatch *_sb);
         void update(InputHandler *_ih);
+        void setVisible(bool vis);
+        bool getVisibility()
+        {
+            return showMessage;
+        };
     protected:
     private:
         std::vector<std::string> vectorFromMessage(std::string msg);
         std::string message;
         std::vector<std::string> messageSplitToVector;
-        bool shown;
+        bool soundPlayed, showMessage;
         const int MAX_WIDTH = 350;
         const int MAX_HEIGHT = 250;
         const int MAX_CHAR_PER_LINE = 25;

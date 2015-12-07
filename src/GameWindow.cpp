@@ -61,7 +61,8 @@ void GameWindow::initializeSDL()
     spriteBatch = new SpriteBatch(mainRenderer);
     inputHandler = new InputHandler();
     mainSoundMixer = new SoundMixer(getResourcePath(""));
-    MainGameCamera.setCameraPosition(0.0f, 0.0f);
+    mainGameCamera = new Camera2d(0, 0);
+    //mainGameCamera->setCameraPosition(0.0f, 0.0f);
 
     initBlocks();
     loadTextures();
@@ -116,7 +117,7 @@ void GameWindow::draw()
     if(__updateGame)
     {
         spriteBatch->sbSetRenderTarget(targetTexture);
-        spriteBatch->sbSetMainGameCamera(&MainGameCamera);
+        spriteBatch->sbSetMainGameCamera(mainGameCamera);
         mainScreenManager->draw(spriteBatch);
         spriteBatch->sbSetRenderTarget(nullptr);
 
@@ -231,22 +232,6 @@ void GameWindow::importantUpdates()
             {
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
                     toggleFullscreen();
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_LEFT)
-                {
-                    MainGameCamera.setCameraX(MainGameCamera.getCameraX() - -1.0f);
-                }
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_UP)
-                {
-                    MainGameCamera.setCameraY(MainGameCamera.getCameraY() - -1.0f);
-                }
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_RIGHT)
-                {
-                    MainGameCamera.setCameraX(MainGameCamera.getCameraX() + -1.0f);
-                }
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_DOWN)
-                {
-                    MainGameCamera.setCameraY(MainGameCamera.getCameraY() + -1.0f);
-                }
             }
             if(inputHandler->getEvent()->type == SDL_QUIT)
             {

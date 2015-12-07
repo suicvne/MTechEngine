@@ -77,13 +77,13 @@ TestScreen::TestScreen(ContentManager &___cm) : Screen()
     //luaL_openlibs(L);
 }
 
+bool doneInit = false;
 TestScreen::~TestScreen()
 {
     //free(L);
-    delete L;
+    if(doneInit)
+        delete L;
 }
-
-bool doneInit = false;
 
 void TestScreen::finalInitLua()
 {

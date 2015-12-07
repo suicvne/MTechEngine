@@ -59,10 +59,7 @@ void TitleScreen::draw(SpriteBatch *_sb)
 
     drawTitleCopyrightEtc(_sb);
 
-    if(showTestMessage)
-    {
-        testMessage->draw(_sb);
-    }
+    testMessage->draw(_sb);
 }
 
 void TitleScreen::drawOptions(SpriteBatch *_sb)
@@ -110,6 +107,7 @@ void TitleScreen::update(InputHandler *_ih)
                 mainSoundMixer->playSoundEffect(1);
             }
             break;
+        case SDLK_RETURN:
         case SDLK_z:
             mainSoundMixer->playSoundEffect(2);
             if(currentSelection == 0)
@@ -118,7 +116,7 @@ void TitleScreen::update(InputHandler *_ih)
                 ______DO_QUIT = true;
             break;
         case SDLK_o:
-            showTestMessage = !showTestMessage;
+            testMessage->setVisible(!testMessage->getVisibility());
             break;
         }
     }

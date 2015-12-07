@@ -12,6 +12,7 @@
 
 struct SoundMixer;
 struct ScreenManager;
+struct Camera2d;
 
 extern std::map<int, Tile*> Tilemap;
 extern Tile *__getBlockByID(int id);
@@ -24,5 +25,6 @@ extern int __internal_height;
 
 extern SoundMixer* mainSoundMixer;
 extern ScreenManager* mainScreenManager;
+extern Camera2d* mainGameCamera;
 
 #endif // GLOBAL_TILES_H_INCLUDED

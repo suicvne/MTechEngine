@@ -2,6 +2,7 @@
 #include "global_vars.h"
 #include "SoundMixer.h"
 #include "ScreenManager.h"
+#include "Camera2d.h"
 
 std::map<int, Tile*> Tilemap; //= new std::map<int, Tile*>();
 bool __updateGame = true;
@@ -18,3 +19,4 @@ int __internal_height = 600;
 
 SoundMixer *mainSoundMixer;
 ScreenManager *mainScreenManager;
+Camera2d *mainGameCamera;
