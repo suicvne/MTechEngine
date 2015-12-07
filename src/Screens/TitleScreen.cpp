@@ -1,6 +1,8 @@
 #include "TitleScreen.h"
 #include "global_vars.h"
 #include "SoundMixer.h"
+#include "MessageBox.h"
+#include "ScreenManager.h"
 
 TitleScreen::TitleScreen(ContentManager *___cm)
 {
@@ -10,10 +12,14 @@ TitleScreen::TitleScreen(ContentManager *___cm)
 
     totalOptions = menuOptions.size();
     currentSelection = 0;
+
+    testMessage = new MessageBox("This message is of the toppest of keks");
+    showTestMessage = false;
 }
 
 TitleScreen::~TitleScreen()
 {
+    delete testMessage;
 }
 
 void TitleScreen::draw(SpriteBatch *_sb)
@@ -32,10 +38,13 @@ void TitleScreen::draw(SpriteBatch *_sb)
     texArea.y = 668;
     texArea.w = 128;
     texArea.h = 42;
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, -(texArea.w), __internal_height - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, 0, __internal_height - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 1, __internal_height - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 2, __internal_height - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 3, __internal_height - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 4, __internal_height - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 5, __internal_height - texArea.h * 2, texArea, 2.0f);
 
     SDL_Color black{0,0,0,255};
     SDL_Rect boxArea;
@@ -49,6 +58,11 @@ void TitleScreen::draw(SpriteBatch *_sb)
     drawOptions(_sb);
 
     drawTitleCopyrightEtc(_sb);
+
+    if(showTestMessage)
+    {
+        testMessage->draw(_sb);
+    }
 }
 
 void TitleScreen::drawOptions(SpriteBatch *_sb)
@@ -98,8 +112,13 @@ void TitleScreen::update(InputHandler *_ih)
             break;
         case SDLK_z:
             mainSoundMixer->playSoundEffect(2);
-            if(currentSelection == 1)
+            if(currentSelection == 0)
+                mainScreenManager->pushScreen(TESTSCREEN);
+            else if(currentSelection == 1)
                 ______DO_QUIT = true;
+            break;
+        case SDLK_o:
+            showTestMessage = !showTestMessage;
             break;
         }
     }

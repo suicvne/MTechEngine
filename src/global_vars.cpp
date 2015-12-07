@@ -1,6 +1,7 @@
 #pragma once
 #include "global_vars.h"
 #include "SoundMixer.h"
+#include "ScreenManager.h"
 
 std::map<int, Tile*> Tilemap; //= new std::map<int, Tile*>();
 bool __updateGame = true;
@@ -16,3 +17,4 @@ int __internal_width = 800;
 int __internal_height = 600;
 
 SoundMixer *mainSoundMixer;
+ScreenManager *mainScreenManager;

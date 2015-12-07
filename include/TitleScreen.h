@@ -11,6 +11,8 @@
 #include <vector>
 #include "Menu.h"
 
+struct MessageBox;
+
 class TitleScreen : public Screen
 {
     public:
@@ -26,7 +28,8 @@ class TitleScreen : public Screen
         ContentManager *_cm;
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
-        bool upPressed, downPressed;
+        bool upPressed, downPressed, showTestMessage;
+        MessageBox *testMessage;
 };
 
 #endif // TITLESCREEN_H

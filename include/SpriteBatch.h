@@ -29,6 +29,7 @@ class SpriteBatch
         void sbFillScreen(SDL_Color *color);
         void sbFillRect(SDL_Color *color, SDL_Rect *rect);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper);
+        void sbDrawFont(std::string *msg, int x, int y, SDL_Color color, float scale, bool _upper);
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer **ren);
         SDL_Texture* loadTexture(const std::string &file);
         bool isDrawing()
@@ -39,6 +40,7 @@ class SpriteBatch
     private:
         SDL_Texture *__target;
         SDL_Texture *drawFontToTexture(std::string msg, SDL_Color color);
+        SDL_Texture *drawFontToTexture(std::string *msg, SDL_Color color);
         bool drawingInProgress = false;
         SDL_Renderer *__renderer;
         TTF_Font *mainGameFont;

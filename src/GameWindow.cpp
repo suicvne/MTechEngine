@@ -95,9 +95,9 @@ void GameWindow::loadTextures()
     txture = spriteBatch->loadTexture(getResourcePath("") + "sdlbros.png", &mainRenderer);
     contentManager.addTexture("sdlbroslogo", txture);
 
-    screenManager = new ScreenManager(contentManager);
+    mainScreenManager = new ScreenManager(contentManager);
 
-    screenManager->pushScreen(SPLASHSCREEN);
+    mainScreenManager->pushScreen(SPLASHSCREEN);
 }
 
 GameWindow::~GameWindow()
@@ -107,7 +107,7 @@ GameWindow::~GameWindow()
     SDL_Quit();
     SDL_DestroyWindow(GameWindow::gameWindow);
     SDL_DestroyRenderer(GameWindow::mainRenderer);
-    delete screenManager;
+    delete mainScreenManager;
     delete mainEventLoop;
 }
 
@@ -117,7 +117,7 @@ void GameWindow::draw()
     {
         spriteBatch->sbSetRenderTarget(targetTexture);
         spriteBatch->sbSetMainGameCamera(&MainGameCamera);
-        screenManager->draw(spriteBatch);
+        mainScreenManager->draw(spriteBatch);
         spriteBatch->sbSetRenderTarget(nullptr);
 
         spriteBatch->sbBegin();
@@ -229,8 +229,6 @@ void GameWindow::importantUpdates()
             }
         if(inputHandler->getEvent()->type == SDL_KEYDOWN)
             {
-                if(inputHandler->getEvent()->key.keysym.sym == SDLK_ESCAPE)
-                    ______DO_QUIT = 1;
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
                     toggleFullscreen();
                 if(inputHandler->getEvent()->key.keysym.sym == SDLK_LEFT)
@@ -265,18 +263,14 @@ void GameWindow::update()
 
         if(__vsyncEnabled)
         {
-            screenManager->update(inputHandler);
+            mainScreenManager->update(inputHandler);
 
-            if(screenManager->getSplashScreen()->goNext())
-            {
-                screenManager->pushScreen(TITLESCREEN);
-            }
-            if(screenManager->getTestScreen()->doQuit)
+            if(mainScreenManager->getTestScreen()->doQuit)
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;
                 ______DO_QUIT = 1;
             }
-            if(screenManager->getCurrentScreen() == TESTSCREEN)
+            if(mainScreenManager->getCurrentScreen() == TESTSCREEN)
             {
                 mainSoundMixer->playSong(); //only play test song on test screen
             }
@@ -285,8 +279,8 @@ void GameWindow::update()
         }
         else if(lastTimeCheck + updateIntervalMs < (int)SDL_GetTicks())
         {
-            screenManager->update(inputHandler);
-            if(screenManager->getTestScreen()->doQuit)
+            mainScreenManager->update(inputHandler);
+            if(mainScreenManager->getTestScreen()->doQuit)
             {
                 std::cout << "Obeying Lua Script Error and quitting" << std::endl;
                 ______DO_QUIT = 1;

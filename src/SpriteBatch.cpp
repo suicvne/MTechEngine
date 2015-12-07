@@ -82,6 +82,17 @@ void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, flo
     SDL_DestroyTexture(textToRender);
 }
 
+void SpriteBatch::sbDrawFont(std::string *msg, int x, int y, SDL_Color color, float scale, bool _upper)
+{
+    std::transform(msg->begin(), msg->end(), msg->begin(), _upper == true ? ::toupper : ::tolower);
+
+    SDL_Texture *textToRender = drawFontToTexture(msg, color);
+    //sbDrawTexture(textToRender, x, y);
+    sbDrawTextureScaledConstant(textToRender, x, y, scale);
+
+    SDL_DestroyTexture(textToRender);
+}
+
 SDL_Texture *SpriteBatch::drawFontToTexture(std::string msg, SDL_Color color)
 {
     if(msg == "")
@@ -89,6 +100,31 @@ SDL_Texture *SpriteBatch::drawFontToTexture(std::string msg, SDL_Color color)
 
 
     SDL_Surface *surface = TTF_RenderText_Blended(mainGameFont, msg.c_str(), color);
+
+    if(surface == nullptr)
+    {
+        std::cout << "Error rendering font: " << SDL_GetError() << std::endl;
+        return nullptr;
+    }
+
+    SDL_Texture *txt = SDL_CreateTextureFromSurface(__renderer, surface);
+    if(txt == nullptr)
+    {
+        std::cout << "Error creating texture from surface: " << SDL_GetError() << std::endl;
+        return nullptr;
+    }
+
+    SDL_FreeSurface(surface);
+    return txt;
+}
+
+SDL_Texture *SpriteBatch::drawFontToTexture(std::string *msg, SDL_Color color)
+{
+    if(msg == (std::string*)"")
+        msg = new std::string(" ");
+
+
+    SDL_Surface *surface = TTF_RenderText_Blended(mainGameFont, msg->c_str(), color);
 
     if(surface == nullptr)
     {

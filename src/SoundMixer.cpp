@@ -42,6 +42,15 @@ void SoundMixer::loadSound(std::string resPath)
     chunk = Mix_LoadWAV(path.c_str());
     soundEffectsList[counter] = chunk;
     std::cout << "Added effect with index " << counter << std::endl;
+    counter++;
+
+    path = std::string(resPath);
+    path.append("sound/message.ogg");
+    std::cout << path << std::endl;
+    chunk = Mix_LoadWAV(path.c_str());
+    soundEffectsList[counter] = chunk;
+    std::cout << "Added effect with index " << counter << std::endl;
+    counter++;
 
     std::cout << "===END SOUND LOADING===" << std::endl;
 }

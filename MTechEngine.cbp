@@ -72,6 +72,7 @@
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/MessageBox.h" />
 		<Unit filename="include/Screen.h">
 			<Option weight="75" />
 		</Unit>
@@ -99,6 +100,7 @@
 		<Unit filename="src/LuaSDL_Texture.cpp" />
 		<Unit filename="src/LuaSpriteBatch.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MessageBox.cpp" />
 		<Unit filename="src/ScreenManager.cpp">
 			<Option weight="62" />
 		</Unit>

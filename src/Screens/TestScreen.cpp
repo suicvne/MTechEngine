@@ -8,9 +8,6 @@ The screen was mostly developed to test Lua integration in depth/test the screen
 The screen executes whatever the contents of the test.lua file is located in the res/screens/test/ folder.
 
 ----------------------------------------------------*/
-
-
-
 #include "TestScreen.h"
 #include "GameWindow.h"
 #include "LuaBlockConfigLoader.h"
@@ -18,6 +15,7 @@ The screen executes whatever the contents of the test.lua file is located in the
 the luna hook ins
 */
 #include "global_vars.h"
+#include "ScreenManager.h"
 
 int LUA_GetBlock(lua_State *L)
 {
@@ -72,7 +70,6 @@ Luna<LuaBlockWrapper>::RegType LuaBlockWrapper::methods[] = {
 TestScreen::TestScreen(ContentManager &___cm) : Screen()
 {
     doQuit = false;
-    std::cout << "Address of contentmanager arg in TestScreen: " << &___cm << std::endl;
     _cm = &___cm;
 
     //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
@@ -216,6 +213,10 @@ void TestScreen::update(InputHandler *_ih)
     onUpdateFunction();
     if(_ih->getEvent()->type == SDL_KEYDOWN) //TODO: abstract to specific type of input (instead of raw keycode, jump button, etc.."
     {
+        if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+        {
+            mainScreenManager->pushScreen(TITLESCREEN);
+        }
         onInputFunction(_ih->getEvent()->key.keysym.sym);
     }
 }

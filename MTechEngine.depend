@@ -368,7 +368,7 @@
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1449372650 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1449435062 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 	"TitleScreen.h"
@@ -464,11 +464,12 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449368192 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1449435278 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
 	"global_vars.h"
+	"ScreenManager.h"
 	"LuaSpriteBatch.h"
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
@@ -477,7 +478,7 @@
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1449422226 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1449435195 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
@@ -1107,7 +1108,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449424055 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1449434777 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1121,9 +1122,10 @@
 	<SDL.h>
 	<float.h>
 
-1449424074 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1449434789 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
 	"SoundMixer.h"
+	"ScreenManager.h"
 
 1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
 	"LuaEventHandlerWrapper.h"
@@ -1140,7 +1142,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449424104 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1449434793 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1154,7 +1156,7 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1449418171 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1449433014 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1162,17 +1164,19 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449423551 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1449435211 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449418171 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1449433066 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
 	"global_vars.h"
 
-1449369591 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
+1449435169 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
 	"SplashScreen.h"
+	"global_vars.h"
+	"ScreenManager.h"
 
 1449369450 c:\users\mike\documents\github\mtechengine\include\splashscreen.h
 	"Screen.h"
@@ -1197,10 +1201,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449425220 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
+1449433933 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
 	"SoundMixer.h"
 
-1449423334 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
+1449432353 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
@@ -2187,8 +2191,20 @@
 1449418171 source:c:\users\mike\documents\github\mtechengine\src\menu.cpp
 	"Menu.h"
 
-1449424983 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
+1449434978 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
 	"TitleScreen.h"
 	"global_vars.h"
 	"SoundMixer.h"
+	"MessageBox.h"
+	"ScreenManager.h"
+
+1449434866 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
+	"global_vars.h"
+	"SoundMixer.h"
+	"MessageBox.h"
+	"SpriteBatch.h"
+
+1449434593 c:\users\mike\documents\github\mtechengine\include\messagebox.h
+	<string>
+	<vector>
 

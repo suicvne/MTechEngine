@@ -8,7 +8,7 @@
 
 enum ScreensEnum
 {
-    TESTSCREEN = -1, SPLASHSCREEN = 0, TITLESCREEN = 1
+    TESTSCREEN = 2, SPLASHSCREEN = 0, TITLESCREEN = 1
 };
 
 class ScreenManager

@@ -87,7 +87,7 @@ private:
     SpriteBatch *spriteBatch;
     ContentManager contentManager;
     InputHandler *inputHandler;
-    ScreenManager *screenManager;
+    //ScreenManager *screenManager;
     //SoundMixer *mainSoundMixer;
     Camera2d MainGameCamera;
     int width, height;
