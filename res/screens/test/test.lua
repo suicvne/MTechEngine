@@ -3,6 +3,7 @@ local exampleBlock2 = LuaBlockWrapper(BlockByID(1));
 local tableOfBlocks = {};
 local spr = LuaSpriteBatch(sprBatch);
 local cm = LuaContentManager(mainContentManager);
+local cam = LuaCameraWrapper(mainGameCamera);
 local timeoutMs = 3000;
 local timeoutCounter = 0;
 local messageToPrintToScreen = "kek";

@@ -67,6 +67,7 @@
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaBlockWrapper.h" />
+		<Unit filename="include/LuaCameraWrapper.h" />
 		<Unit filename="include/LuaContentManager.h" />
 		<Unit filename="include/LuaEventHandlerWrapper.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
@@ -95,6 +96,7 @@
 		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaBlockWrapper.cpp" />
+		<Unit filename="src/LuaCameraWrapper.cpp" />
 		<Unit filename="src/LuaContentManager.cpp" />
 		<Unit filename="src/LuaEventHandlerWrapper.cpp" />
 		<Unit filename="src/LuaSDL_Texture.cpp" />

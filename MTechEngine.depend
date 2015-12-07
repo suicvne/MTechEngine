@@ -1050,7 +1050,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449527731 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
+1449529408 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -1060,8 +1060,9 @@
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
 	"LuaBlockWrapper.h"
+	"LuaCameraWrapper.h"
 
-1449526918 /home/mike/git/MTechEngine/include/LuaBlockWrapper.h
+1449529532 /home/mike/git/MTechEngine/include/LuaBlockWrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1084,7 +1085,7 @@
 1449016165 source:/home/mike/git/MTechEngine/GameWindow.cpp
 	"GameWindow.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/LuaBlockWrapper.cpp
+1449529495 source:/home/mike/git/MTechEngine/src/LuaBlockWrapper.cpp
 	"LuaBlockWrapper.h"
 
 1449527135 source:/home/mike/git/MTechEngine/src/global_vars.cpp
@@ -2639,4 +2640,16 @@
 
 1449527208 source:/home/mike/git/MTechEngine/src/GameWindow.cpp
 	"GameWindow.h"
+
+1449529380 source:/home/mike/git/MTechEngine/src/LuaCameraWrapper.cpp
+	"LuaCameraWrapper.h"
+
+1449529310 /home/mike/git/MTechEngine/include/LuaCameraWrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Camera2d.h"
 

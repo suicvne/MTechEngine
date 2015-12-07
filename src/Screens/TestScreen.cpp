@@ -34,10 +34,12 @@ int LUA_GetBlock(lua_State *L)
 #include "LuaSDL_Texture.h"
 #include "LuaContentManager.h"
 #include "LuaBlockWrapper.h"
+#include "LuaCameraWrapper.h"
 const char LuaSpriteBatch::className[] = "LuaSpriteBatch";
 const char LuaSDL_Texture::className[] = "LuaSDL_Texture";
 const char LuaContentManager::className[] = "LuaContentManager";
 const char LuaBlockWrapper::className[] = "LuaBlockWrapper";
+const char LuaCameraWrapper::className[] = "LuaCameraWrapper";
 #define method(class, name) {#name, &class::name}
 Luna<LuaSpriteBatch>::RegType LuaSpriteBatch::methods[] = {
     method(LuaSpriteBatch, drawTextToScreen),
@@ -66,15 +68,19 @@ Luna<LuaBlockWrapper>::RegType LuaBlockWrapper::methods[] = {
     method(LuaBlockWrapper, getTotalFrames),
     {0, 0}
 };
+Luna<LuaCameraWrapper>::RegType LuaCameraWrapper::methods[] = {
+    method(LuaCameraWrapper, getCameraX),
+    method(LuaCameraWrapper, getCameraY),
+    method(LuaCameraWrapper, setCameraX),
+    method(LuaCameraWrapper, setCameraY),
+    method(LuaCameraWrapper, setCameraPosition),
+    {0, 0}
+};
 
 TestScreen::TestScreen(ContentManager &___cm) : Screen()
 {
     doQuit = false;
     _cm = &___cm;
-
-    //std::cout << "Address of contentmanager in TestScreen: " << _cm << std::endl;
-    //L = lua_open();
-    //luaL_openlibs(L);
 }
 
 bool doneInit = false;
@@ -94,6 +100,7 @@ void TestScreen::finalInitLua()
     Luna<LuaContentManager>::Register(L);
     Luna<LuaSDL_Texture>::Register(L);
     Luna<LuaBlockWrapper>::Register(L);
+    Luna<LuaCameraWrapper>::Register(L);
 
     luaL_openlibs(L);
     //lua_register(L, "MakeVector2i", LUA_makeVector2i);
@@ -105,10 +112,13 @@ void TestScreen::finalInitLua()
     lua_pushlightuserdata(L, (void*)_cm);
     lua_setglobal(L, "mainContentManager");
 
+    lua_pushlightuserdata(L, (void*)mainGameCamera);
+    lua_setglobal(L, "mainGameCamera");
+
     doneInit = true;
 
     std::string path(GameWindow::getResourcePath(""));
-    path.append("/screens/test/test.lua");
+    path.append("screens/test/test.lua");
     std::cout << "Script from: " << path << std::endl;
 
     s = luaL_loadfile(L, path.c_str());
