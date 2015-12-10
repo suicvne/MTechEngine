@@ -543,12 +543,12 @@
 	"SpriteBatch.h"
 	"ContentManager.h"
 
-1449526918 source:/home/mike/git/MTechEngine/main.cpp
+1449788187 source:/home/mike/git/MTechEngine/main.cpp
 	<SDL.h>
 	"GameWindow.h"
 	"Camera2d.h"
 
-1400119779 /usr/include/SDL2/SDL.h
+1417111722 /usr/include/SDL2/SDL.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -579,12 +579,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_main.h
+1417111722 /usr/include/SDL2/SDL_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_stdinc.h
+1417111722 /usr/include/SDL2/SDL_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -611,32 +611,32 @@
 	<stdlib.h>
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_config.h
+1417111722 /usr/include/SDL2/SDL_config.h
 	"SDL_platform.h"
 
-1400119779 /usr/include/SDL2/SDL_platform.h
+1417111722 /usr/include/SDL2/SDL_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/begin_code.h
+1417111722 /usr/include/SDL2/begin_code.h
 
-1400119779 /usr/include/SDL2/close_code.h
+1417111722 /usr/include/SDL2/close_code.h
 
-1400119779 /usr/include/SDL2/SDL_assert.h
+1417111722 /usr/include/SDL2/SDL_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_atomic.h
+1417111722 /usr/include/SDL2/SDL_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_audio.h
+1417111722 /usr/include/SDL2/SDL_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -646,24 +646,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_error.h
+1417111722 /usr/include/SDL2/SDL_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_endian.h
+1417111722 /usr/include/SDL2/SDL_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_mutex.h
+1417111722 /usr/include/SDL2/SDL_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_thread.h
+1417111722 /usr/include/SDL2/SDL_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -672,18 +672,18 @@
 	<process.h>
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_rwops.h
+1417111722 /usr/include/SDL2/SDL_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_clipboard.h
+1417111722 /usr/include/SDL2/SDL_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_cpuinfo.h
+1417111722 /usr/include/SDL2/SDL_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -695,7 +695,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_events.h
+1417111722 /usr/include/SDL2/SDL_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -709,7 +709,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_video.h
+1417111722 /usr/include/SDL2/SDL_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -717,12 +717,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_pixels.h
+1417111722 /usr/include/SDL2/SDL_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_rect.h
+1417111722 /usr/include/SDL2/SDL_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -730,7 +730,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_surface.h
+1417111722 /usr/include/SDL2/SDL_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -739,11 +739,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_blendmode.h
+1417111722 /usr/include/SDL2/SDL_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_keyboard.h
+1417111722 /usr/include/SDL2/SDL_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -751,27 +751,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_keycode.h
+1417111722 /usr/include/SDL2/SDL_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1400119779 /usr/include/SDL2/SDL_scancode.h
+1417111722 /usr/include/SDL2/SDL_scancode.h
 	"SDL_stdinc.h"
 
-1400119779 /usr/include/SDL2/SDL_mouse.h
+1417111722 /usr/include/SDL2/SDL_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_joystick.h
+1417111722 /usr/include/SDL2/SDL_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_gamecontroller.h
+1417111722 /usr/include/SDL2/SDL_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -779,11 +779,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_quit.h
+1417111722 /usr/include/SDL2/SDL_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1400119779 /usr/include/SDL2/SDL_gesture.h
+1417111722 /usr/include/SDL2/SDL_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -791,60 +791,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_touch.h
+1417111722 /usr/include/SDL2/SDL_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_filesystem.h
+1417111722 /usr/include/SDL2/SDL_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_haptic.h
+1417111722 /usr/include/SDL2/SDL_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_hints.h
+1417111722 /usr/include/SDL2/SDL_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_loadso.h
+1417111722 /usr/include/SDL2/SDL_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_log.h
+1417111722 /usr/include/SDL2/SDL_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_messagebox.h
+1417111722 /usr/include/SDL2/SDL_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_power.h
+1417111722 /usr/include/SDL2/SDL_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_render.h
+1417111722 /usr/include/SDL2/SDL_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_system.h
+1417111722 /usr/include/SDL2/SDL_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -852,13 +852,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_timer.h
+1417111722 /usr/include/SDL2/SDL_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1400119779 /usr/include/SDL2/SDL_version.h
+1417111722 /usr/include/SDL2/SDL_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -883,40 +883,40 @@
 	<iostream>
 	<algorithm>
 
-1390221167 /usr/include/SDL2/SDL_image.h
+1413379691 /usr/include/SDL2/SDL_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1383088273 /usr/include/SDL2/SDL_ttf.h
+1383070864 /usr/include/SDL2/SDL_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1448924578 /home/mike/git/MTechEngine/include/ContentManager.h
+1449788187 /home/mike/git/MTechEngine/include/ContentManager.h
 	<iostream>
 	<map>
 	<SDL.h>
 	<SDL_image.h>
 
-1448924578 /home/mike/git/MTechEngine/include/InputHandler.h
+1449788187 /home/mike/git/MTechEngine/include/InputHandler.h
 	<iostream>
 	<SDL.h>
 
-1449526918 /home/mike/git/MTechEngine/include/Sprite.h
+1449788187 /home/mike/git/MTechEngine/include/Sprite.h
 	"InputHandler.h"
 	"SpriteBatch.h"
 	<SDL.h>
 
-1448924578 /home/mike/git/MTechEngine/include/StandardColors.h
+1449788187 /home/mike/git/MTechEngine/include/StandardColors.h
 
-1449526918 /home/mike/git/MTechEngine/include/ScreenManager.h
+1449788187 /home/mike/git/MTechEngine/include/ScreenManager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 	"TitleScreen.h"
 
-1449014654 /home/mike/git/MTechEngine/include/TestScreen.h
+1449788187 /home/mike/git/MTechEngine/include/TestScreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
@@ -925,7 +925,7 @@
 	<lauxlib.h>
 	<SDL.h>
 
-1449526918 /home/mike/git/MTechEngine/include/Screen.h
+1449788187 /home/mike/git/MTechEngine/include/Screen.h
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"ContentManager.h"
@@ -935,7 +935,7 @@
 	<stddef.h>
 	"luaconf.h"
 
-1409677666 /usr/include/lua5.1/luaconf.h
+1412848069 /usr/include/lua5.1/luaconf.h
 	<limits.h>
 	<stddef.h>
 	"lua5.1-deb-multiarch.h"
@@ -957,7 +957,7 @@
 	<stdio.h>
 	"lua.h"
 
-1449526918 /home/mike/git/MTechEngine/include/LuaBlockConfigLoader.h
+1449788187 /home/mike/git/MTechEngine/include/LuaBlockConfigLoader.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -972,7 +972,7 @@
 	"_vector2i.h"
 	<vector>
 
-1448924578 /home/mike/git/MTechEngine/include/luna.h
+1449788187 /home/mike/git/MTechEngine/include/luna.h
 	"lua.h"
 	"lauxlib.h"
 
@@ -981,7 +981,7 @@
 	<map>
 	"Tile.h"
 
-1449526918 /home/mike/git/MTechEngine/include/Tile.h
+1449788187 /home/mike/git/MTechEngine/include/Tile.h
 	<SDL.h>
 	<iostream>
 	<string>
@@ -990,7 +990,7 @@
 	"_vector2i.h"
 	"SpriteBatch.h"
 
-1448924578 /home/mike/git/MTechEngine/include/_vector2i.h
+1449788187 /home/mike/git/MTechEngine/include/_vector2i.h
 	<iostream>
 	<SDL.h>
 
@@ -998,25 +998,25 @@
 	"SpriteBatch.h"
 	"GameWindow.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/_vector2i.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/_vector2i.cpp
 	"_vector2i.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/ContentManager.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/ContentManager.cpp
 	"ContentManager.h"
 
 1448924578 source:/home/mike/git/MTechEngine/src/global_tiles.cpp
 	"global_tiles.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/InputHandler.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/InputHandler.cpp
 	"InputHandler.h"
 
-1449016100 source:/home/mike/git/MTechEngine/src/LuaBlockConfigLoader.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaBlockConfigLoader.cpp
 	"LuaBlockConfigLoader.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/LuaContentManager.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaContentManager.cpp
 	"LuaContentManager.h"
 
-1448924578 /home/mike/git/MTechEngine/include/LuaContentManager.h
+1449788187 /home/mike/git/MTechEngine/include/LuaContentManager.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1025,10 +1025,10 @@
 	"luna.h"
 	"ContentManager.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/LuaSDL_Texture.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaSDL_Texture.cpp
 	"LuaSDL_Texture.h"
 
-1448924578 /home/mike/git/MTechEngine/include/LuaSDL_Texture.h
+1449788187 /home/mike/git/MTechEngine/include/LuaSDL_Texture.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1037,10 +1037,10 @@
 	"luna.h"
 	<iostream>
 
-1449526919 source:/home/mike/git/MTechEngine/src/LuaSpriteBatch.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaSpriteBatch.cpp
 	"LuaSpriteBatch.h"
 
-1449526918 /home/mike/git/MTechEngine/include/LuaSpriteBatch.h
+1449788187 /home/mike/git/MTechEngine/include/LuaSpriteBatch.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1050,7 +1050,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449529408 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Screens/TestScreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -1062,7 +1062,7 @@
 	"LuaBlockWrapper.h"
 	"LuaCameraWrapper.h"
 
-1449529532 /home/mike/git/MTechEngine/include/LuaBlockWrapper.h
+1449788187 /home/mike/git/MTechEngine/include/LuaBlockWrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1073,38 +1073,38 @@
 	"SpriteBatch.h"
 	"ContentManager.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/Sprite.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Sprite.cpp
 	"Sprite.h"
 
-1448924578 source:/home/mike/git/MTechEngine/src/Tile.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Tile.cpp
 	"Tile.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/ScreenManager.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/ScreenManager.cpp
 	"ScreenManager.h"
 
 1449016165 source:/home/mike/git/MTechEngine/GameWindow.cpp
 	"GameWindow.h"
 
-1449529495 source:/home/mike/git/MTechEngine/src/LuaBlockWrapper.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaBlockWrapper.cpp
 	"LuaBlockWrapper.h"
 
-1449527135 source:/home/mike/git/MTechEngine/src/global_vars.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/global_vars.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"ScreenManager.h"
 	"Camera2d.h"
 
-1449527118 /home/mike/git/MTechEngine/include/global_vars.h
+1449788187 /home/mike/git/MTechEngine/include/global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
 
-1449013683 source:/home/mike/git/MTechEngine/src/LuaEventHandlerWrapper.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaEventHandlerWrapper.cpp
 	"LuaEventHandlerWrapper.h"
 
-1449526918 /home/mike/git/MTechEngine/include/LuaEventHandlerWrapper.h
+1449788187 /home/mike/git/MTechEngine/include/LuaEventHandlerWrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -2538,7 +2538,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449526918 /home/mike/git/MTechEngine/include/SpriteBatch.h
+1449788187 /home/mike/git/MTechEngine/include/SpriteBatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -2546,11 +2546,11 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449526918 /home/mike/git/MTechEngine/include/Camera2d.h
+1449788187 /home/mike/git/MTechEngine/include/Camera2d.h
 	<SDL.h>
 	<float.h>
 
-1449527148 /home/mike/git/MTechEngine/include/GameWindow.h
+1449788187 /home/mike/git/MTechEngine/include/GameWindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -2564,14 +2564,14 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1449526918 /home/mike/git/MTechEngine/include/SplashScreen.h
+1449788187 /home/mike/git/MTechEngine/include/SplashScreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"global_vars.h"
 
-1449526918 /home/mike/git/MTechEngine/include/TitleScreen.h
+1449788187 /home/mike/git/MTechEngine/include/TitleScreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
@@ -2582,17 +2582,17 @@
 	<vector>
 	"Menu.h"
 
-1449526918 /home/mike/git/MTechEngine/include/Menu.h
+1449788187 /home/mike/git/MTechEngine/include/Menu.h
 	<string>
 
-1449526918 /home/mike/git/MTechEngine/include/SoundMixer.h
+1449788187 /home/mike/git/MTechEngine/include/SoundMixer.h
 	<SDL.h>
 	<SDL_mixer.h>
 	<iostream>
 	<string>
 	<map>
 
-1395318426 /usr/include/SDL2/SDL_mixer.h
+1414231749 /usr/include/SDL2/SDL_mixer.h
 	"SDL_stdinc.h"
 	"SDL_rwops.h"
 	"SDL_audio.h"
@@ -2601,50 +2601,51 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/Camera2d.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Camera2d.cpp
 	"Camera2d.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/Menu.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Menu.cpp
 	"Menu.h"
 
-1449527591 source:/home/mike/git/MTechEngine/src/MessageBox.cpp
+1449790329 source:/home/mike/git/MTechEngine/src/MessageBox.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"SpriteBatch.h"
+	"MathsStuff.h"
 
-1449527557 /home/mike/git/MTechEngine/include/MessageBox.h
+1449790223 /home/mike/git/MTechEngine/include/MessageBox.h
 	<string>
 	<vector>
 
-1449526919 source:/home/mike/git/MTechEngine/src/Screens/SplashScreen.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Screens/SplashScreen.cpp
 	"SplashScreen.h"
 	"global_vars.h"
 	"ScreenManager.h"
 
-1449527572 source:/home/mike/git/MTechEngine/src/Screens/TitleScreen.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/Screens/TitleScreen.cpp
 	"TitleScreen.h"
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"ScreenManager.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/SoundMixer.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/SoundMixer.cpp
 	"SoundMixer.h"
 
-1449526919 source:/home/mike/git/MTechEngine/src/SpriteBatch.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/SpriteBatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
 	"global_vars.h"
 
-1449527208 source:/home/mike/git/MTechEngine/src/GameWindow.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/GameWindow.cpp
 	"GameWindow.h"
 
-1449529380 source:/home/mike/git/MTechEngine/src/LuaCameraWrapper.cpp
+1449788187 source:/home/mike/git/MTechEngine/src/LuaCameraWrapper.cpp
 	"LuaCameraWrapper.h"
 
-1449529310 /home/mike/git/MTechEngine/include/LuaCameraWrapper.h
+1449788187 /home/mike/git/MTechEngine/include/LuaCameraWrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -2652,4 +2653,8 @@
 	<SDL_image.h>
 	"luna.h"
 	"Camera2d.h"
+
+1449790392 source:/home/mike/git/MTechEngine/src/MathsStuff.cpp
+
+1449790388 /home/mike/git/MTechEngine/include/MathsStuff.h
 

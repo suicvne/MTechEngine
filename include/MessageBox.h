@@ -27,6 +27,7 @@ class MessageBox
         const int MAX_WIDTH = 350;
         const int MAX_HEIGHT = 250;
         const int MAX_CHAR_PER_LINE = 25;
+        int opacityMod, frameCount;
 };
 
 #endif // MESSAGEBOX_H

@@ -2,6 +2,7 @@
 #include "SoundMixer.h"
 #include "MessageBox.h"
 #include "SpriteBatch.h"
+#include "MathsStuff.h"
 
 MessageBox::MessageBox(std::string msg)
 {
@@ -20,13 +21,17 @@ void MessageBox::setVisible(bool vis)
 {
     showMessage = vis;
     if(!vis)
+    {
         soundPlayed = false;
+        frameCount = 0;
+    }
 }
 
 void MessageBox::draw(SpriteBatch *_sb)
 {
     if(showMessage)
     {
+    frameCount += 7;
     if(!soundPlayed)
     {
         mainSoundMixer->playSoundEffect(3);
@@ -36,10 +41,13 @@ void MessageBox::draw(SpriteBatch *_sb)
     SDL_Color white {255,255,255,255};
     SDL_Color black {0,0,0,255};
 
+    int __max_height = (messageSplitToVector.size() * 20) < MAX_HEIGHT ? (messageSplitToVector.size() * 20) + 16 : MAX_HEIGHT + 16;
+    int true_x = (__internal_width / 2) - ((MAX_WIDTH + 16) / 2);
+
     SDL_Rect msgBoxArea;
-    msgBoxArea.w = MAX_WIDTH + 16;
-    msgBoxArea.h = (messageSplitToVector.size() * 20) < MAX_HEIGHT ? (messageSplitToVector.size() * 20) + 16 : MAX_HEIGHT + 16;
-    msgBoxArea.x = (__internal_width / 2) - (msgBoxArea.w / 2);
+    msgBoxArea.w = MathsStuff::math_clamp((this->frameCount + 150), 0, MAX_WIDTH + 16);
+    msgBoxArea.h = MathsStuff::math_clamp(this->frameCount, 0, __max_height);
+    msgBoxArea.x = true_x;
     msgBoxArea.y = (__internal_height / 2) - (msgBoxArea.h / 2);
 
     SDL_Rect outlineArea;
@@ -51,12 +59,17 @@ void MessageBox::draw(SpriteBatch *_sb)
     _sb->sbFillRect(&white,  &outlineArea);
     _sb->sbFillRect(&black, &msgBoxArea);
 
-    int yMod = 10;
-    for(std::string part : messageSplitToVector)
+    if(frameCount > __max_height && frameCount+150 > MAX_WIDTH + 16)
     {
-        _sb->sbDrawFont(part, msgBoxArea.x + 4, msgBoxArea.y + (1 * yMod), white, 2.0f, false);
-        yMod += 15;
+        int yMod = 10;
+        for(std::string part : messageSplitToVector)
+        {
+            _sb->sbDrawFont(part, msgBoxArea.x + 4, msgBoxArea.y + (1 * yMod), white, 2.0f, false);
+            yMod += 15;
+        }
     }
+
+
     }
 }
 
