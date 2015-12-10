@@ -13,7 +13,7 @@ TitleScreen::TitleScreen(ContentManager *___cm)
     totalOptions = menuOptions.size();
     currentSelection = 0;
 
-    testMessage = new MessageBox("This message is of the toppest of keks");
+    testMessage = new MessageBox("You failed to do something. You're in big trouble now mister. I hope you realize what you've done you motherfucker");
     showTestMessage = false;
 }
 
@@ -143,5 +143,6 @@ void TitleScreen::drawTitleCopyrightEtc(SpriteBatch *_sb)
     _sb->sbDrawTextureScaledConstant(_cm->getTexture("sdlbroslogo"), ((__internal_width / 2) - ((wLogo*2) / 2)), 40, 2.0f);
 
     //_sb->sbDrawFont("SDL Brothers X", ((__internal_width / 2) - (x / 2)), 40, white, 3.0f, true);
-    _sb->sbDrawFont("Pre Alpha Build", 0, 600-24, white, 2.0f, false);
+    _sb->sbDrawFont("Press O to test message boxes!", 2, __internal_height - 48, white, 2.0f, false);
+    _sb->sbDrawFont("Pre Alpha Build", 2, 600-24, white, 2.0f, false);
 }
