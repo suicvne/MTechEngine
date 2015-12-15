@@ -11,6 +11,8 @@ bool ______DO_QUIT = false;
 
 Tile *__getBlockByID(int id)
 {
+    if(id < 0)
+        return NULL;
     return Tilemap[id];
 };
 
