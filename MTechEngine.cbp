@@ -65,6 +65,7 @@
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/GameWindow.h" />
 		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LevelObject.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaBlockWrapper.h" />
 		<Unit filename="include/LuaCameraWrapper.h" />
@@ -94,6 +95,7 @@
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/GameWindow.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LevelObject.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaBlockWrapper.cpp" />
 		<Unit filename="src/LuaCameraWrapper.cpp" />
