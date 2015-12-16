@@ -88,6 +88,7 @@
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/TitleScreen.h" />
 		<Unit filename="include/_vector2i.h" />
+		<Unit filename="include/array.h" />
 		<Unit filename="include/global_vars.h" />
 		<Unit filename="include/luna.h" />
 		<Unit filename="main.cpp" />
