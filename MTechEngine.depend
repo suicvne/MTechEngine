@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1449322632 source:c:\users\mike\documents\github\mtechengine\main.cpp
+1450228094 source:c:\users\mike\documents\github\mtechengine\main.cpp
 	<SDL.h>
 	"GameWindow.h"
 	"Camera2d.h"
@@ -368,12 +368,12 @@
 
 1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1449435062 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1450229974 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 	"TitleScreen.h"
 
-1449267861 c:\users\mike\documents\github\mtechengine\include\testscreen.h
+1450230005 c:\users\mike\documents\github\mtechengine\include\testscreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
@@ -464,7 +464,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1449435278 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1450228094 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -474,6 +474,7 @@
 	"LuaSDL_Texture.h"
 	"LuaContentManager.h"
 	"LuaBlockWrapper.h"
+	"LuaCameraWrapper.h"
 
 1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
@@ -1116,11 +1117,10 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449434777 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1450229479 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
-	"ContentManager.h"
 	"SpriteBatch.h"
 
 1449358044 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
@@ -1130,10 +1130,11 @@
 	<SDL.h>
 	<float.h>
 
-1449434789 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1450228990 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"ScreenManager.h"
+	"Camera2d.h"
 
 1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
 	"LuaEventHandlerWrapper.h"
@@ -1150,7 +1151,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1449434793 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1450229959 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1172,7 +1173,7 @@
 	<algorithm>
 	"Camera2d.h"
 
-1449435211 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1450229954 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
 1449433066 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
@@ -2199,20 +2200,21 @@
 1449418171 source:c:\users\mike\documents\github\mtechengine\src\menu.cpp
 	"Menu.h"
 
-1449434978 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
+1450228094 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
 	"TitleScreen.h"
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"ScreenManager.h"
 
-1449434866 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
+1450228094 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"SpriteBatch.h"
+	"MathsStuff.h"
 
-1449434593 c:\users\mike\documents\github\mtechengine\include\messagebox.h
+1450228094 c:\users\mike\documents\github\mtechengine\include\messagebox.h
 	<string>
 	<vector>
 
@@ -2657,4 +2659,27 @@
 1449790392 source:/home/mike/git/MTechEngine/src/MathsStuff.cpp
 
 1450136761 /home/mike/git/MTechEngine/include/MathsStuff.h
+
+1450228094 source:c:\users\mike\documents\github\mtechengine\src\luacamerawrapper.cpp
+	"LuaCameraWrapper.h"
+
+1450228094 c:\users\mike\documents\github\mtechengine\include\luacamerawrapper.h
+	<lua.h>
+	<lualib.h>
+	<lauxlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	"luna.h"
+	"Camera2d.h"
+
+1450228094 c:\users\mike\documents\github\mtechengine\include\mathsstuff.h
+
+1450229453 source:c:\users\mike\documents\github\mtechengine\src\levelobject.cpp
+	"LevelObject.h"
+	"SpriteBatch.h"
+	"InputHandler.h"
+	"Tile.h"
+	"global_vars.h"
+
+1450229397 c:\users\mike\documents\github\mtechengine\include\levelobject.h
 

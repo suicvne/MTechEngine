@@ -18,6 +18,8 @@ Tile *__getBlockByID(int id)
 
 int __internal_width = 800;
 int __internal_height = 600;
+int __STANDARD_TILE_HEIGHT = 32;
+int __STANDARD_TILE_WIDTH = 32;
 
 SoundMixer *mainSoundMixer;
 ScreenManager *mainScreenManager;

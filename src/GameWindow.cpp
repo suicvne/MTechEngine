@@ -84,19 +84,21 @@ void GameWindow::initializeSDL()
 
 void GameWindow::loadTextures()
 {
+    ContentManager *mainContentManager = new ContentManager();
+
     SDL_Texture *txture;
     txture = spriteBatch->loadTexture(getResourcePath("") + "tiles/full.png", &mainRenderer);
-    contentManager.addTexture("test_sheet", txture);
+    mainContentManager->addTexture("test_sheet", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "logo.png", &mainRenderer);
-    contentManager.addTexture("company_logo", txture);
+    mainContentManager->addTexture("company_logo", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "bg/all.png", &mainRenderer);
-    contentManager.addTexture("bg_index", txture);
+    mainContentManager->addTexture("bg_index", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "selection.png", &mainRenderer);
-    contentManager.addTexture("selection", txture);
+    mainContentManager->addTexture("selection", txture);
     txture = spriteBatch->loadTexture(getResourcePath("") + "sdlbros.png", &mainRenderer);
-    contentManager.addTexture("sdlbroslogo", txture);
+    mainContentManager->addTexture("sdlbroslogo", txture);
 
-    mainScreenManager = new ScreenManager(contentManager);
+    mainScreenManager = new ScreenManager(mainContentManager);
 
     mainScreenManager->pushScreen(SPLASHSCREEN);
 }

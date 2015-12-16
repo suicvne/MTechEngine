@@ -5,11 +5,13 @@
 //The width and height are in blocks not pixels.
 struct LevelSettings
 {
-    int width, height
+    int width, height;
 };
 
 //Forward declarations
-struct SpriteBatch, InputHandler;
+struct SpriteBatch;
+struct InputHandler;
+struct Tile;
 
 class LevelObject
 {
@@ -22,7 +24,7 @@ class LevelObject
     protected:
         int initLevel();
     private:
-        int *__tiles[][];
+        Tile **__tiles;
         LevelSettings lvlsettings;
 };
 

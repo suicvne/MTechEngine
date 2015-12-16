@@ -1,12 +1,12 @@
 #include "ScreenManager.h"
 
-ScreenManager::ScreenManager(ContentManager &__cm)
+ScreenManager::ScreenManager(ContentManager *__cm)
 {
     //std::cout << "addr_of contentManager (screenManager init): " << &__cm << std::endl;
     //std::cout << "texture: " << __cm.getTexture("r") << std::endl << std::endl;
     testScreen = new TestScreen(__cm);
-    splash = new SplashScreen(&__cm);
-    title = new TitleScreen(&__cm);
+    splash = new SplashScreen(__cm);
+    title = new TitleScreen(__cm);
 }
 
 ScreenManager::~ScreenManager()

@@ -19,7 +19,7 @@ extern "C"
 class TestScreen : public Screen
 {
     public:
-        TestScreen(ContentManager &___cm);
+        TestScreen(ContentManager *___cm);
         ~TestScreen();
         void draw(SpriteBatch *_sb);
         void update(InputHandler *_ih);

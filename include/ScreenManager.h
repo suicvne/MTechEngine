@@ -14,7 +14,7 @@ enum ScreensEnum
 class ScreenManager
 {
     public:
-        ScreenManager(ContentManager &__cm);
+        ScreenManager(ContentManager *__cm);
         ~ScreenManager();
         void update(InputHandler *_ih);
         void draw(SpriteBatch *_sb);

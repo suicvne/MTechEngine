@@ -77,10 +77,10 @@ Luna<LuaCameraWrapper>::RegType LuaCameraWrapper::methods[] = {
     {0, 0}
 };
 
-TestScreen::TestScreen(ContentManager &___cm) : Screen()
+TestScreen::TestScreen(ContentManager *___cm) : Screen()
 {
     doQuit = false;
-    _cm = &___cm;
+    _cm = ___cm;
 }
 
 bool doneInit = false;

@@ -85,7 +85,6 @@ private:
     SDL_Renderer *mainRenderer;
     SDL_Event *mainEventLoop;
     SpriteBatch *spriteBatch;
-    ContentManager contentManager;
     InputHandler *inputHandler;
     //ScreenManager *screenManager;
     //SoundMixer *mainSoundMixer;
