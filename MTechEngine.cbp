@@ -65,6 +65,7 @@
 		<Unit filename="include/ContentManager.h" />
 		<Unit filename="include/GameWindow.h" />
 		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LevelBackground.h" />
 		<Unit filename="include/LevelObject.h" />
 		<Unit filename="include/LuaBlockConfigLoader.h" />
 		<Unit filename="include/LuaBlockWrapper.h" />
@@ -84,6 +85,7 @@
 		<Unit filename="include/Sprite.h" />
 		<Unit filename="include/SpriteBatch.h" />
 		<Unit filename="include/StandardColors.h" />
+		<Unit filename="include/TestLevelScreen.h" />
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/TitleScreen.h" />
@@ -96,6 +98,7 @@
 		<Unit filename="src/ContentManager.cpp" />
 		<Unit filename="src/GameWindow.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LevelBackground.cpp" />
 		<Unit filename="src/LevelObject.cpp" />
 		<Unit filename="src/LuaBlockConfigLoader.cpp" />
 		<Unit filename="src/LuaBlockWrapper.cpp" />
@@ -110,6 +113,7 @@
 			<Option weight="62" />
 		</Unit>
 		<Unit filename="src/Screens/SplashScreen.cpp" />
+		<Unit filename="src/Screens/TestLevelScreen.cpp" />
 		<Unit filename="src/Screens/TestScreen.cpp" />
 		<Unit filename="src/Screens/TitleScreen.cpp" />
 		<Unit filename="src/SoundMixer.cpp" />
