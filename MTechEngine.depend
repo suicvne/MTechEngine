@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1450228094 source:c:\users\mike\documents\github\mtechengine\main.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\main.cpp
 	<SDL.h>
 	"GameWindow.h"
 	"Camera2d.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -35,12 +35,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_main.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_stdinc.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -68,32 +68,32 @@
 	<stdlib.h>
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_config.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1448717031 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_platform.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\begin_code.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\begin_code.h
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\close_code.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\close_code.h
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_assert.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_atomic.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_audio.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -103,24 +103,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_error.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_endian.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mutex.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_thread.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -129,18 +129,18 @@
 	<process.h>
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rwops.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_clipboard.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_cpuinfo.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -152,7 +152,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_events.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -166,7 +166,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_video.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -174,12 +174,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_pixels.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rect.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -187,7 +187,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_surface.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -196,11 +196,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_blendmode.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keyboard.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -208,27 +208,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keycode.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_scancode.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mouse.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_joystick.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gamecontroller.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -236,11 +236,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_quit.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gesture.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -248,60 +248,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_touch.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_filesystem.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_haptic.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_hints.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_loadso.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_log.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937196 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_messagebox.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_power.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_render.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_system.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -309,13 +309,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_timer.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394937197 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_version.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
@@ -340,40 +340,41 @@
 	<iostream>
 	<algorithm>
 
-1376156342 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_image.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1376156543 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_ttf.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\contentmanager.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\contentmanager.h
 	<iostream>
 	<map>
 	<SDL.h>
 	<SDL_image.h>
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\inputhandler.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\inputhandler.h
 	<iostream>
 	<SDL.h>
 
-1449320826 c:\users\mike\documents\github\mtechengine\include\sprite.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\sprite.h
 	"InputHandler.h"
 	"SpriteBatch.h"
 	<SDL.h>
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1450229974 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1450813098 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 	"TitleScreen.h"
+	"TestLevelScreen.h"
 
-1450230005 c:\users\mike\documents\github\mtechengine\include\testscreen.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\testscreen.h
 	"Screen.h"
 	"Sprite.h"
 	"StandardColors.h"
@@ -382,17 +383,17 @@
 	<lauxlib.h>
 	<SDL.h>
 
-1449320830 c:\users\mike\documents\github\mtechengine\include\screen.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\screen.h
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"ContentManager.h"
 
-1326497780 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lua.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lua.h
 	<stdarg.h>
 	<stddef.h>
 	"luaconf.h"
 
-1399324226 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\luaconf.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\luaconf.h
 	<limits.h>
 	<stddef.h>
 	<unistd.h>
@@ -405,10 +406,10 @@
 	<math.h>
 	<unistd.h>
 
-1198771346 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lualib.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lualib.h
 	"lua.h"
 
-1198771346 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lauxlib.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\lua\lauxlib.h
 	<stddef.h>
 	<stdio.h>
 	"lua.h"
@@ -417,16 +418,16 @@
 	"SpriteBatch.h"
 	"GameWindow.h"
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\contentmanager.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\contentmanager.cpp
 	"ContentManager.h"
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\inputhandler.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\inputhandler.cpp
 	"InputHandler.h"
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\luacontentmanager.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luacontentmanager.cpp
 	"LuaContentManager.h"
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\luacontentmanager.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luacontentmanager.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -435,14 +436,14 @@
 	"luna.h"
 	"ContentManager.h"
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\luna.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luna.h
 	"lua.h"
 	"lauxlib.h"
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\luasdl_texture.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luasdl_texture.cpp
 	"LuaSDL_Texture.h"
 
-1448715634 c:\users\mike\documents\github\mtechengine\include\luasdl_texture.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luasdl_texture.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -451,10 +452,10 @@
 	"luna.h"
 	<iostream>
 
-1449357849 source:c:\users\mike\documents\github\mtechengine\src\luaspritebatch.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luaspritebatch.cpp
 	"LuaSpriteBatch.h"
 
-1449320864 c:\users\mike\documents\github\mtechengine\include\luaspritebatch.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luaspritebatch.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -464,7 +465,7 @@
 	<SDL.h>
 	"GameWindow.h"
 
-1450228094 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\screens\testscreen.cpp
 	"TestScreen.h"
 	"GameWindow.h"
 	"LuaBlockConfigLoader.h"
@@ -476,19 +477,19 @@
 	"LuaBlockWrapper.h"
 	"LuaCameraWrapper.h"
 
-1448715634 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\sprite.cpp
 	"Sprite.h"
 
-1449435195 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
+1450813201 source:c:\users\mike\documents\github\mtechengine\src\screenmanager.cpp
 	"ScreenManager.h"
 
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
 	"GameWindow.h"
 
-1449319777 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
 	"LuaBlockConfigLoader.h"
 
-1449320837 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -503,10 +504,10 @@
 	"_vector2i.h"
 	<vector>
 
-1449320640 source:c:\users\mike\documents\github\mtechengine\src\tile.cpp
+1450814086 source:c:\users\mike\documents\github\mtechengine\src\tile.cpp
 	"Tile.h"
 
-1449322577 c:\users\mike\documents\github\mtechengine\include\tile.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\tile.h
 	<SDL.h>
 	<iostream>
 	<string>
@@ -520,20 +521,20 @@
 	<map>
 	"Tile.h"
 
-1448814623 c:\users\mike\documents\github\mtechengine\include\_vector2i.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\_vector2i.h
 	<iostream>
 	<SDL.h>
 
-1448818175 source:c:\users\mike\documents\github\mtechengine\src\_vector2i.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\_vector2i.cpp
 	"_vector2i.h"
 
 1448808283 source:c:\users\mike\documents\github\mtechengine\src\global_tiles.cpp
 	"global_tiles.h"
 
-1449322046 source:c:\users\mike\documents\github\mtechengine\src\luablockwrapper.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luablockwrapper.cpp
 	"LuaBlockWrapper.h"
 
-1449320846 c:\users\mike\documents\github\mtechengine\include\luablockwrapper.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luablockwrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1117,29 +1118,29 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1450229479 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
 	"SpriteBatch.h"
 
-1449358044 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\camera2d.cpp
 	"Camera2d.h"
 
-1449322776 c:\users\mike\documents\github\mtechengine\include\camera2d.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\camera2d.h
 	<SDL.h>
 	<float.h>
 
-1450228990 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1450814056 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"ScreenManager.h"
 	"Camera2d.h"
 
-1449267861 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
 	"LuaEventHandlerWrapper.h"
 
-1449320853 c:\users\mike\documents\github\mtechengine\include\luaeventhandlerwrapper.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luaeventhandlerwrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1151,7 +1152,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1450229959 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\gamewindow.h
 	<iostream>
 	<SDL.h>
 	"SpriteBatch.h"
@@ -1165,7 +1166,7 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1449433014 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -1173,35 +1174,35 @@
 	<algorithm>
 	"Camera2d.h"
 
-1450229954 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
 
-1449433066 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
 	"global_vars.h"
 
-1449435169 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
 	"SplashScreen.h"
 	"global_vars.h"
 	"ScreenManager.h"
 
-1449369450 c:\users\mike\documents\github\mtechengine\include\splashscreen.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\splashscreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"global_vars.h"
 
-1449424763 c:\users\mike\documents\github\mtechengine\include\soundmixer.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\soundmixer.h
 	<SDL.h>
 	<SDL_mixer.h>
 	<iostream>
 	<string>
 	<map>
 
-1376156425 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mixer.h
+1450812318 c:\users\mike\documents\github\mtechengine\libraries\win32\stripped\include\sdl2\sdl_mixer.h
 	"SDL_stdinc.h"
 	"SDL_rwops.h"
 	"SDL_audio.h"
@@ -1210,10 +1211,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1449433933 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\soundmixer.cpp
 	"SoundMixer.h"
 
-1449432353 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\titlescreen.h
 	"Screen.h"
 	"ContentManager.h"
 	"SpriteBatch.h"
@@ -2194,27 +2195,27 @@
 1449411205 source:c:\users\allah\git\mtechengine\src\menu.cpp
 	"Menu.h"
 
-1449418171 c:\users\mike\documents\github\mtechengine\include\menu.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\menu.h
 	<string>
 
-1449418171 source:c:\users\mike\documents\github\mtechengine\src\menu.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\menu.cpp
 	"Menu.h"
 
-1450228094 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
+1450813230 source:c:\users\mike\documents\github\mtechengine\src\screens\titlescreen.cpp
 	"TitleScreen.h"
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"ScreenManager.h"
 
-1450228094 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"SpriteBatch.h"
 	"MathsStuff.h"
 
-1450228094 c:\users\mike\documents\github\mtechengine\include\messagebox.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\messagebox.h
 	<string>
 	<vector>
 
@@ -2660,10 +2661,10 @@
 
 1450136761 /home/mike/git/MTechEngine/include/MathsStuff.h
 
-1450228094 source:c:\users\mike\documents\github\mtechengine\src\luacamerawrapper.cpp
+1450812318 source:c:\users\mike\documents\github\mtechengine\src\luacamerawrapper.cpp
 	"LuaCameraWrapper.h"
 
-1450228094 c:\users\mike\documents\github\mtechengine\include\luacamerawrapper.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\luacamerawrapper.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -2672,14 +2673,23 @@
 	"luna.h"
 	"Camera2d.h"
 
-1450228094 c:\users\mike\documents\github\mtechengine\include\mathsstuff.h
+1450812318 c:\users\mike\documents\github\mtechengine\include\mathsstuff.h
 
-1450229453 source:c:\users\mike\documents\github\mtechengine\src\levelobject.cpp
+1450813579 source:c:\users\mike\documents\github\mtechengine\src\levelobject.cpp
 	"LevelObject.h"
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"Tile.h"
 	"global_vars.h"
 
-1450229397 c:\users\mike\documents\github\mtechengine\include\levelobject.h
+1450813352 c:\users\mike\documents\github\mtechengine\include\levelobject.h
+
+1450813048 c:\users\mike\documents\github\mtechengine\include\testlevelscreen.h
+	"Screen.h"
+
+1450813358 source:c:\users\mike\documents\github\mtechengine\src\screens\testlevelscreen.cpp
+	"TestLevelScreen.h"
+	"InputHandler.h"
+	"SpriteBatch.h"
+	"LevelObject.h"
 

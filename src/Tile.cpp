@@ -45,7 +45,9 @@ int Tile::getWorldY()
 {return worldY;}
 
 int Tile::getWidth()
-{return width;}
+{
+    return width;
+}
 
 int Tile::getHeight()
 {return height;}

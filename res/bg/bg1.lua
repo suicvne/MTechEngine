@@ -1,0 +1,10 @@
+__name = "SMB1 Overworld";
+__id = 1;
+__width = 256;
+__height = 256;
+__animated = false;
+__sheet = "all";
+__frames = Vector2i(0, 0);
+__framecount = 0;
+__frameupdate = 0;
+__twopart = false;

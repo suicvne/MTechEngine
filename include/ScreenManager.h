@@ -5,10 +5,11 @@
 #include "TestScreen.h"
 #include "SplashScreen.h"
 #include "TitleScreen.h"
+#include "TestLevelScreen.h"
 
 enum ScreensEnum
 {
-    TESTSCREEN = 2, SPLASHSCREEN = 0, TITLESCREEN = 1
+    TESTSCREEN = 2, SPLASHSCREEN = 0, TITLESCREEN = 1, TESTLEVEL = 3
 };
 
 class ScreenManager
@@ -31,6 +32,7 @@ class ScreenManager
         TestScreen *testScreen;
         SplashScreen *splash;
         TitleScreen *title;
+        TestLevelScreen *testLvlScreen;
         ScreensEnum CurrentScreen = TESTSCREEN;
 };
 

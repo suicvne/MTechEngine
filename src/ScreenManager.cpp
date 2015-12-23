@@ -7,11 +7,14 @@ ScreenManager::ScreenManager(ContentManager *__cm)
     testScreen = new TestScreen(__cm);
     splash = new SplashScreen(__cm);
     title = new TitleScreen(__cm);
+    testLvlScreen = new TestLevelScreen();
 }
 
 ScreenManager::~ScreenManager()
 {
     delete testScreen;
+    delete testLvlScreen;
+    delete title;
 }
 
 TestScreen *ScreenManager::getTestScreen()
@@ -37,6 +40,9 @@ case SPLASHSCREEN:
 case TITLESCREEN:
     title->update(_ih);
     break;
+case TESTLEVEL:
+    testLvlScreen->update(_ih);
+    break;
     }
 }
 
@@ -54,6 +60,9 @@ void ScreenManager::draw(SpriteBatch *_sb)
     case TITLESCREEN:
         title->draw(_sb);
         break;
+    case TESTLEVEL:
+        testLvlScreen->draw(_sb);
+        break;
     }
     _sb->sbEnd();
 }
@@ -62,7 +71,7 @@ void ScreenManager::pushScreen(ScreensEnum scr)
 {
     if(CurrentScreen == SPLASHSCREEN && scr == TESTSCREEN)
     {
-        delete splash;
+        delete splash; //transitioning, why keep the splash in memory?
     }
     CurrentScreen = scr;
 }

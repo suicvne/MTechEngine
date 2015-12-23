@@ -1,0 +1,1 @@
+This folder will contain background images AND background configurations

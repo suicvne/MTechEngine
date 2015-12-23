@@ -111,7 +111,7 @@ void TitleScreen::update(InputHandler *_ih)
         case SDLK_z:
             mainSoundMixer->playSoundEffect(2);
             if(currentSelection == 0)
-                mainScreenManager->pushScreen(TESTSCREEN);
+                mainScreenManager->pushScreen(TESTLEVEL); //TESTSCREEN
             else if(currentSelection == 1)
                 ______DO_QUIT = true;
             break;

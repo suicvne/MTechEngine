@@ -5,6 +5,7 @@
 #include "Camera2d.h"
 
 std::map<int, Tile*> Tilemap; //= new std::map<int, Tile*>();
+std::map<int, LevelBackground*> BackgroundMap;
 bool __updateGame = true;
 bool __vsyncEnabled = false;
 bool ______DO_QUIT = false;
@@ -12,9 +13,23 @@ bool ______DO_QUIT = false;
 Tile *__getBlockByID(int id)
 {
     if(id < 0)
-        return NULL;
+    {
+        Tile t = Tile();
+        t.setBlockName("Air");
+        t.setBlockSize(32, 32);
+        return &t;
+    }
     return Tilemap[id];
 };
+
+LevelBackground *__getBackgroundByID(int id)
+{
+    if(id < 0)
+    {
+        /**TODO: Return a black background placeholder*/
+    }
+    return BackgroundMap[id];
+}
 
 int __internal_width = 800;
 int __internal_height = 600;

@@ -1,4 +1,5 @@
 #include "LuaBlockConfigLoader.h"
+#include "LevelBackground.h"
 
 int LUA_makeVector2i(lua_State *L)
 {
@@ -19,6 +20,63 @@ void LuaBlockConfigLoader::report_errors(lua_State *L, int status)
     {
         std::cout << "BlockReadError: " << lua_tostring(L, -1) << std::endl;
         lua_pop(L, 1);
+    }
+}
+
+void LuaBlockConfigLoader::loadBackgrounds()
+{
+    for(int i = 1; i <= TOTAL_BACKGROUND_COUNT; i++)
+    {
+        std::ostringstream __s;
+        __s << GameWindow::getResourcePath("") << "bg/bg" << i << ".lua";
+        std::string path(__s.str());
+
+        int status = luaL_loadfile(L, path.c_str());
+        if(status != 0)
+        {
+            report_errors(L, status);
+            continue;
+        }
+        else
+        {
+            lua_register(L, "Vector2i", LUA_makeVector2i);
+
+            lua_pcall(L, 0, 0, 0);
+
+            LevelBackground *lb = new LevelBackground();
+            lua_getglobal(L, "__name");
+            lua_getglobal(L, "__id");
+            lua_getglobal(L, "__width");
+            lua_getglobal(L, "__height");
+            lua_getglobal(L, "__animated");
+            lua_getglobal(L, "__sheet");
+            lua_getglobal(L, "__frames");
+            lua_getglobal(L, "__framecount");
+            lua_getglobal(L, "__frameupdate");
+            lua_getglobal(L, "__twopart");
+
+            lb->bgname = std::string(lua_tostring(L, -10));
+            lb->id = lua_tonumber(L, -9);
+            lb->width = lua_tonumber(L, -8);
+            lb->height = lua_tonumber(L, -7);
+            lb->animated = lua_toboolean(L, -6);
+            lb->sheetname = std::string(lua_tostring(L, -5));
+            if(lua_istable(L, -4))
+            {
+                /**TODO: Animation frame splicing and what not*/
+            }
+            else
+            {
+                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -4);
+                lb->animated = false;
+                lb->singleFrame = singleFrame;
+                lb->framecount = 0;
+                lb->frameupdate = 0;
+            }
+
+            BackgroundMap[i] = lb;
+            std::cout << "Added bg-" << i << " with name " lb->bgname << "." << std::endl;
+        }
     }
 }
 

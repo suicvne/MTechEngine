@@ -16,11 +16,14 @@ LevelObject::LevelObject()
     s.width = 25;
     s.height = 19;
     lvlsettings = s;
+
+    initLevel();
 }
 
 LevelObject::LevelObject(LevelSettings __settings)
 {
     lvlsettings = __settings;
+    initLevel();
 }
 
 LevelObject::~LevelObject()
@@ -58,12 +61,23 @@ void LevelObject::draw(SpriteBatch *_sb)
         for(int y = 0; y < lvlsettings.height; ++y)
         {
             Tile *t = __tiles[x*lvlsettings.height+y]; //temp allocation to get standard template for block
-            int tx = x * t->getWidth();
-            int ty = y * t->getHeight();
-            int tw = t->getWidth();
-            int th = t->getHeight();
-            t->setWorldPosition(tx, ty); //just in case i guess
+            int tx, ty, tw, th;
+            if(t->getWidth() == NULL)
+            {
+                tx = x * 32;
+                ty = y * 32;
+                tw = 32;
+                th = 32;
+            }
+            else
+            {
+                tx = x * t->getWidth();
+                ty = y * t->getHeight();
+                tw = t->getWidth();
+                th = t->getHeight();
+            }
 
+            t->setWorldPosition(tx, ty); //just in case i guess
         }
     }
 }
