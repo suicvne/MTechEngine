@@ -368,7 +368,7 @@
 
 1450812318 c:\users\mike\documents\github\mtechengine\include\standardcolors.h
 
-1450813098 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
+1451227415 c:\users\mike\documents\github\mtechengine\include\screenmanager.h
 	"TestScreen.h"
 	"SplashScreen.h"
 	"TitleScreen.h"
@@ -486,10 +486,12 @@
 1449320640 source:c:\users\mike\documents\github\mtechengine\gamewindow.cpp
 	"GameWindow.h"
 
-1450812318 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
+1451231425 source:c:\users\mike\documents\github\mtechengine\src\luablockconfigloader.cpp
 	"LuaBlockConfigLoader.h"
+	"LevelBackground.h"
+	"_color.h"
 
-1450812318 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
+1451225866 c:\users\mike\documents\github\mtechengine\include\luablockconfigloader.h
 	<lua.h>
 	<lualib.h>
 	<lauxlib.h>
@@ -1118,7 +1120,7 @@
 	"ContentManager.h"
 	"InputHandler.h"
 
-1450812318 c:\users\mike\documents\github\mtechengine\include\global_vars.h
+1451227094 c:\users\mike\documents\github\mtechengine\include\global_vars.h
 	<iostream>
 	<map>
 	"Tile.h"
@@ -1131,11 +1133,12 @@
 	<SDL.h>
 	<float.h>
 
-1450814056 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
+1451227667 source:c:\users\mike\documents\github\mtechengine\src\global_vars.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"ScreenManager.h"
 	"Camera2d.h"
+	"LevelBackground.h"
 
 1450812318 source:c:\users\mike\documents\github\mtechengine\src\luaeventhandlerwrapper.cpp
 	"LuaEventHandlerWrapper.h"
@@ -1166,21 +1169,23 @@
 	"global_vars.h"
 	"SoundMixer.h"
 
-1450812318 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
+1451227353 c:\users\mike\documents\github\mtechengine\include\spritebatch.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
 	<iostream>
 	<algorithm>
-	"Camera2d.h"
 
-1450812318 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
+1451228300 source:c:\users\mike\documents\github\mtechengine\src\gamewindow.cpp
 	"GameWindow.h"
+	"Camera2d.h"
+	"LevelBackground.h"
 
-1450812318 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
+1451230926 source:c:\users\mike\documents\github\mtechengine\src\spritebatch.cpp
 	"SpriteBatch.h"
 	"GameWindow.h"
 	"global_vars.h"
+	"Camera2d.h"
 	"global_vars.h"
 
 1450812318 source:c:\users\mike\documents\github\mtechengine\src\screens\splashscreen.cpp
@@ -2208,14 +2213,14 @@
 	"MessageBox.h"
 	"ScreenManager.h"
 
-1450812318 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
+1451226120 source:c:\users\mike\documents\github\mtechengine\src\messagebox.cpp
 	"global_vars.h"
 	"SoundMixer.h"
 	"MessageBox.h"
 	"SpriteBatch.h"
 	"MathsStuff.h"
 
-1450812318 c:\users\mike\documents\github\mtechengine\include\messagebox.h
+1451226079 c:\users\mike\documents\github\mtechengine\include\messagebox.h
 	<string>
 	<vector>
 
@@ -2673,23 +2678,45 @@
 	"luna.h"
 	"Camera2d.h"
 
-1450812318 c:\users\mike\documents\github\mtechengine\include\mathsstuff.h
+1451229252 c:\users\mike\documents\github\mtechengine\include\mathsstuff.h
+	<SDL.h>
+	"global_vars.h"
 
-1450813579 source:c:\users\mike\documents\github\mtechengine\src\levelobject.cpp
+1451232438 source:c:\users\mike\documents\github\mtechengine\src\levelobject.cpp
 	"LevelObject.h"
 	"SpriteBatch.h"
 	"InputHandler.h"
 	"Tile.h"
 	"global_vars.h"
+	"LevelBackground.h"
 
-1450813352 c:\users\mike\documents\github\mtechengine\include\levelobject.h
+1451228106 c:\users\mike\documents\github\mtechengine\include\levelobject.h
 
 1450813048 c:\users\mike\documents\github\mtechengine\include\testlevelscreen.h
 	"Screen.h"
 
-1450813358 source:c:\users\mike\documents\github\mtechengine\src\screens\testlevelscreen.cpp
+1451232297 source:c:\users\mike\documents\github\mtechengine\src\screens\testlevelscreen.cpp
 	"TestLevelScreen.h"
 	"InputHandler.h"
 	"SpriteBatch.h"
 	"LevelObject.h"
+	"ScreenManager.h"
+	"global_vars.h"
+	"Camera2d.h"
+
+1451231291 c:\users\mike\documents\github\mtechengine\include\levelbackground.h
+	<SDL.h>
+	<string>
+	"_vector2i.h"
+
+1451232943 source:c:\users\mike\documents\github\mtechengine\src\levelbackground.cpp
+	"LevelBackground.h"
+	"global_vars.h"
+	"_color.h"
+
+1451231248 source:c:\users\mike\documents\github\mtechengine\src\_color.cpp
+	"_color.h"
+
+1451231259 c:\users\mike\documents\github\mtechengine\include\_color.h
+	<SDL.h>
 

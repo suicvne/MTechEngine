@@ -16,7 +16,7 @@ class ScreenManager
 {
     public:
         ScreenManager(ContentManager *__cm);
-        ~ScreenManager();
+        virtual ~ScreenManager();
         void update(InputHandler *_ih);
         void draw(SpriteBatch *_sb);
         void pushScreen(ScreensEnum scr);

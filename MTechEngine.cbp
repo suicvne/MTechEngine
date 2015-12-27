@@ -74,6 +74,7 @@
 		<Unit filename="include/LuaEventHandlerWrapper.h" />
 		<Unit filename="include/LuaSDL_Texture.h" />
 		<Unit filename="include/LuaSpriteBatch.h" />
+		<Unit filename="include/MathsStuff.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MessageBox.h" />
 		<Unit filename="include/Screen.h">
@@ -89,6 +90,7 @@
 		<Unit filename="include/TestScreen.h" />
 		<Unit filename="include/Tile.h" />
 		<Unit filename="include/TitleScreen.h" />
+		<Unit filename="include/_color.h" />
 		<Unit filename="include/_vector2i.h" />
 		<Unit filename="include/array.h" />
 		<Unit filename="include/global_vars.h" />
@@ -120,6 +122,7 @@
 		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/SpriteBatch.cpp" />
 		<Unit filename="src/Tile.cpp" />
+		<Unit filename="src/_color.cpp" />
 		<Unit filename="src/_vector2i.cpp" />
 		<Unit filename="src/global_vars.cpp" />
 		<Extensions>

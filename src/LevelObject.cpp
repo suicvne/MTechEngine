@@ -3,6 +3,7 @@
 #include "InputHandler.h"
 #include "Tile.h"
 #include "global_vars.h"
+#include "LevelBackground.h"
 
 /**
 ---TODO---
@@ -49,6 +50,10 @@ int LevelObject::initLevel()
         }
     }
 
+    background = __getBackgroundByID(1);
+    background->lwidth = lvlsettings.width;
+    background->lheight = lvlsettings.height;
+
     return 0;
 }
 /**End protected*/
@@ -56,6 +61,8 @@ int LevelObject::initLevel()
 /**Public*/
 void LevelObject::draw(SpriteBatch *_sb)
 {
+    background->draw(_sb);
+
     for(int x = 0; x < lvlsettings.width; ++x)
     {
         for(int y = 0; y < lvlsettings.height; ++y)
@@ -78,6 +85,7 @@ void LevelObject::draw(SpriteBatch *_sb)
             }
 
             t->setWorldPosition(tx, ty); //just in case i guess
+            //t->draw(_sb, mainContentManager);
         }
     }
 }

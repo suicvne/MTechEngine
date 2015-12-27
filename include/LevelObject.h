@@ -12,6 +12,7 @@ struct LevelSettings
 struct SpriteBatch;
 struct InputHandler;
 struct Tile;
+struct LevelBackground;
 
 class LevelObject
 {
@@ -26,6 +27,7 @@ class LevelObject
     private:
         Tile **__tiles;
         LevelSettings lvlsettings;
+        LevelBackground *background;
 };
 
 #endif // LEVELOBJECT_H

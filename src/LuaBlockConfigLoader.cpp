@@ -1,11 +1,19 @@
 #include "LuaBlockConfigLoader.h"
 #include "LevelBackground.h"
+#include "_color.h"
 
 int LUA_makeVector2i(lua_State *L)
 {
     _vector2i *returnVal = new _vector2i(lua_tonumber(L, 1), lua_tonumber(L, 2));
     lua_pushlightuserdata(L, returnVal);
     //std::cout << "Pushed vector with " << returnVal->getX() << ", " << returnVal->getY() << std::endl;
+    return 1;
+}
+
+int LUA_makeSDLColor(lua_State *L)
+{
+    _color *returnVal = new _color(lua_tonumber(L, 1), lua_tonumber(L, 2), lua_tonumber(L, 3), lua_tonumber(L, 4));
+    lua_pushlightuserdata(L, returnVal);
     return 1;
 }
 
@@ -40,6 +48,7 @@ void LuaBlockConfigLoader::loadBackgrounds()
         else
         {
             lua_register(L, "Vector2i", LUA_makeVector2i);
+            lua_register(L, "Color", LUA_makeSDLColor);
 
             lua_pcall(L, 0, 0, 0);
 
@@ -54,28 +63,32 @@ void LuaBlockConfigLoader::loadBackgrounds()
             lua_getglobal(L, "__framecount");
             lua_getglobal(L, "__frameupdate");
             lua_getglobal(L, "__twopart");
+            lua_getglobal(L, "__color");
 
-            lb->bgname = std::string(lua_tostring(L, -10));
-            lb->id = lua_tonumber(L, -9);
-            lb->width = lua_tonumber(L, -8);
-            lb->height = lua_tonumber(L, -7);
-            lb->animated = lua_toboolean(L, -6);
-            lb->sheetname = std::string(lua_tostring(L, -5));
-            if(lua_istable(L, -4))
+            lb->bgname = std::string(lua_tostring(L, -11));
+            lb->id = lua_tonumber(L, -10);
+            lb->width = lua_tonumber(L, -9);
+            lb->height = lua_tonumber(L, -8);
+            lb->animated = lua_toboolean(L, -7);
+            lb->sheetname = std::string(lua_tostring(L, -6));
+            lb->backgroundColor = (_color*)lua_touserdata(L, -1);
+            if(lua_istable(L, -5))
             {
                 /**TODO: Animation frame splicing and what not*/
             }
             else
             {
-                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -4);
+                _vector2i *singleFrame = (_vector2i*)lua_touserdata(L, -5);
                 lb->animated = false;
                 lb->singleFrame = singleFrame;
                 lb->framecount = 0;
                 lb->frameupdate = 0;
             }
 
+            //SDL_Color *bgColor = (SDL_Color*)lua_touserdata(L, -1);
+
             BackgroundMap[i] = lb;
-            std::cout << "Added bg-" << i << " with name " lb->bgname << "." << std::endl;
+            std::cout << "Added bg-" << i << " with name " << lb->bgname << "." << std::endl;
         }
     }
 }

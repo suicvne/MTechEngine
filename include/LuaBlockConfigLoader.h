@@ -26,6 +26,7 @@ class LuaBlockConfigLoader
         LuaBlockConfigLoader();
         ~LuaBlockConfigLoader();
         void loadBlocks();
+        void loadBackgrounds();
         void report_errors(lua_State *L, int status);
         SDL_Rect **rectArrayFromVectorArray(_vector2i **arr, int frameCount, int w, int h);
     protected:

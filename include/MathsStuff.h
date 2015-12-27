@@ -1,6 +1,9 @@
 #ifndef MATHSSTUFF_H
 #define MATHSSTUFF_H
 
+#include <SDL.h>
+#include "global_vars.h"
+
 class MathsStuff
 {
     public:
@@ -18,6 +21,11 @@ class MathsStuff
         //    {
         //        return compare;
         //    }
+        };
+        static bool sdl_rect_intersects(SDL_Rect *rect1, SDL_Rect *rect2)
+        {
+            SDL_Rect res;
+            return (SDL_IntersectRect(rect1, rect2, &res) == SDL_TRUE ? true : false);
         };
     private:
         MathsStuff();

@@ -3,6 +3,7 @@
 #include "SoundMixer.h"
 #include "ScreenManager.h"
 #include "Camera2d.h"
+#include "LevelBackground.h"
 
 std::map<int, Tile*> Tilemap; //= new std::map<int, Tile*>();
 std::map<int, LevelBackground*> BackgroundMap;
@@ -39,3 +40,4 @@ int __STANDARD_TILE_WIDTH = 32;
 SoundMixer *mainSoundMixer;
 ScreenManager *mainScreenManager;
 Camera2d *mainGameCamera;
+ContentManager *mainContentManager;

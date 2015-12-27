@@ -1,10 +1,11 @@
 __name = "SMB1 Overworld";
 __id = 1;
-__width = 256;
-__height = 256;
+__width = 288;
+__height = 380;
 __animated = false;
-__sheet = "all";
-__frames = Vector2i(0, 0);
+__sheet = "bg_index";
+__frames = Vector2i(1005, 26);
 __framecount = 0;
 __frameupdate = 0;
 __twopart = false;
+__color = Color(0, 0, 0, 0);

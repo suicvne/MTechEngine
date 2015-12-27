@@ -5,7 +5,8 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include <algorithm>
-#include "Camera2d.h"
+
+struct Camera2d;
 
 class SpriteBatch
 {

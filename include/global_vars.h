@@ -14,13 +14,13 @@ Until then, you will have to manually modify these and recompile. I'm very sorry
 #include <iostream>
 #include <map>
 #include "Tile.h"
-#include "LevelBackground.h"
 #include "SpriteBatch.h"
 
 struct SoundMixer;
 struct ScreenManager;
 struct Camera2d;
 struct ContentManager;
+struct LevelBackground;
 
 extern std::map<int, Tile*> Tilemap;
 extern std::map<int, LevelBackground*> BackgroundMap;

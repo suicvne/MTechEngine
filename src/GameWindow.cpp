@@ -1,4 +1,6 @@
 #include "GameWindow.h"
+#include "Camera2d.h"
+#include "LevelBackground.h"
 
 GameWindow::GameWindow()
 {
@@ -84,7 +86,7 @@ void GameWindow::initializeSDL()
 
 void GameWindow::loadTextures()
 {
-    ContentManager *mainContentManager = new ContentManager();
+    mainContentManager = new ContentManager();
 
     SDL_Texture *txture;
     txture = spriteBatch->loadTexture(getResourcePath("") + "tiles/full.png", &mainRenderer);
@@ -160,6 +162,7 @@ void GameWindow::initBlocks()
 {
     LuaBlockConfigLoader *lbcfl = new LuaBlockConfigLoader();
     lbcfl->loadBlocks();
+    lbcfl->loadBackgrounds();
     delete lbcfl;
 
     //Test to make sure we're sane
@@ -187,6 +190,21 @@ void GameWindow::initBlocks()
         }
     }
     std::cout << "===END BLOCK SANITY CHECK===" << std::endl << std::endl;
+
+    std::cout << std::endl << "===BEGIN BACKGROUND SANITY CHECK===" << std::endl;
+    for(int i = 1; i <= TOTAL_BACKGROUND_COUNT; i++)
+    {
+        LevelBackground *lb;
+        lb = BackgroundMap[i];
+        if(lb == NULL)
+        {
+            std::cout << "Background with index " << i << " was null?!?!?!" << std::endl;
+        }
+
+        std::cout << "Test: Background \"" << lb->bgname << "\"" << std::endl;
+        std::cout << " Area: " << lb->singleFrame->getX() << ", " << lb->singleFrame->getY() << std::endl;
+    }
+    std::cout << "===BEGIN BACKGROUND SANITY CHECK===" << std::endl << std::endl;
 }
 
 void GameWindow::windowResize()

@@ -1,6 +1,7 @@
 #include "SpriteBatch.h"
 #include "GameWindow.h"
 #include "global_vars.h"
+#include "Camera2d.h"
 
 SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
 {
@@ -343,6 +344,7 @@ void SpriteBatch::sbFillScreen(SDL_Color *color)
 
     SDL_GetRenderDrawColor(__renderer, &oldColor.r, &oldColor.g, &oldColor.b, &oldColor.a);
     SDL_SetRenderDrawColor(__renderer, color->r, color->g, color->g, color->b);
+
     SDL_Rect rect;
     rect.x = 0;
     rect.y = 0;

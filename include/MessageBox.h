@@ -24,7 +24,7 @@ class MessageBox
         std::string message;
         std::vector<std::string> messageSplitToVector;
         bool soundPlayed, showMessage;
-        const int MAX_WIDTH = 350;
+        const int MAX_WIDTH = 420;
         const int MAX_HEIGHT = 250;
         const int MAX_CHAR_PER_LINE = 25;
         int opacityMod, frameCount;
