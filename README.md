@@ -1,3 +1,6 @@
+#PLEASE READ THIS
+This is the legacy branch for MTechEngine using CodeBlocks as the IDE. I have since moved to Qt Creator as my IDE. This branch remains as a burial point to CodeBlocks who will always be remembered as a bad IDE in my eyes.
+
 #ifdef WIN32
 
 #endif
