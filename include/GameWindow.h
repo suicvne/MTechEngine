@@ -16,18 +16,17 @@
 #include "global_vars.h"
 #include "SoundMixer.h"
 
-struct SDLInitArgs
+/*ruct SDLInitArgs
 {
     int x, y, w, h;
     const char *_windowTitle;
     bool vsync;
-};
+};*/
 
 class GameWindow
 {
 public:
     GameWindow();
-    GameWindow(SDLInitArgs initializerArgs);
     ~GameWindow();
     void initializeSDL();
     StandardColors standardColors;
@@ -70,7 +69,6 @@ public:
 	return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
     };
 private:
-    SDLInitArgs initArgs;
     const char *winTitle;
     int quit;
     void draw();

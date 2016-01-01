@@ -21,6 +21,7 @@ struct ScreenManager;
 struct Camera2d;
 struct ContentManager;
 struct LevelBackground;
+struct ConfigFile;
 
 extern std::map<int, Tile*> Tilemap;
 extern std::map<int, LevelBackground*> BackgroundMap;
@@ -39,5 +40,7 @@ extern SoundMixer* mainSoundMixer;
 extern ScreenManager* mainScreenManager;
 extern Camera2d* mainGameCamera;
 extern ContentManager* mainContentManager;
+
+extern ConfigFile* mainConfigFile;
 
 #endif // GLOBAL_TILES_H_INCLUDED

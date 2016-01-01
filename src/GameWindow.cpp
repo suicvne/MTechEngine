@@ -1,21 +1,24 @@
 #include "GameWindow.h"
 #include "Camera2d.h"
 #include "LevelBackground.h"
+#include "configfile.h"
+#include <stdexcept>
 
 GameWindow::GameWindow()
 {
-    initArgs.x = -1;
-    initArgs.y = -1;
-    width = 800;
-    height = 600;
-    winTitle = "MTechEngine";
-}
-
-GameWindow::GameWindow(SDLInitArgs initializerArgs)
-{
-    initArgs = initializerArgs;
-    width = initArgs.w;
-    height = initArgs.h;
+    mainConfigFile = new ConfigFile("res/game_config.cfg");
+    try
+    {
+        mainConfigFile->readFile();
+        width = mainConfigFile->getWindowWidth();
+        height = mainConfigFile->getWindowHeight();
+        winTitle = mainConfigFile->getWindowTitle().c_str();
+    }
+    catch(std::runtime_error &e)
+    {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error Loading Config File", e.what(), NULL);
+    }
+    return;
 }
 
 void GameWindow::initializeSDL()
@@ -28,11 +31,11 @@ void GameWindow::initializeSDL()
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
 
-    GameWindow::gameWindow = SDL_CreateWindow(initArgs._windowTitle,
-        initArgs.x == -1 ? SDL_WINDOWPOS_UNDEFINED : initArgs.y,
-        initArgs.y == -1 ? SDL_WINDOWPOS_UNDEFINED : initArgs.y,
-        initArgs.w,
-        initArgs.h,
+    GameWindow::gameWindow = SDL_CreateWindow(this->winTitle,
+        mainConfigFile->getWindowX() == -1 ? SDL_WINDOWPOS_UNDEFINED : mainConfigFile->getWindowY(),
+        mainConfigFile->getWindowY() == -1 ? SDL_WINDOWPOS_UNDEFINED : mainConfigFile->getWindowY(),
+        mainConfigFile->getWindowWidth(),
+        mainConfigFile->getWindowHeight(),
         SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
     if(GameWindow::gameWindow == NULL)
@@ -42,9 +45,9 @@ void GameWindow::initializeSDL()
         return;
     }
 
-    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | initArgs.vsync ? SDL_RENDERER_PRESENTVSYNC : 0);
+    GameWindow::mainRenderer = SDL_CreateRenderer(GameWindow::gameWindow, -1, SDL_RENDERER_ACCELERATED | mainConfigFile->getVsync() ? SDL_RENDERER_PRESENTVSYNC : 0);
 
-    if(initArgs.vsync)
+    if(mainConfigFile->getVsync())
     {
         std::cout << "Launching the game with vsync" << std::endl;
         __vsyncEnabled = true;
@@ -71,7 +74,7 @@ void GameWindow::initializeSDL()
 
     __update = true;
 
-    targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, initArgs.w, initArgs.h);
+    targetTexture = SDL_CreateTexture(mainRenderer, 0, SDL_TEXTUREACCESS_TARGET, mainConfigFile->getWindowWidth(), mainConfigFile->getWindowHeight());
     spriteBatch->sbSetRenderTarget(targetTexture);
 
     //TODO: get the target refresh rate and divide it by half to get the update interval in ms

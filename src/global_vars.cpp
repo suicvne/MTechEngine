@@ -1,9 +1,9 @@
-#pragma once
 #include "global_vars.h"
 #include "SoundMixer.h"
 #include "ScreenManager.h"
 #include "Camera2d.h"
 #include "LevelBackground.h"
+#include "configfile.h"
 
 std::map<int, Tile*> Tilemap; //= new std::map<int, Tile*>();
 std::map<int, LevelBackground*> BackgroundMap;
@@ -41,3 +41,4 @@ SoundMixer *mainSoundMixer;
 ScreenManager *mainScreenManager;
 Camera2d *mainGameCamera;
 ContentManager *mainContentManager;
+ConfigFile *mainConfigFile;

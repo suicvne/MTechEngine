@@ -3,7 +3,7 @@ CONFIG += c++11 shared
 CONFIG -= app_bundle
 CONFIG -= qt
 
-QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions
+QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
 
 INCLUDEPATH += $$PWD/include
 
@@ -45,7 +45,8 @@ SOURCES += main.cpp \
     src/Screens/SplashScreen.cpp \
     src/Screens/TestLevelScreen.cpp \
     src/Screens/TestScreen.cpp \
-    src/Screens/TitleScreen.cpp
+    src/Screens/TitleScreen.cpp \
+    src/configfile.cpp
 
 HEADERS += \
     include/_color.h \
@@ -80,7 +81,9 @@ HEADERS += \
     include/TestLevelScreen.h \
     include/TestScreen.h \
     include/Tile.h \
-    include/TitleScreen.h
+    include/TitleScreen.h \
+    src/configfile.h \
+    src/customalgorithms.h
 
 install_it.path = $$OUT_PWD/res
 install_it.files = $$PWD/res/*
