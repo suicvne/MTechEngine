@@ -7,6 +7,8 @@ QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-ad
 
 INCLUDEPATH += $$PWD/include
 
+win32:RC_FILE += application.rc
+
 win32: {
 LIBS += -L$$PWD/Libraries/Win32/Stripped/lib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
 INCLUDEPATH += $$PWD/Libraries/Win32/Stripped/include/SDL2
@@ -85,9 +87,13 @@ HEADERS += \
     src/configfile.h \
     src/customalgorithms.h
 
-install_it.path = $$OUT_PWD/res
+install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*
 mkdir.path = $$OUT_PWD/res
 INSTALLS += \
     mkdir
     install_it
+
+DISTFILES += \
+    icon.ico \
+    application.rc

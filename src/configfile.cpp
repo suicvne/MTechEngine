@@ -56,7 +56,6 @@ void ConfigFile::readFile()
             }
             else if(begins_with(line, std::string("use_vsync")))
             {
-
                 if(toLower(line.substr(line.find('=') + 1, line.length())) == "true")
                     this->useVsync = true;
                 else

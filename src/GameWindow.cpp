@@ -44,6 +44,10 @@ void GameWindow::initializeSDL()
         mainConfigFile->getWindowHeight(),
         SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
+    SDL_Surface *iconSurface = IMG_Load(std::string(getResourcePath("") + "/icon.png").c_str());
+    SDL_SetWindowIcon(GameWindow::gameWindow, iconSurface);
+    SDL_FreeSurface(iconSurface);
+
     if(GameWindow::gameWindow == NULL)
     {
         std::cout << "SDL_CreateWindow error: " << SDL_GetError() << std::endl;
