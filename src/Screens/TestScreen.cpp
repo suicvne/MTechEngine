@@ -117,7 +117,7 @@ void TestScreen::finalInitLua()
 
     doneInit = true;
 
-    std::string path(GameWindow::getResourcePath(""));
+    std::string path(getResourcePath(""));
     path.append("screens/test/test.lua");
     std::cout << "Script from: " << path << std::endl;
 

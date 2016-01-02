@@ -36,7 +36,7 @@ void LuaBlockConfigLoader::loadBackgrounds()
     for(int i = 1; i <= TOTAL_BACKGROUND_COUNT; i++)
     {
         std::ostringstream __s;
-        __s << GameWindow::getResourcePath("") << "bg/bg" << i << ".lua";
+        __s << getResourcePath("") << "bg/bg" << i << ".lua";
         std::string path(__s.str());
 
         int status = luaL_loadfile(L, path.c_str());
@@ -98,7 +98,7 @@ void LuaBlockConfigLoader::loadBlocks()
     for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
     {
         std::ostringstream __s;
-        __s << GameWindow::getResourcePath("") << "blocks/block" << i << ".lua";
+        __s << getResourcePath("") << "blocks/block" << i << ".lua";
         std::string path(__s.str());
 
         int status = luaL_loadfile(L, path.c_str());

@@ -21,7 +21,7 @@ int LuaSpriteBatch::loadTexture(lua_State *L)
     if(argc != 1)
         return 0;
 
-    const char *fileToLoad = std::string(GameWindow::getResourcePath("") + lua_tostring(L, 1)).c_str();
+    const char *fileToLoad = std::string(getResourcePath("") + lua_tostring(L, 1)).c_str();
     SDL_Texture *loaded = realSpriteBatch->loadTexture(fileToLoad);
     lua_pushlightuserdata(L, loaded);
     return 1;

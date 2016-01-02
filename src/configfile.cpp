@@ -28,35 +28,36 @@ void ConfigFile::readFile()
             {} //here for completion sake
             else if(begins_with(line, std::string("name")))
             {
-                gameName = line.substr(line.find('='), line.length());
+                gameName = line.substr(line.find('=') + 1, line.length());
             }
             else if(begins_with(line, std::string("max_blocks")))
             {
-                this->MaxBlocks = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->MaxBlocks = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("max_backgrounds")))
             {
-                this->MaxBackgrounds = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->MaxBackgrounds = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("width")))
             {
-                this->winWidth = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->winWidth = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("height")))
             {
-                this->winHeight = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->winHeight = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("start_x")))
             {
-                this->winX = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->winX = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("start_y")))
             {
-                this->winY = atoi(line.substr(line.find('='), line.length()).c_str());
+                this->winY = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
             }
             else if(begins_with(line, std::string("use_vsync")))
             {
-                if(toLower(line) == "true")
+
+                if(toLower(line.substr(line.find('=') + 1, line.length())) == "true")
                     this->useVsync = true;
                 else
                     this->useVsync = false;

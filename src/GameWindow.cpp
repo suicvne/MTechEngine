@@ -6,13 +6,19 @@
 
 GameWindow::GameWindow()
 {
-    mainConfigFile = new ConfigFile("res/game_config.cfg");
+    mainConfigFile = new ConfigFile(getResourcePath("") + "game_config.cfg");
     try
     {
         mainConfigFile->readFile();
         width = mainConfigFile->getWindowWidth();
         height = mainConfigFile->getWindowHeight();
         winTitle = mainConfigFile->getWindowTitle().c_str();
+
+        using namespace std;
+        cout << "===CONFIG FILE SANITY CHECK===" << endl;
+        cout << "Window Title: " << mainConfigFile->getWindowTitle() << endl;
+        cout << "Window Size: " << mainConfigFile->getWindowWidth() << " x " << mainConfigFile->getWindowHeight() << endl;
+        cout << "Initial Location: " << mainConfigFile->getWindowX() << ", " << mainConfigFile->getWindowY() << endl;
     }
     catch(std::runtime_error &e)
     {

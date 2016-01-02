@@ -43,4 +43,6 @@ extern ContentManager* mainContentManager;
 
 extern ConfigFile* mainConfigFile;
 
+extern std::string getResourcePath(const std::string &subDir);
+
 #endif // GLOBAL_TILES_H_INCLUDED
