@@ -21,3 +21,5 @@ A 2D Game Engine written in C++ with Lua scripting capabilities (heavy WIP)
   * Windows: Be sure to copy all the dlls from `.Libraries/Win32/Stripped/dll` into there as well.
 * By command prompt: TODO
 
+# About Example Game
+The example game will eventually just be a simple Super Mario Bros. 1 clone.
