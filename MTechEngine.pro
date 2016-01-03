@@ -10,9 +10,9 @@ INCLUDEPATH += $$PWD/include
 win32:RC_FILE += application.rc
 
 win32: {
-LIBS += -L$$PWD/Libraries/Win32/Stripped/lib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
-INCLUDEPATH += $$PWD/Libraries/Win32/Stripped/include/SDL2
-INCLUDEPATH += $$PWD/Libraries/Win32/Stripped/include/lua
+LIBS += -L$$PWD/.Libraries/Win32/Stripped/lib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
+INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/SDL2
+INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/lua
 }
 linux-g++: {
 }
