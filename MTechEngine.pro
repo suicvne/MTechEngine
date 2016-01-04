@@ -5,6 +5,14 @@ CONFIG -= qt
 
 QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
 
+#
+QMAKE_TARGET_COMPANY = "Mike Santiago Ltd"
+QMAKE_TARGET_DESCRIPTION = "MTechEngine: A 2D Game Engine with Lua Scripting"
+QMAKE_TARGET_COPYRIGHT = "2016 (c)"
+QMAKE_TARGET_PRODUCT = "MTechEngine"
+VERSION=0.0.5.1
+#
+
 INCLUDEPATH += $$PWD/include
 
 win32:RC_FILE += application.rc
@@ -48,7 +56,8 @@ SOURCES += main.cpp \
     src/Screens/TestLevelScreen.cpp \
     src/Screens/TestScreen.cpp \
     src/Screens/TitleScreen.cpp \
-    src/configfile.cpp
+    src/configfile.cpp \
+    src/IO/serializationwriter.cpp
 
 HEADERS += \
     include/_color.h \
@@ -85,7 +94,8 @@ HEADERS += \
     include/Tile.h \
     include/TitleScreen.h \
     src/configfile.h \
-    src/customalgorithms.h
+    src/customalgorithms.h \
+    src/IO/serializationwriter.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*

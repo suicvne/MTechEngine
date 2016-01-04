@@ -123,8 +123,9 @@ GameWindow::~GameWindow()
     std::cout << "Destroying game objects" << std::endl;
     delete mainSoundMixer;
     SDL_Quit();
-    SDL_DestroyWindow(GameWindow::gameWindow);
-    SDL_DestroyRenderer(GameWindow::mainRenderer);
+    SDL_DestroyWindow(this->gameWindow);
+    SDL_DestroyRenderer(this->mainRenderer);
+    SDL_DestroyTexture(this->targetTexture);
     delete mainScreenManager;
     delete mainEventLoop;
 }
