@@ -76,22 +76,11 @@ void MTechEngine::IO::SerializationWriter::WriteBytes(char dest[], int &pointer,
 void MTechEngine::IO::SerializationWriter::WriteBytesToFile(char bytesToWrite[], int bufferSize, const char filename[])
 {
     char buffer[bufferSize];
-    for(int i = 0; i < bufferSize; i++)
-    {
-        buffer[i] = bytesToWrite[i];
-    }
+    memcpy(&buffer, &bytesToWrite, bufferSize);
 
     FILE* file = fopen(filename, "wb");
     fwrite(buffer, 1, sizeof(buffer), file);
     fclose(file);
-}
-
-void MTechEngine::IO::SerializationWriter::copyCharArray(char dest[], char source[], int sizeOfDestination, int sizeOfSource)
-{
-    for(int i = 0; i < sizeOfDestination; i++)
-    {
-        dest[i] = source[i];
-    }
 }
 
 /**
@@ -100,52 +89,29 @@ void MTechEngine::IO::SerializationWriter::copyCharArray(char dest[], char sourc
 
 int MTechEngine::IO::SerializationWriter::floatToInt(float value)
 {
-    union
-    {
-        float input;
-        int output;
-    } data;
-    data.input = value;
-    std::bitset<sizeof(float) * CHAR_BIT> bits(data.output);
+    return *reinterpret_cast<int*>(&value);
 
-    return data.output;
+    //union
+    //{
+    //    float input;
+    //    int output;
+    //} data;
+    //data.input = value;
+    //std::bitset<sizeof(float) * CHAR_BIT> bits(data.output);
+    //return data.output;
 }
 
 float MTechEngine::IO::SerializationWriter::intToFloat(int value)
 {
-    union
-    {
-        int input;
-        float output;
-    } data;
-    data.input = value;
-    std::bitset<sizeof(int) * CHAR_BIT> bits(data.output);
-
-    return data.output;
+    return *reinterpret_cast<float*>(&value);
 }
 
 long MTechEngine::IO::SerializationWriter::doubleToLong(double value)
 {
-    union
-    {
-        double input;
-        long output;
-    } data;
-    data.input = value;
-    std::bitset<sizeof(double) * CHAR_BIT> bits(data.output);
-
-    return data.output;
+    return *reinterpret_cast<long*>(&value);
 }
 
 double MTechEngine::IO::SerializationWriter::longToDouble(long value)
 {
-    union
-    {
-        long input;
-        double output;
-    } data;
-    data.input = value;
-    std::bitset<sizeof(long) * CHAR_BIT> bits(data.output);
-
-    return data.output;
+    return *reinterpret_cast<double*>(&value);
 }

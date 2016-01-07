@@ -13,6 +13,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __linux
+#include <climits> //climits is needed for CHAR_BIT. however, this is temporary.
+#endif
+
 namespace MTechEngine
 {
 namespace IO
@@ -43,7 +47,6 @@ private:
     short VERSION = 0x0001; //big endian
                             //little endian: significant bytes are at the beginning
                             //big endian: significant bytes are at the end
-    void copyCharArray(char dest[], char source[], int sizeOfDestination, int sizeOfSource);
 };
 }
 }

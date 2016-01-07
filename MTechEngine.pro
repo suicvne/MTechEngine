@@ -23,6 +23,12 @@ INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/SDL2
 INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/lua
 }
 linux-g++: {
+# NOTE: this configuration is based off my Debian system and you may have to change it for your platform!
+# Please use SDL2 and Lua 5.1
+
+LIBS += -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
+INCLUDEPATH += /usr/include/SDL2/
+INCLUDEPATH += /usr/include/lua5.1/
 }
 macx: {
 #nothing for now
