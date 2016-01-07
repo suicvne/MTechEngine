@@ -76,11 +76,16 @@ void MTechEngine::IO::SerializationWriter::WriteBytes(char dest[], int &pointer,
 void MTechEngine::IO::SerializationWriter::WriteBytesToFile(char bytesToWrite[], int bufferSize, const char filename[])
 {
     char buffer[bufferSize];
-    memcpy(&buffer, &bytesToWrite, bufferSize);
+    memset(buffer, 0, bufferSize);
+    memcpy(buffer, bytesToWrite, bufferSize);
 
-    FILE* file = fopen(filename, "wb");
-    fwrite(buffer, 1, sizeof(buffer), file);
-    fclose(file);
+    std::ofstream ofs(filename, std::ofstream::out | std::ofstream::binary);
+    ofs.write(buffer, sizeof(buffer));
+    ofs.close();
+    //leaving this as reference/documentation
+    //FILE* file = fopen(filename, "wb");
+    //fwrite(buffer, 1, sizeof(buffer), file);
+    //fclose(file);
 }
 
 /**
