@@ -87,36 +87,3 @@ void MTechEngine::IO::SerializationWriter::WriteBytesToFile(char bytesToWrite[],
     //fwrite(buffer, 1, sizeof(buffer), file);
     //fclose(file);
 }
-
-/**
-  Convienence methods
- */
-
-int MTechEngine::IO::SerializationWriter::floatToInt(float value)
-{
-    return *reinterpret_cast<int*>(&value);
-
-    //union
-    //{
-    //    float input;
-    //    int output;
-    //} data;
-    //data.input = value;
-    //std::bitset<sizeof(float) * CHAR_BIT> bits(data.output);
-    //return data.output;
-}
-
-float MTechEngine::IO::SerializationWriter::intToFloat(int value)
-{
-    return *reinterpret_cast<float*>(&value);
-}
-
-long MTechEngine::IO::SerializationWriter::doubleToLong(double value)
-{
-    return *reinterpret_cast<long*>(&value);
-}
-
-double MTechEngine::IO::SerializationWriter::longToDouble(long value)
-{
-    return *reinterpret_cast<double*>(&value);
-}

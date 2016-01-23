@@ -63,7 +63,9 @@ SOURCES += main.cpp \
     src/Screens/TestScreen.cpp \
     src/Screens/TitleScreen.cpp \
     src/configfile.cpp \
-    src/IO/serializationwriter.cpp
+    src/IO/serializationwriter.cpp \
+    src/IO/serializationreader.cpp \
+    src/IO/serializationconstants.cpp
 
 HEADERS += \
     include/_color.h \
@@ -101,7 +103,9 @@ HEADERS += \
     include/TitleScreen.h \
     src/configfile.h \
     src/customalgorithms.h \
-    src/IO/serializationwriter.h
+    src/IO/serializationwriter.h \
+    src/IO/serializationreader.h \
+    src/IO/serializationconstants.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*

@@ -13,9 +13,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef __linux
-#include <climits> //climits is needed for CHAR_BIT. however, this is temporary.
-#endif
+#include "serializationconstants.h"
+
+//#ifdef __linux
+//#include <climits> //climits is needed for CHAR_BIT. however, this is temporary.
+//#endif
 
 namespace MTechEngine
 {
@@ -38,15 +40,9 @@ public:
     /**
       Convienence methods
       */
-    int floatToInt(float value);
-    float intToFloat(int value);
-    long doubleToLong(double value);
-    double longToDouble(long value);
+
 private:
-    char HEADER[2] = {'M', 'T'}; //MT for MTechEngine
-    short VERSION = 0x0001; //big endian
-                            //little endian: significant bytes are at the beginning
-                            //big endian: significant bytes are at the end
+
 };
 }
 }
