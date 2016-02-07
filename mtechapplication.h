@@ -19,8 +19,6 @@ struct ContentManager;
 class MTechApplication
 {
 public:
-    /*virtual MTechApplication();
-    virtual ~MTechApplication();*/
     virtual void LoadResources(ContentManager *&cm, SpriteBatch *&spriteBatch) = 0;
     virtual std::string getConfigFilePath() = 0;
     virtual void update(InputHandler *&inputHandler) = 0;
