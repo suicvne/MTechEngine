@@ -65,7 +65,8 @@ SOURCES += main.cpp \
     src/configfile.cpp \
     src/IO/serializationwriter.cpp \
     src/IO/serializationreader.cpp \
-    src/IO/serializationconstants.cpp
+    src/IO/serializationconstants.cpp \
+    baseengine.cpp
 
 HEADERS += \
     include/_color.h \
@@ -105,7 +106,9 @@ HEADERS += \
     src/customalgorithms.h \
     src/IO/serializationwriter.h \
     src/IO/serializationreader.h \
-    src/IO/serializationconstants.h
+    src/IO/serializationconstants.h \
+    mtechapplication.h \
+    baseengine.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*

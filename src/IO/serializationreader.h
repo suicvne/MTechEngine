@@ -21,6 +21,11 @@ public:
     int ReadBytesFromFile(char *readInto, int bufferSize, const char filename[]);
     int ReadInt(char src[], int &pointer);
     short ReadShort(char src[], int &pointer);
+    char ReadChar(char src[], int &pointer);
+    long long ReadLong(char src[], int &pointer);
+    float ReadFloat(char src[], int &pointer);
+    double ReadDouble(char src[], int &pointer);
+    bool ReadBool (char src[], int &pointer);
 };
 }
 }

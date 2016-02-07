@@ -25,5 +25,15 @@ double longToDouble(long value)
     return *reinterpret_cast<double*>(&value);
 }
 
+long long doubleToLongLong(double value)
+{
+    return *reinterpret_cast<long long*>(&value);
+}
+
+double longLongToDouble(long long value)
+{
+    return *reinterpret_cast<double*>(&value);
+}
+
 char HEADER[2] = {'M', 'T'};
 short VERSION = 0x0001;

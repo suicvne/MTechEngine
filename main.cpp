@@ -1,19 +1,74 @@
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
 #include "GameWindow.h"
+#include "mtechapplication.h"
+#include "baseengine.h"
 #include <stdio.h>
 
 using namespace std;
 
+class SuperSDLBrothersX : public MTechApplication
+{
+public:
+    SuperSDLBrothersX()
+    {
+    }
+    ~SuperSDLBrothersX()
+    {
+    }
+    void LoadResources(ContentManager *&cm, SpriteBatch *&spriteBatch)
+    {
+        std::ostringstream s;
+        s << SDL_GetBasePath() << "/res/logo.png";
+        ///TODO: load resources through here instead of through GameWindow
+        SDL_Texture *text;
+        text = spriteBatch->loadTexture(s.str());
+        cm->addTexture("tttttest", text);
+        test = text;
+    }
+    void draw(SpriteBatch *&spriteBatch)
+    {
+        spriteBatch->sbBegin();
+        spriteBatch->sbDrawTextureScaledConstant(test, 0, 0, 100, 100);
+        spriteBatch->sbEnd();
+    }
+    void update(InputHandler *&inputHandler)
+    {
+
+    }
+    std::string getConfigFilePath()
+    {
+        std::ostringstream s;
+        s << SDL_GetBasePath() << "/res/game_config.cfg";
+        return s.str();
+    }
+
+private:
+    SDL_Texture *test;
+};
+
 int writeTest();
 int readTest();
 int launchSDLBrosX();
+int newApplicationTypeTest();
 
 int main()
 {
     //return writeTest();
-    return readTest();
+    //return readTest();
     //return launchSDLBrosX();
+    return newApplicationTypeTest();
+}
+
+int newApplicationTypeTest()
+{
+    SuperSDLBrothersX *sdlBros = new SuperSDLBrothersX();
+    BaseEngine *e = new BaseEngine(sdlBros);
+    e->runApplication();
+
+    delete e;
+    delete sdlBros;
+    return 0;
 }
 
 int launchSDLBrosX()

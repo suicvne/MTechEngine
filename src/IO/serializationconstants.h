@@ -12,7 +12,10 @@ extern int floatToInt(float value);
 extern float intToFloat(int value);
 extern long doubleToLong(double value);
 extern double longToDouble(long value);
-
+///experimental
+extern long long doubleToLongLong(double value);
+extern double longLongToDouble(long long value);
+///
 extern char HEADER[2]; //MT for MTechEngine
 extern short VERSION; //big endian
                         //little endian: significant bytes are at the beginning

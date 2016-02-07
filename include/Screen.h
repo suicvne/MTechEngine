@@ -8,8 +8,8 @@
 class Screen
 {
     public:
-        Screen(){};
-        ~Screen(){};
+        Screen(){}
+        ~Screen(){}
         virtual void draw(SpriteBatch *_sb) = 0;
         virtual void update(InputHandler *_ih) = 0;
     protected:

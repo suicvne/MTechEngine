@@ -9,6 +9,7 @@
 MTechEngine::IO::SerializationReader::SerializationReader()
 {}
 
+//sizeof(short) is 2
 short MTechEngine::IO::SerializationReader::ReadShort(char src[], int &pointer)
 {
     short temp;
@@ -16,9 +17,51 @@ short MTechEngine::IO::SerializationReader::ReadShort(char src[], int &pointer)
     return temp;
 }
 
+//sizeof(int) is 4
 int MTechEngine::IO::SerializationReader::ReadInt(char src[], int &pointer)
 {
-    return 0;
+    int temp;
+    temp = ((src[pointer++] >> 24) & 0xff)
+            | ((src[pointer++] >> 16) & 0xff)
+            | ((src[pointer++] >> 8) & 0xff)
+            | ((src[pointer++] >> 0) & 0xff);
+    return temp;
+}
+
+bool MTechEngine::IO::SerializationReader::ReadBool(char src[], int &pointer)
+{
+    return src[pointer++] == 1 ? true : false;
+}
+
+char MTechEngine::IO::SerializationReader::ReadChar(char src[], int &pointer)
+{
+    return src[pointer++];
+}
+
+long long MTechEngine::IO::SerializationReader::ReadLong(char src[], int &pointer)
+{
+    long long temp;
+    temp = ((src[pointer++] >> 56) & 0xff)
+            | ((src[pointer++] >> 48) & 0xff)
+            | ((src[pointer++] >> 40) & 0xff)
+            | ((src[pointer++] >> 32) & 0xff)
+            | ((src[pointer++] >> 24) & 0xff)
+            | ((src[pointer++] >> 16) & 0xff)
+            | ((src[pointer++] >> 8) & 0xff)
+            | ((src[pointer++] >> 0) & 0xff);
+    return temp;
+}
+
+float MTechEngine::IO::SerializationReader::ReadFloat(char src[], int &pointer)
+{
+    int data = ReadInt(src, pointer);
+    return intToFloat(data);
+}
+
+double MTechEngine::IO::SerializationReader::ReadDouble(char src[], int &pointer)
+{
+    long long data = ReadLong(src, pointer);
+    return longToDouble(data);
 }
 
 /**
