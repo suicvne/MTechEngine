@@ -16,7 +16,7 @@ public:
     ~SuperSDLBrothersX()
     {
     }
-    void LoadResources(ContentManager *&cm, SpriteBatch *&spriteBatch)
+    virtual void LoadResources(ContentManager *cm, SpriteBatch *spriteBatch) override
     {
         std::ostringstream s;
         s << SDL_GetBasePath() << "/res/logo.png";
@@ -25,14 +25,17 @@ public:
         text = spriteBatch->loadTexture(s.str());
         cm->addTexture("tttttest", text);
         test = text;
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
+        cm->addTexture("sdlbros", text);
+        SDL_SetTextureColorMod(test, 100, 0, 0);
     }
-    void draw(SpriteBatch *&spriteBatch)
+    virtual void draw(SpriteBatch *spriteBatch) override
     {
         spriteBatch->sbBegin();
         spriteBatch->sbDrawTextureScaledConstant(test, 0, 0, 100, 100);
         spriteBatch->sbEnd();
     }
-    void update(InputHandler *&inputHandler)
+    virtual void update(InputHandler *inputHandler) override
     {
 
     }
