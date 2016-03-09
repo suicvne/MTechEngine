@@ -66,7 +66,7 @@ int BaseEngine::gameLoop()
             {
                 spriteBatch->sbSetRenderTarget(targetTexture);
                 spriteBatch->sbSetMainGameCamera(mainCamera);
-                __application->draw(spriteBatch);
+                __application->draw(spriteBatch, contentManager);
                 spriteBatch->sbSetRenderTarget(nullptr);
 
                 spriteBatch->sbBegin();

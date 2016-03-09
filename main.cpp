@@ -24,30 +24,23 @@ public:
         SDL_Texture *text;
         text = spriteBatch->loadTexture(s.str());
         cm->addTexture("tttttest", text);
-        test = text;
         text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
         cm->addTexture("sdlbros", text);
-        SDL_SetTextureColorMod(test, 100, 0, 0);
     }
-    virtual void draw(SpriteBatch *spriteBatch) override
+    virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) override
     {
         spriteBatch->sbBegin();
-        spriteBatch->sbDrawTextureScaledConstant(test, 0, 0, 100, 100);
+        spriteBatch->sbDrawTextureScaledConstant(cm->getTexture("sdlbros"), 0, 0, 100, 100);
         spriteBatch->sbEnd();
     }
     virtual void update(InputHandler *inputHandler) override
-    {
-
-    }
+    {}
     std::string getConfigFilePath()
     {
         std::ostringstream s;
         s << SDL_GetBasePath() << "/res/game_config.cfg";
         return s.str();
     }
-
-private:
-    SDL_Texture *test;
 };
 
 int writeTest();
@@ -65,8 +58,11 @@ int main()
 
 int newApplicationTypeTest()
 {
+    //Our instance of MTechApplication
     SuperSDLBrothersX *sdlBros = new SuperSDLBrothersX();
+    //The base engine initiated with the application
     BaseEngine *e = new BaseEngine(sdlBros);
+    //We run the application
     e->runApplication();
 
     delete e;
