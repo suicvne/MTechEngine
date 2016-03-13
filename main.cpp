@@ -23,6 +23,7 @@ public:
         {
             this->loadTextures(cm, spriteBatch);
             this->loadBlockConfigsAndBackgrounds();
+            EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::SPLASHSCREEN);
         }
         catch(std::exception &e)
         {

@@ -13,10 +13,10 @@
 
 #include <SDL.h>
 
-const int EngineStaticVariables::TOTAL_TILE_COUNT = 3;
-const int EngineStaticVariables::TOTAL_BACKGROUND_COUNT = 1;
-const int EngineStaticVariables::InternalWidth = 800;
-const int EngineStaticVariables::InternalHeight = 600;
+int EngineStaticVariables::TOTAL_TILE_COUNT = 3;
+int EngineStaticVariables::TOTAL_BACKGROUND_COUNT = 1;
+int EngineStaticVariables::InternalWidth = 800;
+int EngineStaticVariables::InternalHeight = 600;
 
 std::map<int, Tile*> EngineStaticVariables::Tilemap;
 std::map<int, LevelBackground*> EngineStaticVariables::BackgroundMap;

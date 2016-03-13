@@ -15,7 +15,7 @@ SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
         return;
     }
 
-    const std::string resPath = EngineStaticVariables::GetResourcesPath() + "gamefont.ttf";
+    const std::string resPath = EngineStaticVariables::GetResourcesPath() + "/gamefont.ttf";
 
     mainGameFont = TTF_OpenFont(resPath.c_str(), 8);
     if(mainGameFont == nullptr)

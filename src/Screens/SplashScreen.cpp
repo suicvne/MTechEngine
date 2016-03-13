@@ -1,6 +1,7 @@
 #include "SplashScreen.h"
 #include "global_vars.h"
 #include "ScreenManager.h"
+#include "enginestaticvariables.h"
 
 SplashScreen::SplashScreen()
 {
@@ -35,7 +36,7 @@ void SplashScreen::update(InputHandler *_ih)
     localCounter++;
     if(localCounter >= 60)
     {
-        //next = true; //next screen after 1.5 seconds
-        //mainScreenManager->pushScreen(TITLESCREEN);
+        next = true; //next screen after 1.5 seconds
+        EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
     }
 }

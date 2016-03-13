@@ -7,10 +7,6 @@
 #include "baseengine.h"
 #include "enginestaticvariables.h"
 
-///TODO: fix this
-#define __internal_width 800
-#define __internal_height 600
-///TODO: fix this
 
 
 BaseEngine::BaseEngine(MTechApplication *application)
@@ -32,6 +28,11 @@ int BaseEngine::runApplication()
     if(pApplication != nullptr)
     {
         ConfigFile mainConfig = ConfigFile(pApplication->getConfigFilePath().c_str());
+        EngineStaticVariables::InternalWidth = mainConfig.getWindowWidth();
+        EngineStaticVariables::InternalHeight = mainConfig.getWindowHeight();
+        EngineStaticVariables::TOTAL_TILE_COUNT = mainConfig.GetMaxBlocks();
+        EngineStaticVariables::TOTAL_BACKGROUND_COUNT = mainConfig.GetMaxBackgrounds();
+
         try
         {
             mainConfig.readFile();
@@ -121,13 +122,13 @@ void BaseEngine::windowResize()
 {
     int w, h;
     SDL_GetWindowSize(mainGameWindow, &w, &h);
-    scaleGameW = w / __internal_width;
-    scaleGameH = h / __internal_height;
+    scaleGameW = w / EngineStaticVariables::InternalWidth;
+    scaleGameH = h / EngineStaticVariables::InternalHeight;
 
     width = w;
     height = h;
     SDL_DestroyTexture(targetTexture);
-    targetTexture = SDL_CreateTexture(sdlRenderer, SDL_GetWindowPixelFormat(mainGameWindow), SDL_TEXTUREACCESS_TARGET, __internal_width, __internal_height);
+    targetTexture = SDL_CreateTexture(sdlRenderer, SDL_GetWindowPixelFormat(mainGameWindow), SDL_TEXTUREACCESS_TARGET, EngineStaticVariables::InternalWidth, EngineStaticVariables::InternalHeight);
     SDL_Rect viewport;
     SDL_RenderGetViewport(sdlRenderer, &viewport);
 

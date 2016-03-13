@@ -21,12 +21,14 @@ public:
     ConfigFile(std::string filename);
     void readFile(); //load the file.
     void saveFile(); //saves the file.
-    std::string getWindowTitle(){return this->gameName;};
-    int getWindowWidth(){return this->winWidth;};
-    int getWindowHeight(){return this->winHeight;};
-    int getWindowX(){return this->winX;};
-    int getWindowY(){return this->winY;};
-    bool getVsync(){return this->useVsync;};
+    std::string const getWindowTitle(){return this->gameName;}
+    int getWindowWidth() const{return this->winWidth;}
+    int getWindowHeight() const{return this->winHeight;}
+    int getWindowX() const{return this->winX;}
+    int getWindowY() const{return this->winY;}
+    int GetMaxBlocks() const{return this->MaxBlocks;}
+    int GetMaxBackgrounds() const{return this->MaxBackgrounds;}
+    bool getVsync(){return this->useVsync;}
 private:
     std::string __filename; //internal filename used for quick saving later
     /**Begin Properties*/

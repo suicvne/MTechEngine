@@ -7,14 +7,13 @@
 #include "TitleScreen.h"
 #include "TestLevelScreen.h"
 
-enum ScreensEnum
-{
-    TESTSCREEN = 2, SPLASHSCREEN = 0, TITLESCREEN = 1, TESTLEVEL = 3
-};
-
 class ScreenManager
 {
     public:
+        enum ScreensEnum
+        {
+            TESTSCREEN = 2, SPLASHSCREEN = 0, TITLESCREEN = 1, TESTLEVEL = 3
+        };
         ScreenManager();
         virtual ~ScreenManager();
         void update(InputHandler* _ih);

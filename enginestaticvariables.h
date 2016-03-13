@@ -22,10 +22,10 @@ class EngineStaticVariables
 {
     ///TODO: figure out unamed namespace declaration?
 public:
-    const static int TOTAL_TILE_COUNT;
-    const static int TOTAL_BACKGROUND_COUNT;
-    const static int InternalWidth;
-    const static int InternalHeight;
+    static int TOTAL_TILE_COUNT;
+    static int TOTAL_BACKGROUND_COUNT;
+    static int InternalWidth;
+    static int InternalHeight;
     //Static variables
     static std::map<int, Tile*> Tilemap;
     static std::map<int, LevelBackground*> BackgroundMap;
