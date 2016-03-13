@@ -45,6 +45,8 @@ void ConfigFile::readFile()
             else if(begins_with(line, std::string("height")))
             {
                 this->winHeight = atoi(line.substr(line.find('=') + 1, line.length()).c_str());
+                std::cout << "height: " << this->winHeight << std::endl;
+                std::cout << "height from getter: " << this->getWindowWidth() << std::endl;
             }
             else if(begins_with(line, std::string("start_x")))
             {

@@ -4,6 +4,8 @@
 #include "MessageBox.h"
 #include "ScreenManager.h"
 
+#include <SDL.h>
+
 #include "enginestaticvariables.h"
 
 TitleScreen::TitleScreen()

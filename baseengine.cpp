@@ -28,14 +28,20 @@ int BaseEngine::runApplication()
     if(pApplication != nullptr)
     {
         ConfigFile mainConfig = ConfigFile(pApplication->getConfigFilePath().c_str());
-        EngineStaticVariables::InternalWidth = mainConfig.getWindowWidth();
-        EngineStaticVariables::InternalHeight = mainConfig.getWindowHeight();
-        EngineStaticVariables::TOTAL_TILE_COUNT = mainConfig.GetMaxBlocks();
-        EngineStaticVariables::TOTAL_BACKGROUND_COUNT = mainConfig.GetMaxBackgrounds();
 
         try
         {
             mainConfig.readFile();
+
+            std::cout << "Old w: " << EngineStaticVariables::InternalWidth << std::endl;
+            std::cout << "Old h: " << EngineStaticVariables::InternalHeight << std::endl;
+            std::cout << "New w: " << mainConfig.getWindowWidth() << std::endl;
+            std::cout << "New h: " << mainConfig.getWindowHeight() << std::endl;
+
+            EngineStaticVariables::InternalWidth = mainConfig.getWindowWidth();
+            EngineStaticVariables::InternalHeight = mainConfig.getWindowHeight();
+            EngineStaticVariables::TOTAL_TILE_COUNT = mainConfig.GetMaxBlocks();
+            EngineStaticVariables::TOTAL_BACKGROUND_COUNT = mainConfig.GetMaxBackgrounds();
         }
         catch(std::exception &e)
         {
