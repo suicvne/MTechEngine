@@ -57,6 +57,7 @@ private:
     int updateIntervalMs, lastTimeCheck;
     int width, height;
     float scaleGameW = 1, scaleGameH = 1;
+    std::string windowTitle;
     //
 };
 

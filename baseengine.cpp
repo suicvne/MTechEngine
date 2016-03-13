@@ -6,6 +6,7 @@
 
 #include "baseengine.h"
 #include "enginestaticvariables.h"
+#include <stdlib.h>
 
 
 
@@ -53,6 +54,7 @@ int BaseEngine::runApplication()
         {
             pApplication->LoadResources(contentManager, spriteBatch);
 
+            windowTitle = mainConfig.getWindowTitle();
             width = mainConfig.getWindowWidth();
             height = mainConfig.getWindowHeight();
 
@@ -76,6 +78,7 @@ int BaseEngine::gameLoop()
     {
         importantUpdate();
         pApplication->update(inputHandler);
+
         //important draw
         {
             if(____UPDATE)
@@ -90,7 +93,6 @@ int BaseEngine::gameLoop()
                 spriteBatch->sbEnd();
             }
         }
-        //TODO: application update and draw events
     }
     return 0;
 }

@@ -18,6 +18,8 @@ int EngineStaticVariables::TOTAL_BACKGROUND_COUNT = 1;
 int EngineStaticVariables::InternalWidth = 800;
 int EngineStaticVariables::InternalHeight = 600;
 
+const int EngineStaticVariables::TargetFramerate = 60;
+
 std::map<int, Tile*> EngineStaticVariables::Tilemap;
 std::map<int, LevelBackground*> EngineStaticVariables::BackgroundMap;
 

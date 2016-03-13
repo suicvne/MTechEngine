@@ -26,6 +26,7 @@ public:
     static int TOTAL_BACKGROUND_COUNT;
     static int InternalWidth;
     static int InternalHeight;
+    const static int TargetFramerate;
     //Static variables
     static std::map<int, Tile*> Tilemap;
     static std::map<int, LevelBackground*> BackgroundMap;
