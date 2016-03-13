@@ -4,6 +4,9 @@
 #include "Tile.h"
 #include "global_vars.h"
 #include "LevelBackground.h"
+#include "ContentManager.h"
+
+#include "enginestaticvariables.h"
 
 /**
 ---TODO---
@@ -46,11 +49,11 @@ int LevelObject::initLevel()
     {
         for(int y = 0; y < lvlsettings.height; ++y)
         {
-            __tiles[x*lvlsettings.height+y] = __getBlockByID(-1);
+            __tiles[x*lvlsettings.height+y] = EngineStaticVariables::GetBlockByID(-1);
         }
     }
 
-    background = __getBackgroundByID(1);
+    background = EngineStaticVariables::GetBackgroundByID(1);
     background->lwidth = lvlsettings.width;
     background->lheight = lvlsettings.height;
 
@@ -59,9 +62,9 @@ int LevelObject::initLevel()
 /**End protected*/
 
 /**Public*/
-void LevelObject::draw(SpriteBatch *_sb)
+void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
 {
-    background->draw(_sb);
+    background->draw(_sb, cm);
 
     for(int x = 0; x < lvlsettings.width; ++x)
     {

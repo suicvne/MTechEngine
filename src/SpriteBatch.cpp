@@ -3,6 +3,8 @@
 #include "global_vars.h"
 #include "Camera2d.h"
 
+#include "enginestaticvariables.h"
+
 SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
 {
     __renderer = renderer;
@@ -13,7 +15,7 @@ SpriteBatch::SpriteBatch(SDL_Renderer *renderer)
         return;
     }
 
-    const std::string resPath = getResourcePath("") + "gamefont.ttf";
+    const std::string resPath = EngineStaticVariables::GetResourcesPath() + "gamefont.ttf";
 
     mainGameFont = TTF_OpenFont(resPath.c_str(), 8);
     if(mainGameFont == nullptr)

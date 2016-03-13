@@ -1,4 +1,6 @@
-#include "global_vars.h"
+///Deprecated 3/13/2016
+
+/*#include "global_vars.h"
 #include "SoundMixer.h"
 #include "ScreenManager.h"
 #include "Camera2d.h"
@@ -27,7 +29,7 @@ LevelBackground *__getBackgroundByID(int id)
 {
     if(id < 0)
     {
-        /**TODO: Return a black background placeholder*/
+
     }
     return BackgroundMap[id];
 }
@@ -73,3 +75,4 @@ if (baseRes.empty()){
 //append it to the base path. This would be something like Lessons/res/Lesson0
 return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
 };
+*/

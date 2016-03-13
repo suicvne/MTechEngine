@@ -1,8 +1,11 @@
+/*
 #include "GameWindow.h"
 #include "Camera2d.h"
 #include "LevelBackground.h"
 #include "configfile.h"
 #include <stdexcept>
+
+#include "enginestaticvariables.h"
 
 GameWindow::GameWindow()
 {
@@ -181,7 +184,7 @@ void GameWindow::initBlocks()
 
     //Test to make sure we're sane
     std::cout << std::endl << "===BEGIN BLOCK SANITY CHECK===" << std::endl;
-    for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
+    for(int i = 1; i <= EngineStaticVariables::TOTAL_TILE_COUNT; i++)
     {
         Tile *t;
         t = Tilemap[i];
@@ -206,7 +209,7 @@ void GameWindow::initBlocks()
     std::cout << "===END BLOCK SANITY CHECK===" << std::endl << std::endl;
 
     std::cout << std::endl << "===BEGIN BACKGROUND SANITY CHECK===" << std::endl;
-    for(int i = 1; i <= TOTAL_BACKGROUND_COUNT; i++)
+    for(int i = 1; i <= EngineStaticVariables::TOTAL_BACKGROUND_COUNT; i++)
     {
         LevelBackground *lb;
         lb = BackgroundMap[i];
@@ -244,9 +247,8 @@ void GameWindow::windowResize()
     }
 }
 
-/**
 These updates take priority over even Lua updates
-*/
+
 void GameWindow::importantUpdates()
 {
         if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
@@ -321,3 +323,4 @@ void GameWindow::update()
         }
     }
 }
+*/

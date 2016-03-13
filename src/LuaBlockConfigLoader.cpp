@@ -1,6 +1,7 @@
 #include "LuaBlockConfigLoader.h"
 #include "LevelBackground.h"
 #include "_color.h"
+#include "enginestaticvariables.h"
 
 int LUA_makeVector2i(lua_State *L)
 {
@@ -33,10 +34,10 @@ void LuaBlockConfigLoader::report_errors(lua_State *L, int status)
 
 void LuaBlockConfigLoader::loadBackgrounds()
 {
-    for(int i = 1; i <= TOTAL_BACKGROUND_COUNT; i++)
+    for(int i = 1; i <= EngineStaticVariables::TOTAL_BACKGROUND_COUNT; i++)
     {
         std::ostringstream __s;
-        __s << getResourcePath("") << "bg/bg" << i << ".lua";
+        __s << EngineStaticVariables::GetResourcesPath() << "/bg/bg" << i << ".lua";
         std::string path(__s.str());
 
         int status = luaL_loadfile(L, path.c_str());
@@ -87,7 +88,7 @@ void LuaBlockConfigLoader::loadBackgrounds()
 
             //SDL_Color *bgColor = (SDL_Color*)lua_touserdata(L, -1);
 
-            BackgroundMap[i] = lb;
+            EngineStaticVariables::BackgroundMap[i] = lb;
             std::cout << "Added bg-" << i << " with name " << lb->bgname << "." << std::endl;
         }
     }
@@ -95,10 +96,10 @@ void LuaBlockConfigLoader::loadBackgrounds()
 
 void LuaBlockConfigLoader::loadBlocks()
 {
-    for(int i = 1; i <= TOTAL_TILE_COUNT; i++)
+    for(int i = 1; i <= EngineStaticVariables::TOTAL_TILE_COUNT; i++)
     {
         std::ostringstream __s;
-        __s << getResourcePath("") << "blocks/block" << i << ".lua";
+        __s << EngineStaticVariables::GetResourcesPath() << "/blocks/block" << i << ".lua";
         std::string path(__s.str());
 
         int status = luaL_loadfile(L, path.c_str());
@@ -167,7 +168,7 @@ void LuaBlockConfigLoader::loadBlocks()
             }
 
             //(*Tilemap)[i] = t;
-            Tilemap[i] = t;
+            EngineStaticVariables::Tilemap[i] = t;
 
             std::cout << "Added block-" << i << " with name '" << t->getBlockName() << "'." << " (Animated: " << t->getAnimated() << ")" << std::endl;
         }

@@ -4,6 +4,8 @@
 #include "SpriteBatch.h"
 #include "MathsStuff.h"
 
+#include "enginestaticvariables.h"
+
 MessageBox::MessageBox(std::string msg)
 {
     message = msg;
@@ -34,7 +36,7 @@ void MessageBox::draw(SpriteBatch *_sb)
         frameCount += 15;
         if(!soundPlayed)
         {
-            mainSoundMixer->playSoundEffect(3);
+            EngineStaticVariables::MainSoundMixer->playSoundEffect(3);
             soundPlayed = true;
         }
 
@@ -42,13 +44,13 @@ void MessageBox::draw(SpriteBatch *_sb)
         SDL_Color black {0,0,0,255};
 
         int __max_height = (messageSplitToVector.size() * 20) < MAX_HEIGHT ? (messageSplitToVector.size() * 20) + 16 : MAX_HEIGHT + 16;
-        int true_x = (__internal_width / 2) - ((MAX_WIDTH + 16) / 2);
+        int true_x = (EngineStaticVariables::InternalWidth / 2) - ((MAX_WIDTH + 16) / 2);
 
         SDL_Rect msgBoxArea;
         msgBoxArea.w = MathsStuff::math_clamp((this->frameCount + 150), 0, MAX_WIDTH + 16);
         msgBoxArea.h = MathsStuff::math_clamp(this->frameCount, 0, __max_height);
         msgBoxArea.x = true_x;
-        msgBoxArea.y = (__internal_height / 2) - (msgBoxArea.h / 2);
+        msgBoxArea.y = (EngineStaticVariables::InternalHeight / 2) - (msgBoxArea.h / 2);
 
         SDL_Rect outlineArea;
         outlineArea.w = MAX_WIDTH;

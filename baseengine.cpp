@@ -5,7 +5,7 @@
 */
 
 #include "baseengine.h"
-//#include "global_vars.h"
+#include "enginestaticvariables.h"
 
 ///TODO: fix this
 #define __internal_width 800
@@ -188,9 +188,7 @@ void BaseEngine::importantUpdate()
 }
 
 void BaseEngine::importantDraw()
-{
-
-}
+{}
 
 bool BaseEngine::InitializeSDL(ConfigFile &configFile)
 {

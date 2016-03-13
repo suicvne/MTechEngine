@@ -8,6 +8,7 @@
 
 struct SpriteBatch;
 struct _color;
+struct ContentManager;
 
 class LevelBackground
 {
@@ -15,7 +16,7 @@ class LevelBackground
         LevelBackground();
         LevelBackground(int l_width, int l_height);
         ~LevelBackground();
-        void draw(SpriteBatch *_sb);
+        void draw(SpriteBatch* _sb, ContentManager* cm);
 
         //there comes a certain part in your life where you say fuck it
         //and you make all your properties public
@@ -34,8 +35,8 @@ class LevelBackground
         _color *backgroundColor;
     protected:
     private:
-        void backgroundTile(SpriteBatch *sb);
-        void backgroundTileX(SpriteBatch *sb);
+        //void backgroundTile(SpriteBatch *sb); This is used for tiling a square background for example
+        void backgroundTileX(SpriteBatch* sb, ContentManager* cm);
 };
 
 #endif // LEVELBACKGROUND_H

@@ -67,7 +67,8 @@ SOURCES += main.cpp \
     src/IO/serializationwriter.cpp \
     src/IO/serializationreader.cpp \
     src/IO/serializationconstants.cpp \
-    baseengine.cpp
+    baseengine.cpp \
+    enginestaticvariables.cpp
 
 HEADERS += \
     include/_color.h \
@@ -110,7 +111,8 @@ HEADERS += \
     src/IO/serializationconstants.h \
     mtechapplication.h \
     baseengine.h \
-    src/luaobjectbindingbase.h
+    src/luaobjectbindingbase.h \
+    enginestaticvariables.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*

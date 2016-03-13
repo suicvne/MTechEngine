@@ -1,36 +1,28 @@
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <stdio.h>
 #include "GameWindow.h"
 #include "mtechapplication.h"
 #include "baseengine.h"
-#include <stdio.h>
+#include "ScreenManager.h"
+#include "LuaBlockConfigLoader.h"
+#include "enginestaticvariables.h"
 
-using namespace std;
+//using namespace std;
 
 class SuperSDLBrothersX : public MTechApplication
 {
 public:
     SuperSDLBrothersX()
-    {
-        std::ostringstream s;
-        s << SDL_GetBasePath() << "/res";
-        this->resourcePath = s.str();
-    }
+    {}
     virtual ~SuperSDLBrothersX()
     {}
     virtual void LoadResources(ContentManager *cm, SpriteBatch *spriteBatch) override
     {
         try
         {
-            std::ostringstream s;
-            s << SDL_GetBasePath() << "/res/logo.png";
-            ///TODO: load resources through here instead of through GameWindow
-            SDL_Texture *text;
-            text = spriteBatch->loadTexture(s.str());
-            cm->addTexture("tttttest", text);
-            text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
-            cm->addTexture("sdlbros", text);
-            //SDL_SetTextureColorMod(test, 100, 0, 0);
+            this->loadTextures(cm, spriteBatch);
+            this->loadBlockConfigsAndBackgrounds();
         }
         catch(std::exception &e)
         {
@@ -39,18 +31,38 @@ public:
     }
     virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) override
     {
-        spriteBatch->sbBegin();
-        spriteBatch->sbDrawTexture(cm->getTexture("sdlbros"), 20, 20);
-        spriteBatch->sbEnd();
+        EngineStaticVariables::MainScreenManager->draw(spriteBatch, cm);
     }
     virtual void update(InputHandler *inputHandler) override
-    {}
+    {
+        EngineStaticVariables::MainScreenManager->update(inputHandler);
+    }
     std::string getConfigFilePath()
     {
-        return resourcePath + "/game_config.cfg";
+        return EngineStaticVariables::GetResourcesPath() + "/game_config.cfg";
     }
 private:
-    std::string resourcePath;
+    void loadTextures(ContentManager *cm, SpriteBatch *spriteBatch)
+    {
+        SDL_Texture *text; //temporary texture allocater
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/tiles/full.png")));
+        cm->addTexture("test_sheet", text);
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/logo.png")));
+        cm->addTexture("company_logo", text);
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/bg/all.png")));
+        cm->addTexture("bg_index", text);
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/selection.png")));
+        cm->addTexture("selection", text);
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
+        cm->addTexture("sdlbroslogo", text);
+    }
+    void loadBlockConfigsAndBackgrounds()
+    {
+        LuaBlockConfigLoader *lbcfl = new LuaBlockConfigLoader();
+        lbcfl->loadBlocks();
+        lbcfl->loadBackgrounds();
+        delete lbcfl;
+    }
 };
 
 int launchSDLBrosX();
@@ -58,7 +70,6 @@ int newApplicationTypeTest();
 
 int main()
 {
-    //return launchSDLBrosX();
     return newApplicationTypeTest();
 }
 
@@ -76,6 +87,7 @@ int newApplicationTypeTest()
     return 0;
 }
 
+/*
 int launchSDLBrosX()
 {
     GameWindow *mainGameWindow = new GameWindow();
@@ -85,7 +97,7 @@ int launchSDLBrosX()
 
     return 0;
 }
-/*
+
 #include "src/IO/serializationwriter.h"
 #include "src/IO/serializationreader.h"
 #include <iostream>

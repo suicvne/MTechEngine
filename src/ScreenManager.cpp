@@ -10,7 +10,7 @@ ScreenManager::ScreenManager()
     //testScreen = new TestScreen();
     splash = new SplashScreen();
     title = new TitleScreen();
-    testLvlScreen = new TestLevelScreen();
+    //testLvlScreen = new TestLevelScreen();
 }
 
 ScreenManager::~ScreenManager()

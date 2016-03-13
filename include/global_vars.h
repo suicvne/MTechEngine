@@ -7,8 +7,8 @@ NOTE:
 In the future, these values will be defined in an external configuration file such as an xml or ini.
 Until then, you will have to manually modify these and recompile. I'm very sorry.
 */
-#define TOTAL_TILE_COUNT 3 //Increase this for more blocks
-#define TOTAL_BACKGROUND_COUNT 1 //Increase this for more backgrounds
+//#define TOTAL_TILE_COUNT 3 //Increase this for more blocks
+//#define TOTAL_BACKGROUND_COUNT 1 //Increase this for more backgrounds
 /***/
 
 #include <iostream>

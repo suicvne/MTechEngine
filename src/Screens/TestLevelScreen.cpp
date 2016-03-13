@@ -21,11 +21,12 @@ TestLevelScreen::~TestLevelScreen()
 
 void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
-    lvl_object->draw(_sb);
+    lvl_object->draw(_sb, cm);
 }
 
 void TestLevelScreen::update(InputHandler *_ih)
 {
+    /*
     if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
     {
         mainScreenManager->pushScreen(TITLESCREEN);
@@ -35,4 +36,5 @@ void TestLevelScreen::update(InputHandler *_ih)
         mainGameCamera->setCameraX(mainGameCamera->getCameraX() + -2);
     }
     lvl_object->update(_ih);
+    */
 }

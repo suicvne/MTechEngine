@@ -36,6 +36,6 @@ void SplashScreen::update(InputHandler *_ih)
     if(localCounter >= 60)
     {
         //next = true; //next screen after 1.5 seconds
-        mainScreenManager->pushScreen(TITLESCREEN);
+        //mainScreenManager->pushScreen(TITLESCREEN);
     }
 }

@@ -13,6 +13,7 @@ struct SpriteBatch;
 struct InputHandler;
 struct Tile;
 struct LevelBackground;
+struct ContentManager;
 
 class LevelObject
 {
@@ -20,14 +21,14 @@ class LevelObject
         LevelObject();
         LevelObject(LevelSettings __settings);
         ~LevelObject();
-        void draw(SpriteBatch *_sb);
-        void update(InputHandler *_ih);
+        void draw(SpriteBatch* _sb, ContentManager* cm);
+        void update(InputHandler* _ih);
     protected:
         int initLevel();
     private:
-        Tile **__tiles;
+        Tile** __tiles;
         LevelSettings lvlsettings;
-        LevelBackground *background;
+        LevelBackground* background;
 };
 
 #endif // LEVELOBJECT_H

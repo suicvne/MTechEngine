@@ -4,6 +4,8 @@
 #include "MessageBox.h"
 #include "ScreenManager.h"
 
+#include "enginestaticvariables.h"
+
 TitleScreen::TitleScreen()
 {
 //    _cm = ___cm;
@@ -38,20 +40,20 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
     texArea.y = 668;
     texArea.w = 128;
     texArea.h = 42;
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, -(texArea.w), __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, 0, __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 1, __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 2, __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 3, __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 4, __internal_height - texArea.h * 2, texArea, 2.0f);
-    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 5, __internal_height - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, -(texArea.w), EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, 0, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 1, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 2, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 3, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 4, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
+    _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 5, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
 
     SDL_Color black{0,0,0,255};
     SDL_Rect boxArea;
     boxArea.w = 300;
     boxArea.h = 100;
-    boxArea.x = ((__internal_width / 2) - (boxArea.w / 2));
-    boxArea.y = ((__internal_height / 2) - (boxArea.h / 2)) + 40;
+    boxArea.x = ((EngineStaticVariables::InternalWidth / 2) - (boxArea.w / 2));
+    boxArea.y = ((EngineStaticVariables::InternalHeight / 2) - (boxArea.h / 2)) + 40;
 
     _sb->sbFillRect(&black, &boxArea);
 
@@ -94,7 +96,7 @@ void TitleScreen::update(InputHandler *_ih)
                 if(currentSelection > totalOptions-1)
                     currentSelection = 0;
                 upPressed = true;
-                mainSoundMixer->playSoundEffect(1);
+                EngineStaticVariables::MainSoundMixer->playSoundEffect(1);
             }
             break;
         case SDLK_DOWN:
@@ -104,16 +106,16 @@ void TitleScreen::update(InputHandler *_ih)
                 if(currentSelection < 0 )
                     currentSelection = (menuOptions.size() - 1);
                 downPressed = true;
-                mainSoundMixer->playSoundEffect(1);
+                EngineStaticVariables::MainSoundMixer->playSoundEffect(1);
             }
             break;
         case SDLK_RETURN:
         case SDLK_z:
-            mainSoundMixer->playSoundEffect(2);
-            if(currentSelection == 0)
+            EngineStaticVariables::MainSoundMixer->playSoundEffect(2);
+            /*if(currentSelection == 0)
                 mainScreenManager->pushScreen(TESTLEVEL); //TESTSCREEN
             else if(currentSelection == 1)
-                ______DO_QUIT = true;
+                ______DO_QUIT = true;*/
             break;
         case SDLK_o:
             testMessage->setVisible(!testMessage->getVisibility());
@@ -140,9 +142,9 @@ void TitleScreen::drawTitleCopyrightEtc(SpriteBatch *_sb, ContentManager* cm)
     int wLogo, hLogo;
     SDL_QueryTexture(cm->getTexture("sdlbroslogo"), NULL, NULL, &wLogo, &hLogo);
 
-    _sb->sbDrawTextureScaledConstant(cm->getTexture("sdlbroslogo"), ((__internal_width / 2) - ((wLogo*2) / 2)), 40, 2.0f);
+    _sb->sbDrawTextureScaledConstant(cm->getTexture("sdlbroslogo"), ((EngineStaticVariables::InternalWidth / 2) - ((wLogo*2) / 2)), 40, 2.0f);
 
     //_sb->sbDrawFont("SDL Brothers X", ((__internal_width / 2) - (x / 2)), 40, white, 3.0f, true);
-    _sb->sbDrawFont("Press O to test message boxes!", 2, __internal_height - 48, white, 2.0f, false);
+    _sb->sbDrawFont("Press O to test message boxes!", 2, EngineStaticVariables::InternalHeight - 48, white, 2.0f, false);
     _sb->sbDrawFont("Pre Alpha Build", 2, 600-24, white, 2.0f, false);
 }

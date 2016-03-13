@@ -14,14 +14,14 @@ The screen executes whatever the contents of the test.lua file is located in the
 /**
 the luna hook ins
 */
-#include "global_vars.h"
+#include "enginestaticvariables.h"
 #include "ScreenManager.h"
 
 int LUA_GetBlock(lua_State *L)
 {
     Tile *t = new Tile();
     //*t = (*Tilemap)[lua_tonumber(L, 1)];
-    *t = *(Tilemap[lua_tonumber(L, 1)]);
+    *t = *(EngineStaticVariables::Tilemap[lua_tonumber(L, 1)]);
     if(t != NULL)
     {
         lua_pushlightuserdata(L, t);
@@ -109,15 +109,15 @@ void TestScreen::finalInitLua()
     lua_pushlightuserdata(L, (void*)_localSb);
     lua_setglobal(L, "sprBatch");
 
-    lua_pushlightuserdata(L, (void*)_cm);
-    lua_setglobal(L, "mainContentManager");
+    /*lua_pushlightuserdata(L, (void*)_cm);
+    lua_setglobal(L, "mainContentManager");*/
 
-    lua_pushlightuserdata(L, (void*)mainGameCamera);
+    lua_pushlightuserdata(L, (void*)EngineStaticVariables::MainGameCamera);
     lua_setglobal(L, "mainGameCamera");
 
     doneInit = true;
 
-    std::string path(getResourcePath(""));
+    std::string path(EngineStaticVariables::GetResourcesPath());
     path.append("screens/test/test.lua");
     std::cout << "Script from: " << path << std::endl;
 
@@ -225,7 +225,7 @@ void TestScreen::update(InputHandler *_ih)
     {
         if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
         {
-            mainScreenManager->pushScreen(TITLESCREEN);
+            //mainScreenManager->pushScreen(TITLESCREEN);
         }
         onInputFunction(_ih->getEvent()->key.keysym.sym);
     }
