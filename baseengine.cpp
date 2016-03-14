@@ -5,6 +5,7 @@
 */
 
 #include "baseengine.h"
+#include "ScreenManager.h"
 #include "enginestaticvariables.h"
 #include "StandardColors.h"
 #include <stdlib.h>
@@ -14,7 +15,9 @@
 BaseEngine::BaseEngine(MTechApplication *application)
 {
     pApplication = application;
+#if __llvm__ //this is necessary because i can't do C++11 styled initializers on the version of clang i have :s
     StandardColors::populateColors();
+#endif
 }
 
 BaseEngine::~BaseEngine()
@@ -56,11 +59,13 @@ int BaseEngine::runApplication()
         {
             pApplication->LoadResources(contentManager, spriteBatch);
 
+            EngineStaticVariables::MainScreenManager->initTestLevelScreen();
+
             windowTitle = mainConfig.getWindowTitle();
             width = mainConfig.getWindowWidth();
             height = mainConfig.getWindowHeight();
 
-            ____UPDATE = true;
+            EngineStaticVariables::UpdateGame = true;
             return gameLoop();
         }
         else
@@ -76,14 +81,14 @@ int BaseEngine::runApplication()
 
 int BaseEngine::gameLoop()
 {
-    while(____DO_QUIT == false)
+    while(EngineStaticVariables::DoQuit == false)
     {
         importantUpdate();
         pApplication->update(inputHandler);
 
         //important draw
         {
-            if(____UPDATE)
+            if(EngineStaticVariables::UpdateGame)
             {
                 spriteBatch->sbSetRenderTarget(targetTexture);
                 spriteBatch->sbSetMainGameCamera(mainCamera);
@@ -112,7 +117,7 @@ void BaseEngine::importantEvents()
             windowResize();
             break;
         case SDL_WINDOWEVENT_MINIMIZED:
-            ____UPDATE = false;
+            EngineStaticVariables::UpdateGame = false;
             std::cout << "Update stopped" << std::endl;
             break;
         }
@@ -124,7 +129,7 @@ void BaseEngine::importantEvents()
     }
     if(inputHandler->getEvent()->type == SDL_QUIT)
     {
-        ____DO_QUIT = true;
+        EngineStaticVariables::DoQuit = true;
     }
 }
 
@@ -179,7 +184,7 @@ void BaseEngine::toggleFullscreen()
 
 void BaseEngine::importantUpdate()
 {
-    if(____UPDATE)
+    if(EngineStaticVariables::UpdateGame)
     {
         inputHandler->update();
         importantEvents();
@@ -191,7 +196,7 @@ void BaseEngine::importantUpdate()
         {
             if(inputHandler->getEvent()->window.event == SDL_WINDOWEVENT_RESTORED)
             {
-                ____UPDATE = true;
+                EngineStaticVariables::UpdateGame = true;
                 std::cout << "Update began" << std::endl;
             }
         }
@@ -244,7 +249,7 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
     }
 
     mainEventLoop = new SDL_Event();
-    ____DO_QUIT = false;
+    EngineStaticVariables::DoQuit = false;
 
     spriteBatch = new SpriteBatch(sdlRenderer);
     inputHandler = new InputHandler();

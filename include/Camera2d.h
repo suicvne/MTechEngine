@@ -1,7 +1,7 @@
 #ifndef CAMERA2D_H
 #define CAMERA2D_H
-#include <SDL.h>
-#include <float.h>
+
+struct SDL_Rect;
 
 class Camera2d
 {

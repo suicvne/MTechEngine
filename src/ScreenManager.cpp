@@ -10,7 +10,15 @@ ScreenManager::ScreenManager()
     //testScreen = new TestScreen();
     splash = new SplashScreen();
     title = new TitleScreen();
-    //testLvlScreen = new TestLevelScreen();
+}
+
+/**
+ * @brief ScreenManager::initTestLevelScreen
+ * This is to be done after loading of all backgrounds/resources.
+ */
+void ScreenManager::initTestLevelScreen()
+{
+    testLvlScreen = new TestLevelScreen();
 }
 
 ScreenManager::~ScreenManager()

@@ -32,7 +32,7 @@ LevelObject::LevelObject(LevelSettings __settings)
 
 LevelObject::~LevelObject()
 {
-    delete __tiles; //probably not ALL that needs to be done
+    free(__tiles); //probably not ALL that needs to be done
 }
 /**End constructors*/
 
@@ -64,7 +64,13 @@ int LevelObject::initLevel()
 /**Public*/
 void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
 {
-    background->draw(_sb, cm);
+    if(background != nullptr)
+        background->draw(_sb, cm);
+    else
+    {
+        std::cerr << "Background was null!!" << std::endl;
+        EngineStaticVariables::DoQuit = true;
+    }
 
     for(int x = 0; x < lvlsettings.width; ++x)
     {

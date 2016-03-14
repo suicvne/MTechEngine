@@ -114,10 +114,10 @@ void TitleScreen::update(InputHandler *_ih)
         case SDLK_RETURN:
         case SDLK_z:
             EngineStaticVariables::MainSoundMixer->playSoundEffect(2);
-            /*if(currentSelection == 0)
-                mainScreenManager->pushScreen(TESTLEVEL); //TESTSCREEN
+            if(currentSelection == 0)
+                EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TESTLEVEL); //TESTSCREEN
             else if(currentSelection == 1)
-                ______DO_QUIT = true;*/
+                EngineStaticVariables::DoQuit = true;
             break;
         case SDLK_o:
             testMessage->setVisible(!testMessage->getVisibility());

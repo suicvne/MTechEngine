@@ -3,8 +3,10 @@
 #include "SpriteBatch.h"
 #include "LevelObject.h"
 #include "ScreenManager.h"
-#include "global_vars.h"
+
 #include "Camera2d.h"
+
+#include "enginestaticvariables.h"
 
 TestLevelScreen::TestLevelScreen()
 {
@@ -26,15 +28,17 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 
 void TestLevelScreen::update(InputHandler *_ih)
 {
-    /*
     if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
     {
-        mainScreenManager->pushScreen(TITLESCREEN);
+        EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
     }
-    else if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
+    /*else if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
     {
-        mainGameCamera->setCameraX(mainGameCamera->getCameraX() + -2);
+        EngineStaticVariables::MainGameCamera->setCameraX(mainGameCamera->getCameraX() + -2);
     }
+    else if(_ih->getEvent()->key.keysym.sym == SDLK_LEFT)
+    {
+        EngineStaticVariables::MainGameCamera->setCameraX(mainGameCamera->getCameraX() + 2);
+    }*/
     lvl_object->update(_ih);
-    */
 }

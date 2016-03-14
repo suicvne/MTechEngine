@@ -51,7 +51,7 @@ private:
     ContentManager* contentManager;
     //
     //fields
-    bool __vsyncEnabled, ____DO_QUIT, ____UPDATE;
+    bool __vsyncEnabled;
     int __fullscreen = 0;
     int updateIntervalMs, lastTimeCheck;
     int width, height;

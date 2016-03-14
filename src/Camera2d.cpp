@@ -1,4 +1,5 @@
 #include "Camera2d.h"
+#include <SDL.h>
 
 Camera2d::Camera2d()
 {
