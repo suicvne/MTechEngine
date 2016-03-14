@@ -22,7 +22,7 @@ public:
     virtual void LoadResources(ContentManager *cm, SpriteBatch *spriteBatch) = 0;
     virtual std::string getConfigFilePath() = 0;
     virtual void update(InputHandler *inputHandler) = 0;
-    virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) = 0;
+    virtual void draw(SpriteBatch *spriteBatch) = 0;
 };
 
 #endif // MTECHAPPLICATION_H

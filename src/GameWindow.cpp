@@ -113,7 +113,7 @@ void GameWindow::loadTextures()
     txture = spriteBatch->loadTexture(getResourcePath("") + "sdlbros.png", &mainRenderer);
     mainContentManager->addTexture("sdlbroslogo", txture);
 
-    mainScreenManager = new ScreenManager(mainContentManager);
+    mainScreenManager = new ScreenManager();
 
     mainScreenManager->pushScreen(SPLASHSCREEN);
 }
@@ -136,7 +136,7 @@ void GameWindow::draw()
     {
         spriteBatch->sbSetRenderTarget(targetTexture);
         spriteBatch->sbSetMainGameCamera(mainGameCamera);
-        mainScreenManager->draw(spriteBatch);
+        mainScreenManager->draw(spriteBatch, mainContentManager);
         spriteBatch->sbSetRenderTarget(nullptr);
 
         spriteBatch->sbBegin();

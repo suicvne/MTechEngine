@@ -11,9 +11,9 @@
 class SplashScreen : public Screen
 {
     public:
-        SplashScreen(ContentManager *___cm);
+        SplashScreen();
         ~SplashScreen();
-        void draw(SpriteBatch *_sb);
+        void draw(SpriteBatch* _sb, ContentManager* cm);
         void update(InputHandler *_ih);
         void getCenter(int *_x, int *_y, SDL_Texture *textureToQuery);
         bool goNext()
@@ -22,7 +22,6 @@ class SplashScreen : public Screen
         };
     protected:
     private:
-        ContentManager *_cm;
         int localCounter = 0;
         bool next = false;
 };

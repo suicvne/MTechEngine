@@ -9,9 +9,9 @@ class Screen
 {
     public:
         Screen(){}
-        ~Screen(){}
-        virtual void draw(SpriteBatch *_sb) = 0;
-        virtual void update(InputHandler *_ih) = 0;
+        ~Screen(){};
+        virtual void draw(SpriteBatch* _sb, ContentManager* cm) = 0;
+        virtual void update(InputHandler* _ih) = 0;
     protected:
     private:
         //NOTE: use std::vector for controls when you start to implement them

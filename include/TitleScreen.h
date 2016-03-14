@@ -16,20 +16,19 @@ struct MessageBox;
 class TitleScreen : public Screen
 {
     public:
-        TitleScreen(ContentManager *___cm);
+        TitleScreen();
         ~TitleScreen();
-        void draw(SpriteBatch *_sb);
-        void update(InputHandler *_ih);
-        void processInput(InputHandler *_ih);
+        void draw(SpriteBatch* _sb, ContentManager* cm);
+        void update(InputHandler* _ih);
+        void processInput(InputHandler* _ih);
     protected:
     private:
-        void drawTitleCopyrightEtc(SpriteBatch *_sb);
-        void drawOptions(SpriteBatch *_sb);
-        ContentManager *_cm;
+        void drawTitleCopyrightEtc(SpriteBatch* _sb, ContentManager* cm);
+        void drawOptions(SpriteBatch* _sb, ContentManager* cm);
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
         bool upPressed, downPressed, showTestMessage;
-        MessageBox *testMessage;
+        MessageBox* testMessage;
 };
 
 #endif // TITLESCREEN_H

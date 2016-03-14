@@ -4,9 +4,9 @@
 #include "MessageBox.h"
 #include "ScreenManager.h"
 
-TitleScreen::TitleScreen(ContentManager *___cm)
+TitleScreen::TitleScreen()
 {
-    _cm = ___cm;
+//    _cm = ___cm;
     this->menuOptions.push_back(new Menu("load test world", 295, 310)); //350 is good for bottom option
     this->menuOptions.push_back(new Menu("exit", 295, 340));
 
@@ -22,7 +22,7 @@ TitleScreen::~TitleScreen()
     delete testMessage;
 }
 
-void TitleScreen::draw(SpriteBatch *_sb)
+void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
     srand(time(NULL));
 
@@ -30,7 +30,7 @@ void TitleScreen::draw(SpriteBatch *_sb)
 
     _sb->sbFillScreen(&randomColor);
 
-    SDL_Texture *bgTex = _cm->getTexture("bg_index");
+    SDL_Texture *bgTex = cm->getTexture("bg_index");
     SDL_Rect texArea {5, 18, 255, 223};
     _sb->sbDrawTextureAreaScaledConstant(bgTex, 0, 0, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, 255*2, 0, texArea, 2.0f);
@@ -55,14 +55,14 @@ void TitleScreen::draw(SpriteBatch *_sb)
 
     _sb->sbFillRect(&black, &boxArea);
 
-    drawOptions(_sb);
+    drawOptions(_sb, cm);
 
-    drawTitleCopyrightEtc(_sb);
+    drawTitleCopyrightEtc(_sb, cm);
 
     testMessage->draw(_sb);
 }
 
-void TitleScreen::drawOptions(SpriteBatch *_sb)
+void TitleScreen::drawOptions(SpriteBatch *_sb, ContentManager* cm)
 {
     SDL_Color white{255,255,255,255};
     for(int i = 0; i < menuOptions.size(); i++)
@@ -70,7 +70,7 @@ void TitleScreen::drawOptions(SpriteBatch *_sb)
         _sb->sbDrawFont(menuOptions[i]->getText(), menuOptions[i]->getX(), menuOptions[i]->getY(), white, 2.0f, false);
         if(i == currentSelection)
         {
-            _sb->sbDrawTextureScaledConstant(_cm->getTexture("selection"), menuOptions[i]->getX() - 28, menuOptions[i]->getY(), 2.0f);
+            _sb->sbDrawTextureScaledConstant(cm->getTexture("selection"), menuOptions[i]->getX() - 28, menuOptions[i]->getY(), 2.0f);
         }
     }
 }
@@ -134,13 +134,13 @@ void TitleScreen::update(InputHandler *_ih)
     }
 }
 
-void TitleScreen::drawTitleCopyrightEtc(SpriteBatch *_sb)
+void TitleScreen::drawTitleCopyrightEtc(SpriteBatch *_sb, ContentManager* cm)
 {
     SDL_Color white {255, 255, 255, 255};
     int wLogo, hLogo;
-    SDL_QueryTexture(_cm->getTexture("sdlbroslogo"), NULL, NULL, &wLogo, &hLogo);
+    SDL_QueryTexture(cm->getTexture("sdlbroslogo"), NULL, NULL, &wLogo, &hLogo);
 
-    _sb->sbDrawTextureScaledConstant(_cm->getTexture("sdlbroslogo"), ((__internal_width / 2) - ((wLogo*2) / 2)), 40, 2.0f);
+    _sb->sbDrawTextureScaledConstant(cm->getTexture("sdlbroslogo"), ((__internal_width / 2) - ((wLogo*2) / 2)), 40, 2.0f);
 
     //_sb->sbDrawFont("SDL Brothers X", ((__internal_width / 2) - (x / 2)), 40, white, 3.0f, true);
     _sb->sbDrawFont("Press O to test message boxes!", 2, __internal_height - 48, white, 2.0f, false);

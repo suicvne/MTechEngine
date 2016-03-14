@@ -12,53 +12,54 @@ class SuperSDLBrothersX : public MTechApplication
 public:
     SuperSDLBrothersX()
     {
+        std::ostringstream s;
+        s << SDL_GetBasePath() << "/res";
+        this->resourcePath = s.str();
     }
-    ~SuperSDLBrothersX()
-    {
-    }
+    virtual ~SuperSDLBrothersX()
+    {}
     virtual void LoadResources(ContentManager *cm, SpriteBatch *spriteBatch) override
     {
-        std::ostringstream s;
-        s << SDL_GetBasePath() << "/res/logo.png";
-        ///TODO: load resources through here instead of through GameWindow
-        SDL_Texture *text;
-        text = spriteBatch->loadTexture(s.str());
-        cm->addTexture("tttttest", text);
-        test = text;
-        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
-        cm->addTexture("sdlbros", text);
-        SDL_SetTextureColorMod(test, 100, 0, 0);
+        try
+        {
+            std::ostringstream s;
+            s << SDL_GetBasePath() << "/res/logo.png";
+            ///TODO: load resources through here instead of through GameWindow
+            SDL_Texture *text;
+            text = spriteBatch->loadTexture(s.str());
+            cm->addTexture("tttttest", text);
+            text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
+            cm->addTexture("sdlbros", text);
+            //SDL_SetTextureColorMod(test, 100, 0, 0);
+        }
+        catch(std::exception &e)
+        {
+            std::cerr << "Exception: " << e.what() << std::endl;
+        }
     }
-    virtual void draw(SpriteBatch *spriteBatch) override
+    virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) override
     {
         spriteBatch->sbBegin();
-        spriteBatch->sbDrawTextureScaledConstant(test, 0, 0, 100, 100);
+        spriteBatch->sbDrawTexture(cm->getTexture("sdlbros"), 20, 20);
         spriteBatch->sbEnd();
     }
     virtual void update(InputHandler *inputHandler) override
     {
-
+        inputHandler->getEvent(); //just to suppress the annoying warnings
     }
     std::string getConfigFilePath()
     {
-        std::ostringstream s;
-        s << SDL_GetBasePath() << "/res/game_config.cfg";
-        return s.str();
+        return resourcePath + "/game_config.cfg";
     }
-
 private:
-    SDL_Texture *test;
+    std::string resourcePath;
 };
 
-int writeTest();
-int readTest();
 int launchSDLBrosX();
 int newApplicationTypeTest();
 
 int main()
 {
-    //return writeTest();
-    //return readTest();
     //return launchSDLBrosX();
     return newApplicationTypeTest();
 }
@@ -83,7 +84,7 @@ int launchSDLBrosX()
 
     return 0;
 }
-
+/*
 #include "src/IO/serializationwriter.h"
 #include "src/IO/serializationreader.h"
 #include <iostream>
@@ -154,5 +155,4 @@ int readTest()
     }
 
     return 0;
-}
-
+}*/

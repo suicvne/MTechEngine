@@ -75,7 +75,8 @@ void MTechEngine::IO::SerializationWriter::WriteBytes(char dest[], int &pointer,
  */
 void MTechEngine::IO::SerializationWriter::WriteBytesToFile(char bytesToWrite[], int bufferSize, const char filename[])
 {
-    char buffer[bufferSize];
+    char buffer[bufferSize]; //only valid in gcc
+    ///TODO: fix this for other compilers
     memset(buffer, 0, bufferSize);
     memcpy(buffer, bytesToWrite, bufferSize);
 

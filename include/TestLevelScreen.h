@@ -13,7 +13,7 @@ class TestLevelScreen : public Screen
         TestLevelScreen();
         ~TestLevelScreen();
         void update(InputHandler *_ih);
-        void draw(SpriteBatch *_sb);
+        void draw(SpriteBatch *_sb, ContentManager* cm);
     protected:
     private:
         LevelObject *lvl_object;

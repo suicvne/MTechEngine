@@ -1,6 +1,10 @@
 
 # Created by https://www.gitignore.io/api/qt
 
+## Build directories
+[Dd]ebug
+[Rr]elease
+
 ### Qt ###
 # C++ objects and libs
 

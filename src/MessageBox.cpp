@@ -9,7 +9,7 @@ MessageBox::MessageBox(std::string msg)
     message = msg;
     soundPlayed = false;
     showMessage = false;
-    messageSplitToVector = vectorFromMessage(msg);
+    messageSplitToVector = vectorFromMessage();
 }
 
 MessageBox::~MessageBox()
@@ -31,7 +31,7 @@ void MessageBox::draw(SpriteBatch *_sb)
 {
     if(showMessage)
     {
-        frameCount += 7;
+        frameCount += 15;
         if(!soundPlayed)
         {
             mainSoundMixer->playSoundEffect(3);
@@ -71,7 +71,7 @@ void MessageBox::draw(SpriteBatch *_sb)
     }
 }
 
-std::vector<std::string> MessageBox::vectorFromMessage(std::string msg)
+std::vector<std::string> MessageBox::vectorFromMessage()
 {
     std::vector<std::string> messageVector;
     std::string tempMessage;
@@ -79,17 +79,31 @@ std::vector<std::string> MessageBox::vectorFromMessage(std::string msg)
 
     for(unsigned int i = 0; i < message.length(); i++)
     {
-        if(i == message.length() - 1)
+        if(i == message.length() - 1) //we're done
         {
             tempMessage += message[i];
             messageVector.push_back(tempMessage);
             internalCharCounter = 0;
             tempMessage = "";
         }
+
+        //we're not done
         internalCharCounter++;
         char toAppend = message[i];
         tempMessage += toAppend;
-        if(internalCharCounter > MAX_CHAR_PER_LINE)
+        if(toAppend == '\n') //new line
+        {
+            messageVector.push_back(tempMessage);
+            tempMessage = "";
+            internalCharCounter = 0;
+        }
+        if(internalCharCounter > MAX_CHAR_PER_LINE - 4 && toAppend == ' ')
+        {
+            messageVector.push_back(tempMessage);
+            tempMessage = "";
+            internalCharCounter = 0;
+        }
+        else if(internalCharCounter > MAX_CHAR_PER_LINE)
         {
             messageVector.push_back(tempMessage);
             tempMessage = "";

@@ -2,9 +2,8 @@
 #include "global_vars.h"
 #include "ScreenManager.h"
 
-SplashScreen::SplashScreen(ContentManager *___cm)
+SplashScreen::SplashScreen()
 {
-    _cm = ___cm;
 }
 
 SplashScreen::~SplashScreen()
@@ -12,10 +11,10 @@ SplashScreen::~SplashScreen()
     //dtor
 }
 
-void SplashScreen::draw(SpriteBatch *_sb)
+void SplashScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
     SDL_Color white {255, 255, 255, 255};
-    SDL_Texture *logo = _cm->getTexture("company_logo");
+    SDL_Texture *logo = cm->getTexture("company_logo");
     _sb->sbFillScreen(&white);
     int x, y;
     getCenter(&x, &y, logo);

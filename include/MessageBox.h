@@ -20,7 +20,7 @@ class MessageBox
         };
     protected:
     private:
-        std::vector<std::string> vectorFromMessage(std::string msg);
+        std::vector<std::string> vectorFromMessage();
         std::string message;
         std::vector<std::string> messageSplitToVector;
         bool soundPlayed, showMessage;

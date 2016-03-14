@@ -68,20 +68,20 @@ void LevelObject::draw(SpriteBatch *_sb)
         for(int y = 0; y < lvlsettings.height; ++y)
         {
             Tile *t = __tiles[x*lvlsettings.height+y]; //temp allocation to get standard template for block
-            int tx, ty, tw, th;
-            if(t->getWidth() == NULL)
+            int tx, ty;//, tw, th;
+            if(t->getWidth() <= 0)
             {
                 tx = x * 32;
                 ty = y * 32;
-                tw = 32;
-                th = 32;
+                //tw = 32;
+                //th = 32;
             }
             else
             {
                 tx = x * t->getWidth();
                 ty = y * t->getHeight();
-                tw = t->getWidth();
-                th = t->getHeight();
+                //tw = t->getWidth();
+                //th = t->getHeight();
             }
 
             t->setWorldPosition(tx, ty); //just in case i guess
@@ -92,6 +92,6 @@ void LevelObject::draw(SpriteBatch *_sb)
 
 void LevelObject::update(InputHandler *_ih)
 {
-
+    _ih->getEvent();
 }
 /**End protected*/

@@ -1,25 +1,28 @@
+///TODO: delet this
+/// up to u to make ur own. easy enough
+
 #include "ScreenManager.h"
 
-ScreenManager::ScreenManager(ContentManager *__cm)
+ScreenManager::ScreenManager()
 {
     //std::cout << "addr_of contentManager (screenManager init): " << &__cm << std::endl;
     //std::cout << "texture: " << __cm.getTexture("r") << std::endl << std::endl;
-    testScreen = new TestScreen(__cm);
-    splash = new SplashScreen(__cm);
-    title = new TitleScreen(__cm);
+    //testScreen = new TestScreen();
+    splash = new SplashScreen();
+    title = new TitleScreen();
     testLvlScreen = new TestLevelScreen();
 }
 
 ScreenManager::~ScreenManager()
 {
-    delete testScreen;
     delete testLvlScreen;
     delete title;
 }
 
 TestScreen *ScreenManager::getTestScreen()
 {
-    return testScreen;
+    return nullptr;
+    //return testScreen;
 }
 
 SplashScreen *ScreenManager::getSplashScreen()
@@ -32,7 +35,7 @@ void ScreenManager::update(InputHandler *_ih)
     switch(CurrentScreen)
     {
 case TESTSCREEN:
-    testScreen->update(_ih);
+    //testScreen->update(_ih);
     break;
 case SPLASHSCREEN:
     splash->update(_ih);
@@ -46,30 +49,30 @@ case TESTLEVEL:
     }
 }
 
-void ScreenManager::draw(SpriteBatch *_sb)
+void ScreenManager::draw(SpriteBatch *sb, ContentManager *cm)
 {
-    _sb->sbBegin();
+    sb->sbBegin();
     switch(CurrentScreen)
     {
     case TESTSCREEN:
-        testScreen->draw(_sb);
+        //testScreen->draw(sb, cm);
         break;
     case SPLASHSCREEN:
-        splash->draw(_sb);
+        splash->draw(sb, cm);
         break;
     case TITLESCREEN:
-        title->draw(_sb);
+        title->draw(sb, cm);
         break;
     case TESTLEVEL:
-        testLvlScreen->draw(_sb);
+        testLvlScreen->draw(sb, cm);
         break;
     }
-    _sb->sbEnd();
+    sb->sbEnd();
 }
 
 void ScreenManager::pushScreen(ScreensEnum scr)
 {
-    if(CurrentScreen == SPLASHSCREEN && scr == TESTSCREEN)
+    if(CurrentScreen == SPLASHSCREEN && scr != SPLASHSCREEN)
     {
         delete splash; //transitioning, why keep the splash in memory?
     }

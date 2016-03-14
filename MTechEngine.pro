@@ -1,5 +1,6 @@
 TEMPLATE = app
-CONFIG += c++11 shared
+CONFIG += c++11 static
+#shared
 CONFIG -= app_bundle
 CONFIG -= qt
 
@@ -108,7 +109,8 @@ HEADERS += \
     src/IO/serializationreader.h \
     src/IO/serializationconstants.h \
     mtechapplication.h \
-    baseengine.h
+    baseengine.h \
+    src/luaobjectbindingbase.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*

@@ -15,7 +15,7 @@
 
 BaseEngine::BaseEngine(MTechApplication *application)
 {
-    __application = application;
+    pApplication = application;
 }
 
 BaseEngine::~BaseEngine()
@@ -29,13 +29,22 @@ BaseEngine::~BaseEngine()
 
 int BaseEngine::runApplication()
 {
-    if(__application != nullptr)
+    if(pApplication != nullptr)
     {
-        ConfigFile mainConfig = ConfigFile(__application->getConfigFilePath().c_str());
-        mainConfig.readFile();
+        ConfigFile mainConfig = ConfigFile(pApplication->getConfigFilePath().c_str());
+        try
+        {
+            mainConfig.readFile();
+        }
+        catch(std::exception &e)
+        {
+            std::cerr << e.what() << std::endl;
+            return -4;
+        }
+
         if(InitializeSDL(mainConfig))
         {
-            __application->LoadResources(contentManager, spriteBatch);
+            pApplication->LoadResources(contentManager, spriteBatch);
 
             width = mainConfig.getWindowWidth();
             height = mainConfig.getWindowHeight();
@@ -59,14 +68,14 @@ int BaseEngine::gameLoop()
     while(____DO_QUIT == false)
     {
         importantUpdate();
-        __application->update(inputHandler);
+        pApplication->update(inputHandler);
         //important draw
         {
             if(____UPDATE)
             {
                 spriteBatch->sbSetRenderTarget(targetTexture);
                 spriteBatch->sbSetMainGameCamera(mainCamera);
-                __application->draw(spriteBatch);
+                pApplication->draw(spriteBatch, this->contentManager);
                 spriteBatch->sbSetRenderTarget(nullptr);
 
                 spriteBatch->sbBegin();

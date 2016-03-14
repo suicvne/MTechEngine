@@ -15,24 +15,24 @@ enum ScreensEnum
 class ScreenManager
 {
     public:
-        ScreenManager(ContentManager *__cm);
+        ScreenManager();
         virtual ~ScreenManager();
-        void update(InputHandler *_ih);
-        void draw(SpriteBatch *_sb);
+        void update(InputHandler* _ih);
+        void draw(SpriteBatch* sb, ContentManager* cm);
         void pushScreen(ScreensEnum scr);
-        TestScreen *getTestScreen();
-        SplashScreen *getSplashScreen();
-        TitleScreen *getTitleScreen();
+        TestScreen* getTestScreen();
+        SplashScreen* getSplashScreen();
+        TitleScreen* getTitleScreen();
         ScreensEnum getCurrentScreen()
         {
             return CurrentScreen;
         };
     protected:
     private:
-        TestScreen *testScreen;
-        SplashScreen *splash;
-        TitleScreen *title;
-        TestLevelScreen *testLvlScreen;
+        //TestScreen* testScreen; old lua test screen
+        SplashScreen* splash;
+        TitleScreen* title;
+        TestLevelScreen* testLvlScreen;
         ScreensEnum CurrentScreen = TESTSCREEN;
 };
 

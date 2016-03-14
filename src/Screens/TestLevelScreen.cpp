@@ -19,7 +19,7 @@ TestLevelScreen::~TestLevelScreen()
     delete lvl_object;
 }
 
-void TestLevelScreen::draw(SpriteBatch *_sb)
+void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
     lvl_object->draw(_sb);
 }
