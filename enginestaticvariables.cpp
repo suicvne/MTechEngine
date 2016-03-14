@@ -18,6 +18,8 @@ int EngineStaticVariables::TOTAL_BACKGROUND_COUNT = 1;
 int EngineStaticVariables::InternalWidth = 800;
 int EngineStaticVariables::InternalHeight = 600;
 
+Tile* EngineStaticVariables::airTile = nullptr;
+
 bool EngineStaticVariables::DoQuit = false;
 bool EngineStaticVariables::UpdateGame = true;
 
@@ -35,10 +37,13 @@ Tile* EngineStaticVariables::GetBlockByID(int id)
 {
     if(id < 0)
     {
-        Tile t = Tile();
-        t.setBlockName("Air");
-        t.setBlockSize(32, 32);
-        return &t;
+        if(EngineStaticVariables::airTile == nullptr)
+        {
+            airTile = new Tile();
+            airTile->setBlockName("Air");
+            airTile->setBlockSize(32, 32);
+        }
+        return airTile;
     }
     return Tilemap[id];
 }

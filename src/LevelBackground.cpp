@@ -25,8 +25,7 @@ void LevelBackground::draw(SpriteBatch* sb, ContentManager* cm)
     backgroundTileX(sb, cm);
 }
 
-/*
-void LevelBackground::backgroundTile(SpriteBatch *sb)
+void LevelBackground::backgroundTile(SpriteBatch* sb, ContentManager* cm)
 {
     SDL_Rect area;
     area.x = singleFrame->getX();
@@ -39,12 +38,12 @@ void LevelBackground::backgroundTile(SpriteBatch *sb)
         for(int y = 0; y < lheight / 2; y++)
         {
             SDL_Texture *t;
-            t = mainContentManager->getTexture(sheetname);
+            t = cm->getTexture(sheetname);
 
             sb->sbDrawTextureAreaScaled(t, x * width, y * width, area, 2.0f);
         }
     }
-}*/
+}
 
 void LevelBackground::backgroundTileX(SpriteBatch* sb, ContentManager* cm)
 {

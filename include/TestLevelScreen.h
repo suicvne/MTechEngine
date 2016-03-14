@@ -17,6 +17,7 @@ class TestLevelScreen : public Screen
     protected:
     private:
         LevelObject *lvl_object;
+        int CameraMod = 2; //rate at which the camera moves
 };
 
 #endif // TESTLEVELSCREEN_H

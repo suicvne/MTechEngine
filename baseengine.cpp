@@ -91,7 +91,7 @@ int BaseEngine::gameLoop()
             if(EngineStaticVariables::UpdateGame)
             {
                 spriteBatch->sbSetRenderTarget(targetTexture);
-                spriteBatch->sbSetMainGameCamera(mainCamera);
+                spriteBatch->sbSetMainGameCamera(EngineStaticVariables::MainGameCamera);
                 pApplication->draw(spriteBatch, this->contentManager);
                 spriteBatch->sbSetRenderTarget(nullptr);
 

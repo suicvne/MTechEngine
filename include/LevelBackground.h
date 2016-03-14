@@ -35,7 +35,7 @@ class LevelBackground
         _color *backgroundColor;
     protected:
     private:
-        //void backgroundTile(SpriteBatch *sb); This is used for tiling a square background for example
+        void backgroundTile(SpriteBatch* sb, ContentManager* cm); //This is used for tiling a square background for example
         void backgroundTileX(SpriteBatch* sb, ContentManager* cm);
 };
 

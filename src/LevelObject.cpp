@@ -94,7 +94,7 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
             }
 
             t->setWorldPosition(tx, ty); //just in case i guess
-            //t->draw(_sb, mainContentManager);
+            t->draw(_sb, cm);
         }
     }
 }

@@ -18,9 +18,9 @@ SDL_Texture* ContentManager::getTexture(std::string textureName)
     }
     else
     {
-        std::cout << "Couldn't find texture with key '" << textureName << "'!" << std::endl;
+        //std::cout << "Couldn't find texture with key '" << textureName << "'!" << std::endl;
     }
-    return 0;
+    return nullptr;
 }
 
 void ContentManager::addTexture(std::string textureName, SDL_Texture *texture)

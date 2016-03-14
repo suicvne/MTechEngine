@@ -39,6 +39,7 @@ public:
     static Tile* GetBlockByID(int id);
     static LevelBackground* GetBackgroundByID(int id);
     static std::string GetResourcesPath();
+    static Tile* airTile;
 };
 
 #endif // ENGINESTATICVARIABLES_H

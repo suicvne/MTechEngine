@@ -28,9 +28,31 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 
 void TestLevelScreen::update(InputHandler *_ih)
 {
-    if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+    if(_ih->getEvent()->key.keysym.sym == SDLK_LSHIFT)
+    {            this->CameraMod = 6;        }
+    if(_ih->getEvent()->type == SDL_KEYDOWN)
     {
-        EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
+
+
+        if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+        {
+            EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
+        }
+        if(_ih->getEvent()->key.keysym.sym == SDLK_LEFT)
+        {
+            EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
+        }
+        else if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
+        {
+            EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
+        }
+    }
+    if(_ih->getEvent()->type == SDL_KEYUP)
+    {
+        if(_ih->getEvent()->key.keysym.sym == SDLK_LSHIFT)
+        {
+            this->CameraMod = 2;
+        }
     }
     lvl_object->update(_ih);
 }

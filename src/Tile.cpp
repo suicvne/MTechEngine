@@ -27,11 +27,13 @@ void Tile::draw(SpriteBatch *spr, ContentManager *cm)
 {
     if(animated)
     {
-        spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, currentFrameAsRect(), 2);
+        if(cm->getTexture(sheetName) != nullptr)
+            spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, currentFrameAsRect(), 2);
     }
     else
     {
-        spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, areaAsRect(), 2);
+        if(cm->getTexture(sheetName) != nullptr)
+            spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, areaAsRect(), 2);
     }
 }
 
