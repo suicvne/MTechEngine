@@ -29,7 +29,16 @@ _color::~_color()
 
 SDL_Color _color::getAsSDLColor()
 {
+#if defined __llvm__
+    SDL_Color col;
+    col.r = _r;
+    col.g = _g;
+    col.b = _b;
+    col.a = _a;
+    return col;
+#else
     return SDL_Color{_r,_g,_b,_a};
+#endif
 }
 
 int _color::getR()

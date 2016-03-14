@@ -12,6 +12,9 @@ public:
     static SDL_Color strongRed;
     static SDL_Color strongGreen;
     static SDL_Color strongBlue;
+#ifdef __llvm__
+    static void populateColors();
+#endif
 };
 
 

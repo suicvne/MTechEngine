@@ -33,6 +33,15 @@ INCLUDEPATH += /usr/include/lua5.1/
 }
 macx: {
 #nothing for now
+LIBS += -L/usr/local/lib
+
+LIBS += -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua
+
+INCLUDEPATH += /usr/local/Cellar/sdl2/2.0.4/include/SDL2
+INCLUDEPATH += /usr/local/Cellar/sdl2_image/2.0.1/include/SDL2
+INCLUDEPATH += /usr/local/Cellar/sdl2_ttf/2.0.13/include/SDL2
+INCLUDEPATH += /usr/local/Cellar/sdl2_mixer/2.0.1/include/SDL2
+INCLUDEPATH += /usr/local/include
 }
 
 SOURCES += main.cpp \

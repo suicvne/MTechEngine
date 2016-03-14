@@ -6,6 +6,7 @@
 
 #include "baseengine.h"
 #include "enginestaticvariables.h"
+#include "StandardColors.h"
 #include <stdlib.h>
 
 
@@ -13,6 +14,7 @@
 BaseEngine::BaseEngine(MTechApplication *application)
 {
     pApplication = application;
+    StandardColors::populateColors();
 }
 
 BaseEngine::~BaseEngine()

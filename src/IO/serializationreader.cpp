@@ -82,7 +82,11 @@ int MTechEngine::IO::SerializationReader::ReadBytesFromFile(char *readInto, int 
         ifs.seekg(0, ifs.beg);
 
         //allocate a temporary buffer
+#if defined __llvm__
         char buffer[length];
+#else
+        char buffer* = new char[length];
+#endif
 
         ifs.read(buffer, length);
         if(ifs) //another sanity check
@@ -95,6 +99,10 @@ int MTechEngine::IO::SerializationReader::ReadBytesFromFile(char *readInto, int 
             ifs.close();
             return -1;
         }
+
+#ifndef defined __llvm__
+        free(buffer);
+#endif
     }
 
     return -1;
