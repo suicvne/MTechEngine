@@ -65,6 +65,11 @@ void SoundMixer::loadSound(std::string resPath)
     std::cout << "===END SOUND LOADING===" << std::endl;
 }
 
+void SoundMixer::playTestMusic(bool loop)
+{
+    Mix_PlayMusic(this->music, loop ? 1 : 0);
+}
+
 bool SoundMixer::loadTestFile(std::string resPath)
 {
     loadSound(resPath);

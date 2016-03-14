@@ -40,9 +40,6 @@ void MessageBox::draw(SpriteBatch *_sb)
             soundPlayed = true;
         }
 
-        SDL_Color white {255,255,255,255};
-        SDL_Color black {0,0,0,255};
-
         int __max_height = (messageSplitToVector.size() * 20) < MAX_HEIGHT ? (messageSplitToVector.size() * 20) + 16 : MAX_HEIGHT + 16;
         int true_x = (EngineStaticVariables::InternalWidth / 2) - ((MAX_WIDTH + 16) / 2);
 
@@ -58,15 +55,15 @@ void MessageBox::draw(SpriteBatch *_sb)
         outlineArea.x = msgBoxArea.x + 4;
         outlineArea.y = msgBoxArea.y + 4;
 
-        _sb->sbFillRect(&white,  &outlineArea);
-        _sb->sbFillRect(&black, &msgBoxArea);
+        _sb->sbFillRect(&StandardColors::white,  &outlineArea);
+        _sb->sbFillRect(&StandardColors::black, &msgBoxArea);
 
         if(frameCount > __max_height && frameCount+150 > MAX_WIDTH + 16)
         {
             int yMod = 10;
             for(std::string part : messageSplitToVector)
             {
-                _sb->sbDrawFont(part, msgBoxArea.x + 4, msgBoxArea.y + (1 * yMod), white, 2.0f, false);
+                _sb->sbDrawFont(part, msgBoxArea.x + 4, msgBoxArea.y + (1 * yMod), StandardColors::white, 2.0f, false);
                 yMod += 15;
             }
         }

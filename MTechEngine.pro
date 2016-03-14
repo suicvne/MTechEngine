@@ -68,7 +68,8 @@ SOURCES += main.cpp \
     src/IO/serializationreader.cpp \
     src/IO/serializationconstants.cpp \
     baseengine.cpp \
-    enginestaticvariables.cpp
+    enginestaticvariables.cpp \
+    include/standardcolors.cpp
 
 HEADERS += \
     include/_color.h \

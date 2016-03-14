@@ -13,6 +13,7 @@ class SoundMixer
         SoundMixer(std::string resPath);
         virtual ~SoundMixer();
         void playSong();
+        void playTestMusic(bool loop);
         void playSoundEffect(int index);
         void loadMusic();
         void loadSound(std::string resPath);

@@ -3,6 +3,7 @@
 #define MESSAGEBOX_H
 #include <string>
 #include <vector>
+#include "StandardColors.h"
 struct SpriteBatch;
 struct InputHandler;
 

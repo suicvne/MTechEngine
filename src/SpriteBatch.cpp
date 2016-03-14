@@ -74,7 +74,7 @@ void SpriteBatch::sbSetMainGameCamera(Camera2d *cam)
     mainGameCamera = cam;
 }
 
-void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, float scale, bool _upper)
+void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color& color, float scale, bool _upper)
 {
     std::transform(msg.begin(), msg.end(), msg.begin(), _upper == true ? ::toupper : ::tolower);
 
@@ -85,7 +85,7 @@ void SpriteBatch::sbDrawFont(std::string msg, int x, int y, SDL_Color color, flo
     SDL_DestroyTexture(textToRender);
 }
 
-void SpriteBatch::sbDrawFont(std::string *msg, int x, int y, SDL_Color color, float scale, bool _upper)
+void SpriteBatch::sbDrawFont(std::string *msg, int x, int y, SDL_Color& color, float scale, bool _upper)
 {
     std::transform(msg->begin(), msg->end(), msg->begin(), _upper == true ? ::toupper : ::tolower);
 
