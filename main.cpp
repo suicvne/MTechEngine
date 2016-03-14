@@ -44,9 +44,7 @@ public:
         spriteBatch->sbEnd();
     }
     virtual void update(InputHandler *inputHandler) override
-    {
-        inputHandler->getEvent(); //just to suppress the annoying warnings
-    }
+    {}
     std::string getConfigFilePath()
     {
         return resourcePath + "/game_config.cfg";
@@ -66,8 +64,11 @@ int main()
 
 int newApplicationTypeTest()
 {
+    //Our instance of MTechApplication
     SuperSDLBrothersX *sdlBros = new SuperSDLBrothersX();
+    //The base engine initiated with the application
     BaseEngine *e = new BaseEngine(sdlBros);
+    //We run the application
     e->runApplication();
 
     delete e;
