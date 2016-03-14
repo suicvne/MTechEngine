@@ -83,8 +83,30 @@ int BaseEngine::gameLoop()
 {
     while(EngineStaticVariables::DoQuit == false)
     {
+        const Uint32 startTime = SDL_GetTicks();
+
         importantUpdate();
         pApplication->update(inputHandler);
+
+        const Uint32 endTime = SDL_GetTicks();
+        const Uint32 elapsedTime = endTime - startTime;
+
+            //std::cout << "elapsed: " << elapsedTime << "ms" << std::endl;
+            const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
+            if(delayTime > 0)
+            {
+                //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
+                SDL_Delay(delayTime);
+                float FPS = 1.0f / (delayTime / 1000.0f);
+                SDL_SetWindowTitle(this->mainGameWindow,
+                                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
+            }
+            else
+            {
+                float FPS = 1.0f / (elapsedTime / 1000.0f);
+                SDL_SetWindowTitle(this->mainGameWindow,
+                                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
+            }
 
         //important draw
         {
@@ -127,7 +149,7 @@ void BaseEngine::importantEvents()
         if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
             toggleFullscreen();
     }
-    if(inputHandler->getEvent()->type == SDL_QUIT)
+    if(inputHandler->getEvent()->type == SDL_QUIT || inputHandler->getEvent()->type == SDL_APP_TERMINATING)
     {
         EngineStaticVariables::DoQuit = true;
     }

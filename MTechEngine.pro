@@ -4,7 +4,7 @@ CONFIG += c++11 static
 CONFIG -= app_bundle
 CONFIG -= qt
 
-QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
+QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr -Wno-mismatched-tags
 
 #
 QMAKE_TARGET_COMPANY = "Mike Santiago Ltd"

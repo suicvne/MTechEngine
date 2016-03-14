@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/qt
 
+## Mac Crap
+.DS_Store
+
 ## Build directories
 [Dd]ebug
 [Rr]elease

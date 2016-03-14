@@ -17,7 +17,7 @@ TitleScreen::TitleScreen()
     totalOptions = menuOptions.size();
     currentSelection = 0;
 
-    testMessage = new MessageBox("You failed to do something. You're in big trouble now mister. I hope you realize what you've done you motherfucker");
+    testMessage = new MessageBox("Hey look,\n\nMessage boxes work!");
     showTestMessage = false;
 }
 
@@ -109,6 +109,16 @@ void TitleScreen::update(InputHandler *_ih)
                     currentSelection = (menuOptions.size() - 1);
                 downPressed = true;
                 EngineStaticVariables::MainSoundMixer->playSoundEffect(1);
+            }
+            break;
+        case SDLK_m: //music test
+            if(EngineStaticVariables::MainSoundMixer->getCurrentPlaying() != false) //no song playing
+            {
+                EngineStaticVariables::MainSoundMixer->stopTestSong();
+            }
+            else
+            {
+                EngineStaticVariables::MainSoundMixer->playTestMusic(true);
             }
             break;
         case SDLK_RETURN:

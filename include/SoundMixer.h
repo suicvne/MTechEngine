@@ -14,6 +14,8 @@ class SoundMixer
         virtual ~SoundMixer();
         void playSong();
         void playTestMusic(bool loop);
+        void stopTestSong();
+        bool getCurrentPlaying() const;
         void playSoundEffect(int index);
         void loadMusic();
         void loadSound(std::string resPath);
@@ -24,6 +26,7 @@ class SoundMixer
         bool loadTestFile(std::string resPath);
         std::map<int, Mix_Music*> musicList;
         std::map<int, Mix_Chunk*> soundEffectsList;
+        bool playing = false;
         Mix_Music* music;
 };
 
