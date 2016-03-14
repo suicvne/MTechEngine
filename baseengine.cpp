@@ -246,7 +246,6 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
 
     spriteBatch = new SpriteBatch(sdlRenderer);
     inputHandler = new InputHandler();
-    mainSoundMixer = new SoundMixer(getResourcePath(""));
     mainCamera = new Camera2d(0, 0);
     contentManager = new ContentManager();
 

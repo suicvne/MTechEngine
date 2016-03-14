@@ -23,6 +23,7 @@ class SoundMixer
         bool loadTestFile(std::string resPath);
         std::map<int, Mix_Music*> musicList;
         std::map<int, Mix_Chunk*> soundEffectsList;
+        Mix_Music* music;
 };
 
 #endif // SOUNDMIXER_H

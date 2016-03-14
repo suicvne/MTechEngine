@@ -47,7 +47,6 @@ private:
     //MTechTypes
     SpriteBatch* spriteBatch;
     InputHandler* inputHandler;
-    SoundMixer* mainSoundMixer;
     Camera2d* mainCamera;
     ContentManager* contentManager;
     //
