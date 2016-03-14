@@ -6,7 +6,7 @@
 #include <iostream>
 #include <algorithm>
 
-struct Camera2d;
+class Camera2d;
 
 class SpriteBatch
 {

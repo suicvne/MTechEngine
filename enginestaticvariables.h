@@ -11,12 +11,12 @@
 #include <map>
 #include "Tile.h"
 
-struct SoundMixer;
-struct ScreenManager;
-struct Camera2d;
-struct ContentManager;
-struct LevelBackground;
-struct ConfigFile;
+class SoundMixer;
+class ScreenManager;
+class Camera2d;
+class ContentManager;
+class LevelBackground;
+class ConfigFile;
 
 class EngineStaticVariables
 {

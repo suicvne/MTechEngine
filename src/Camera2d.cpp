@@ -1,5 +1,6 @@
-#include "Camera2d.h"
 #include <SDL.h>
+#include "Camera2d.h"
+#include "enginestaticvariables.h"
 
 Camera2d::Camera2d()
 {
@@ -44,11 +45,12 @@ SDL_Rect Camera2d::RectangleFromCamera()
     SDL_Rect cam;
     cam.x = CamX;
     cam.y = CamY;
+    cam.w = EngineStaticVariables::InternalWidth;
+    cam.h = EngineStaticVariables::InternalHeight;
 
     return cam;
 }
 
 Camera2d::~Camera2d()
-{
-    //dtor
+{    //dtor
 }

@@ -32,13 +32,5 @@ void TestLevelScreen::update(InputHandler *_ih)
     {
         EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
     }
-    /*else if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
-    {
-        EngineStaticVariables::MainGameCamera->setCameraX(mainGameCamera->getCameraX() + -2);
-    }
-    else if(_ih->getEvent()->key.keysym.sym == SDLK_LEFT)
-    {
-        EngineStaticVariables::MainGameCamera->setCameraX(mainGameCamera->getCameraX() + 2);
-    }*/
     lvl_object->update(_ih);
 }

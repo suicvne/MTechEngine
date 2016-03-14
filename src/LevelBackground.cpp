@@ -1,6 +1,6 @@
 #include "LevelBackground.h"
-//#include "SpriteBatch.h"
-#include "global_vars.h"
+#include "SpriteBatch.h"
+#include "ContentManager.h"
 #include "_color.h"
 
 LevelBackground::LevelBackground()
