@@ -22,11 +22,11 @@ void Sprite::draw(SpriteBatch *_sb)
     _sb->sbDrawTexture(texture, x, y);
 }
 
-void Sprite::update(InputHandler *_ih)
+void Sprite::update(SDL_Event const &_ih)
 {
-    if(_ih->getEvent()->type == SDL_KEYDOWN)
+    if(_ih.type == SDL_KEYDOWN)
     {
-        switch(_ih->getEvent()->key.keysym.sym)
+        switch(_ih.key.keysym.sym)
         {
             case SDLK_UP:
                 y--;

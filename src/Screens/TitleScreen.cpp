@@ -28,6 +28,7 @@ TitleScreen::~TitleScreen()
 
 void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
+    _sb->sbBegin();
     srand(time(NULL));
 
     SDL_Color randomColor {192, 248, 248, 255};
@@ -64,6 +65,8 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
     drawTitleCopyrightEtc(_sb, cm);
 
     testMessage->draw(_sb);
+
+    _sb->sbEnd();
 }
 
 void TitleScreen::drawOptions(SpriteBatch *_sb, ContentManager* cm)
@@ -79,17 +82,17 @@ void TitleScreen::drawOptions(SpriteBatch *_sb, ContentManager* cm)
     }
 }
 
-void TitleScreen::processInput(InputHandler *_ih)
+void TitleScreen::processInput(SDL_Event const &_ih)
 {
 }
 
-void TitleScreen::update(InputHandler *_ih)
+void TitleScreen::update(SDL_Event const &_ih)
 {
     //THIS
     //THIS IS HOW YOU DO MENU INPUT
-    if(_ih->getEvent()->type == SDL_KEYDOWN)
+    if(_ih.type == SDL_KEYDOWN)
     {
-        switch(_ih->getEvent()->key.keysym.sym)
+        switch(_ih.key.keysym.sym)
         {
         case SDLK_UP:
             if(!upPressed)
@@ -134,9 +137,9 @@ void TitleScreen::update(InputHandler *_ih)
             break;
         }
     }
-    else if(_ih->getEvent()->type == SDL_KEYUP)
+    else if(_ih.type == SDL_KEYUP)
     {
-        switch(_ih->getEvent()->key.keysym.sym)
+        switch(_ih.key.keysym.sym)
         {
         case SDLK_UP:
             upPressed = false;

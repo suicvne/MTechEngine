@@ -218,15 +218,15 @@ void TestScreen::onLoadFunction()
     }
 }
 
-void TestScreen::update(InputHandler *_ih)
+void TestScreen::update(SDL_Event const &_ih)
 {
     onUpdateFunction();
-    if(_ih->getEvent()->type == SDL_KEYDOWN) //TODO: abstract to specific type of input (instead of raw keycode, jump button, etc.."
+    if(_ih.type == SDL_KEYDOWN) //TODO: abstract to specific type of input (instead of raw keycode, jump button, etc.."
     {
-        if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+        if(_ih.key.keysym.sym == SDLK_ESCAPE)
         {
             //mainScreenManager->pushScreen(TITLESCREEN);
         }
-        onInputFunction(_ih->getEvent()->key.keysym.sym);
+        onInputFunction(_ih.key.keysym.sym);
     }
 }

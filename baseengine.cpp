@@ -84,17 +84,43 @@ int BaseEngine::gameLoop()
     while(EngineStaticVariables::DoQuit == false)
     {
         const Uint32 startTime = SDL_GetTicks();
+        while(SDL_PollEvent(&mainEventLoop)) //updates
+        {
+            importantUpdate(); //handle important updates first
+            pApplication->update(mainEventLoop);
+        }
 
-        importantUpdate();
-        pApplication->update(inputHandler);
+        //important draw
+        {
+            if(EngineStaticVariables::UpdateGame)
+            {
+                spriteBatch->sbSetRenderTarget(targetTexture);
+                spriteBatch->sbSetMainGameCamera(EngineStaticVariables::MainGameCamera);
+                try
+                {
+                    pApplication->draw(spriteBatch, this->contentManager);
+                }
+                catch(const std::exception &e)
+                {
+                    std::cerr << "Error while drawing in application" << std::endl;
+                    std::cerr << "\t" << e.what() << std::endl;
+                }
+
+                spriteBatch->sbSetRenderTarget(nullptr);
+
+                spriteBatch->sbBegin();
+                spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, width, height);
+                spriteBatch->sbEnd();
+            }
+        }
 
         const Uint32 endTime = SDL_GetTicks();
         const Uint32 elapsedTime = endTime - startTime;
 
             //std::cout << "elapsed: " << elapsedTime << "ms" << std::endl;
-            const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
-            if(delayTime > 0)
-            {
+        const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
+        if(delayTime > 0)
+        {
                 //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
                 SDL_Delay(delayTime);
                 float FPS = 1.0f / (delayTime / 1000.0f);
@@ -108,20 +134,7 @@ int BaseEngine::gameLoop()
                                    std::string("FPS: " + std::to_string((int)FPS)).c_str());
             }
 
-        //important draw
-        {
-            if(EngineStaticVariables::UpdateGame)
-            {
-                spriteBatch->sbSetRenderTarget(targetTexture);
-                spriteBatch->sbSetMainGameCamera(EngineStaticVariables::MainGameCamera);
-                pApplication->draw(spriteBatch, this->contentManager);
-                spriteBatch->sbSetRenderTarget(nullptr);
 
-                spriteBatch->sbBegin();
-                spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, width, height);
-                spriteBatch->sbEnd();
-            }
-        }
     }
     return 0;
 }
@@ -131,9 +144,9 @@ int BaseEngine::gameLoop()
  */
 void BaseEngine::importantEvents()
 {
-    if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+    if(mainEventLoop.type == SDL_WINDOWEVENT)
     {
-        switch(inputHandler->getEvent()->window.event)
+        switch(mainEventLoop.window.event)
         {
         case SDL_WINDOWEVENT_RESIZED:
             windowResize();
@@ -144,12 +157,12 @@ void BaseEngine::importantEvents()
             break;
         }
     }
-    if(inputHandler->getEvent()->type == SDL_KEYDOWN)
+    if(mainEventLoop.type == SDL_KEYDOWN)
     {
-        if(inputHandler->getEvent()->key.keysym.sym == SDLK_F11)
+        if(mainEventLoop.key.keysym.sym == SDLK_F11)
             toggleFullscreen();
     }
-    if(inputHandler->getEvent()->type == SDL_QUIT || inputHandler->getEvent()->type == SDL_APP_TERMINATING)
+    if(mainEventLoop.type == SDL_QUIT || mainEventLoop.type == SDL_APP_TERMINATING)
     {
         EngineStaticVariables::DoQuit = true;
     }
@@ -208,15 +221,13 @@ void BaseEngine::importantUpdate()
 {
     if(EngineStaticVariables::UpdateGame)
     {
-        inputHandler->update();
         importantEvents();
     }
     else
     {
-        inputHandler->update();
-        if(inputHandler->getEvent()->type == SDL_WINDOWEVENT)
+        if(mainEventLoop.type == SDL_WINDOWEVENT)
         {
-            if(inputHandler->getEvent()->window.event == SDL_WINDOWEVENT_RESTORED)
+            if(mainEventLoop.window.event == SDL_WINDOWEVENT_RESTORED)
             {
                 EngineStaticVariables::UpdateGame = true;
                 std::cout << "Update began" << std::endl;
@@ -270,11 +281,9 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
         return false;
     }
 
-    mainEventLoop = new SDL_Event();
     EngineStaticVariables::DoQuit = false;
 
     spriteBatch = new SpriteBatch(sdlRenderer);
-    inputHandler = new InputHandler();
     mainCamera = new Camera2d(0, 0);
     contentManager = new ContentManager();
 

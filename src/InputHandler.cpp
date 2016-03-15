@@ -1,4 +1,4 @@
-#include "InputHandler.h"
+/*#include "InputHandler.h"
 
 InputHandler::InputHandler()
 {
@@ -16,3 +16,4 @@ void InputHandler::update()
 {
     SDL_PollEvent(&event);
 }
+*/

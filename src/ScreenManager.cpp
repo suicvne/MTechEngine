@@ -38,7 +38,7 @@ SplashScreen *ScreenManager::getSplashScreen()
     return splash;
 }
 
-void ScreenManager::update(InputHandler *_ih)
+void ScreenManager::update(SDL_Event const &_ih)
 {
     switch(CurrentScreen)
     {
@@ -59,7 +59,6 @@ case TESTLEVEL:
 
 void ScreenManager::draw(SpriteBatch *sb, ContentManager *cm)
 {
-    sb->sbBegin();
     switch(CurrentScreen)
     {
     case TESTSCREEN:
@@ -75,7 +74,6 @@ void ScreenManager::draw(SpriteBatch *sb, ContentManager *cm)
         testLvlScreen->draw(sb, cm);
         break;
     }
-    sb->sbEnd();
 }
 
 void ScreenManager::pushScreen(ScreensEnum scr)

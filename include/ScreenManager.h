@@ -17,7 +17,7 @@ class ScreenManager
         ScreenManager();
         virtual ~ScreenManager();
         void initTestLevelScreen();
-        void update(InputHandler* _ih);
+        void update(SDL_Event const &_ih);
         void draw(SpriteBatch* sb, ContentManager* cm);
         void pushScreen(ScreensEnum scr);
         TestScreen* getTestScreen();

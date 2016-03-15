@@ -12,7 +12,7 @@ extern "C"
 #include "Tile.h"
 #include "SpriteBatch.h"
 #include "ContentManager.h"
-#include "InputHandler.h"
+#include <SDL.h>
 
 #define lua_open() luaL_newstate()
 
@@ -28,7 +28,8 @@ class LuaEventHandlerWrapper
         //boring
     protected:
     private:
-        InputHandler *actualInputHandler;
+        SDL_Event *actualInputHandler; //:)
+        //InputHandler *actualInputHandler;
 };
 
 #endif // LUAEVENTHANDLERWRAPPER_H

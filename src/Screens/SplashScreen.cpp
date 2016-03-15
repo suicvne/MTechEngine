@@ -14,12 +14,14 @@ SplashScreen::~SplashScreen()
 
 void SplashScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
+    _sb->sbBegin();
     SDL_Color white {255, 255, 255, 255};
     SDL_Texture *logo = cm->getTexture("company_logo");
     _sb->sbFillScreen(&white);
     int x, y;
     getCenter(&x, &y, logo);
     _sb->sbDrawTextureConstant(logo, x, y);
+    _sb->sbEnd();
 }
 
 void SplashScreen::getCenter(int *_x, int *_y, SDL_Texture *textureToQuery)
@@ -31,7 +33,7 @@ void SplashScreen::getCenter(int *_x, int *_y, SDL_Texture *textureToQuery)
     *_y = (600 / 2) - (textureArea.h / 2);
 }
 
-void SplashScreen::update(InputHandler *_ih)
+void SplashScreen::update(SDL_Event const &_ih)
 {
     localCounter++;
     if(localCounter >= 60)

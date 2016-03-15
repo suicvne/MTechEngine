@@ -41,12 +41,13 @@ private:
     //important
     SDL_Window* mainGameWindow;
     SDL_Renderer* sdlRenderer;
-    SDL_Event* mainEventLoop;
+    SDL_Event mainEventLoop;
     SDL_Texture* targetTexture;
     //
     //MTechTypes
     SpriteBatch* spriteBatch;
-    InputHandler* inputHandler;
+    //InputHandler* inputHandler;
+    //SDL_Event *mainEvent;
     Camera2d* mainCamera;
     ContentManager* contentManager;
     //

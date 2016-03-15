@@ -12,6 +12,8 @@
 #include "enginestaticvariables.h"
 
 #include "MathsStuff.h"
+#include "StandardColors.h"
+#include "Camera2d.h"
 /**
 ---TODO---
 1. Lua hookins
@@ -61,7 +63,7 @@ int LevelObject::initLevel()
     {
         for(int y = 0; y < lvlsettings.height; ++y)
         {
-            __tiles.insert(__tiles.end(), EngineStaticVariables::GetBlockByID(1));
+            __tiles.insert(__tiles.end(), EngineStaticVariables::GetBlockByID(2));
         }
     }
 
@@ -76,6 +78,8 @@ int LevelObject::initLevel()
 /**Public*/
 void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
 {
+    _sb->sbBegin();
+
     if(background != nullptr)
         background->draw(_sb, cm);
     else
@@ -113,6 +117,22 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
             }
         }
     }
+    if(showLevelAreaDebug)
+    {
+        SDL_Rect levelAreaRect;
+        levelAreaRect.x = 0 + EngineStaticVariables::MainGameCamera->getCameraX();
+        levelAreaRect.y = 0 + EngineStaticVariables::MainGameCamera->getCameraY();
+        levelAreaRect.w = (lvlsettings.width * 32);
+        levelAreaRect.h = (lvlsettings.height * 32);
+        _sb->sbFillRect(&StandardColors::strongRed, &levelAreaRect);
+    }
+
+    _sb->sbEnd();
+}
+
+void LevelObject::toggleLevelAreaDebug()
+{
+    this->showLevelAreaDebug = !showLevelAreaDebug;
 }
 
 void LevelObject::loadLevelFile(std::string levelFile)
@@ -216,7 +236,7 @@ void LevelObject::saveLevelFile(std::string levelFile)
     std::cout << "Hopefully saved!!" << std::endl;
 }
 
-void LevelObject::update(InputHandler *_ih)
+void LevelObject::update(SDL_Event const &_ih)
 {
     for(int x = 0; x < lvlsettings.width; x++)
     {
@@ -227,6 +247,5 @@ void LevelObject::update(InputHandler *_ih)
                 tile->update();
         }
     }
-    _ih->getEvent();
 }
 /**End protected*/

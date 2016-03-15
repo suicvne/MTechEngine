@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <SDL.h>
 
 //Will contain more in the future.
 //The width and height are in blocks not pixels.
@@ -27,9 +28,10 @@ class LevelObject
         LevelObject(LevelSettings __settings);
         ~LevelObject();
         void draw(SpriteBatch* _sb, ContentManager* cm);
-        void update(InputHandler* _ih);
+        void update(SDL_Event const &_ih);
         void loadLevelFile(std::string levelFile);
         void saveLevelFile(std::string levelFile);
+        void toggleLevelAreaDebug();
     protected:
         int initLevel();
     private:
@@ -38,6 +40,7 @@ class LevelObject
         LevelSettings lvlsettings;
         LevelBackground* background;
         bool reading = false;
+        bool showLevelAreaDebug = false;
 };
 
 #endif // LEVELOBJECT_H

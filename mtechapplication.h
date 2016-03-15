@@ -10,6 +10,7 @@
 #define MTECHAPPLICATION_H
 
 #include <iostream>
+#include <SDL.h>
 
 //forward declaration
 struct SpriteBatch;
@@ -21,7 +22,7 @@ class MTechApplication
 public:
     virtual void LoadResources(ContentManager *cm, SpriteBatch *spriteBatch) = 0;
     virtual std::string getConfigFilePath() = 0;
-    virtual void update(InputHandler *inputHandler) = 0;
+    virtual void update(SDL_Event const &_ih) = 0;
     virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) = 0;
 };
 

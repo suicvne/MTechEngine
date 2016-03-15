@@ -40,6 +40,8 @@ void Tile::draw(SpriteBatch *spr, ContentManager *cm)
     {
         if(cm->getTexture(sheetName) != nullptr)
             spr->sbDrawTextureAreaScaled(cm->getTexture(sheetName), worldX, worldY, currentFrameAsRect(), 2);
+        else
+            spr->sbDrawBlankTexture(worldX, worldY);
     }
     else
     {

@@ -10,7 +10,7 @@
 #include <time.h>
 #include <vector>
 #include "Menu.h"
-
+#include <SDL.h>
 struct MessageBox;
 
 class TitleScreen : public Screen
@@ -19,8 +19,8 @@ class TitleScreen : public Screen
         TitleScreen();
         ~TitleScreen();
         void draw(SpriteBatch* _sb, ContentManager* cm);
-        void update(InputHandler* _ih);
-        void processInput(InputHandler* _ih);
+        void update(SDL_Event const &_ih);
+        void processInput(SDL_Event const &_ih);
     protected:
     private:
         void drawTitleCopyrightEtc(SpriteBatch* _sb, ContentManager* cm);

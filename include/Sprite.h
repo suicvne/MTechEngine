@@ -14,7 +14,7 @@ class Sprite
         Sprite(SDL_Texture &tex);
         virtual ~Sprite();
         void draw(SpriteBatch *_sb);
-        void update(InputHandler *_ih);
+        void update(SDL_Event const &_ih);
     protected:
     private:
         float x, y;

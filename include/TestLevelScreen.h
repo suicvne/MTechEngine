@@ -12,7 +12,7 @@ class TestLevelScreen : public Screen
     public:
         TestLevelScreen();
         ~TestLevelScreen();
-        void update(InputHandler *_ih);
+        void update(SDL_Event const &_ih);
         void draw(SpriteBatch *_sb, ContentManager* cm);
     protected:
     private:

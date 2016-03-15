@@ -2,7 +2,7 @@
 
 LuaEventHandlerWrapper::LuaEventHandlerWrapper(lua_State *L)
 {
-    actualInputHandler = (InputHandler*)lua_touserdata(L, 1);
+    actualInputHandler = (SDL_Event*)lua_touserdata(L, 1);
 }
 
 LuaEventHandlerWrapper::~LuaEventHandlerWrapper()
@@ -12,5 +12,5 @@ LuaEventHandlerWrapper::~LuaEventHandlerWrapper()
 
 void LuaEventHandlerWrapper::setObject(lua_State *L)
 {
-    actualInputHandler = (InputHandler*)lua_touserdata(L, 1);
+    actualInputHandler = (SDL_Event*)lua_touserdata(L, 1);
 }

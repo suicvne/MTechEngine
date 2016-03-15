@@ -56,7 +56,7 @@ SDL_Texture* SpriteBatch::loadTexture(const std::string &file)
 void SpriteBatch::sbBegin()
 {
     if(drawingInProgress)
-        throw "sbBegin already called!";
+        throw std::runtime_error("sbBegin already called!");
     SDL_RenderClear(__renderer);
     drawingInProgress = true;
 }
@@ -146,10 +146,20 @@ SDL_Texture *SpriteBatch::drawFontToTexture(std::string *msg, SDL_Color color)
     return txt;
 }
 
+void SpriteBatch::sbDrawBlankTexture(int x, int y)
+{
+    sbDrawTexture(this->blankTexture, x, y);
+}
+
+void SpriteBatch::sbDrawBlankTextureConstant(int x, int y)
+{
+    sbDrawTextureConstant(this->blankTexture, x, y);
+}
+
 void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called first!");
 
     SDL_Rect dst;
     if(mainGameCamera == nullptr)
@@ -170,7 +180,7 @@ void SpriteBatch::sbDrawTexture(SDL_Texture *tex, int x, int y)
 void SpriteBatch::sbDrawTextureConstant(SDL_Texture *tex, int x, int y)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Rect dst;
     dst.x = x;
@@ -196,7 +206,7 @@ void SpriteBatch::sbMeasureString(int *w, int *h, std::string msg, float scale, 
 void SpriteBatch::sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
     SDL_Rect dst;
     dst.x = x;
     dst.y = y;
@@ -212,7 +222,7 @@ These draw relative to the camera
 void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int h)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Rect dst;
     if(mainGameCamera == NULL)
@@ -237,7 +247,7 @@ void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, int w, int
 void SpriteBatch::sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
     SDL_Rect dst;
     if(mainGameCamera == NULL)
     {
@@ -259,7 +269,7 @@ void SpriteBatch::sbDrawTextureAreaScaled(SDL_Texture *tex, int x, int y, SDL_Re
 void SpriteBatch::sbDrawTextureAreaScaledConstant(SDL_Texture *tex, int x, int y, SDL_Rect area, float scale)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
     SDL_Rect dst;
     dst.x = x;
     dst.y = y;
@@ -272,7 +282,7 @@ void SpriteBatch::sbDrawTextureAreaScaledConstant(SDL_Texture *tex, int x, int y
 void SpriteBatch::sbDrawTextureScaled(SDL_Texture *tex, int x, int y, float scale)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Rect dst;
     if(mainGameCamera == NULL)
@@ -303,7 +313,7 @@ These functions basically don't give a crap where the camera is and will draw ba
 void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, float scale)
 {
      if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Rect dst;
     dst.x = x;
@@ -320,7 +330,7 @@ void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, fl
 void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, int w, int h)
 {
     if(!drawingInProgress)
-        throw "sbBegin must be called.";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Rect dst;
     dst.x = x;
@@ -340,7 +350,7 @@ End Constant Function
 void SpriteBatch::sbFillScreen(SDL_Color *color)
 {
     if(!drawingInProgress)
-        throw "sbBegin never called!";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Color oldColor;
 
@@ -360,7 +370,7 @@ void SpriteBatch::sbFillScreen(SDL_Color *color)
 void SpriteBatch::sbFillRect(SDL_Color *color, SDL_Rect *rect)
 {
     if(!drawingInProgress)
-        throw "sbBegin never called!";
+        throw std::runtime_error("sbBegin must be called.");
 
     SDL_Color oldColor;
     SDL_GetRenderDrawColor(__renderer, &oldColor.r, &oldColor.g, &oldColor.b, &oldColor.a);
@@ -373,7 +383,7 @@ void SpriteBatch::sbFillRect(SDL_Color *color, SDL_Rect *rect)
 void SpriteBatch::sbEnd()
 {
     if(!drawingInProgress)
-        throw "sbBegin never called!";
+        throw std::runtime_error("sbBegin must be called.");
     SDL_RenderPresent(__renderer);
     drawingInProgress = false;
 }

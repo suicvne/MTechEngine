@@ -14,6 +14,7 @@ SDL_Color StandardColors::strongBlue = SDL_Color{0, 0, 255, 255};
 #else
 SDL_Color StandardColors::white;
 SDL_Color StandardColors::black;
+SDL_Color StandardColors::strongRed;
 #endif
 
 #ifdef __llvm__
@@ -26,6 +27,11 @@ void StandardColors::populateColors()
     StandardColors::black = SDL_Color();
     StandardColors::black.r = StandardColors::black.g = StandardColors::black.b = 0;
     StandardColors::black.a = 255;
+
+    StandardColors::strongRed = SDL_Color();
+    StandardColors::strongRed.r = 255;
+    StandardColors::strongRed.a = StandardColors::strongRed.r;
+    StandardColors::strongRed.g = StandardColors::strongRed.b = 0;
 }
 
 #endif

@@ -17,6 +17,8 @@ class SpriteBatch
         void sbEnd();
         void sbSetRenderTarget(SDL_Texture *target);
         void sbSetMainGameCamera(Camera2d *cam);
+        void sbDrawBlankTexture(int x, int y);
+        void sbDrawBlankTextureConstant(int x, int y);
         void sbDrawTexture(SDL_Texture *tex, int x, int y);
         void sbDrawTextureConstant(SDL_Texture *tex, int x, int y);
         void sbDrawTextureArea(SDL_Texture *tex, int x, int y, SDL_Rect area);
@@ -40,6 +42,7 @@ class SpriteBatch
     protected:
     private:
         SDL_Texture *__target;
+        SDL_Texture* blankTexture; //used for things u know
         SDL_Texture *drawFontToTexture(std::string msg, SDL_Color color);
         SDL_Texture *drawFontToTexture(std::string *msg, SDL_Color color);
         bool drawingInProgress = false;

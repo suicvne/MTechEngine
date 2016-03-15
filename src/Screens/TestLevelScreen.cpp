@@ -7,12 +7,13 @@
 #include "Camera2d.h"
 
 #include "enginestaticvariables.h"
+#include "MathsStuff.h"
 
 TestLevelScreen::TestLevelScreen()
 {
     LevelSettings s;
-    s.width = 20;
-    s.height = 19;
+    s.width = MathsStuff::ceiling(800 / 32);
+    s.height = MathsStuff::ceiling(600 / 32) + 1;
     lvl_object = new LevelObject(s);
 }
 
@@ -26,44 +27,44 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
     lvl_object->draw(_sb, cm);
 }
 
-void TestLevelScreen::update(InputHandler *_ih)
+void TestLevelScreen::update(SDL_Event const &_ih)
 {
-    if(_ih->getEvent()->key.keysym.sym == SDLK_LSHIFT)
+    if(_ih.key.keysym.sym == SDLK_LSHIFT)
     {            this->CameraMod = 6;        }
-    if(_ih->getEvent()->type == SDL_KEYDOWN)
+    if(_ih.type == SDL_KEYDOWN)
     {
-        if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
+        if(_ih.key.keysym.sym == SDLK_ESCAPE)
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_l)
+        if(_ih.key.keysym.sym == SDLK_l)
         {
             this->lvl_object->loadLevelFile("testlevel.bin");
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_s)
+        if(_ih.key.keysym.sym == SDLK_s)
         {
             this->lvl_object->saveLevelFile("testlevel.bin");
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_LEFT)
+        if(_ih.key.keysym.sym == SDLK_LEFT)
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
+        if(_ih.key.keysym.sym == SDLK_RIGHT)
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_UP)
+        if(_ih.key.keysym.sym == SDLK_UP)
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() + CameraMod);
         }
-        if(_ih->getEvent()->key.keysym.sym == SDLK_DOWN)
+        if(_ih.key.keysym.sym == SDLK_DOWN)
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
         }
     }
-    if(_ih->getEvent()->type == SDL_KEYUP)
+    if(_ih.type == SDL_KEYUP)
     {
-        if(_ih->getEvent()->key.keysym.sym == SDLK_LSHIFT)
+        if(_ih.key.keysym.sym == SDLK_LSHIFT)
         {
             this->CameraMod = 2;
         }

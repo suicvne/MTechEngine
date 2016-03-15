@@ -34,9 +34,9 @@ public:
     {
         EngineStaticVariables::MainScreenManager->draw(spriteBatch, cm);
     }
-    virtual void update(InputHandler *inputHandler) override
+    virtual void update(SDL_Event const &_ih) override
     {
-        EngineStaticVariables::MainScreenManager->update(inputHandler);
+        EngineStaticVariables::MainScreenManager->update(_ih);
     }
     std::string getConfigFilePath()
     {

@@ -7,6 +7,7 @@
 #include "SpriteBatch.h"
 #include "InputHandler.h"
 #include "global_vars.h"
+#include <SDL.h>
 
 class SplashScreen : public Screen
 {
@@ -14,7 +15,7 @@ class SplashScreen : public Screen
         SplashScreen();
         ~SplashScreen();
         void draw(SpriteBatch* _sb, ContentManager* cm);
-        void update(InputHandler *_ih);
+        void update(SDL_Event const &_ih);
         void getCenter(int *_x, int *_y, SDL_Texture *textureToQuery);
         bool goNext()
         {
