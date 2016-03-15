@@ -39,11 +39,6 @@ int BaseEngine::runApplication()
         {
             mainConfig.readFile();
 
-            std::cout << "Old w: " << EngineStaticVariables::InternalWidth << std::endl;
-            std::cout << "Old h: " << EngineStaticVariables::InternalHeight << std::endl;
-            std::cout << "New w: " << mainConfig.getWindowWidth() << std::endl;
-            std::cout << "New h: " << mainConfig.getWindowHeight() << std::endl;
-
             EngineStaticVariables::InternalWidth = mainConfig.getWindowWidth();
             EngineStaticVariables::InternalHeight = mainConfig.getWindowHeight();
             EngineStaticVariables::TOTAL_TILE_COUNT = mainConfig.GetMaxBlocks();
@@ -117,24 +112,22 @@ int BaseEngine::gameLoop()
         const Uint32 endTime = SDL_GetTicks();
         const Uint32 elapsedTime = endTime - startTime;
 
-            //std::cout << "elapsed: " << elapsedTime << "ms" << std::endl;
         const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
         if(delayTime > 0)
         {
                 //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
-                SDL_Delay(delayTime);
-                float FPS = 1.0f / (delayTime / 1000.0f);
-                SDL_SetWindowTitle(this->mainGameWindow,
-                                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
-            }
-            else
-            {
-                float FPS = 1.0f / (elapsedTime / 1000.0f);
-                SDL_SetWindowTitle(this->mainGameWindow,
-                                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
-            }
-
-
+            if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
+                SDL_Delay(delayTime); //ofc, if it is then we'll be delaying
+            float FPS = 1.0f / (delayTime / 1000.0f);
+            SDL_SetWindowTitle(this->mainGameWindow,
+                               std::string("FPS: " + std::to_string((int)FPS)).c_str());
+        }
+        else
+        {
+            float FPS = 1.0f / (elapsedTime / 1000.0f);
+            SDL_SetWindowTitle(this->mainGameWindow,
+                               std::string("Low FPS: " + std::to_string((int)FPS)).c_str());
+        }
     }
     return 0;
 }
@@ -272,6 +265,8 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
         std::cout << "Launching the game with vsync" << std::endl;
         __vsyncEnabled = true;
     }
+    else
+        std::cout << "No vsync." << std::endl;
 
     if(sdlRenderer == nullptr)
     {

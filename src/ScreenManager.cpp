@@ -42,16 +42,16 @@ void ScreenManager::update(SDL_Event const &_ih)
 {
     switch(CurrentScreen)
     {
-case TESTSCREEN:
+case ScreenManager::TESTSCREEN:
     //testScreen->update(_ih);
     break;
-case SPLASHSCREEN:
+case ScreenManager::SPLASHSCREEN:
     splash->update(_ih);
     break;
-case TITLESCREEN:
+case ScreenManager::TITLESCREEN:
     title->update(_ih);
     break;
-case TESTLEVEL:
+case ScreenManager::TESTLEVEL:
     testLvlScreen->update(_ih);
     break;
     }
@@ -61,16 +61,16 @@ void ScreenManager::draw(SpriteBatch *sb, ContentManager *cm)
 {
     switch(CurrentScreen)
     {
-    case TESTSCREEN:
+    case ScreenManager::TESTSCREEN:
         //testScreen->draw(sb, cm);
         break;
-    case SPLASHSCREEN:
+    case ScreenManager::SPLASHSCREEN:
         splash->draw(sb, cm);
         break;
-    case TITLESCREEN:
+    case ScreenManager::TITLESCREEN:
         title->draw(sb, cm);
         break;
-    case TESTLEVEL:
+    case ScreenManager::TESTLEVEL:
         testLvlScreen->draw(sb, cm);
         break;
     }
