@@ -117,13 +117,16 @@ void LevelObject::loadLevelFile(std::string levelFile)
     short backgroundId;
     int pointer = 0;
 
+    std::cout << "w " << reader.ReadInt(buffer, pointer) << std::endl;
+
+    /*
     levelWidth = reader.ReadInt(buffer, pointer); //width
     levelHeight = reader.ReadInt(buffer, pointer); //height
     backgroundId = reader.ReadShort(buffer, pointer); //background id
     //we should now be at index 10
 
     std::cout << "\tSize of level is " << levelWidth << " x " << levelHeight << " blocks." << std::endl;
-    std::cout << "\tBackground ID is " << backgroundId << std::endl;
+    std::cout << "\tBackground ID is " << backgroundId << std::endl;*/
 }
 
 void LevelObject::saveLevelFile(std::string levelFile)
