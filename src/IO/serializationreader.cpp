@@ -20,18 +20,19 @@ int MTechEngine::IO::SerializationReader::GetSizeOfFile(const char filename[])
 short MTechEngine::IO::SerializationReader::ReadShort(char src[], int &pointer)
 {
     short temp;
-    temp = short(((src[pointer++] >> 8) & 0xff) | ((src[pointer++] >> 0) & 0xff));
+    temp = short(((src[pointer++] << 8) & 0xff) | ((src[pointer++] << 0) & 0xff));
     return temp;
 }
 
 //sizeof(int) is 4
 int MTechEngine::IO::SerializationReader::ReadInt(char src[], int &pointer)
 {
-    int temp;
-    temp = ((src[pointer++] >> 24) & 0xff)
-            | ((src[pointer++] >> 16) & 0xff)
-            | ((src[pointer++] >> 8) & 0xff)
-            | ((src[pointer++] >> 0) & 0xff);
+    //24 16 8 0
+    int temp = 0;
+    temp = ((src[pointer++] << 24))
+            | ((src[pointer++] << 16))
+            | ((src[pointer++] << 8))
+            | ((src[pointer++] << 0));
     return temp;
 }
 
@@ -48,14 +49,14 @@ char MTechEngine::IO::SerializationReader::ReadChar(char src[], int &pointer)
 long long MTechEngine::IO::SerializationReader::ReadLong(char src[], int &pointer)
 {
     long long temp;
-    temp = ((src[pointer++] >> 56) & 0xff)
-            | ((src[pointer++] >> 48) & 0xff)
-            | ((src[pointer++] >> 40) & 0xff)
-            | ((src[pointer++] >> 32) & 0xff)
-            | ((src[pointer++] >> 24) & 0xff)
-            | ((src[pointer++] >> 16) & 0xff)
-            | ((src[pointer++] >> 8) & 0xff)
-            | ((src[pointer++] >> 0) & 0xff);
+    temp = ((src[pointer++] << 56) & 0xff)
+            | ((src[pointer++] << 48) & 0xff)
+            | ((src[pointer++] << 40) & 0xff)
+            | ((src[pointer++] << 32) & 0xff)
+            | ((src[pointer++] << 24) & 0xff)
+            | ((src[pointer++] << 16) & 0xff)
+            | ((src[pointer++] << 8) & 0xff)
+            | ((src[pointer++] << 0) & 0xff);
     return temp;
 }
 
@@ -90,9 +91,9 @@ int MTechEngine::IO::SerializationReader::ReadBytesFromFile(char *readInto, int 
 
         //allocate a temporary buffer
 #if defined __llvm__
+        char* buffer = new char[length]();
+#else //because gcc allows this as an extension and you shouldn't be compiling this under MSVC++...
         char buffer[length];
-#else
-        char buffer* = new char[length];
 #endif
 
         ifs.read(buffer, length);

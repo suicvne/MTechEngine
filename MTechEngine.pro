@@ -4,7 +4,7 @@ CONFIG += c++11 static
 CONFIG -= app_bundle
 CONFIG -= qt
 
-QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr -Wno-mismatched-tags
+QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
 
 #
 QMAKE_TARGET_COMPANY = "Mike Santiago Ltd"
@@ -32,6 +32,8 @@ INCLUDEPATH += /usr/include/SDL2/
 INCLUDEPATH += /usr/include/lua5.1/
 }
 macx: {
+#becuase you're probably using clang or llvm and this is probably really annoying
+QMAKE_CXXFLAGS += -Wno-error=mismatched-tags
 #nothing for now
 LIBS += -L/usr/local/lib
 

@@ -66,6 +66,7 @@ private:
     }
 };
 
+int largerNumberSerializerTest();
 int launchSDLBrosX();
 int newApplicationTypeTest();
 
@@ -73,6 +74,7 @@ int main()
 {
     return newApplicationTypeTest();
 }
+
 
 int newApplicationTypeTest()
 {

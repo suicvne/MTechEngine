@@ -111,22 +111,23 @@ void LevelObject::loadLevelFile(std::string levelFile)
     reader.ReadBytesFromFile(buffer, sizeOfFile, levelFile.c_str());
     std::cout << "\tSize of file is " << sizeOfFile << " bytes." << std::endl;
     std::cout << "\t\tHeader is " << 10 << " bytes." << std::endl;
-    std::cout << "\t\tLevel is " << sizeOfFile - 10 << std::endl;
+    std::cout << "\t\tLevel is " << sizeOfFile - 10 << " bytes." << std::endl;
 
     int levelWidth, levelHeight;
     short backgroundId;
     int pointer = 0;
 
-    std::cout << "w " << reader.ReadInt(buffer, pointer) << std::endl;
 
-    /*
     levelWidth = reader.ReadInt(buffer, pointer); //width
     levelHeight = reader.ReadInt(buffer, pointer); //height
     backgroundId = reader.ReadShort(buffer, pointer); //background id
     //we should now be at index 10
 
     std::cout << "\tSize of level is " << levelWidth << " x " << levelHeight << " blocks." << std::endl;
-    std::cout << "\tBackground ID is " << backgroundId << std::endl;*/
+    std::cout << "\tBackground ID is " << backgroundId << std::endl;
+
+    int blocksToRead = ((sizeOfFile - 10) / 10);
+    std::cout << "\tBlocks we need to read: " << blocksToRead << std::endl;
 }
 
 void LevelObject::saveLevelFile(std::string levelFile)
