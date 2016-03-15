@@ -32,4 +32,6 @@ INPUT(
 ./debug\serializationreader.o
 ./debug\serializationconstants.o
 ./debug\baseengine.o
+./debug\enginestaticvariables.o
+./debug\standardcolors.o
 );

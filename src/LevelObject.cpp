@@ -110,6 +110,11 @@ void LevelObject::loadLevelFile(std::string levelFile)
     char* buffer = new char[sizeOfFile]();
     reader.ReadBytesFromFile(buffer, sizeOfFile, levelFile.c_str());
     std::cout << "\tSize of file is " << sizeOfFile << " bytes." << std::endl;
+    if(sizeOfFile < 1) //then we fucked up. file probably doesn't exist
+    {
+        std::cerr << "\t\tYou fucked up. File probably doesn't exist" << std::endl;
+        return;
+    }
     std::cout << "\t\tHeader is " << 10 << " bytes." << std::endl;
     std::cout << "\t\tLevel is " << sizeOfFile - 10 << " bytes." << std::endl;
 
@@ -128,6 +133,23 @@ void LevelObject::loadLevelFile(std::string levelFile)
 
     int blocksToRead = ((sizeOfFile - 10) / 10);
     std::cout << "\tBlocks we need to read: " << blocksToRead << std::endl;
+    free(this->__tiles);
+    this->__tiles = new Tile*[blocksToRead](); //yay for pointers
+    for(int i = 0; i < blocksToRead; i++)
+    {
+        short blockId = reader.ReadShort(buffer, pointer);
+        std::cout << "\t\tBlock ID: " << blockId << std::endl;
+        int x = reader.ReadInt(buffer, pointer);
+        int y = reader.ReadInt(buffer, pointer);
+        Tile* block = EngineStaticVariables::GetBlockByID((int)blockId);
+        if(block == nullptr)
+            block = EngineStaticVariables::GetBlockByID(-1); //air
+
+        std::cout << "\t" << i << ". " << "Block at " << x << ", " << y << " is " << block->getBlockName() << std::endl;
+        __tiles[x*levelHeight*y] = block;
+    }
+
+    std::cout << "Done!" << std::endl << std::endl;
 }
 
 void LevelObject::saveLevelFile(std::string levelFile)
@@ -157,9 +179,9 @@ void LevelObject::saveLevelFile(std::string levelFile)
         for(int y = 0; y < levelHeight; y++)
         {
             Tile* toWrite = this->__tiles[x*levelHeight+1];
-            serializer.WriteBytes(buffer, pointer, ((short)toWrite->getId()));
-            serializer.WriteBytes(buffer, pointer, x);
-            serializer.WriteBytes(buffer, pointer, y);
+            serializer.WriteBytes(buffer, pointer, ((short)toWrite->getId())); //id
+            serializer.WriteBytes(buffer, pointer, x); //x
+            serializer.WriteBytes(buffer, pointer, y); //y
         }
     }
 

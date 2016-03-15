@@ -32,4 +32,6 @@ INPUT(
 ./release\serializationreader.o
 ./release\serializationconstants.o
 ./release\baseengine.o
+./release\enginestaticvariables.o
+./release\standardcolors.o
 );

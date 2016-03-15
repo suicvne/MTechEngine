@@ -11,7 +11,7 @@
 TestLevelScreen::TestLevelScreen()
 {
     LevelSettings s;
-    s.width = 300;
+    s.width = 20;
     s.height = 19;
     lvl_object = new LevelObject(s);
 }
