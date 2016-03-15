@@ -2,6 +2,7 @@
 #define LEVELOBJECT_H
 
 #include <iostream>
+#include <vector>
 
 //Will contain more in the future.
 //The width and height are in blocks not pixels.
@@ -32,9 +33,11 @@ class LevelObject
     protected:
         int initLevel();
     private:
-        Tile** __tiles;
+        //Tile** __tiles;
+        std::vector<Tile*> __tiles;
         LevelSettings lvlsettings;
         LevelBackground* background;
+        bool reading = false;
 };
 
 #endif // LEVELOBJECT_H

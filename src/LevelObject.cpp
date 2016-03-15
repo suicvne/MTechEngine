@@ -11,6 +11,7 @@
 
 #include "enginestaticvariables.h"
 
+#include "MathsStuff.h"
 /**
 ---TODO---
 1. Lua hookins
@@ -20,11 +21,13 @@
 LevelObject::LevelObject()
 {
     LevelSettings s;
-    s.width = 25;
-    s.height = 19;
+    s.width = MathsStuff::ceiling(800 / 32);
+    s.height = MathsStuff::ceiling(600 / 32);
     lvlsettings = s;
 
     initLevel();
+
+    std::cout << "Size of Tile: " << sizeof(Tile) << std::endl;
 }
 
 LevelObject::LevelObject(LevelSettings __settings)
@@ -35,7 +38,12 @@ LevelObject::LevelObject(LevelSettings __settings)
 
 LevelObject::~LevelObject()
 {
-    free(__tiles); //probably not ALL that needs to be done
+    //free(__tiles); //probably not ALL that needs to be done
+    for(size_t i = 0; i < __tiles.size(); i++) //recursively free the Tile pointers
+    {
+        delete __tiles[i];
+    }
+    __tiles.clear();
 }
 /**End constructors*/
 
@@ -45,14 +53,15 @@ int LevelObject::initLevel()
     const int w = lvlsettings.width;
     const int h = lvlsettings.height;
 
-    __tiles = new Tile*[w*h]; //declare as one big chunk
+    //__tiles = new Tile*[w*h]; //declare as one big chunk
                              //replace __tiles[x][y] with __tiles[x*h+y] ?
+    __tiles = std::vector<Tile*>();
 
     for(int x = 0; x < lvlsettings.width; ++x)
     {
         for(int y = 0; y < lvlsettings.height; ++y)
         {
-            __tiles[x*lvlsettings.height+y] = EngineStaticVariables::GetBlockByID(-1);
+            __tiles.insert(__tiles.end(), EngineStaticVariables::GetBlockByID(1));
         }
     }
 
@@ -79,31 +88,36 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
     {
         for(int y = 0; y < lvlsettings.height; ++y)
         {
-            Tile *t = __tiles[x*lvlsettings.height+y]; //temp allocation to get standard template for block
-            int tx, ty;//, tw, th;
-            if(t->getWidth() <= 0)
+            if(!reading)
             {
-                tx = x * 32;
-                ty = y * 32;
-                //tw = 32;
-                //th = 32;
-            }
-            else
-            {
-                tx = x * t->getWidth();
-                ty = y * t->getHeight();
-                //tw = t->getWidth();
-                //th = t->getHeight();
-            }
+                int index = x*lvlsettings.height+y;
+                Tile *t = __tiles[index]; //temp allocation to get standard template for block
+                int tx, ty;//, tw, th;
+                if(t->getWidth() <= 0)
+                {
+                    tx = x * 32;
+                    ty = y * 32;
+                    //tw = 32;
+                    //th = 32;
+                }
+                else
+                {
+                    tx = x * (t->getWidth() * 2);
+                    ty = y * (t->getHeight() * 2);
+                    //tw = t->getWidth();
+                    //th = t->getHeight();
+                }
 
-            t->setWorldPosition(tx, ty); //just in case i guess
-            t->draw(_sb, cm);
+                t->setWorldPosition(tx, ty); //just in case i guess
+                t->draw(_sb, cm);
+            }
         }
     }
 }
 
 void LevelObject::loadLevelFile(std::string levelFile)
 {
+    reading = true;
     std::cout << "Beginning reading of level from '" << levelFile << "'" << std::endl;
     MTechEngine::IO::SerializationReader reader;
     int sizeOfFile = reader.GetSizeOfFile(levelFile.c_str());
@@ -128,17 +142,21 @@ void LevelObject::loadLevelFile(std::string levelFile)
     backgroundId = reader.ReadShort(buffer, pointer); //background id
     //we should now be at index 10
 
+    lvlsettings.width = levelWidth;
+    lvlsettings.height = levelHeight;
+
     std::cout << "\tSize of level is " << levelWidth << " x " << levelHeight << " blocks." << std::endl;
     std::cout << "\tBackground ID is " << backgroundId << std::endl;
 
     int blocksToRead = ((sizeOfFile - 10) / 10);
     std::cout << "\tBlocks we need to read: " << blocksToRead << std::endl;
-    free(this->__tiles);
-    this->__tiles = new Tile*[blocksToRead](); //yay for pointers
+    //free(this->__tiles);
+    __tiles.clear();
+    //this->__tiles = new Tile*[blocksToRead](); //yay for pointers old method used a Tile*[] / Tile**
     for(int i = 0; i < blocksToRead; i++)
     {
         short blockId = reader.ReadShort(buffer, pointer);
-        std::cout << "\t\tBlock ID: " << blockId << std::endl;
+        std::cout << "\tBlock ID: " << blockId << std::endl;
         int x = reader.ReadInt(buffer, pointer);
         int y = reader.ReadInt(buffer, pointer);
         Tile* block = EngineStaticVariables::GetBlockByID((int)blockId);
@@ -146,10 +164,16 @@ void LevelObject::loadLevelFile(std::string levelFile)
             block = EngineStaticVariables::GetBlockByID(-1); //air
 
         std::cout << "\t" << i << ". " << "Block at " << x << ", " << y << " is " << block->getBlockName() << std::endl;
+        std::cout << "\t\t" << "Size: " << block->getWidth() << " x " << block->getHeight() << std::endl;
+        std::cout << "\t\tPointer: " << pointer << ". i: " << i << "  blocksToRead: " << blocksToRead << std::endl;
         __tiles[x*levelHeight*y] = block;
+
+        if(pointer >= sizeOfFile)
+            break;
     }
 
     std::cout << "Done!" << std::endl << std::endl;
+    reading = false;
 }
 
 void LevelObject::saveLevelFile(std::string levelFile)
@@ -194,6 +218,15 @@ void LevelObject::saveLevelFile(std::string levelFile)
 
 void LevelObject::update(InputHandler *_ih)
 {
+    for(int x = 0; x < lvlsettings.width; x++)
+    {
+        for(int y = 0; y < lvlsettings.height; y++)
+        {
+            Tile* tile = __tiles[x*lvlsettings.height+y];
+            if(tile != nullptr)
+                tile->update();
+        }
+    }
     _ih->getEvent();
 }
 /**End protected*/

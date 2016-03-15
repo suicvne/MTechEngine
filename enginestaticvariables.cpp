@@ -35,7 +35,7 @@ ScreenManager* EngineStaticVariables::MainScreenManager = new ScreenManager();
 //methods
 Tile* EngineStaticVariables::GetBlockByID(int id)
 {
-    if(id < 0)
+    if(id <= 0)
     {
         if(EngineStaticVariables::airTile == nullptr)
         {

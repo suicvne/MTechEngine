@@ -48,9 +48,17 @@ void TestLevelScreen::update(InputHandler *_ih)
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
         }
-        else if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
+        if(_ih->getEvent()->key.keysym.sym == SDLK_RIGHT)
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
+        }
+        if(_ih->getEvent()->key.keysym.sym == SDLK_UP)
+        {
+            EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() + CameraMod);
+        }
+        if(_ih->getEvent()->key.keysym.sym == SDLK_DOWN)
+        {
+            EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
         }
     }
     if(_ih->getEvent()->type == SDL_KEYUP)
