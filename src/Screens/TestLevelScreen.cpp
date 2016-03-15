@@ -32,11 +32,17 @@ void TestLevelScreen::update(InputHandler *_ih)
     {            this->CameraMod = 6;        }
     if(_ih->getEvent()->type == SDL_KEYDOWN)
     {
-
-
         if(_ih->getEvent()->key.keysym.sym == SDLK_ESCAPE)
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
+        }
+        if(_ih->getEvent()->key.keysym.sym == SDLK_l)
+        {
+            this->lvl_object->loadLevelFile("testlevel.bin");
+        }
+        if(_ih->getEvent()->key.keysym.sym == SDLK_s)
+        {
+            this->lvl_object->saveLevelFile("testlevel.bin");
         }
         if(_ih->getEvent()->key.keysym.sym == SDLK_LEFT)
         {

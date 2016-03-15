@@ -10,6 +10,10 @@
 #include <iostream>
 #include <fstream>
 
+#include <stdlib.h>
+
+#include <sys/stat.h> //idk how portable this is so wish me luck
+
 #include "serializationconstants.h"
 
 namespace MTechEngine {
@@ -19,6 +23,7 @@ class SerializationReader
 public:
     SerializationReader();
     int ReadBytesFromFile(char *readInto, int bufferSize, const char filename[]);
+    int GetSizeOfFile(const char filename[]);
     int ReadInt(char src[], int &pointer);
     short ReadShort(char src[], int &pointer);
     char ReadChar(char src[], int &pointer);

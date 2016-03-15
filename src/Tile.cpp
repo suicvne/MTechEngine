@@ -3,11 +3,22 @@
 Tile::Tile()
 {
     currentFrame = 0;
+    id = 0;
 }
 
 Tile::~Tile()
 {
     //dtor
+}
+
+void Tile::setId(int id)
+{
+    this->id = id;
+}
+
+int Tile::getId() const
+{
+    return this->id;
 }
 
 void Tile::update()

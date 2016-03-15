@@ -125,6 +125,7 @@ void LuaBlockConfigLoader::loadBlocks()
             lua_getglobal(L, "__framecount");
             lua_getglobal(L, "__frameupdate");
             t->setBlockName(std::string(lua_tostring(L, -9)));
+            t->setId(lua_tonumber(L, -8));
             t->setBlockSize(lua_tonumber(L, -7), lua_tonumber(L, -6));
             t->setAnimated(lua_toboolean(L, -5));
             t->setSheetName(std::string(lua_tostring(L, -4)));

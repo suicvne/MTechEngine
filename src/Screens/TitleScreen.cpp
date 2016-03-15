@@ -112,7 +112,7 @@ void TitleScreen::update(InputHandler *_ih)
             }
             break;
         case SDLK_m: //music test
-            if(EngineStaticVariables::MainSoundMixer->getCurrentPlaying() != false) //no song playing
+            if(EngineStaticVariables::MainSoundMixer->getCurrentPlaying() == true)
             {
                 EngineStaticVariables::MainSoundMixer->stopTestSong();
             }

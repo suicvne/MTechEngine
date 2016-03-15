@@ -11,13 +11,13 @@ MessageBox::MessageBox(std::string msg)
     message = msg;
     soundPlayed = false;
     showMessage = false;
+    frameCount = 0;
     messageSplitToVector = vectorFromMessage();
+    std::cout << "message box initialized. Show: " << showMessage << std::endl;
 }
 
 MessageBox::~MessageBox()
-{
-    //dtor
-}
+{}//dtor
 
 void MessageBox::setVisible(bool vis)
 {

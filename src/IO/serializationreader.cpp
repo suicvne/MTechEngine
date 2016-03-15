@@ -9,6 +9,13 @@
 MTechEngine::IO::SerializationReader::SerializationReader()
 {}
 
+int MTechEngine::IO::SerializationReader::GetSizeOfFile(const char filename[])
+{
+    struct stat st;
+    stat(filename, &st);
+    return st.st_size;
+}
+
 //sizeof(short) is 2
 short MTechEngine::IO::SerializationReader::ReadShort(char src[], int &pointer)
 {

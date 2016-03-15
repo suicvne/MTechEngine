@@ -20,6 +20,7 @@ class Tile
         int getWorldY();
         int getWidth();
         int getHeight();
+        int getId() const;
         std::string getSheetName();
         _vector2i *getNonAnimatedArea();
 
@@ -37,7 +38,7 @@ class Tile
         void setBlockSize(int w, int h);
         void setSheetName(std::string _sheetname);
         void setNonAnimatedArea(_vector2i *_nanimarea);
-
+        void setId(int id);
         void setAnimated(bool __anim);
         void setFrameCount(int framec);
         void setFrameUpdateInterval(int __interval);
@@ -51,6 +52,7 @@ class Tile
     protected:
     private:
         int worldX, worldY; //position in the world, to be determined later
+        int id; //internal id of the block. defaults to 0
         int width, height;
         std::string sheetName; //name of the sheet in the content manager
         std::string blockName;
