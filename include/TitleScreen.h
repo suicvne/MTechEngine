@@ -31,7 +31,7 @@ class TitleScreen : public Screen
         void drawOptions(SpriteBatch* _sb, ContentManager* cm);
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
-        bool upPressed, downPressed, showTestMessage;
+        bool upPressed, downPressed, showTestMessage, hasRead = false;
         MessageBox* testMessage;
         LevelObject* levelObject;
 };

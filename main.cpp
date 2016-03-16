@@ -23,7 +23,6 @@ public:
         {
             this->loadTextures(cm, spriteBatch);
             this->loadBlockConfigsAndBackgrounds();
-            EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::SPLASHSCREEN);
         }
         catch(std::exception &e)
         {
@@ -32,6 +31,11 @@ public:
     }
     virtual void draw(SpriteBatch *spriteBatch, ContentManager *cm) override
     {
+        if(!pushed)
+        {
+            EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::SPLASHSCREEN);
+            pushed = true;
+        }
         EngineStaticVariables::MainScreenManager->draw(spriteBatch, cm);
     }
     virtual void update(SDL_Event const &_ih) override
@@ -43,6 +47,7 @@ public:
         return EngineStaticVariables::GetResourcesPath() + "/game_config.cfg";
     }
 private:
+    bool pushed = false;
     void loadTextures(ContentManager *cm, SpriteBatch *spriteBatch)
     {
         SDL_Texture *text; //temporary texture allocater

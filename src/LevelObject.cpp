@@ -28,8 +28,6 @@ LevelObject::LevelObject()
     lvlsettings = s;
 
     initLevel();
-
-    std::cout << "Size of Tile: " << sizeof(Tile) << std::endl;
 }
 
 LevelObject::LevelObject(LevelSettings __settings)
@@ -68,17 +66,21 @@ int LevelObject::initLevel()
     }
 
     background = EngineStaticVariables::GetBackgroundByID(1);
-    background->lwidth = lvlsettings.width;
-    background->lheight = lvlsettings.height;
+    if(background != nullptr)
+    {
+        background->lwidth = lvlsettings.width;
+        background->lheight = lvlsettings.height;
+    }
 
     return 0;
 }
 /**End protected*/
 
 /**Public*/
-void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
+void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm, bool alreadyCalledDraw)
 {
-    _sb->sbBegin();
+    if(!alreadyCalledDraw)
+        _sb->sbBegin();
 
     if(background != nullptr)
     {
@@ -128,7 +130,8 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
         _sb->sbDrawOutlineRect(&StandardColors::strongRed, &levelAreaRect);
     }
 
-    _sb->sbEnd();
+    if(!alreadyCalledDraw)
+        _sb->sbEnd();
 }
 
 SDL_Rect* LevelObject::rectFromLevelArea()

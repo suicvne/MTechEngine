@@ -28,8 +28,11 @@ TitleScreen::TitleScreen()
 
 void TitleScreen::loadTitleLevel()
 {
-    this->levelObject = new LevelObject();
-    levelObject->loadLevelFile(EngineStaticVariables::GetResourcesPath() + "/title.slvl");
+    LevelObject::LevelSettings st;
+    st.debug = false;
+    st.width = 800;
+    st.height = 600; //kek
+    this->levelObject = new LevelObject(st);
 }
 
 #include <sys/stat.h> //yeet
@@ -62,10 +65,14 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
     }
     else
     {
-        levelObject->draw(_sb, cm); //not gonna bother updating for stylistic reasons :)
+        if(!hasRead)
+        {
+            //levelObject->loadLevelFile(EngineStaticVariables::GetResourcesPath() + "/title.slvl");
+            hasRead = true;
+        }
+        levelObject->draw(_sb, cm, true); //not gonna bother updating for stylistic reasons :)
     }
     //always draw these
-    {
         SDL_Color black{0,0,0,255};
         SDL_Rect boxArea;
         boxArea.w = 300;
@@ -78,7 +85,8 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
         drawOptions(_sb, cm);
 
         drawTitleCopyrightEtc(_sb, cm);
-    }
+        testMessage->draw(_sb);
+
     _sb->sbEnd();
 }
 
@@ -107,9 +115,6 @@ void TitleScreen::drawOldTitleScreen(SpriteBatch *_sb, ContentManager *cm)
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 4, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 5, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
 
-
-
-    testMessage->draw(_sb);
 }
 
 void TitleScreen::drawOptions(SpriteBatch *_sb, ContentManager* cm)

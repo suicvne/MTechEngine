@@ -58,5 +58,13 @@ LevelBackground* EngineStaticVariables::GetBackgroundByID(int id)
 
 std::string EngineStaticVariables::GetResourcesPath()
 {
-    return std::string(SDL_GetBasePath() + std::string("/res"));
+    try
+    {
+        std::string returnValue = SDL_GetBasePath() + std::string("/res");
+        return returnValue;
+    }
+    catch(std::exception &what)
+    {
+        std::cerr << what.what() << std::endl;
+    }
 }

@@ -29,7 +29,7 @@ class LevelObject
         LevelObject();
         LevelObject(LevelSettings __settings);
         ~LevelObject();
-        void draw(SpriteBatch* _sb, ContentManager* cm);
+        void draw(SpriteBatch* _sb, ContentManager* cm, bool alreadyCalledDraw = false);
         void update(SDL_Event const &_ih);
         void loadLevelFile(std::string levelFile);
         void saveLevelFile(std::string levelFile);
