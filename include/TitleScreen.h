@@ -12,6 +12,7 @@
 #include "Menu.h"
 #include <SDL.h>
 struct MessageBox;
+struct LevelObject;
 
 class TitleScreen : public Screen
 {
@@ -23,12 +24,16 @@ class TitleScreen : public Screen
         void processInput(SDL_Event const &_ih);
     protected:
     private:
+        void loadTitleLevel();
+        bool titleLevelExists();
+        void drawOldTitleScreen(SpriteBatch* _sb, ContentManager* cm);
         void drawTitleCopyrightEtc(SpriteBatch* _sb, ContentManager* cm);
         void drawOptions(SpriteBatch* _sb, ContentManager* cm);
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
         bool upPressed, downPressed, showTestMessage;
         MessageBox* testMessage;
+        LevelObject* levelObject;
 };
 
 #endif // TITLESCREEN_H

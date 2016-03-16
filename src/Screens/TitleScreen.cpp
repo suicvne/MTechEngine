@@ -6,6 +6,8 @@
 
 #include <SDL.h>
 
+#include "LevelObject.h"
+
 #include "enginestaticvariables.h"
 
 TitleScreen::TitleScreen()
@@ -19,16 +21,70 @@ TitleScreen::TitleScreen()
 
     testMessage = new MessageBox("Hey look,\n\nMessage boxes work!");
     showTestMessage = false;
+
+    if(titleLevelExists())
+        loadTitleLevel();
+}
+
+void TitleScreen::loadTitleLevel()
+{
+    this->levelObject = new LevelObject();
+    levelObject->loadLevelFile(EngineStaticVariables::GetResourcesPath() + "/title.slvl");
+}
+
+#include <sys/stat.h> //yeet
+bool TitleScreen::titleLevelExists()
+{
+    struct stat buffer;
+    std::string filename = EngineStaticVariables::GetResourcesPath() + "/title.slvl";
+    return (stat(filename.c_str(), &buffer) == 0);
 }
 
 TitleScreen::~TitleScreen()
 {
     delete testMessage;
+    for(size_t i = 0; i < menuOptions.size(); i++)
+    {
+        delete menuOptions[i];
+    }
+    this->menuOptions.clear();
+
+    delete levelObject;
 }
 
 void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 {
     _sb->sbBegin();
+
+    if(levelObject == nullptr) //no level
+    {
+        drawOldTitleScreen(_sb, cm);
+    }
+    else
+    {
+        levelObject->draw(_sb, cm); //not gonna bother updating for stylistic reasons :)
+    }
+    //always draw these
+    {
+        SDL_Color black{0,0,0,255};
+        SDL_Rect boxArea;
+        boxArea.w = 300;
+        boxArea.h = 100;
+        boxArea.x = ((EngineStaticVariables::InternalWidth / 2) - (boxArea.w / 2));
+        boxArea.y = ((EngineStaticVariables::InternalHeight / 2) - (boxArea.h / 2)) + 40;
+
+        _sb->sbFillRect(&black, &boxArea);
+
+        drawOptions(_sb, cm);
+
+        drawTitleCopyrightEtc(_sb, cm);
+    }
+    _sb->sbEnd();
+}
+
+//backup title screen
+void TitleScreen::drawOldTitleScreen(SpriteBatch *_sb, ContentManager *cm)
+{
     srand(time(NULL));
 
     SDL_Color randomColor {192, 248, 248, 255};
@@ -51,22 +107,9 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 4, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
     _sb->sbDrawTextureAreaScaledConstant(bgTex, texArea.w * 5, EngineStaticVariables::InternalHeight - texArea.h * 2, texArea, 2.0f);
 
-    SDL_Color black{0,0,0,255};
-    SDL_Rect boxArea;
-    boxArea.w = 300;
-    boxArea.h = 100;
-    boxArea.x = ((EngineStaticVariables::InternalWidth / 2) - (boxArea.w / 2));
-    boxArea.y = ((EngineStaticVariables::InternalHeight / 2) - (boxArea.h / 2)) + 40;
 
-    _sb->sbFillRect(&black, &boxArea);
-
-    drawOptions(_sb, cm);
-
-    drawTitleCopyrightEtc(_sb, cm);
 
     testMessage->draw(_sb);
-
-    _sb->sbEnd();
 }
 
 void TitleScreen::drawOptions(SpriteBatch *_sb, ContentManager* cm)

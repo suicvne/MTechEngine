@@ -5,12 +5,6 @@
 #include <vector>
 #include <SDL.h>
 
-//Will contain more in the future.
-//The width and height are in blocks not pixels.
-struct LevelSettings
-{
-    int width, height;
-};
 
 //Forward declarations
 struct SpriteBatch;
@@ -24,6 +18,14 @@ struct SerializationReader;
 class LevelObject
 {
     public:
+    //Will contain more in the future.
+    //The width and height are in blocks not pixels.
+    typedef struct
+    {
+        int width, height;
+        bool debug = false;
+    } LevelSettings;
+
         LevelObject();
         LevelObject(LevelSettings __settings);
         ~LevelObject();
@@ -31,16 +33,15 @@ class LevelObject
         void update(SDL_Event const &_ih);
         void loadLevelFile(std::string levelFile);
         void saveLevelFile(std::string levelFile);
-        void toggleLevelAreaDebug();
     protected:
         int initLevel();
     private:
+        SDL_Rect* rectFromLevelArea();
         //Tile** __tiles;
         std::vector<Tile*> __tiles;
         LevelSettings lvlsettings;
         LevelBackground* background;
         bool reading = false;
-        bool showLevelAreaDebug = false;
 };
 
 #endif // LEVELOBJECT_H

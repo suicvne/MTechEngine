@@ -67,7 +67,11 @@ void SpriteBatch::sbSetRenderTarget(SDL_Texture *target)
         SDL_SetRenderTarget(__renderer, nullptr);
     else
         SDL_SetRenderTarget(__renderer, target);
+
+    this->__target = target;
 }
+
+SDL_Texture* SpriteBatch::sbGetTarget() const {return this->__target;}
 
 void SpriteBatch::sbSetMainGameCamera(Camera2d *cam)
 {
@@ -380,6 +384,23 @@ void SpriteBatch::sbFillRect(SDL_Color *color, SDL_Rect *rect)
     SDL_SetRenderDrawColor(__renderer, (oldColor.r), (oldColor.g), (oldColor.b), (oldColor.a));
 }
 
+void SpriteBatch::sbDrawOutlineRect(SDL_Color const* color, SDL_Rect const* rect)
+{
+    if(!drawingInProgress)
+        throw std::runtime_error("sbBegin must be called.");
+    SDL_Color oldColor;
+    SDL_GetRenderDrawColor(__renderer, &oldColor.r, &oldColor.g, &oldColor.b, &oldColor.a);
+    SDL_SetRenderDrawColor(__renderer, color->r, color->g, color->g, color->b);
+    SDL_RenderDrawRect(__renderer, rect);
+    SDL_SetRenderDrawColor(__renderer, (oldColor.r), (oldColor.g), (oldColor.b), (oldColor.a));
+}
+
+void SpriteBatch::sbDrawOutlineRectConstant(SDL_Color const* color, SDL_Rect const* rect)
+{
+    if(!drawingInProgress)
+        throw std::runtime_error("sbBegin must be called.");
+}
+
 void SpriteBatch::sbEnd()
 {
     if(!drawingInProgress)
@@ -387,3 +408,5 @@ void SpriteBatch::sbEnd()
     SDL_RenderPresent(__renderer);
     drawingInProgress = false;
 }
+
+SDL_Renderer* SpriteBatch::sbGetRenderer() const{return this->__renderer;}

@@ -12,9 +12,11 @@
 
 TestLevelScreen::TestLevelScreen()
 {
-    LevelSettings s;
-    s.width = MathsStuff::ceiling(800 / 32);
+    LevelObject::LevelSettings s;
+    //s.width = MathsStuff::ceiling(800 / 32);
+    s.width = 300;
     s.height = MathsStuff::ceiling(600 / 32) + 1;
+    s.debug = true;
     lvl_object = new LevelObject(s);
 }
 
@@ -31,11 +33,13 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 void TestLevelScreen::update(SDL_Event const &_ih)
 {
 
+    if(_ih.type == SDL_KEYUP && _ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
+        this->CameraMod = 2;
  //   switch (_ih.type)
  //   {
  //   case SDL_KEYDOWN:
         if(_ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
-        {this->CameraMod = 6;}
+        {this->CameraMod = 16;}
         if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_ESCAPE))
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
@@ -67,6 +71,11 @@ void TestLevelScreen::update(SDL_Event const &_ih)
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
             //SDL_PumpEvents();
+        }
+        if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsTapped(SDL_SCANCODE_R))
+        {
+            EngineStaticVariables::MainGameCamera->setCameraX(0);
+            EngineStaticVariables::MainGameCamera->setCameraY(0);
         }
 
         //break;

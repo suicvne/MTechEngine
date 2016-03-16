@@ -4,7 +4,6 @@ CONFIG += c++11 static
 CONFIG -= app_bundle
 CONFIG -= qt
 
-QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
 
 #
 QMAKE_TARGET_COMPANY = "Mike Santiago Ltd"
@@ -19,6 +18,8 @@ INCLUDEPATH += $$PWD/include
 win32:RC_FILE += application.rc
 
 win32: {
+QMAKE_CXXFLAGS -= -Wno-narrowing -Wno-return-local-addr
+
 LIBS += -L$$PWD/.Libraries/Win32/Stripped/lib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
 INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/SDL2
 INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/lua
@@ -28,6 +29,7 @@ INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/lua
 linux-g++: {
 # NOTE: this configuration is based off my Debian system and you may have to change it for your platform!
 # Please use SDL2 and Lua 5.1
+QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr
 
 LIBS += -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
 INCLUDEPATH += /usr/include/SDL2/
@@ -37,7 +39,7 @@ INCLUDEPATH += /usr/include/lua5.1/
 
 macx: {
 #becuase you're probably using clang or llvm and this is probably really annoying
-QMAKE_CXXFLAGS += -Wno-error=mismatched-tags
+QMAKE_CXXFLAGS += -std=c++11 -g -fexceptions -Wno-narrowing -Wno-return-local-addr -Wno-error=mismatched-tags
 #nothing for now
 LIBS += -L/usr/local/lib
 

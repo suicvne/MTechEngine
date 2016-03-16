@@ -98,14 +98,14 @@ int BaseEngine::gameLoop()
             if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
                 SDL_Delay((int)delayTime); //ofc, if it is then we'll be delaying
             float FPS = 1.0f / (delayTime / 1000.0f);
-            SDL_SetWindowTitle(this->mainGameWindow,
-                               std::string("FPS: " + std::to_string((int)FPS)).c_str());
+            //SDL_SetWindowTitle(this->mainGameWindow,
+            //                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
         }
         else
         {
             float FPS = 1.0f / (elapsedTime / 1000.0f);
-            SDL_SetWindowTitle(this->mainGameWindow,
-                               std::string("Low FPS: " + std::to_string((int)FPS)).c_str());
+            //SDL_SetWindowTitle(this->mainGameWindow,
+            //                   std::string("Low FPS: " + std::to_string((int)FPS)).c_str());
         }
 
         //important draw

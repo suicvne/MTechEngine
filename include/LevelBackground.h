@@ -17,6 +17,7 @@ class LevelBackground
         LevelBackground(int l_width, int l_height);
         ~LevelBackground();
         void draw(SpriteBatch* _sb, ContentManager* cm);
+        void draw(SpriteBatch *_sb, ContentManager *cm, SDL_Rect* area);
 
         //there comes a certain part in your life where you say fuck it
         //and you make all your properties public
@@ -35,8 +36,10 @@ class LevelBackground
         _color *backgroundColor;
     protected:
     private:
-        void backgroundTile(SpriteBatch* sb, ContentManager* cm); //This is used for tiling a square background for example
-        void backgroundTileX(SpriteBatch* sb, ContentManager* cm);
+        SDL_Texture* localTexture;
+        SDL_Texture* generateTextureFromWidthAndHeight(SpriteBatch *_sb, ContentManager* cm); //objective c style function names are great
+        void backgroundTile(SpriteBatch* sb, ContentManager* cm, SDL_Rect* area); //This is used for tiling a square background for example
+        void backgroundTileX(SpriteBatch* sb, ContentManager* cm, SDL_Rect* area);
 };
 
 #endif // LEVELBACKGROUND_H

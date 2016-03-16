@@ -52,8 +52,8 @@ LevelObject::~LevelObject()
 /**Protected*/
 int LevelObject::initLevel()
 {
-    const int w = lvlsettings.width;
-    const int h = lvlsettings.height;
+    //const int w = lvlsettings.width;
+    //const int h = lvlsettings.height;
 
     //__tiles = new Tile*[w*h]; //declare as one big chunk
                              //replace __tiles[x][y] with __tiles[x*h+y] ?
@@ -63,7 +63,7 @@ int LevelObject::initLevel()
     {
         for(int y = 0; y < lvlsettings.height; ++y)
         {
-            __tiles.insert(__tiles.end(), EngineStaticVariables::GetBlockByID(2));
+            __tiles.insert(__tiles.end(), EngineStaticVariables::GetBlockByID(1));
         }
     }
 
@@ -81,7 +81,11 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
     _sb->sbBegin();
 
     if(background != nullptr)
-        background->draw(_sb, cm);
+    {
+        SDL_Rect* rect = this->rectFromLevelArea();
+        //printf("rectangle from area\n\tarea: %d x %d\n\tpos: %d x %d\n", rect->w, rect->h, rect->x, rect->y);
+        background->draw(_sb, cm, this->rectFromLevelArea());
+    }
     else
     {
         std::cerr << "Background was null!!" << std::endl;
@@ -101,15 +105,11 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
                 {
                     tx = x * 32;
                     ty = y * 32;
-                    //tw = 32;
-                    //th = 32;
                 }
                 else
                 {
                     tx = x * (t->getWidth() * 2);
-                    ty = y * (t->getHeight() * 2);
-                    //tw = t->getWidth();
-                    //th = t->getHeight();
+                    ty = y * (t->getHeight() * 2); //bc
                 }
 
                 ///TODO: check if intersects camera rect and stuff
@@ -118,22 +118,27 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
             }
         }
     }
-    if(showLevelAreaDebug)
+    if(lvlsettings.debug)
     {
         SDL_Rect levelAreaRect;
         levelAreaRect.x = 0 + EngineStaticVariables::MainGameCamera->getCameraX();
         levelAreaRect.y = 0 + EngineStaticVariables::MainGameCamera->getCameraY();
         levelAreaRect.w = (lvlsettings.width * 32);
         levelAreaRect.h = (lvlsettings.height * 32);
-        _sb->sbFillRect(&StandardColors::strongRed, &levelAreaRect);
+        _sb->sbDrawOutlineRect(&StandardColors::strongRed, &levelAreaRect);
     }
 
     _sb->sbEnd();
 }
 
-void LevelObject::toggleLevelAreaDebug()
+SDL_Rect* LevelObject::rectFromLevelArea()
 {
-    this->showLevelAreaDebug = !showLevelAreaDebug;
+    SDL_Rect* area = new SDL_Rect();
+    area->x = 0 + EngineStaticVariables::MainGameCamera->getCameraX();
+    area->y = 0 + EngineStaticVariables::MainGameCamera->getCameraY();
+    area->w = lvlsettings.width * 32;
+    area->h = lvlsettings.height * 32;
+    return area;
 }
 
 void LevelObject::loadLevelFile(std::string levelFile)
@@ -163,11 +168,16 @@ void LevelObject::loadLevelFile(std::string levelFile)
     backgroundId = reader.ReadShort(buffer, pointer); //background id
     //we should now be at index 10
 
+
+    std::cout << "\tSize of level is " << levelWidth << " x " << levelHeight << " blocks." << std::endl;
+    std::cout << "assigning level size.." << std::endl;
     lvlsettings.width = levelWidth;
     lvlsettings.height = levelHeight;
 
-    std::cout << "\tSize of level is " << levelWidth << " x " << levelHeight << " blocks." << std::endl;
     std::cout << "\tBackground ID is " << backgroundId << std::endl;
+    std::cout << "Assigning background size.." << std::endl;
+    this->background->lwidth = levelWidth;
+    this->background->lheight = levelHeight;
 
     int blocksToRead = ((sizeOfFile - 10) / 10);
     std::cout << "\tBlocks we need to read: " << blocksToRead << std::endl;
@@ -187,7 +197,7 @@ void LevelObject::loadLevelFile(std::string levelFile)
         std::cout << "\t" << i << ". " << "Block at " << x << ", " << y << " is " << block->getBlockName() << std::endl;
         std::cout << "\t\t" << "Size: " << block->getWidth() << " x " << block->getHeight() << std::endl;
         std::cout << "\t\tPointer: " << pointer << ". i: " << i << "  blocksToRead: " << blocksToRead << std::endl;
-        __tiles[x*levelHeight*y] = block;
+        __tiles[x*levelHeight+y] = block;
 
         if(pointer >= sizeOfFile)
             break;
@@ -223,7 +233,7 @@ void LevelObject::saveLevelFile(std::string levelFile)
     {
         for(int y = 0; y < levelHeight; y++)
         {
-            Tile* toWrite = this->__tiles[x*levelHeight+1];
+            Tile* toWrite = this->__tiles[x*levelHeight+y];
             serializer.WriteBytes(buffer, pointer, ((short)toWrite->getId())); //id
             serializer.WriteBytes(buffer, pointer, x); //x
             serializer.WriteBytes(buffer, pointer, y); //y
