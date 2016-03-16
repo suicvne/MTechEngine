@@ -24,6 +24,7 @@ class SplashScreen : public Screen
     protected:
     private:
         int localCounter = 0;
+        const int TimeTillNext = 2000; //ms
         bool next = false;
 };
 

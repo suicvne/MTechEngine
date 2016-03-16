@@ -3,8 +3,11 @@
 #include "ScreenManager.h"
 #include "enginestaticvariables.h"
 
+#include <SDL.h>
+
 SplashScreen::SplashScreen()
 {
+    localCounter = 0;
 }
 
 SplashScreen::~SplashScreen()
@@ -35,10 +38,11 @@ void SplashScreen::getCenter(int *_x, int *_y, SDL_Texture *textureToQuery)
 
 void SplashScreen::update(SDL_Event const &_ih)
 {
-    localCounter++;
-    if(localCounter >= 10)
+    if(SDL_GetTicks() >= localCounter + TimeTillNext)
     {
         next = true; //next screen after 1.5 seconds
         EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
     }
+
+    localCounter = SDL_GetTicks();
 }
