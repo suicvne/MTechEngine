@@ -17,6 +17,7 @@ class Camera2d;
 class ContentManager;
 class LevelBackground;
 class ConfigFile;
+class KeyboardMonitor;
 
 class EngineStaticVariables
 {
@@ -30,11 +31,13 @@ public:
     static bool UpdateGame;
     const static int TargetFramerate;
     //Static variables
+    const static Uint8* currentKeystate;
     static std::map<int, Tile*> Tilemap;
     static std::map<int, LevelBackground*> BackgroundMap;
     static SoundMixer* MainSoundMixer;
     static Camera2d* MainGameCamera;
     static ScreenManager* MainScreenManager;
+    static KeyboardMonitor* MainKeyboardInputWatcher;
     //Methods
     static Tile* GetBlockByID(int id);
     static LevelBackground* GetBackgroundByID(int id);

@@ -8,6 +8,7 @@
 #include "ScreenManager.h"
 #include "enginestaticvariables.h"
 #include "StandardColors.h"
+#include "src/keyboardmonitor.h"
 #include <stdlib.h>
 
 
@@ -78,22 +79,23 @@ int BaseEngine::gameLoop()
 {
     while(EngineStaticVariables::DoQuit == false)
     {
+        EngineStaticVariables::currentKeystate = SDL_GetKeyboardState(NULL);
         const Uint32 startTime = SDL_GetTicks();
         while(SDL_PollEvent(&mainEventLoop)) //updates
         {
             importantUpdate(); //handle important updates first
+            EngineStaticVariables::MainKeyboardInputWatcher->update(mainEventLoop);
             pApplication->update(mainEventLoop);
         }
-
         const Uint32 endTime = SDL_GetTicks();
         const Uint32 elapsedTime = endTime - startTime;
-
         const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
+
         if(delayTime > 0)
         {
-                //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
+            //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
             if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
-                SDL_Delay(delayTime); //ofc, if it is then we'll be delaying
+                SDL_Delay((int)delayTime); //ofc, if it is then we'll be delaying
             float FPS = 1.0f / (delayTime / 1000.0f);
             SDL_SetWindowTitle(this->mainGameWindow,
                                std::string("FPS: " + std::to_string((int)FPS)).c_str());

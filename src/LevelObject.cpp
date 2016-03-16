@@ -112,6 +112,7 @@ void LevelObject::draw(SpriteBatch* _sb, ContentManager* cm)
                     //th = t->getHeight();
                 }
 
+                ///TODO: check if intersects camera rect and stuff
                 t->setWorldPosition(tx, ty); //just in case i guess
                 t->draw(_sb, cm);
             }

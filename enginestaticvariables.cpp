@@ -10,6 +10,7 @@
 #include "Tile.h"
 #include "ScreenManager.h"
 #include "LevelBackground.h"
+#include "src/KeyboardMonitor.h"
 
 #include <SDL.h>
 
@@ -25,12 +26,14 @@ bool EngineStaticVariables::UpdateGame = true;
 
 const int EngineStaticVariables::TargetFramerate = 60;
 
+const Uint8* EngineStaticVariables::currentKeystate;
 std::map<int, Tile*> EngineStaticVariables::Tilemap;
 std::map<int, LevelBackground*> EngineStaticVariables::BackgroundMap;
 
 SoundMixer* EngineStaticVariables::MainSoundMixer = new SoundMixer(EngineStaticVariables::GetResourcesPath());
 Camera2d* EngineStaticVariables::MainGameCamera = new Camera2d(0, 0);
 ScreenManager* EngineStaticVariables::MainScreenManager = new ScreenManager();
+KeyboardMonitor* EngineStaticVariables::MainKeyboardInputWatcher = new KeyboardMonitor();
 
 //methods
 Tile* EngineStaticVariables::GetBlockByID(int id)

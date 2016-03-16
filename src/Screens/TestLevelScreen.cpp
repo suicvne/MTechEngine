@@ -3,6 +3,7 @@
 #include "SpriteBatch.h"
 #include "LevelObject.h"
 #include "ScreenManager.h"
+#include "src/keyboardmonitor.h"
 
 #include "Camera2d.h"
 
@@ -29,14 +30,13 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 
 void TestLevelScreen::update(SDL_Event const &_ih)
 {
-    SDL_PumpEvents();
-    const Uint8* keys = SDL_GetKeyboardState(NULL);
+
  //   switch (_ih.type)
  //   {
  //   case SDL_KEYDOWN:
         if(_ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
         {this->CameraMod = 6;}
-        if(keys[SDL_SCANCODE_ESCAPE])
+        if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_ESCAPE))
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
         }
@@ -48,22 +48,22 @@ void TestLevelScreen::update(SDL_Event const &_ih)
         {
             this->lvl_object->saveLevelFile("testlevel.bin");
         }
-        if(keys[SDL_SCANCODE_LEFT])
+        if(EngineStaticVariables::currentKeystate[SDL_SCANCODE_LEFT])
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
             //SDL_PumpEvents();
         }
-        if(keys[SDL_SCANCODE_RIGHT])
+        if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_RIGHT))
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
             //SDL_PumpEvents();
         }
-        if(keys[SDL_SCANCODE_UP])
+        if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_UP))
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() + CameraMod);
             //SDL_PumpEvents();
         }
-        if(keys[SDL_SCANCODE_DOWN])
+        if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_DOWN))
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
             //SDL_PumpEvents();

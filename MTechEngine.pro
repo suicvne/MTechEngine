@@ -85,7 +85,7 @@ SOURCES += main.cpp \
     baseengine.cpp \
     enginestaticvariables.cpp \
     include/standardcolors.cpp \
-    src/Screens/keyboardmonitor.cpp
+    src/keyboardmonitor.cpp
 
 HEADERS += \
     include/_color.h \
@@ -130,7 +130,8 @@ HEADERS += \
     baseengine.h \
     src/luaobjectbindingbase.h \
     enginestaticvariables.h \
-    src/Screens/keyboardmonitor.h
+    src/Screens/keyboardmonitor.h \
+    src/keyboardmonitor.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*
