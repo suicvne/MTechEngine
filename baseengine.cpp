@@ -81,15 +81,16 @@ int BaseEngine::gameLoop()
     {
         EngineStaticVariables::currentKeystate = SDL_GetKeyboardState(NULL);
         const Uint32 startTime = SDL_GetTicks();
-        while(SDL_PollEvent(&mainEventLoop)) //updates
-        {
+        SDL_PollEvent(&mainEventLoop);
+        //while(SDL_PollEvent(&mainEventLoop)) //updates
+        //{
             importantUpdate(); //handle important updates first
             EngineStaticVariables::MainKeyboardInputWatcher->update(mainEventLoop);
             pApplication->update(mainEventLoop);
-        }
+        //}
         const Uint32 endTime = SDL_GetTicks();
         const Uint32 elapsedTime = endTime - startTime;
-        const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
+        const int delayTime = 1000 / EngineStaticVariables::TargetFramerate - elapsedTime;
 
         if(delayTime > 0)
         {
