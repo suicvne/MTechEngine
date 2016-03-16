@@ -29,6 +29,7 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 
 void TestLevelScreen::update(SDL_Event const &_ih)
 {
+    SDL_PumpEvents();
     const Uint8* keys = SDL_GetKeyboardState(NULL);
  //   switch (_ih.type)
  //   {
@@ -50,22 +51,22 @@ void TestLevelScreen::update(SDL_Event const &_ih)
         if(keys[SDL_SCANCODE_LEFT])
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
-            SDL_PumpEvents();
+            //SDL_PumpEvents();
         }
         if(keys[SDL_SCANCODE_RIGHT])
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
-            SDL_PumpEvents();
+            //SDL_PumpEvents();
         }
         if(keys[SDL_SCANCODE_UP])
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() + CameraMod);
-            SDL_PumpEvents();
+            //SDL_PumpEvents();
         }
         if(keys[SDL_SCANCODE_DOWN])
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
-            SDL_PumpEvents();
+            //SDL_PumpEvents();
         }
 
         //break;
@@ -76,6 +77,7 @@ void TestLevelScreen::update(SDL_Event const &_ih)
         }
         break;*/
     //}
+
 
     lvl_object->update(_ih);
 }
