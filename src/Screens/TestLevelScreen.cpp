@@ -29,11 +29,13 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 
 void TestLevelScreen::update(SDL_Event const &_ih)
 {
-    if(_ih.key.keysym.sym == SDLK_LSHIFT)
-    {            this->CameraMod = 6;        }
-    if(_ih.type == SDL_KEYDOWN)
-    {
-        if(_ih.key.keysym.sym == SDLK_ESCAPE)
+    const Uint8* keys = SDL_GetKeyboardState(NULL);
+ //   switch (_ih.type)
+ //   {
+ //   case SDL_KEYDOWN:
+        if(_ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
+        {this->CameraMod = 6;}
+        if(keys[SDL_SCANCODE_ESCAPE])
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
         }
@@ -45,29 +47,35 @@ void TestLevelScreen::update(SDL_Event const &_ih)
         {
             this->lvl_object->saveLevelFile("testlevel.bin");
         }
-        if(_ih.key.keysym.sym == SDLK_LEFT)
+        if(keys[SDL_SCANCODE_LEFT])
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() + CameraMod);
+            SDL_PumpEvents();
         }
-        if(_ih.key.keysym.sym == SDLK_RIGHT)
+        if(keys[SDL_SCANCODE_RIGHT])
         {
             EngineStaticVariables::MainGameCamera->setCameraX(EngineStaticVariables::MainGameCamera->getCameraX() - CameraMod);
+            SDL_PumpEvents();
         }
-        if(_ih.key.keysym.sym == SDLK_UP)
+        if(keys[SDL_SCANCODE_UP])
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() + CameraMod);
+            SDL_PumpEvents();
         }
-        if(_ih.key.keysym.sym == SDLK_DOWN)
+        if(keys[SDL_SCANCODE_DOWN])
         {
             EngineStaticVariables::MainGameCamera->setCameraY(EngineStaticVariables::MainGameCamera->getCameraY() - CameraMod);
+            SDL_PumpEvents();
         }
-    }
-    if(_ih.type == SDL_KEYUP)
-    {
+
+        //break;
+    /*case SDL_KEYUP:
         if(_ih.key.keysym.sym == SDLK_LSHIFT)
         {
             this->CameraMod = 2;
         }
-    }
+        break;*/
+    //}
+
     lvl_object->update(_ih);
 }

@@ -6,6 +6,11 @@
 
 #include "serializationreader.h"
 
+#ifdef __linux__
+#include <cstring> //has memcpy for linux
+using namespace std;
+#endif
+
 MTechEngine::IO::SerializationReader::SerializationReader()
 {}
 

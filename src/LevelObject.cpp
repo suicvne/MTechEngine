@@ -6,8 +6,8 @@
 #include "LevelBackground.h"
 #include "ContentManager.h"
 
-#include "io/serializationwriter.h"
-#include "io/serializationreader.h"
+#include "IO/serializationwriter.h"
+#include "IO/serializationreader.h"
 
 #include "enginestaticvariables.h"
 

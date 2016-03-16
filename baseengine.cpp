@@ -85,6 +85,26 @@ int BaseEngine::gameLoop()
             pApplication->update(mainEventLoop);
         }
 
+        const Uint32 endTime = SDL_GetTicks();
+        const Uint32 elapsedTime = endTime - startTime;
+
+        const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
+        if(delayTime > 0)
+        {
+                //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
+            if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
+                SDL_Delay(delayTime); //ofc, if it is then we'll be delaying
+            float FPS = 1.0f / (delayTime / 1000.0f);
+            SDL_SetWindowTitle(this->mainGameWindow,
+                               std::string("FPS: " + std::to_string((int)FPS)).c_str());
+        }
+        else
+        {
+            float FPS = 1.0f / (elapsedTime / 1000.0f);
+            SDL_SetWindowTitle(this->mainGameWindow,
+                               std::string("Low FPS: " + std::to_string((int)FPS)).c_str());
+        }
+
         //important draw
         {
             if(EngineStaticVariables::UpdateGame)
@@ -109,25 +129,7 @@ int BaseEngine::gameLoop()
             }
         }
 
-        const Uint32 endTime = SDL_GetTicks();
-        const Uint32 elapsedTime = endTime - startTime;
 
-        const float delayTime = 1000.0f / EngineStaticVariables::TargetFramerate - elapsedTime;
-        if(delayTime > 0)
-        {
-                //std::cout << "\tdelaying " << delayTime << "ms" << std::endl;
-            if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
-                SDL_Delay(delayTime); //ofc, if it is then we'll be delaying
-            float FPS = 1.0f / (delayTime / 1000.0f);
-            SDL_SetWindowTitle(this->mainGameWindow,
-                               std::string("FPS: " + std::to_string((int)FPS)).c_str());
-        }
-        else
-        {
-            float FPS = 1.0f / (elapsedTime / 1000.0f);
-            SDL_SetWindowTitle(this->mainGameWindow,
-                               std::string("Low FPS: " + std::to_string((int)FPS)).c_str());
-        }
     }
     return 0;
 }
@@ -137,8 +139,9 @@ int BaseEngine::gameLoop()
  */
 void BaseEngine::importantEvents()
 {
-    if(mainEventLoop.type == SDL_WINDOWEVENT)
+    switch(mainEventLoop.type)
     {
+    case SDL_WINDOWEVENT:
         switch(mainEventLoop.window.event)
         {
         case SDL_WINDOWEVENT_RESIZED:
@@ -149,15 +152,15 @@ void BaseEngine::importantEvents()
             std::cout << "Update stopped" << std::endl;
             break;
         }
-    }
-    if(mainEventLoop.type == SDL_KEYDOWN)
-    {
+        break;
+    case SDL_KEYDOWN:
         if(mainEventLoop.key.keysym.sym == SDLK_F11)
             toggleFullscreen();
-    }
-    if(mainEventLoop.type == SDL_QUIT || mainEventLoop.type == SDL_APP_TERMINATING)
-    {
+        break;
+    case SDL_QUIT:
+    case SDL_APP_TERMINATING:
         EngineStaticVariables::DoQuit = true;
+        break;
     }
 }
 

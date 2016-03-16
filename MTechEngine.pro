@@ -23,6 +23,8 @@ LIBS += -L$$PWD/.Libraries/Win32/Stripped/lib -lSDL2main -lSDL2 -lSDL2_ttf -lSDL
 INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/SDL2
 INCLUDEPATH += $$PWD/.Libraries/Win32/Stripped/include/lua
 }
+
+
 linux-g++: {
 # NOTE: this configuration is based off my Debian system and you may have to change it for your platform!
 # Please use SDL2 and Lua 5.1
@@ -31,6 +33,8 @@ LIBS += -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer -llua5.1
 INCLUDEPATH += /usr/include/SDL2/
 INCLUDEPATH += /usr/include/lua5.1/
 }
+
+
 macx: {
 #becuase you're probably using clang or llvm and this is probably really annoying
 QMAKE_CXXFLAGS += -Wno-error=mismatched-tags
@@ -80,7 +84,8 @@ SOURCES += main.cpp \
     src/IO/serializationconstants.cpp \
     baseengine.cpp \
     enginestaticvariables.cpp \
-    include/standardcolors.cpp
+    include/standardcolors.cpp \
+    src/Screens/keyboardmonitor.cpp
 
 HEADERS += \
     include/_color.h \
@@ -124,7 +129,8 @@ HEADERS += \
     mtechapplication.h \
     baseengine.h \
     src/luaobjectbindingbase.h \
-    enginestaticvariables.h
+    enginestaticvariables.h \
+    src/Screens/keyboardmonitor.h
 
 install_it.path = $$DESTDIR/res
 install_it.files = $$PWD/res/*
