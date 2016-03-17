@@ -37,19 +37,19 @@ private:
     void toggleFullscreen();
     void windowResize();
     BaseEngine();
-    MTechApplication *pApplication;
+    MTechApplication *pApplication = 0;
     //important
-    SDL_Window* mainGameWindow;
-    SDL_Renderer* sdlRenderer;
+    SDL_Window* mainGameWindow = 0;
+    SDL_Renderer* sdlRenderer = 0;
+    SDL_Texture* targetTexture = 0;
     SDL_Event mainEventLoop;
-    SDL_Texture* targetTexture;
     //
     //MTechTypes
-    SpriteBatch* spriteBatch;
+    SpriteBatch* spriteBatch = 0;
     //InputHandler* inputHandler;
     //SDL_Event *mainEvent;
-    Camera2d* mainCamera;
-    ContentManager* contentManager;
+    Camera2d* mainCamera = 0;
+    ContentManager* contentManager = 0;
     //
     //fields
     bool __vsyncEnabled;

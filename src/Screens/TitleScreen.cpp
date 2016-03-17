@@ -23,7 +23,10 @@ TitleScreen::TitleScreen()
     showTestMessage = false;
 
     if(titleLevelExists())
+    {
+        std::cout << "loading title screen level.." << std::endl;
         loadTitleLevel();
+    }
 }
 
 void TitleScreen::loadTitleLevel()
@@ -40,6 +43,7 @@ bool TitleScreen::titleLevelExists()
 {
     struct stat buffer;
     std::string filename = EngineStaticVariables::GetResourcesPath() + "/title.slvl";
+    std::cout << "checking for " << filename << std::endl;
     return (stat(filename.c_str(), &buffer) == 0);
 }
 

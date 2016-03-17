@@ -32,8 +32,8 @@ class TitleScreen : public Screen
         std::vector<Menu*> menuOptions;
         int totalOptions, currentSelection;
         bool upPressed, downPressed, showTestMessage, hasRead = false;
-        MessageBox* testMessage;
-        LevelObject* levelObject;
+        MessageBox* testMessage = 0;
+        LevelObject* levelObject = 0;
 };
 
 #endif // TITLESCREEN_H

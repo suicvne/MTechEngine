@@ -8,7 +8,6 @@ ScreenManager::ScreenManager()
     //std::cout << "addr_of contentManager (screenManager init): " << &__cm << std::endl;
     //std::cout << "texture: " << __cm.getTexture("r") << std::endl << std::endl;
     //testScreen = new TestScreen();
-    splash = new SplashScreen();
     title = new TitleScreen();
 }
 
@@ -19,6 +18,7 @@ ScreenManager::ScreenManager()
 void ScreenManager::initTestLevelScreen()
 {
     testLvlScreen = new TestLevelScreen();
+    splash = new SplashScreen();
 }
 
 ScreenManager::~ScreenManager()

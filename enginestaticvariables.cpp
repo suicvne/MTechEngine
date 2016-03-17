@@ -67,4 +67,5 @@ std::string EngineStaticVariables::GetResourcesPath()
     {
         std::cerr << what.what() << std::endl;
     }
+    return "";
 }

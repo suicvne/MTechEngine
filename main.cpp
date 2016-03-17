@@ -50,7 +50,7 @@ private:
     bool pushed = false;
     void loadTextures(ContentManager *cm, SpriteBatch *spriteBatch)
     {
-        SDL_Texture *text; //temporary texture allocater
+        SDL_Texture *text = 0; //temporary texture allocater
         text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/tiles/full.png")));
         cm->addTexture("test_sheet", text);
         text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/logo.png")));

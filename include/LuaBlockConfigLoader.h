@@ -30,7 +30,7 @@ class LuaBlockConfigLoader
         SDL_Rect **rectArrayFromVectorArray(_vector2i **arr, int frameCount, int w, int h);
     protected:
     private:
-        lua_State *L;
+        lua_State *L = 0;
 };
 
 #endif // LUABLOCKCONFIGLOADER_H
