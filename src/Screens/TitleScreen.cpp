@@ -93,11 +93,8 @@ void TitleScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 //backup title screen
 void TitleScreen::drawOldTitleScreen(SpriteBatch *_sb, ContentManager *cm)
 {
-    srand(time(NULL));
-
-    SDL_Color randomColor {192, 248, 248, 255};
-
-    _sb->sbFillScreen(&randomColor);
+    SDL_Color backgroundBlue {192, 248, 248, 255};
+    _sb->sbFillScreen(&backgroundBlue);
 
     SDL_Texture *bgTex = cm->getTexture("bg_index");
     SDL_Rect texArea {5, 18, 255, 223};
