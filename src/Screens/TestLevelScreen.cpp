@@ -33,13 +33,11 @@ void TestLevelScreen::draw(SpriteBatch *_sb, ContentManager* cm)
 void TestLevelScreen::update(SDL_Event const &_ih)
 {
 
-    if(_ih.type == SDL_KEYUP && _ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
+    if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsNotPressed(SDL_SCANCODE_LSHIFT))
         this->CameraMod = 2;
- //   switch (_ih.type)
- //   {
- //   case SDL_KEYDOWN:
-        if(_ih.key.keysym.scancode == SDL_SCANCODE_LSHIFT)
-        {this->CameraMod = 16;}
+    else if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_LSHIFT))
+        this->CameraMod = 16;
+
         if(EngineStaticVariables::MainKeyboardInputWatcher->keyIsPressed(SDL_SCANCODE_ESCAPE))
         {
             EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);

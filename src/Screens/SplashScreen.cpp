@@ -38,7 +38,7 @@ void SplashScreen::getCenter(int *_x, int *_y, SDL_Texture *textureToQuery)
 
 void SplashScreen::update(SDL_Event const &_ih)
 {
-    //if(SDL_GetTicks() >= localCounter + TimeTillNext)
+    if((int)SDL_GetTicks() >= TimeTillNext)
     {
         next = true; //next screen after 1.5 seconds
         EngineStaticVariables::MainScreenManager->pushScreen(ScreenManager::TITLESCREEN);
