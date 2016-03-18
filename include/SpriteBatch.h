@@ -35,6 +35,8 @@ class SpriteBatch
         void sbDrawOutlineRect(SDL_Color const* color, SDL_Rect const* rect);
         void sbDrawFont(std::string msg, int x, int y, SDL_Color& color, float scale, bool _upper);
         void sbDrawFont(std::string *msg, int x, int y, SDL_Color& color, float scale, bool _upper);
+        void sbUpdateLogicalSize(int w, int h);
+        void sbSetRenderViewport(SDL_Rect* rect);
         SDL_Texture* loadTexture(const std::string &file, SDL_Renderer **ren);
         SDL_Texture* loadTexture(const std::string &file);
         SDL_Renderer* sbGetRenderer() const;

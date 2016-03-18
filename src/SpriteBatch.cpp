@@ -350,7 +350,17 @@ void SpriteBatch::sbDrawTextureScaledConstant(SDL_Texture *tex, int x, int y, in
 /**
 End Constant Function
 */
-#include "global_vars.h"
+
+void SpriteBatch::sbUpdateLogicalSize(int w, int h)
+{
+    SDL_RenderSetLogicalSize(this->__renderer, w, h);
+}
+
+void SpriteBatch::sbSetRenderViewport(SDL_Rect* rect)
+{
+    SDL_RenderSetViewport(__renderer, rect);
+}
+
 void SpriteBatch::sbFillScreen(SDL_Color *color)
 {
     if(!drawingInProgress)

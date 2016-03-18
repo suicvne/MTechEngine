@@ -122,33 +122,22 @@ int BaseEngine::gameLoop()
                     std::cerr << "Error while drawing in application" << std::endl;
                     std::cerr << "\t" << e.what() << std::endl;
                 }
-                //spriteBatch->sbBegin(); //bc
-
-                //spriteBatch->sbEnd();
                 spriteBatch->sbSetRenderTarget(nullptr);
 
-                spriteBatch->sbBegin();
-
-                //we're only going to scale the height k
-                int tx, ty, tw, th; //target points
-                float scaleX, scaleY;
+                float scaleX = 0;
+                float scaleY = 0;
                 SDL_RenderGetScale(spriteBatch->sbGetRenderer(), &scaleX, &scaleY);
 
-                tw = (EngineStaticVariables::InternalWidth * scaleX);
-                th = height * scaleY;
-                ty = 0;
-                tx = (width / 2) - (tw / 2);
-                spriteBatch->sbDrawTextureScaledConstant(targetTexture, tx, ty, tw, th);
-
+                spriteBatch->sbBegin();
+                spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, EngineStaticVariables::InternalWidth * scaleX,
+                                                         EngineStaticVariables::InternalHeight * scaleY);
                 if(this->contentManager->getTexture("cursor") != nullptr)
                 {
-                    InputMonitor::Location loc = EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation();
                     spriteBatch->sbDrawTextureScaledConstant(this->contentManager->getTexture("cursor"),
                                            EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation().x,
                                            EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation().y,
-                                                            32 * scaleX, 32 * scaleY);
+                                                            32, 32);
                 }
-
                 spriteBatch->sbEnd();
             }
         }
@@ -197,6 +186,8 @@ void BaseEngine::windowResize()
 
     width = w;
     height = h;
+
+    //spriteBatch->sbUpdateLogicalSize(width, height);
     //SDL_DestroyTexture(targetTexture);
     /*targetTexture = SDL_CreateTexture(sdlRenderer,
                                       SDL_GetWindowPixelFormat(mainGameWindow),
@@ -204,15 +195,15 @@ void BaseEngine::windowResize()
                                       EngineStaticVariables::InternalWidth,
                                       EngineStaticVariables::InternalHeight);*/
     SDL_Rect viewport;
-    SDL_RenderGetViewport(sdlRenderer, &viewport);
+    SDL_RenderGetViewport(spriteBatch->sbGetRenderer(), &viewport);
 
-    //if(viewport.w != width || viewport.h != height)
-    //{
+    if(viewport.w != width || viewport.h != height)
+    {
         SDL_Rect newWindowSize;
         newWindowSize.w = w;
         newWindowSize.h = h;
-        SDL_RenderSetViewport(sdlRenderer, &newWindowSize);
-    //}
+        spriteBatch->sbSetRenderViewport(&newWindowSize);
+    }
 }
 
 void BaseEngine::toggleFullscreen()
