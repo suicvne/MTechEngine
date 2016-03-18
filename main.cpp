@@ -61,6 +61,8 @@ private:
         cm->addTexture("selection", text);
         text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/sdlbros.png")));
         cm->addTexture("sdlbroslogo", text);
+        text = spriteBatch->loadTexture(std::string(SDL_GetBasePath() + std::string("/res/cursor.png")));
+        cm->addTexture("cursor", text);
     }
     void loadBlockConfigsAndBackgrounds()
     {

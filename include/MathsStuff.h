@@ -33,6 +33,20 @@ class MathsStuff
         {
             return (int)ceil(input);
         }
+        static int min(int const first, int const second)
+        {
+            if(first < second)
+                return first;
+            else
+                return second;
+        }
+        static float minf(float const first, float const second)
+        {
+            if(first < second)
+                return first;
+            else
+                return second;
+        }
 
     private:
         MathsStuff();

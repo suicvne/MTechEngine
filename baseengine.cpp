@@ -10,8 +10,7 @@
 #include "StandardColors.h"
 #include "src/keyboardmonitor.h"
 #include <stdlib.h>
-
-
+#include "MathsStuff.h"
 
 BaseEngine::BaseEngine(MTechApplication *application)
 {
@@ -98,8 +97,8 @@ int BaseEngine::gameLoop()
             if(this->__vsyncEnabled) //using the term "vsync" as a means of unlocking/locking fps
                 SDL_Delay((int)delayTime); //ofc, if it is then we'll be delaying
             float FPS = 1.0f / (delayTime / 1000.0f);
-            //SDL_SetWindowTitle(this->mainGameWindow,
-            //                   std::string("FPS: " + std::to_string((int)FPS)).c_str());
+            SDL_SetWindowTitle(this->mainGameWindow,
+                               std::string("FPS: " + std::to_string((int)FPS)).c_str());
         }
         else
         {
@@ -123,11 +122,33 @@ int BaseEngine::gameLoop()
                     std::cerr << "Error while drawing in application" << std::endl;
                     std::cerr << "\t" << e.what() << std::endl;
                 }
+                //spriteBatch->sbBegin(); //bc
 
+                //spriteBatch->sbEnd();
                 spriteBatch->sbSetRenderTarget(nullptr);
 
                 spriteBatch->sbBegin();
-                spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, width, height);
+
+                //we're only going to scale the height k
+                int tx, ty, tw, th; //target points
+                float scaleX, scaleY;
+                SDL_RenderGetScale(spriteBatch->sbGetRenderer(), &scaleX, &scaleY);
+
+                tw = (EngineStaticVariables::InternalWidth * scaleX);
+                th = height * scaleY;
+                ty = 0;
+                tx = (width / 2) - (tw / 2);
+                spriteBatch->sbDrawTextureScaledConstant(targetTexture, tx, ty, tw, th);
+
+                if(this->contentManager->getTexture("cursor") != nullptr)
+                {
+                    InputMonitor::Location loc = EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation();
+                    spriteBatch->sbDrawTextureScaledConstant(this->contentManager->getTexture("cursor"),
+                                           EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation().x,
+                                           EngineStaticVariables::MainKeyboardInputWatcher->getMouseLocation().y,
+                                                            32 * scaleX, 32 * scaleY);
+                }
+
                 spriteBatch->sbEnd();
             }
         }
@@ -176,18 +197,22 @@ void BaseEngine::windowResize()
 
     width = w;
     height = h;
-    SDL_DestroyTexture(targetTexture);
-    targetTexture = SDL_CreateTexture(sdlRenderer, SDL_GetWindowPixelFormat(mainGameWindow), SDL_TEXTUREACCESS_TARGET, EngineStaticVariables::InternalWidth, EngineStaticVariables::InternalHeight);
+    //SDL_DestroyTexture(targetTexture);
+    /*targetTexture = SDL_CreateTexture(sdlRenderer,
+                                      SDL_GetWindowPixelFormat(mainGameWindow),
+                                      SDL_TEXTUREACCESS_TARGET,
+                                      EngineStaticVariables::InternalWidth,
+                                      EngineStaticVariables::InternalHeight);*/
     SDL_Rect viewport;
     SDL_RenderGetViewport(sdlRenderer, &viewport);
 
-    if(viewport.w != width || viewport.h != height)
-    {
+    //if(viewport.w != width || viewport.h != height)
+    //{
         SDL_Rect newWindowSize;
         newWindowSize.w = w;
         newWindowSize.h = h;
         SDL_RenderSetViewport(sdlRenderer, &newWindowSize);
-    }
+    //}
 }
 
 void BaseEngine::toggleFullscreen()
@@ -245,6 +270,8 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
         std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return false;
     }
+
+    SDL_ShowCursor(SDL_DISABLE);
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest"); //give it that retro look and feel
 

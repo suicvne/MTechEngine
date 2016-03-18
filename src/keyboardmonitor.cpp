@@ -1,11 +1,16 @@
 #include "keyboardmonitor.h"
 
-KeyboardMonitor::KeyboardMonitor()
+InputMonitor::InputMonitor()
 {}
 
-void KeyboardMonitor::update(const SDL_Event &event)
+void InputMonitor::update(const SDL_Event &event)
 {
     SDL_PumpEvents();
+    int dmx, dmy; //delta mouse x & y
+    SDL_GetRelativeMouseState(&dmx, &dmy);
+    mouseX += dmx;
+    mouseY += dmy;
+    //SDL_GetMouseState(&mouseX, &mouseY);
     switch(event.type)
     {
     case SDL_KEYDOWN:
@@ -15,27 +20,39 @@ void KeyboardMonitor::update(const SDL_Event &event)
         if(vectorContainsObject(event.key.keysym.scancode))
             mKeysPressed.erase(std::remove(mKeysPressed.begin(), mKeysPressed.end(), event.key.keysym.scancode), mKeysPressed.end());
         break;
+    //case SDL_MOUSEMOTION: //when the mouse is moved
+        //mouseX = event.motion.x; //xrel
+        //mouseY = event.motion.y; //yrel
+        break;
     }
 }
 
-bool KeyboardMonitor::vectorContainsObject(const SDL_Scancode &k)
+InputMonitor::Location InputMonitor::getMouseLocation() const
+{
+    InputMonitor::Location location;
+    location.x = mouseX;
+    location.y = mouseY;
+    return location;
+}
+
+bool InputMonitor::vectorContainsObject(const SDL_Scancode &k)
 {
     if(std::find(mKeysPressed.begin(), mKeysPressed.end(), k) != mKeysPressed.end())
         return true;
     else return false;
 }
 
-bool KeyboardMonitor::keyIsPressed(const SDL_Scancode k)
+bool InputMonitor::keyIsPressed(const SDL_Scancode k)
 {
     return vectorContainsObject(k);
 }
 
-bool KeyboardMonitor::keyIsNotPressed(const SDL_Scancode k)
+bool InputMonitor::keyIsNotPressed(const SDL_Scancode k)
 {
     return !vectorContainsObject(k);
 }
 
-bool KeyboardMonitor::keyIsTapped(const SDL_Scancode k)
+bool InputMonitor::keyIsTapped(const SDL_Scancode k)
 {
     if(vectorContainsObject(k))
     {

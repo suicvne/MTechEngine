@@ -12,17 +12,22 @@
 #include <map>
 #include <vector>
 
-class KeyboardMonitor
+class InputMonitor
 {
 public:
-    KeyboardMonitor();
+    typedef struct {
+        int x, y;
+    } Location;
+    InputMonitor();
     void update(SDL_Event const &event);
     bool keyIsPressed(SDL_Scancode const k);
     bool keyIsNotPressed(SDL_Scancode const k);
     bool keyIsTapped(SDL_Scancode const k);
+    InputMonitor::Location getMouseLocation() const;
 private:
     bool vectorContainsObject(SDL_Scancode const &k);
     std::vector<SDL_Scancode> mKeysPressed;
+    int mouseX = 0, mouseY = 0;
 };
 
 #endif // KEYBOARDMONITOR_H

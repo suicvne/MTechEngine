@@ -33,7 +33,7 @@ std::map<int, LevelBackground*> EngineStaticVariables::BackgroundMap;
 SoundMixer* EngineStaticVariables::MainSoundMixer = new SoundMixer(EngineStaticVariables::GetResourcesPath());
 Camera2d* EngineStaticVariables::MainGameCamera = new Camera2d(0, 0);
 ScreenManager* EngineStaticVariables::MainScreenManager = new ScreenManager();
-KeyboardMonitor* EngineStaticVariables::MainKeyboardInputWatcher = new KeyboardMonitor();
+InputMonitor* EngineStaticVariables::MainKeyboardInputWatcher = new InputMonitor();
 
 //methods
 Tile* EngineStaticVariables::GetBlockByID(int id)

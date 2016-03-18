@@ -17,7 +17,7 @@ class Camera2d;
 class ContentManager;
 class LevelBackground;
 class ConfigFile;
-class KeyboardMonitor;
+class InputMonitor;
 
 class EngineStaticVariables
 {
@@ -37,7 +37,7 @@ public:
     static SoundMixer* MainSoundMixer;
     static Camera2d* MainGameCamera;
     static ScreenManager* MainScreenManager;
-    static KeyboardMonitor* MainKeyboardInputWatcher;
+    static InputMonitor* MainKeyboardInputWatcher;
     //Methods
     static Tile* GetBlockByID(int id);
     static LevelBackground* GetBackgroundByID(int id);
