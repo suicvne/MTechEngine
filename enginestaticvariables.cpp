@@ -10,7 +10,7 @@
 #include "Tile.h"
 #include "ScreenManager.h"
 #include "LevelBackground.h"
-#include "src/KeyboardMonitor.h"
+#include "src/keyboardmonitor.h"
 
 #include <SDL.h>
 

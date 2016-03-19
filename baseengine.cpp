@@ -124,13 +124,8 @@ int BaseEngine::gameLoop()
                 }
                 spriteBatch->sbSetRenderTarget(nullptr);
 
-                float scaleX = 0;
-                float scaleY = 0;
-                SDL_RenderGetScale(spriteBatch->sbGetRenderer(), &scaleX, &scaleY);
-
                 spriteBatch->sbBegin();
-                spriteBatch->sbDrawTextureScaledConstant(targetTexture, 0, 0, EngineStaticVariables::InternalWidth * scaleX,
-                                                         EngineStaticVariables::InternalHeight * scaleY);
+                spriteBatch->sbDrawTextureConstant(this->targetTexture, 0, 0);
                 if(this->contentManager->getTexture("cursor") != nullptr)
                 {
                     spriteBatch->sbDrawTextureScaledConstant(this->contentManager->getTexture("cursor"),
@@ -179,7 +174,7 @@ void BaseEngine::importantEvents()
 
 void BaseEngine::windowResize()
 {
-    int w, h;
+    /*int w, h;
     SDL_GetWindowSize(mainGameWindow, &w, &h);
     scaleGameW = w / EngineStaticVariables::InternalWidth;
     scaleGameH = h / EngineStaticVariables::InternalHeight;
@@ -189,11 +184,11 @@ void BaseEngine::windowResize()
 
     //spriteBatch->sbUpdateLogicalSize(width, height);
     //SDL_DestroyTexture(targetTexture);
-    /*targetTexture = SDL_CreateTexture(sdlRenderer,
+    targetTexture = SDL_CreateTexture(sdlRenderer,
                                       SDL_GetWindowPixelFormat(mainGameWindow),
                                       SDL_TEXTUREACCESS_TARGET,
                                       EngineStaticVariables::InternalWidth,
-                                      EngineStaticVariables::InternalHeight);*/
+                                      EngineStaticVariables::InternalHeight);
     SDL_Rect viewport;
     SDL_RenderGetViewport(spriteBatch->sbGetRenderer(), &viewport);
 
@@ -203,7 +198,7 @@ void BaseEngine::windowResize()
         newWindowSize.w = w;
         newWindowSize.h = h;
         spriteBatch->sbSetRenderViewport(&newWindowSize);
-    }
+    }*/
 }
 
 void BaseEngine::toggleFullscreen()
@@ -303,6 +298,7 @@ bool BaseEngine::InitializeSDL(ConfigFile &configFile)
     EngineStaticVariables::DoQuit = false;
 
     spriteBatch = new SpriteBatch(sdlRenderer);
+    spriteBatch->sbUpdateLogicalSize(EngineStaticVariables::InternalWidth, EngineStaticVariables::InternalHeight);
     mainCamera = new Camera2d(0, 0);
     contentManager = new ContentManager();
 
